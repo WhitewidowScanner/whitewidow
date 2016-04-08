@@ -26,7 +26,7 @@ include Whitewidow
 include Copy
 
 ##########################
-# Set constant variables ###
+# Set constant variables ### 
 ##########################
 
 PATH = Dir.pwd
