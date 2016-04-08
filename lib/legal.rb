@@ -1,4 +1,4 @@
-module Legal
+module Legal 
   def legal
     puts <<-_END_
          [ LEGAL DISCLAIMER ]
