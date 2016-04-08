@@ -1,12 +1,1 @@
-http://silicon-power.com/product/product_detail.php?main=10&sub=70&pro=234&currlang=utf8'
-http://math.nyu.edu/student_resources/wwiki/index.php/MediaWiki:Sp-contributions-newbies-sub'
-http://ab-initio.mit.edu/wiki/index.php/MediaWiki:Sp-contributions-newbies-sub'
-https://raid.wiki.kernel.org/index.php/MediaWiki:Sp-contributions-newbies-sub'
-http://www.co.weber.ut.us/mediawiki/index.php/MediaWiki:Sp-contributions-newbies-sub'
-http://www.co.weber.ut.us/mediawiki/index.php?title=MediaWiki:Sp-contributions-newbies-sub&printable=yes'
-http://web.stanford.edu/group/bionexus/cgi-bin/bmes/index.php?title=MediaWiki:Sp-contributions-newbies-sub&printable=yes'
-http://wiki.amarettobreedables.com/index.php?title=MediaWiki:Sp-contributions-newbies-sub'
-https://fling.seas.upenn.edu/~cis580/wiki/index.php?title=MediaWiki:Sp-contributions-newbies-sub'
-http://wiki.resourcespace.org/index.php/MediaWiki:Sp-contributions-newbies-sub'
-/settings/ads/preferences?hl=en'
-/settings/ads/preferences?hl=en'
+
