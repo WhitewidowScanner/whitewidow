@@ -23,4 +23,10 @@ module Format
     t = Time.now
     puts "[#{t.hour}:#{t.min}:#{t.sec} SUCCESS]#{input}".white.bold
   end
+
+  def usage(input)
+    puts
+    puts "[USAGE]#{input}".white.bold
+    puts
+  end
 end

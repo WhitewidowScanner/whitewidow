@@ -1,8 +1,8 @@
 module Credits
   def credits
-    puts "Credits: Ekultek".blue.bold,
-         "Version: #{VERSION}".blue.bold,
-         "Name: Whitewidow".blue.bold,
+    print 'Credits to my creator: '.white, "Ekultek, he's a beast!\n".blue.bold,
+          'I am currently version: '.white, "#{VERSION}, stick around for upgrades!\n".blue.bold,
+          'My name is: '.white, "Whitewidow, that's right albino widow\n".blue.bold,
          puts
          puts
   end
