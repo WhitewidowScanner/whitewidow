@@ -14,7 +14,7 @@ Preferably clone repository, alternatively you can download zip and tarball [her
 #Usage
 `ruby whitewidow.rb -h` Will print the help page
 
-`ruby whitewidow.rb -e` Will print the examples page
+`ruby whitewidow.rb -hh` Will print the examples page
 
 `ruby whitewidow.rb -f <path/to/file>` Will run Whitewidow through a file
 
