@@ -15,6 +15,16 @@
 #   If you have any information on how to fix this error please let me know. Make a bug report or something, fork the
 #   project and start working on it. Do whatever you need to do, to get that thing to out of the way.
 #
+#   04/07/16 UPDATE:
+#
+#   Well, I've discovered a possible temporary solution to the encoding error, however it requires some Ruby
+#   flags to be run, and doesn't always work, in order to eliminate the encoding error you must run the program
+#   with the following flags:
+#
+#            > ruby whitewidow.rb -[d|u] -f <path/to/file> -EBINARY -EASCII-8BIT -Kn -Ku <
+#
+#   This will get rid of the encoding errors SOMETIMES still working on permanent patch for this issue.
+#
 # - Another known bug is that every now and then (VERY RARELY) Google won't allow you to go onto the search page. I have
 #   a pretty good idea on how to fix this one and am in the process of adding a proxy setting for whitewidow.
 #   What I'm thinking is, Google allows you upto 100 queries in a day, after that you either have to throw some
@@ -22,30 +32,14 @@
 #   whitewidow, Google is starting to recognize all the user agents. I'll be adding more of those along with the
 #   proxy setting.
 #
-# - One last known bug is, every now and then the program will pull a site off Google that says something along the
-#   lines of: settings/preferences?=en
-#   I've tried multiple times to try and catch this, except it keeps showing up. The program WILL completely fail if
-#   this "url" is found. I can't catch it (yet), and I can't rescue it (yet). Problem is I have no idea why it would
-#   be pulling this off of Google. It's not even a real URL. So I'm working on it. I have been able to make it show
-#   up less by removing the queries that would bring it up most often.
-#
 ########################################################################################################################
 #
 # TODO list:
-#
-# - Add more user agents, I think this will help with the second known bug I was talking about above. What I think
-#   is happening is that Google is starting to notice the agents I'm using, because I've been running this program so
-#   much. Will be released in version 1.0.3
 #
 # - Fix IO encoder error, I have a general idea on how to fix this error, the only problem is it keeps happening when
 #   I'm not ready for it to (shocking right?). So I'm working on this, don't worry. I'm about 90% sure that it has
 #   something to do with the fact that the URL is multi encoded, so I'll have to figure out a way to decode the URL's
 #   further if the program throws an encoding error. Hoping to release by version 1.0.5
-#
-# - Fix that ridiculous mess of next if's in the vulnerability scan. If you've looked through the source code at all
-#   you've probably noticed a giant nasty rats nest of next ifs to skip URLs that I don't want. I'm working on this,
-#   I'm going to throw in a method somewhere that will act as the next if, it'll be much cleaner. Will probably be
-#   released in version 1.0.3
 #
 # - Finish the proxy setting. I've begun making a proxy setting for whitewidow (as you can see in the code). It works,
 #   but won't connect to the proxy correctly, always throws the whole proxy denied connection, no matter how newly
@@ -222,15 +216,8 @@ def get_urls
         str = link.href.to_s
         str_list = str.split(%r{=|&})
         urls = str_list[1]
-        next if urls.split('/')[2] == 'webcache.googleusercontent.com'
-        next if urls.split('/')[2] == 'search.clearch.org'
-        next if urls.split('/')[2] == 'duckfm.net'
-        next if urls.split('/')[2] == 'search1.speedbit.com'
-        next if urls.split('/')[2] == 'yoursearch.me'
-        next if urls.split('/')[1] == 'preferences?hl=en'
-        next if urls.split('/')[2] == 'www.sa-k.net'
-        next if urls.split('/')[2] == 'github.com'
-        next if urls.split('/')[2] == 'stackoverflow.com'
+        next if urls.split('/')[2].start_with? 'stackoverflow.com', 'github.com', 'www.sa-k.net', 'yoursearch.me', 'search1.speedbit.com', 'duckfm.net', 'search.clearch.org', 'webcache.googleusercontent.com'
+        next if urls.split('/')[1].start_with? 'ads/preferences?hl=en'
         urls_to_log = URI.decode(urls)
         Format.success("Site found: #{urls_to_log}")
         sleep(1)
@@ -271,7 +258,6 @@ def begin_vulnerability_check
       end
     end
   elsif ARG == '-d'
-    Format.info("I'll run in default mode then!")
     IO.read("#{PATH}/tmp/SQL_sites_to_check.txt").each_line do |parse|
       begin
         Format.info("Parsing page for SQL syntax error: #{parse.chomp}")
