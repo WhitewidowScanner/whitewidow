@@ -1,8 +1,96 @@
 #!/usr/local/ruby
 
-##############################################################################
-# Lots of things need to be required for this to work... Yes it's necessary. ###
-##############################################################################
+########################################################################################################################
+#
+# Welcome to the whitewidow source code, below you will find a whole ton of rescue clauses, yes they are necessary.
+# De to the amount of possible errors it's impossible to catch them all, so there are a couple of known issues.
+# Known Bugs:
+# - One known bug is that every now and then there's an encoding error, I haven't really figured out how to fix this bug
+#   yet, but I am working on it. This bug, however, won't error out the program and will continue running, it looks
+#   like something along the lines of: 'IO encoder error <some hex> <some more hex>'
+#   If you have any information on how to fix this error please let me know. Make a bug report or something, fork the
+#   project and start working on it. Do whatever you need to do, to get that thing to go away.
+#
+# - Another known bug is that every now and then (VERY RARELY) Google won't allow you to go onto the search page. I have
+#   a pretty good idea on how to fix this one and am in the process of adding a proxy setting for whitewidow.
+#
+# - One last known bug is, every now and then the program will pull a site off Google that says something along the
+#   lines of: settings/preferences?=en
+#   I've tried multiple times to try and catch this, except it keeps showing up. The program WILL completely fail if
+#   this "url" is found. I can't catch it (yet), and I can't rescue it (yet). Problem is I have no idea why it would
+#   be pulling this off of Google. It's not even a real URL. So I'm working on it.
+#
+########################################################################################################################
+#
+# TODO list:
+#
+# - Add more user agents, I think this will help with the second known bug I was talking about above. What I think
+#   is happening is that Google is starting to notice the agents I'm using, because I've been running this program so
+#   much. Will be released in version 1.0.3
+#
+# - Fix IO encoder error, I have a general idea on how to fix this error, the only problem is it keeps happening when
+#   I'm not ready for it to (shocking right?). So I'm working on this, don't worry. I'm about 90% sure that it has
+#   something to do with the fact that the URL is multi encoded, so I'll have to figure out a way to decode the URL's
+#   further if the program throws an encoding error. Hoping to release by version 1.0.5
+#
+# - Fix that ridiculous mess of next if's in the vulnerability scan. If you've looked through the source code at all
+#   you've probably noticed a giant nasty rats nest of next ifs to skip URLs that I don't want. I'm working on this,
+#   I'm going to throw in a method somewhere that will act as the next if, it'll be much cleaner. Will probably be
+#   released in version 1.0.3
+#
+# - Finish the proxy setting. I've begun making a proxy setting for whitewidow (as you can see in the code). It works,
+#   but won't connect to the proxy correctly, always throws the whole proxy denied connection, no matter how newly
+#   scraped the proxy is. I'll figure it out. Hoping to release by version 1.0.4
+#
+# - Update the flags from ARGV to OptParser. Yes I know I'm using ARGV for the flags, but that was just so that I could
+#   release this version. Believe it or not this is the second version of whitewidow. I didn't release the first two
+#   because well, they sucked. Anyways, I will be updating from ARGV to OptParser eventually, probably around 1.0.4
+#
+# - Fix the vulnerability check method. Right now this program is way to reliant on that method and I don't like that.
+#   I have an idea of how I can cut the method down, but I'll have to make multiple methods containing close to the
+#   same information. This will come when I change the flags from ARGV to OptParser; version 1.0.4
+#
+# - Make whitewidow capable of scraping more then one page. Right now whitewidow can only scrape a max of 10 URL's at
+#   a time. That's the first page of Google if you're lucky. However the mechanize gem does indeed give the ability
+#   to sort through pages, no I am not good with the mechanize gem. I am still trying to figure out how to use it.
+#   I'm hoping to have this upgrade done by the release of 1.0.5
+#
+# - Will be adding further analysis of URL's that get dumped to the non exploitable log. What I mean is I will be
+#   giving the program a way to try and find a vulnerability in the site, probably by using a spider bot or something.
+#   Also the sites that are in the non exploitable log file will never be run again if they have been run once.
+#   Hopefully this will be released by 1.0.5
+#
+# - Will be adding a feature where the program will automatically delete bad search queries. For example if a search
+#   query produces no results it will be deleted, this will be added along with the upgrade of scraping multiple
+#   pages. 1.0.5
+#
+########################################################################################################################
+#
+# Some basic information:
+#
+# So since you're here, and reading this, I'm guessing you want to learn how to use this program, well it's pretty
+# simple, as of the new release (version 1.0.2) it use ARGV as the argument parser. So basically all you have to do is
+# run the following:
+#
+# - To scan a file containing the URL's:
+#
+#   ruby whitewidow.rb -f <path/to/file>
+#
+#   Here's the thing with the file scanning, you have to make sure that the file is within one of the programs
+#   directories (log, tmp, lib). Otherwise whitewidow will have no idea what the heck you're talking about. Also you
+#   have to make sure that you DO NOT put a forward slash at the beginning of the path, whitewidow already has the
+#   slash, so you don't need it.
+#
+#
+# - To run whitewidow in default mode, and scrape Google for URL's:
+#
+#   ruby whitewidow.rb -d
+#
+#   This will scrape Google for the URL's by using one of the search queries in the lib directory. There's a bunch of
+#   them so chances are you won't get the same one twice in a row. However, there are no guarantees that you will
+#   find vulnerable sites this way. The easiest way is to pull a bunch of URL's and run them through this program.
+#
+########################################################################################################################
 
 require 'mechanize'
 require 'nokogiri'
@@ -24,10 +112,6 @@ include Credits
 include Legal
 include Whitewidow
 include Copy
-
-##########################
-# Set constant variables ###
-##########################
 
 args = ARGV.dup
 ARG = args.shift
@@ -53,10 +137,6 @@ def page(site)
   Nokogiri::HTML(RestClient.get(site))
 end
 
-###################################################################
-# Parse is used to parse the HTML with Nokogiri, makes it simple. ###
-###################################################################
-
 def parse(site, tag, i)
   parsing = page(site)
   parsing.css(tag)[i].to_s
@@ -71,10 +151,6 @@ def pull_proxy
   Format.info("Proxy discovered: #{proxy}")
 end
 =end
-
-######################################
-# Start pulling the URLs from Google ###
-######################################
 
 def get_urls
   Format.info('I\'ll run in default mode then!')
@@ -91,16 +167,15 @@ def get_urls
         str = link.href.to_s
         str_list = str.split(%r{=|&})
         urls = str_list[1]
-        next if str_list[1].split('/')[2] == 'webcache.googleusercontent.com'
-        next if str_list[1].split('/')[2] == 'search.clearch.org'
-        next if str_list[1].split('/')[2] == 'duckfm.net'
-        next if str_list[1].split('/')[2] == 'search1.speedbit.com'
-        next if str_list[1].split('/')[2] == 'yoursearch.me'
-        next if str_list[1].split('/')[2] == 'search.speedbit.com'
-        next if str_list[1].split('/')[1] == 'preferences?hl=en'
-        next if str_list[1].split('/')[2] == 'www.sa-k.net'
-        next if str_list[1].split('/')[2] == 'github.com'
-        next if str_list[1].split('/')[2] == 'stackoverflow.com'
+        next if urls.split('/')[2] == 'webcache.googleusercontent.com'
+        next if urls.split('/')[2] == 'search.clearch.org'
+        next if urls.split('/')[2] == 'duckfm.net'
+        next if urls.split('/')[2] == 'search1.speedbit.com'
+        next if urls.split('/')[2] == 'yoursearch.me'
+        next if urls.split('/')[1] == 'preferences?hl=en'
+        next if urls.split('/')[2] == 'www.sa-k.net'
+        next if urls.split('/')[2] == 'github.com'
+        next if urls.split('/')[2] == 'stackoverflow.com'
         urls_to_log = URI.decode(urls)
         Format.success("Site found: #{urls_to_log}")
         sleep(1)
@@ -109,11 +184,6 @@ def get_urls
     end
   Format.info("I've dumped possible vulnerable sites into #{PATH}/tmp/SQL_sites_to_check.txt")
 end
-
-##############################################################################################
-# Start the vulnerability scanning process, basically if the HTML has SQL syntax error in it ###
-# it will be output to the LOG file.##########################################################
-#####################################
 
 def begin_vulnerability_check
   if ARG == '-f'
@@ -173,18 +243,12 @@ def begin_vulnerability_check
         File.open("#{PATH}/log/non_exploitable.txt", "a+") { |s| s.puts(parse) }
         next
       end
-	end
+	  end
   else
     Format.info('You didn\'t pass me a flag to use!')
     usage_page
   end
 end
-
-#######################################################################################################################
-# The extremely long begin rescue clause, basically it will rescue the program if it catches a fatal RestClient error ####
-# such as a 503, Google will only allow you 100 search queries within one day, the random user agents will allow you ###
-# to do more searches though so this really shouldn't be a problem unless something truly crappy happens. ############
-###########################################################################################################
 
 case ARG
   when '-f'
