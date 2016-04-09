@@ -4,19 +4,23 @@ module Format
   end
 
   def fatal(input)
-    puts "[#{Time.now.strftime("%T")} FATAL]#{input}".red.bold
+    t = Time.now
+    puts "[#{t.hour}:#{t.min}:#{t.sec} FATAL]#{input}".red.bold
   end
 
   def err(input)
-    puts "[#{Time.now.strftime("%T")} ERROR]#{input}".red.bold
+    t = Time.now
+    puts "[#{t.hour}:#{t.min}:#{t.sec} ERROR]#{input}".red.bold
   end
 
   def info(input)
-    puts "[#{Time.now.strftime("%T")} INFO]#{input}".green.bold
+    t = Time.now
+    puts "[#{t.hour}:#{t.min}:#{t.sec} INFO]#{input}".green.bold
   end
 
   def success(input)
-    puts "[#{Time.now.strftime("%T")} SUCCESS]#{input}".white.bold
+    t = Time.now
+    puts "[#{t.hour}:#{t.min}:#{t.sec} SUCCESS]#{input}".white.bold
   end
 
   def usage(input)
