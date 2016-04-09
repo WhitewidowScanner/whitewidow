@@ -8,7 +8,7 @@ Google for web pages containing incorrectly closed SQL syntax: `whitewidow.rb -d
 ![Alt text](http://s8.postimg.org/bla4ebk6d/githubpic.jpg "Defualt Mode")
 ![Alt text](http://s16.postimg.org/bpfx65cad/githubpic2.jpg "File Mode")
 #Download
-Preferably clone the repository. However you can download the Zipfile and Tarball [here](https://github.com/Ekultek/whitewidow/releases/tag/1.0.3).
+Preferably clone the repository. However you can download the Zipfile and Tarball [here](https://github.com/Ekultek/whitewidow/releases/tag/1.0.3.0).
 #Usage
 `ruby whitewidow.rb -h` Will print the help page
 
