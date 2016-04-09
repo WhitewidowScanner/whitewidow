@@ -20,4 +20,4 @@ Preferably clone the repository. However you can download the Zipfile and Tarbal
 #Misc
 Being an open source project, feel free to contribute your ideas and open pull request. You can fork it clone it do pretty much whatever you want to do with it. 
 
-Current version: 1.0.2
+Current Version: 1.0.3
