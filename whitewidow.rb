@@ -42,6 +42,10 @@
 #
 # TODO list:
 #
+# - Add advanced decoding module, this will attempt to further decode the URLs that are dumped to non exploitable, if
+#   they are able to be further decoded, it will once again try to find a SQL vuln in the webpage. I think this should
+#   help with the encoding errors, I'm not sure though. Will be in version 1.0.6
+#
 # - Fix IO encoder error, I have a general idea on how to fix this error, the only problem is it keeps happening when
 #   I'm not ready for it to (shocking right?). So I'm working on this, don't worry. I'm about 90% sure that it has
 #   something to do with the fact that the URL is multi encoded, so I'll have to figure out a way to decode the URL's
@@ -50,20 +54,12 @@
 #
 # - Finish the proxy setting. I've begun making a proxy setting for whitewidow (as you can see in the code). It works,
 #   but won't connect to the proxy correctly, always throws the whole proxy denied connection, no matter how newly
-#   scraped the proxy is. I'll figure it out. Hoping to release by version 1.0.5
-#
-# - Update the flags from ARGV to OptParser. Yes I know I'm using ARGV for the flags, but that was just so that I could
-#   release the version. Believe it or not this is the second version of whitewidow. I didn't release the first two
-#   because well, they sucked. Anyways, I will be updating from ARGV to OptParser eventually, probably around 1.0.4
-#
-# - Fix the vulnerability check method. Right now this program is way to reliant on that method and I don't like that.
-#   I have an idea of how I can cut the method down, but I'll have to make multiple methods containing close to the
-#   same information. This will come when I change the flags from ARGV to OptParser; version 1.0.5
+#   scraped the proxy is. I'll figure it out. Hoping to release by version 1.0.6
 #
 # - Make whitewidow capable of scraping more then one page. Right now whitewidow can only scrape a max of 10 URL's at
 #   a time. That's the first page of Google if you're lucky. However the mechanize gem does indeed give the ability
 #   to sort through pages, no I am not good with the mechanize gem. I am still trying to figure out how to use it.
-#   I'm hoping to have this upgrade done by the release of 1.0.5
+#   I'm hoping to have this upgrade done by the release of 1.0.6
 #
 # - Will be adding further analysis of URL's that get dumped to the non exploitable log. What I mean is I will be
 #   giving the program a way to try and find a vulnerability in the site, probably by using a spider bot or something.
@@ -76,7 +72,14 @@
 #   This will be added along with the upgrade of scraping multiple pages. Should be done by version 1.0.6
 #
 # - Fix that damn specify/preferences thing that shows up randomly for no apparent reason, if you find one open an issue
-#   apparently there's a bunch of them. Hopefully done by version 1.0.6
+#   apparently there's a bunch of them, so if you see one that differs from any others please let me know. I have an
+#   idea on how I'm going to fix this, I'm going to allow them to happen for awhile and throw them into a file, from
+#   from that file, I'm going to read them and if the URL matches them skip over it. I think this will work, because I
+#   Don't get them anymore from what I coded in (the next if). So my best guess is that everybody has a different
+#   version of it, see the bug report here: https://github.com/Ekultek/whitewidow/issues/6
+#   Notice how that one differs from mine.. Hopefully done by version 1.0.6
+#
+# - Finish conversion from ARGV to optparser, next update 1.0.6
 #
 ########################################################################################################################
 #
@@ -104,14 +107,6 @@
 #   find vulnerable sites this way. The easiest way is to pull a bunch of URL's and run them through this program.
 #
 ########################################################################################################################
-#
-# UPDATES:
-#
-# - Started working on optparser for parsing ARGV arguments instead of using ARGV more efficient.
-# - Added some country specific search queries (40 to be specific) for testing purposes
-# - Added gemfile, able to fully install all gems with bundle install
-#
-########################################################################################################################
 
 =begin
 
@@ -129,12 +124,15 @@ require 'colored'
 require 'yaml'
 require 'date'
 require 'optparse'
+require 'pp'
 require_relative 'lib/format.rb'
 require_relative 'lib/credits.rb'
 require_relative 'lib/legal.rb'
 require_relative 'lib/spider.rb'
 require_relative 'lib/copy.rb'
+#require_relative 'lib/extra/advanced.rb'
 
+#include AdvancedDecoding
 include Format
 include Credits
 include Legal
@@ -153,6 +151,10 @@ def usage_page
   exit
 end
 
+#def reattempt_decoding
+#  AdvancedDecoding.advanced_url_decoding   # NOT READY YET
+#end
+
 def examples_page
   Format.usage('This is my examples page, I\'ll show you a few examples of how to get me to do what you want.')
   Format.usage('Running me with a file: whitewidow.rb -f <path/to/file> keep the file inside of one of my directories.')
@@ -160,23 +162,20 @@ def examples_page
   Format.usage('Running me with my Usage flag will show you the boring usage page.. Yeah it\'s not very exciting..')
 end
 
-class OptClass
+class OptParse
 
-  attr_accessor :default, :file, :example
-
-  def self.parse(options)
+  def self.parse_argv(options)
     args = OPTIONS.new
     opt_parser = OptionParser.new do |opts|
       opts.banner = usage_page
       opts.on('-d', '--default', 'Run me in default mode, I\'ll scrape Google for SQL vulns.') do |d|
         args.default = d
       end
-      opts.on('-fFILE', '--file=FILE', 'Pass me the name of the file. Leave out the beginning forward slash. (/lib/ <= incorrect lib/ <=correct)') do |f|
+      opts.on('-f=FILE', '--file=FILE', File, 'Pass me the name of the file. Leave out the beginning forward slash. (/lib/ <= incorrect lib/ <=correct)') do |f|
         args.file = f
       end
       opts.on('-e', '--example', 'Shows my example page. It\'s really not that hard to figure out, but I\'m a nice albino widow.') do |e|
-        examples_page
-        exit
+	  args.example = e
       end
       opts.on('-h', '--help', 'Shows a complete list of all my usages, with what they do, and their secondary flag.') do
         puts opts
@@ -191,8 +190,6 @@ class OptClass
     return args
   end
 end
-
-options = OptClass.parse(ARGV)
 
 def pull_proxy
   info = parse("http://www.nntime.com/",'.odd', 1)
@@ -212,96 +209,73 @@ def parse(site, tag, i)
 end
 
 def get_urls
-  Format.info('I\'ll run in default mode then!')
-  Format.info("I'm searching for possible SQL vulnerable sites, using search query #{SEARCH}")
-  agent = Mechanize.new
-  agent.user_agent = @user_agent
-  page = agent.get('http://www.google.com/')
-  google_form = page.form('f')
-  google_form.q = "#{SEARCH}"
-  url = agent.submit(google_form, google_form.buttons.first)
-    url.links.each do |link|
-      if link.href.to_s =~ /url.q/
-        str = link.href.to_s
-        str_list = str.split(%r{=|&})
-        urls = str_list[1]
-        next if urls.split('/')[2].start_with? 'stackoverflow.com', 'github.com', 'www.sa-k.net', 'yoursearch.me', 'search1.speedbit.com', 'duckfm.net', 'search.clearch.org', 'webcache.googleusercontent.com'
-        next if urls.split('/')[1].start_with? 'ads/preferences?hl=en'
-        urls_to_log = URI.decode(urls)
-        Format.success("Site found: #{urls_to_log}")
-        sleep(1)
-        File.open("#{PATH}/tmp/SQL_sites_to_check.txt", 'a+') { |s| s.puts("#{urls_to_log}'") }
-      end
-    end
-  Format.info("I've dumped possible vulnerable sites into #{PATH}/tmp/SQL_sites_to_check.txt")
-end
-
-def begin_vulnerability_check
-  if options.file
-    Format.info("Let's check this file out..")
-    IO.read("#{PATH}/#{ARGV[1]}").each_line do |vuln|
-      begin
-        Format.info("Parsing page for SQL syntax error: #{vuln.chomp}")
-        Timeout::timeout(10) do
-          begin
-            if parse("#{vuln.chomp}'", 'html', 0)[/You have an error in your SQL syntax/]
-              Format.success("URL: #{vuln.chomp} returned SQL syntax error, temporarily dumped to SQL_VULN.txt")
-              File.open("#{PATH}/tmp/SQL_VULN.txt", "a+") { |s| s.puts(vuln) }
-              sleep(1)
-            else
-              Format.warning("URL: #{vuln.chomp} is not vulnerable, dumped to non_exploitable.txt")
-              File.open("#{PATH}/log/non_exploitable.txt", "a+") { |s| s.puts(vuln) }
-              sleep(1)
-            end
-          rescue Timeout::Error, OpenSSL::SSL::SSLError
-            Format.info("URL: #{vuln.chomp} failed to load dumped to non_exploitable.txt")
-            File.open("#{PATH}/log/non_exploitable.txt", "a+") { |s| s.puts(vuln) }
-            next
-            sleep(1)
-          end
+  if options.default
+    Format.info("I'm searching for possible SQL vulnerable sites, using search query #{SEARCH}")
+    agent = Mechanize.new
+    agent.user_agent = @user_agent
+    page = agent.get('http://www.google.com/')
+    google_form = page.form('f')
+    google_form.q = "#{SEARCH}"
+    url = agent.submit(google_form, google_form.buttons.first)
+      url.links.each do |link|
+        if link.href.to_s =~ /url.q/
+          str = link.href.to_s
+          str_list = str.split(%r{=|&})
+          urls = str_list[1]
+          next if urls.split('/')[2].start_with? 'stackoverflow.com', 'github.com', 'www.sa-k.net', 'yoursearch.me', 'search1.speedbit.com', 'duckfm.net', 'search.clearch.org', 'webcache.googleusercontent.com'
+          next if urls.split('/')[1].start_with? 'ads/preferences?hl=en'
+          urls_to_log = URI.decode(urls)
+          Format.success("Site found: #{urls_to_log}")
+          sleep(1)
+          File.open("#{PATH}/tmp/SQL_sites_to_check.txt", 'a+') { |s| s.puts("#{urls_to_log}'") }
         end
-      rescue RestClient::ResourceNotFound, RestClient::InternalServerError, RestClient::RequestTimeout, RestClient::Gone, RestClient::SSLCertificateNotVerified, RestClient::Forbidden, OpenSSL::SSL::SSLError, Errno::ECONNREFUSED, URI::InvalidURIError, Errno::ECONNRESET, Timeout::Error, OpenSSL::SSL::SSLError, ArgumentError, RestClient::MultipleChoices, RestClient::Unauthorized, SocketError, RestClient::BadRequest, RestClient::ServerBrokeConnection => e
-        Format.err("URL: #{vuln.chomp} failed due to an error while connecting, URL dumped to non_exploitable.txt")
-        File.open("#{PATH}/log/non_exploitable.txt", "a+") { |s| s.puts(vuln) }
-        next
       end
-    end
-  elsif options.default
-    IO.read("#{PATH}/tmp/SQL_sites_to_check.txt").each_line do |parse|
-      begin
-        Format.info("Parsing page for SQL syntax error: #{parse.chomp}")
-        Timeout::timeout(10) do
-          begin
-            if parse("#{parse.chomp}", 'html', 0)[/You have an error in your SQL syntax/]
-              Format.success("URL: #{parse.chomp} returned SQL syntax error, temporarily dumped to SQL_VULN.txt")
-              File.open("#{PATH}/tmp/SQL_VULN.txt", "a+") { |s| s.puts(parse) }
-              sleep(1)
-            else
-              Format.warning("URL: #{parse.chomp} is not vulnerable, dumped to non_exploitable.txt")
-              File.open("#{PATH}/log/non_exploitable.txt", "a+") { |s| s.puts(parse) }
-              sleep(1)
-            end
-          rescue Timeout::Error, OpenSSL::SSL::SSLError, SocketError
-            Format.info("URL: #{parse.chomp} failed to load dumped to non_exploitable.txt")
-            File.open("#{PATH}/log/non_exploitable.txt", "a+") { |s| s.puts(parse) }
-            next
-            sleep(1)
-          end
-        end
-      rescue RestClient::ResourceNotFound, RestClient::InternalServerError, RestClient::RequestTimeout, RestClient::Gone, RestClient::SSLCertificateNotVerified, RestClient::Forbidden, OpenSSL::SSL::SSLError, Errno::ECONNREFUSED, URI::InvalidURIError, Errno::ECONNRESET, Timeout::Error, OpenSSL::SSL::SSLError, ArgumentError, RestClient::MultipleChoices, SocketError, RestClient::BadRequest,RestClient::ServerBrokeConnection => e
-        Format.err("URL: #{parse.chomp} failed due to an error while connecting, URL dumped to non_exploitable.txt")
-        File.open("#{PATH}/log/non_exploitable.txt", "a+") { |s| s.puts(parse) }
-        next
-      end
-    end
+    Format.info("I've dumped possible vulnerable sites into #{PATH}/tmp/SQL_sites_to_check.txt")
   else
-    Format.info('You didn\'t pass me a flag to use!')
-    usage_page
+    begin_vulnerability_check
   end
 end
 
+def begin_vulnerability_check
+  (options.file) ? file = IO.read(ARGV[1]):file = IO.read("#{PATH}/tmp/SQL_sites_to_check.txt")
+  (options.file) ? Format.info('Let\'s check this file out') : Format.info('I\'ll run in default mode then!')
+  file.each_line do |vuln|
+    begin
+      Format.info("Parsing page for SQL syntax error: #{vuln.chomp}")
+      Timeout::timeout(10) do
+        begin
+          if parse("#{vuln.chomp}'", 'html', 0)[/You have an error in your SQL syntax/]
+            Format.success("URL: #{vuln.chomp} returned SQL syntax error, temporarily dumped to SQL_VULN.txt")
+            File.open("#{PATH}/tmp/SQL_VULN.txt", "a+") { |s| s.puts(vuln) }
+            sleep(1)
+          else
+            Format.warning("URL: #{vuln.chomp} is not vulnerable, dumped to non_exploitable.txt")
+            File.open("#{PATH}/log/non_exploitable.txt", "a+") { |s| s.puts(vuln) }
+            sleep(1)
+          end
+        rescue Timeout::Error, OpenSSL::SSL::SSLError
+          Format.info("URL: #{vuln.chomp} failed to load dumped to non_exploitable.txt")
+          File.open("#{PATH}/log/non_exploitable.txt", "a+") { |s| s.puts(vuln) }
+          next
+          sleep(1)
+        end
+      end
+    rescue RestClient::ResourceNotFound, RestClient::InternalServerError, RestClient::RequestTimeout, RestClient::Gone, RestClient::SSLCertificateNotVerified, RestClient::Forbidden, OpenSSL::SSL::SSLError, Errno::ECONNREFUSED, URI::InvalidURIError, Errno::ECONNRESET, Timeout::Error, OpenSSL::SSL::SSLError, ArgumentError, RestClient::MultipleChoices, RestClient::Unauthorized, SocketError, RestClient::BadRequest, RestClient::ServerBrokeConnection => e
+      Format.err("URL: #{vuln.chomp} failed due to an error while connecting, URL dumped to non_exploitable.txt")
+      File.open("#{PATH}/log/non_exploitable.txt", "a+") { |s| s.puts(vuln) }
+      next
+    end
+  end
+  usage_page if OPTIONS.nil?
+end
+
+options = OptParse.parse_argv(ARGV)
+pp options
+pp ARGV
+
+#=begin
 case options
-  when options.default
+  when options.default || options.file
     begin
       Whitewidow.spider
       sleep(1)
@@ -312,26 +286,7 @@ case options
       begin_vulnerability_check
       File.truncate("#{PATH}/tmp/SQL_sites_to_check.txt", 0)
       Format.info("I'm truncating SQL_sites_to_check file back to #{File.size("#{PATH}/tmp/SQL_sites_to_check.txt")}")
-      Copy.file
-      File.truncate("#{PATH}/tmp/SQL_VULN.txt", 0)
-      Format.info("I've run all my tests and queries, and logged all important information into #{PATH}/log/SQL_VULN.LOG") unless File.size("#{PATH}/log/SQL_VULN.LOG") == 0
-    rescue Mechanize::ResponseCodeError, RestClient::ServiceUnavailable, OpenSSL::SSL::SSLError, RestClient::BadGateway => e
-      d = DateTime.now
-      Format.fatal("Well this is pretty crappy.. I seem to have encountered a #{e} error. I'm gonna take the safe road and quit scanning before I break something. You can either try again, or manually delete the URL that caused the error.")
-      File.open("#{PATH}/log/error_log.LOG", 'a+'){ |error| error.puts("[#{d.month}-#{d.day}-#{d.year} :: #{Time.now.strftime("%T")}]#{e}") }
-      Format.info("I'll log the error inside of #{PATH}/log/error_log.LOG for further analysis.")
-    end
-  when options.file
-     begin
-      Whitewidow.spider
-      sleep(1)
-      Credits.credits
-      sleep(1)
-      Legal.legal
-      begin_vulnerability_check
-      File.truncate("#{PATH}/tmp/SQL_sites_to_check.txt", 0)
-      Format.info("I'm truncating SQL_sites_to_check file back to #{File.size("#{PATH}/tmp/SQL_sites_to_check.txt")}")
-      Copy.file
+      Copy.file("#{PATH}/tmp/SQL_VULN.txt", "#{PATH}/log/SQL_VULN.LOG")
       File.truncate("#{PATH}/tmp/SQL_VULN.txt", 0)
       Format.info("I've run all my tests and queries, and logged all important information into #{PATH}/log/SQL_VULN.LOG") unless File.size("#{PATH}/log/SQL_VULN.LOG") == 0
     rescue Mechanize::ResponseCodeError, RestClient::ServiceUnavailable, OpenSSL::SSL::SSLError, RestClient::BadGateway => e
@@ -343,7 +298,7 @@ case options
   when options.example
     examples_page
   else
-    usage_page
+    Format.info("You failed to pass me a flag, let's try again and pass a flag this time!")
   end
 
 =end
