@@ -1,24 +1,33 @@
-#!/usr/local/ruby
+#!/usr/local/env ruby
 
 ########################################################################################################################
 #
 # Welcome to the whitewidow source code, below you will find a whole ton of rescue clauses, yes they are necessary.
-# De to the amount of possible errors it's impossible to catch them all, so there are a couple of known issues.
+# Do to the amount of possible errors it's very hard to catch them all, I'm still finding new errors from RestClient,
+# Nokogiri, Kernel, etc. I did a count of how many I've found so far and it's added up to about 60. Now having said
+# that, there are defiantly a couple known bugs that are being worked on.
+#
 # Known Bugs:
+#
 # - One known bug is that every now and then there's an encoding error, I haven't really figured out how to fix this bug
 #   yet, but I am working on it. This bug, however, won't error out the program and will continue running, it looks
 #   like something along the lines of: 'IO encoder error <some hex> <some more hex>'
 #   If you have any information on how to fix this error please let me know. Make a bug report or something, fork the
-#   project and start working on it. Do whatever you need to do, to get that thing to go away.
+#   project and start working on it. Do whatever you need to do, to get that thing to out of the way.
 #
 # - Another known bug is that every now and then (VERY RARELY) Google won't allow you to go onto the search page. I have
 #   a pretty good idea on how to fix this one and am in the process of adding a proxy setting for whitewidow.
+#   What I'm thinking is, Google allows you upto 100 queries in a day, after that you either have to throw some
+#   random headers at it, or change your IP every so often, so my best guess is that due to how many times I've run
+#   whitewidow, Google is starting to recognize all the user agents. I'll be adding more of those along with the
+#   proxy setting.
 #
 # - One last known bug is, every now and then the program will pull a site off Google that says something along the
 #   lines of: settings/preferences?=en
 #   I've tried multiple times to try and catch this, except it keeps showing up. The program WILL completely fail if
 #   this "url" is found. I can't catch it (yet), and I can't rescue it (yet). Problem is I have no idea why it would
-#   be pulling this off of Google. It's not even a real URL. So I'm working on it.
+#   be pulling this off of Google. It's not even a real URL. So I'm working on it. I have been able to make it show
+#   up less by removing the queries that would bring it up most often.
 #
 ########################################################################################################################
 #
@@ -92,6 +101,62 @@
 #
 ########################################################################################################################
 
+=begin
+
+   NONE OF THIS IS READY YET
+
+OPTIONS = Struct.new(:default, :file, :example)
+attr_accessor :default, :file, :example
+
+def self.parse(options)
+  ARGS = OPTIONS.new
+  opt_parser = OptionParser.new do |opts|
+    opts.banner = usage_page
+    opts.on('-d', '--default', 'Run me in default mode, I\'ll scrape Google for SQL vulns.') do |d|
+      ARGS.default = d
+    end
+    opts.on('-fFILE', '--file=FILE', 'Pass me the name of the file. Leave out the beginning forward slash. (/lib/ <= incorrect lib/ <=correct)') do |f|
+      ARGS.file = f
+    end
+    opts.on('-e', '--example', 'Shows my example page. It\'s really not that hard to figure out, bt I\'m a nice albino widow.') do |e|
+      examples_page
+      exit
+    end
+    opts.on('-h', '--help', 'Shows a complete list of all my usages, with what they do, and their secondary flag.') do
+      puts opts
+      exit
+    end
+    opts.on('-u', '--usage', 'Shows my usage page, a short list of possible flags, use the help flag (-h) for a more complete list.') do
+      usage_page
+      exit
+    end
+  end
+  opt_parser.parse!(options)
+  return ARGS
+end
+
+
+case ARGS
+  when options.default
+
+  when options.file
+
+  when options.example
+    examples_page
+  else
+    usage_page
+  end
+end
+
+def pull_proxy
+  info = parse("http://www.nntime.com/",'.odd', 1)
+  @ip = info[/\D\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}\D/].gsub(">", "").gsub("<", "")
+  @port = info[/8080/] || info[/3128/] || info[/80/] || info[/3129/] || info[/6129/]  #Not ready yet
+  proxy = "#{@ip}:#{@port}"
+  Format.info("Proxy discovered: #{proxy}")
+end
+=end
+
 require 'mechanize'
 require 'nokogiri'
 require 'restclient'
@@ -101,6 +166,7 @@ require 'fileutils'
 require 'colored'
 require 'yaml'
 require 'date'
+require 'optparse'
 require_relative 'lib/format.rb'
 require_relative 'lib/credits.rb'
 require_relative 'lib/legal.rb'
@@ -122,14 +188,14 @@ info = YAML.load_file("#{PATH}/lib/rand-agents.yaml")
 @user_agent = info['user_agents'][info.keys.sample]
 
 def usage_page
-  Format.usage("You can run me with the following flags: #{File.basename(__FILE__)} -[d|f|h|hh] <path/to/file/if/any>")
+  Format.usage("You can run me with the following flags: #{File.basename(__FILE__)} -[d|e|h|u] -[f] <path/to/file/if/any>")
   exit
 end
 
 def examples_page
   Format.usage('This is my examples page, I\'ll show you a few examples of how to get me to do what you want.')
   Format.usage('Running me with a file: whitewidow.rb -f <path/to/file> keep the file inside of one of my directories.')
-  Format.usage('Running me default, if you don\'t want to use a file, because you don\'t think I can handle it, or for whatever reason, you can run me defualt by passing the Defualt flag: whitewidow.rb -d this will allow me to scrape Google for some SQL vuln sites, no guarentees though!')
+  Format.usage('Running me default, if you don\'t want to use a file, because you don\'t think I can handle it, or for whatever reason, you can run me default by passing the Default flag: whitewidow.rb -d this will allow me to scrape Google for some SQL vuln sites, no guarentees though!')
   Format.usage('Running me with my Usage flag will show you the boring usage page.. Yeah it\'s not very exciting..')
 end
 
@@ -142,19 +208,8 @@ def parse(site, tag, i)
   parsing.css(tag)[i].to_s
 end
 
-=begin
-def pull_proxy
-  info = parse("http://www.nntime.com/",'.odd', 1)
-  @ip = info[/\D\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}\D/].gsub(">", "").gsub("<", "")
-  @port = info[/8080/] || info[/3128/] || info[/80/] || info[/3129/] || info[/6129/]  #Not ready yet
-  proxy = "#{@ip}:#{@port}"
-  Format.info("Proxy discovered: #{proxy}")
-end
-=end
-
 def get_urls
   Format.info('I\'ll run in default mode then!')
-  puts
   Format.info("I'm searching for possible SQL vulnerable sites, using search query #{SEARCH}")
   agent = Mechanize.new
   agent.user_agent = @user_agent
@@ -265,10 +320,9 @@ case ARG
       File.truncate("#{PATH}/tmp/SQL_VULN.txt", 0)
       Format.info("I've run all my tests and queries, and logged all important information into #{PATH}/log/SQL_VULN.LOG") unless File.size("#{PATH}/log/SQL_VULN.LOG") == 0
     rescue Mechanize::ResponseCodeError, RestClient::ServiceUnavailable, OpenSSL::SSL::SSLError, RestClient::BadGateway => e
-      t = Time.now
       d = DateTime.now
       Format.fatal("Well this is pretty crappy.. I seem to have encountered a #{e} error. I'm gonna take the safe road and quit scanning before I break something. You can either try again, or manually delete the URL that caused the error.")
-      File.open("#{PATH}/log/error_log.LOG", 'a+'){ |error| error.puts("[#{d.month}-#{d.day}-#{d.year} :: #{t.hour}:#{t.min}:#{t.sec}]#{e}") }
+      File.open("#{PATH}/log/error_log.LOG", 'a+'){ |error| error.puts("[#{d.month}-#{d.day}-#{d.year} :: #{Time.now.strftime("%T")}]#{e}") }
       Format.info("I'll log the error inside of #{PATH}/log/error_log.LOG for further analysis.")
     end
   when '-d'
@@ -286,10 +340,9 @@ case ARG
       File.truncate("#{PATH}/tmp/SQL_VULN.txt", 0)
       Format.info("I've run all my tests and queries, and logged all important information into #{PATH}/log/SQL_VULN.LOG") unless File.size("#{PATH}/log/SQL_VULN.LOG") == 0
     rescue Mechanize::ResponseCodeError, RestClient::ServiceUnavailable, OpenSSL::SSL::SSLError, RestClient::BadGateway => e
-      t = Time.now
       d = DateTime.now
       Format.fatal("Well this is pretty crappy.. I seem to have encountered a #{e} error. I'm gonna take the safe road and quit scanning before I break something. You can either try again, or manually delete the URL that caused the error.")
-      File.open("#{PATH}/log/error_log.LOG", 'a+'){ |error| error.puts("[#{d.month}-#{d.day}-#{d.year} :: #{t.hour}:#{t.min}:#{t.sec}]#{e}") }
+      File.open("#{PATH}/log/error_log.LOG", 'a+'){ |error| error.puts("[#{d.month}-#{d.day}-#{d.year} :: #{Time.now.strftime("%T")}]#{e}") }
       Format.info("I'll log the error inside of #{PATH}/log/error_log.LOG for further analysis.")
     end
   when '-h'
@@ -299,4 +352,3 @@ case ARG
   else
     usage_page
 end
-
