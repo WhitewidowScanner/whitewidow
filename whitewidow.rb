@@ -36,6 +36,8 @@
 #
 # TODO list:
 #
+# - Add gemfile for dependencies and version control. Will release by version 1.0.4
+#
 # - Fix IO encoder error, I have a general idea on how to fix this error, the only problem is it keeps happening when
 #   I'm not ready for it to (shocking right?). So I'm working on this, don't worry. I'm about 90% sure that it has
 #   something to do with the fact that the URL is multi encoded, so I'll have to figure out a way to decode the URL's
@@ -182,7 +184,7 @@ info = YAML.load_file("#{PATH}/lib/rand-agents.yaml")
 @user_agent = info['user_agents'][info.keys.sample]
 
 def usage_page
-  Format.usage("You can run me with the following flags: #{File.basename(__FILE__)} -[d|e|h|u] -[f] <path/to/file/if/any>")
+  Format.usage("You can run me with the following flags: #{File.basename(__FILE__)} -[d|h|hh] -[f] <path/to/file/if/any>")
   exit
 end
 
@@ -334,7 +336,7 @@ case ARG
   when '-h'
     usage_page
   when '-hh'
-    help_page
+    examples_page
   else
     usage_page
 end
