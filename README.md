@@ -10,7 +10,7 @@ gem dependencies: `bundle install`.
 ![Alt text](http://s8.postimg.org/bla4ebk6d/githubpic.jpg "Defualt Mode")
 ![Alt text](http://s16.postimg.org/bpfx65cad/githubpic2.jpg "File Mode")
 #Download
-As of right now you can only clone the repository, or download the zip file. When Whitewidow reaches version 1.0.5 it will have a tarball and a zip file to download.
+Preferably clone repository, alternativley you can download zip and tarball [here](https://github.com/Ekultek/whitewidow/releases/tag/1.0.4)
 #Usage
 `ruby whitewidow.rb -h` Will print the help page
 
