@@ -3,7 +3,7 @@ module Legal
     puts <<-_END_
          [ LEGAL DISCLAIMER ]
 
-         I was written as a learning tool only, also
+         I was written as a learning tool only, and
          I should be treated as such. My purpose is
          to teach you what a SQL vulnerable website looks
          like, and to teach you how to prevent yourself
@@ -12,7 +12,7 @@ module Legal
          Please ensure to inform all owners of vulnerable
          websites found while running me. My owner claims
          no responsibilities for any malicious actions
-         taken with the information that is discovered
+         taken, with the information that is discovered
          while running me.
 
          Thank you for reading through my disclaimer and remember
