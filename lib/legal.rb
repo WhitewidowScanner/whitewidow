@@ -39,10 +39,7 @@ module Legal
          If for any reason you do not agree with the disclaimer, or terms,
          please exit this program immediatly.
 
-
-         Press enter to continue...
         _END_
           .red.bold
-    STDIN.gets.chomp
   end
 end
