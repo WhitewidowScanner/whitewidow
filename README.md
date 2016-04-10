@@ -10,7 +10,7 @@ gem dependencies: `bundle install`, and a simple easy to use file formatter.
 ![Alt text](http://s8.postimg.org/bla4ebk6d/githubpic.jpg "Default Mode")
 ![Alt text](http://s16.postimg.org/bpfx65cad/githubpic2.jpg "File Mode")
 #Download
-Preferably clone repository, alternatively you can download zip and tarball [here](https://github.com/Ekultek/whitewidow/releases/tag/1.0.5)
+Preferably clone repository, alternatively you can download zip and tarball [here](https://github.com/Ekultek/whitewidow/releases/tag/1.0.5.1)
 #Usage
 `ruby whitewidow.rb -h` Will print the help page
 
