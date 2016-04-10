@@ -460,7 +460,7 @@ case ARG
       begin_vulnerability_check
       File.truncate("#{PATH}/tmp/SQL_sites_to_check.txt", 0)
       Format.info("I'm truncating SQL_sites_to_check file back to #{File.size("#{PATH}/tmp/SQL_sites_to_check.txt")}")
-      Copy.file
+      Copy.file("#{PATH}/tmp/SQL_VULN.txt", "#{PATH}/log/SQL_VULN.LOG")
       File.truncate("#{PATH}/tmp/SQL_VULN.txt", 0)
       Format.info("I've run all my tests and queries, and logged all important information into #{PATH}/log/SQL_VULN.LOG") unless File.size("#{PATH}/log/SQL_VULN.LOG") == 0
     rescue Mechanize::ResponseCodeError, RestClient::ServiceUnavailable, OpenSSL::SSL::SSLError, RestClient::BadGateway => e
@@ -480,7 +480,7 @@ case ARG
       begin_vulnerability_check
       File.truncate("#{PATH}/tmp/SQL_sites_to_check.txt", 0)
       Format.info("I'm truncating SQL_sites_to_check file back to #{File.size("#{PATH}/tmp/SQL_sites_to_check.txt")}")
-      Copy.file
+      Copy.file("#{PATH}/tmp/SQL_VULN.txt", "#{PATH}/log/SQL_VULN.LOG")
       File.truncate("#{PATH}/tmp/SQL_VULN.txt", 0)
       Format.info("I've run all my tests and queries, and logged all important information into #{PATH}/log/SQL_VULN.LOG") unless File.size("#{PATH}/log/SQL_VULN.LOG") == 0
     rescue Mechanize::ResponseCodeError, RestClient::ServiceUnavailable, OpenSSL::SSL::SSLError, RestClient::BadGateway => e
