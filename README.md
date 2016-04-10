@@ -50,4 +50,4 @@ seeing your ideas brought to life. I also look forward to learning from you.
 How to use the file formatter, move your file containing the sites you want to check into lib/extra run `ruby file_formatter.rb <file>`
 new file will appear as `#sites.txt`. Use this file to run against whitewidow.
 
-Current Version 1.0.5
+Current Version 1.0.5.1
