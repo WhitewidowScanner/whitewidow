@@ -14,7 +14,7 @@ module Whitewidow
   end
 
   def version
-    '1.0.5.1'
+    '1.0.5.2'
   end
 end
 
