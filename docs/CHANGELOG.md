@@ -1,3 +1,6 @@
+#Version 1.0.5 Patches (1.0.5.1/1.0.5.2)
+- Fixed copy module parameters
+- Patched RestClient error
 #Version 1.0.5
  - Added docs dir, this has the copyright info, changelog, and credits to contributors in it.
  - Edited credits removed contributors and put them in the docs directory.
