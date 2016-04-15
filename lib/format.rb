@@ -4,23 +4,34 @@ module Format
   end
 
   def fatal(input)
-    t = Time.now
-    puts "[#{t.hour}:#{t.min}:#{t.sec} FATAL]#{input}".red.bold
+    puts "[#{Time.now.strftime("%T")} FATAL]#{input}".red.bold
   end
 
   def err(input)
-    t = Time.now
-    puts "[#{t.hour}:#{t.min}:#{t.sec} ERROR]#{input}".red.bold
+    puts "[#{Time.now.strftime("%T")} ERROR]#{input}".red.bold
   end
 
   def info(input)
-    t = Time.now
-    puts "[#{t.hour}:#{t.min}:#{t.sec} INFO]#{input}".green.bold
+    puts "[#{Time.now.strftime("%T")} INFO]#{input}".green.bold
   end
 
   def success(input)
-    t = Time.now
-    puts "[#{t.hour}:#{t.min}:#{t.sec} SUCCESS]#{input}".white.bold
+    puts "[#{Time.now.strftime("%T")} SUCCESS]#{input}".white.bold
+  end
+
+  def site_found(input)
+
+    success = 'Possible Vulnerability'.green.bold
+    puts <<-_END_
+    [ x ] -----------------------------------------------
+
+    [#{Time.now.strftime("%T").green.bold} #{success}]
+
+    [ X ]    Injection Point       :: #{input.cyan.bold}
+    [ X ]    Server Specifications :: #{SiteInfo.capture_host(input).cyan.bold}
+    [ X ]    Possible IP Address   :: #{SiteInfo.capture_ip(input).cyan.bold}
+
+            _END_
   end
 
   def usage(input)

@@ -3,22 +3,24 @@ module Legal
     puts <<-_END_
          [ LEGAL DISCLAIMER ]
 
-         I was written as a learning tool only, and
-         I should be treated as such. My purpose is
-         to teach you what a SQL vulnerable website looks
-         like, and to teach you how to prevent yourself
-         from becoming vulnerable.
+         I was written and created for learning purposes only, I should
+         be treated as a tool to further your knowledge of how SQL queries
+         work and what to look for so you don't become vulnerable, such as
+         the sites you will find while using me. Using me for malicious
+         purposes, including but not limited to:
 
-         Please ensure to inform all owners of vulnerable
-         websites found while running me. My owner claims
-         no responsibilities for any malicious actions
-         taken, with the information that is discovered
-         while running me.
+                 - Blackhat database take overs, to exploit, deface, or
+                   steal sensitive material.
+                 - Black mailing the owners of the webpages
+                 - Selling personal information found within the databases
+                   of the websites discovered to be vulnerable
 
-         Thank you for reading through my disclaimer and remember
-         to provide all information to the owners of the sites
-         All the information that I consider important will be
-         stored in my log files.
+         Is illegal and will not be tolerated. If you plan to use me for any
+         of the listed purposes, or for any illegal activity, do not go forward
+         and exit immediatly.
+
+         My owner Ekultek, takes no responsibility for the actions taken
+         from the knowledge you have gained from using me.
          _________________________________________________________________
 
          [ TERMS OF SERVICE ]
@@ -38,6 +40,9 @@ module Legal
 
          If for any reason you do not agree with the disclaimer, or terms,
          please exit this program immediatly.
+
+         Having said that, knowledge is not illegal, and I hope you take
+         away as much from this program, as I gained from writing it.
 
         _END_
           .red.bold
