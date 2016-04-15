@@ -1305,3 +1305,4 @@ inurl:index.php?site=
 inurl:de/content.php?page_id=
 inurl:gallerysort.php?iid=
 inurl:products.php?type=
+inurl:products.php?type=

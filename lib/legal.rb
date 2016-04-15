@@ -21,6 +21,7 @@ module Legal
 
          My owner Ekultek, takes no responsibility for the actions taken
          from the knowledge you have gained from using me.
+
          _________________________________________________________________
 
          [ TERMS OF SERVICE ]
