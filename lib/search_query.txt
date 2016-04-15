@@ -1306,3 +1306,12 @@ inurl:de/content.php?page_id=
 inurl:gallerysort.php?iid=
 inurl:products.php?type=
 inurl:products.php?type=
+inurl:co.uk/whatsnew.php?idCategory=
+inurl:ng/WsAncillary.php?ID=
+inurl:ng.WsPages.php?ID=noticiasDetalle.php?xid=
+inurl:ng/sitio/item.php?idcd=
+inurl:ng/index.php?site=
+inurl:co.uk/de/content.php?page_id=
+inurl:co.uk/gallerysort.php?iid=
+inurl:co.uk/products.php?type=
+inurl:co.uk.products.php?type=

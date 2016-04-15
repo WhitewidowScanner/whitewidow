@@ -22,6 +22,9 @@ module Legal
          My owner Ekultek, takes no responsibility for the actions taken
          from the knowledge you have gained from using me.
 
+         It is the end users responsibility to follow all laws, regulations,
+         and rules of the state, territory, or country where I am being run.
+
          _________________________________________________________________
 
          [ TERMS OF SERVICE ]

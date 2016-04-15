@@ -17,57 +17,37 @@
 #   If you have any information on how to fix this error please let me know. Make a bug report or something, fork the
 #   project and start working on it. Do whatever you need to do, to get that thing to out of the way.
 #
-#   04/07/16 UPDATE:
-#
-#   Well, I've discovered a possible temporary solution to the encoding error, however it requires some Ruby
-#   flags to be run, and doesn't always work, in order to eliminate the encoding error you must run the program
-#   with the following flags:
-#
-#            > ruby whitewidow.rb -[d|u] -f <path/to/file> -EBINARY -EASCII-8BIT -Kn -Ku <
-#
-#   This will get rid of the encoding errors SOMETIMES still working on permanent patch for this issue.
-#
-# - Well that stupid search/preferences things is back, so there's another bug. When you see this in the file, stop
-#   the process, manually delete that specific line (for now) and start again, trust me it'll cause a whole bunch of
-#   crappy problems that you don't want to deal with.
+# - Another known bug has something to do with how the search queries react when the program is run in default mode.
+#   Occasionally you will get a search that looks something like this: searches/preferencess?en=la
+#   When you receive this search you may ignore it, because the program will take it as a non exploitable, however,
+#   I would like to ask for your help in this matter, when you receive a search result that looks like that one
+#   (THE END (en=la) WILL BE DIFFERENT FOR YOU!!) Please scroll down to where you get the urls and add your search result to
+#   where it says #<= ADD HERE =>
+#   This will require you to fork the repo, and contribute, you may also list the search result in the bug reports
+#   HERE: https://github.com/Ekultek/whitewidow/issues/8
 #
 ########################################################################################################################
 #
 # TODO list:
 #
-# - Add advanced decoding module, this will attempt to further decode the URLs that are dumped to non exploitable, if
-#   they are able to be further decoded, it will once again try to find a SQL vuln in the webpage. I think this should
-#   help with the encoding errors, I'm not sure though.
+# - Add advanced decoding, what advanced decoding will do is attempt to decode multiple parameters of a URL. So if a URL
+#   has more than one equal sign if the first attempts fail, it will attempt to inject SQL vuln syntax into the other
+#   equal sign parameters
 #
 # - Fix IO encoder error, I have a general idea on how to fix this error, the only problem is it keeps happening when
 #   I'm not ready for it to (shocking right?). So I'm working on this, don't worry. I'm about 90% sure that it has
 #   something to do with the fact that the URL is multi encoded, so I'll have to figure out a way to decode the URL's
 #   further if the program throws an encoding error.
-#   (SEE UPDATE FOR TEMP SOLUTION^)
 #
 # - Make whitewidow capable of scraping more then one page. Right now whitewidow can only scrape a max of 10 URL's at
 #   a time. That's the first page of Google if you're lucky. However the mechanize gem does indeed give the ability
 #   to sort through pages, no I am not good with the mechanize gem. I am still trying to figure out how to use it.
 #
-# - Will be adding further analysis of URL's that get dumped to the non exploitable log. What I mean is I will be
-#   giving the program a way to try and find a vulnerability in the site, probably by using a spider bot or something.
-#   Also the sites that are in the non exploitable log file will never be run again if they have been run once.
-#   Hopefully this will be released by 1.0.7
-#
 # - Will be adding a feature where the program will automatically delete bad search queries, and replace them with
 #   possible good search queries. For example if a search query produces no results it will be deleted, and replaced by
 #   another one that will be in a separate file. This will be added along with the upgrade of scraping multiple pages.
-#
-# - Fix that damn specify/preferences thing that shows up randomly for no apparent reason, if you find one open an issue
-#   apparently there's a bunch of them, so if you see one that differs from any others please let me know. I have an
-#   idea on how I'm going to fix this, I'm going to allow them to happen for awhile and throw them into a file, from
-#   from that file, I'm going to read them and if the URL matches them skip over it. I think this will work, because I
-#   Don't get them anymore from what I coded in (the next if). So my best guess is that everybody has a different
-#   version of it, see the bug report here: https://github.com/Ekultek/whitewidow/issues/6
-#
-#   Notice how that one differs from mine.
-#
-# - Create way for whitewidow to check multiple parameters.
+#   I have begun working on this, the search query list that will replace the deleted queries will be encoded, and I will
+#   be adding a module to decode and add the search queries into the file they will be deleted from
 #
 ########################################################################################################################
 #
@@ -81,10 +61,8 @@
 #
 #   ruby whitewidow.rb -f <path/to/file>
 #
-#   Here's the thing with the file scanning, you have to make sure that the file is within one of the programs
-#   directories (log, tmp, lib). Otherwise whitewidow will have no idea what the heck you're talking about. Also you
-#   have to make sure that you DO NOT put a forward slash at the beginning of the path, whitewidow already has the
-#   slash, so you don't need it.
+#   File will automatically be formatted, so if there are spaces or problems with the file, it will be formatted and
+#   run as #sites.txt, your original file will also remain so don't worry about that.
 #
 # - To run whitewidow in default mode, and scrape Google for URL's:
 #
@@ -201,7 +179,7 @@ def get_urls
       str_list = str.split(%r{=|&})
       urls = str_list[1]
       next if urls.split('/')[2].start_with? 'stackoverflow.com', 'github.com', 'www.sa-k.net', 'yoursearch.me', 'search1.speedbit.com', 'duckfm.net', 'search.clearch.org', 'webcache.googleusercontent.com'
-      next if urls.split('/')[1].start_with? 'ads/preferences?hl=en'
+      next if urls.split('/')[1].start_with? 'ads/preferences?hl=en' #<= ADD HERE REMEMBER A COMMA =>
       urls_to_log = URI.decode(urls)
       Format.success("Site found: #{urls_to_log}")
       sleep(1)
@@ -251,7 +229,6 @@ def vulnerability_check
   end
 end
 
-#=begin
 case
   when OPTIONS[:default]
     begin
