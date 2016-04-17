@@ -1,3 +1,11 @@
+#Version 1.0.6 Patches (1.0.6.1)
+- Added around 5,000 more possible search queries
+- Forced encoding to UTF-8, this should take care of the invalid bytes error
+- Replaced banner
+- Added new contributor
+- Updated Readme a little bit
+- Added error log, where if a search query pulls zero sites, the search is logged for further analysis
+
 #Version 1.0.6
 - Finished optparser, read the readme your options have changed!
 - Edited version numbers

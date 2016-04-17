@@ -166,6 +166,7 @@ def format_file
 end
 
 def get_urls
+  Format.info("I'll run in default mode!")
   Format.info("I'm searching for possible SQL vulnerable sites, using search query #{SEARCH}")
   agent = Mechanize.new
   agent.user_agent = @user_agent
@@ -179,7 +180,7 @@ def get_urls
       str_list = str.split(%r{=|&})
       urls = str_list[1]
       next if urls.split('/')[2].start_with? 'stackoverflow.com', 'github.com', 'www.sa-k.net', 'yoursearch.me', 'search1.speedbit.com', 'duckfm.net', 'search.clearch.org', 'webcache.googleusercontent.com'
-      next if urls.split('/')[1].start_with? 'ads/preferences?hl=en' #<= ADD HERE REMEMBER A COMMA =>
+      next if urls.start_with?('settings/ads/preferences?hl=en') #<= ADD HERE REMEMBER A COMMA =>
       urls_to_log = URI.decode(urls)
       Format.success("Site found: #{urls_to_log}")
       sleep(1)
@@ -194,29 +195,30 @@ end
 def vulnerability_check
   case
   when OPTIONS[:default]
-    Format.info("I'll run in default mode!")
     file_to_read = "tmp/SQL_sites_to_check.txt"
   when OPTIONS[:file]
     Format.info("Let's check out this file real quick like..")
     file_to_read = "tmp/#sites.txt"
   end
+  Format.info('Forcing encoding to UTF-8') unless OPTIONS[:file]
   IO.read("#{PATH}/#{file_to_read}").each_line do |vuln|
     begin
       Format.info("Parsing page for SQL syntax error: #{vuln.chomp}")
       Timeout::timeout(10) do
+        vulns = vuln.encode(Encoding.find('UTF-8'), {invalid: :replace, undef: :replace, replace: ''})
         begin
-          if parse("#{vuln.chomp}'", 'html', 0)[/You have an error in your SQL syntax/]
-            Format.site_found(vuln.chomp)
-            File.open("#{PATH}/tmp/SQL_VULN.txt", "a+") { |s| s.puts(vuln) }
+          if parse("#{vulns.chomp}'", 'html', 0)[/You have an error in your SQL syntax/]
+            Format.site_found(vulns.chomp)
+            File.open("#{PATH}/tmp/SQL_VULN.txt", "a+") { |s| s.puts(vulns) }
             sleep(1)
           else
-            Format.warning("URL: #{vuln.chomp} is not vulnerable, dumped to non_exploitable.txt")
-            File.open("#{PATH}/log/non_exploitable.txt", "a+") { |s| s.puts(vuln) }
+            Format.warning("URL: #{vulns.chomp} is not vulnerable, dumped to non_exploitable.txt")
+            File.open("#{PATH}/log/non_exploitable.txt", "a+") { |s| s.puts(vulns) }
             sleep(1)
           end
         rescue Timeout::Error, OpenSSL::SSL::SSLError
-          Format.info("URL: #{vuln.chomp} failed to load dumped to non_exploitable.txt")
-          File.open("#{PATH}/log/non_exploitable.txt", "a+") { |s| s.puts(vuln) }
+          Format.warning("URL: #{vulns.chomp} failed to load dumped to non_exploitable.txt")
+          File.open("#{PATH}/log/non_exploitable.txt", "a+") { |s| s.puts(vulns) }
           next
           sleep(1)
         end
@@ -238,12 +240,14 @@ case
       sleep(1)
       Legal.legal
       get_urls
-      vulnerability_check
+      vulnerability_check unless File.size("#{PATH}/tmp/SQL_sites_to_check.txt") == 0
+      Format.warn("No sites found for search querie: #{SEARCH}. Logging into error_log.LOG. Create a issue regarding this.") if File.size("#{PATH}/tmp/SQL_sites_to_check.txt") == 0
+      File.open("#{PATH}/log/error_log.LOG", 'a+') { |s| s.puts("No sites found with search querie #{SEARCH}") } if File.size("#{PATH}/tmp/SQL_sites_to_check.txt") == 0
       File.truncate("#{PATH}/tmp/SQL_sites_to_check.txt", 0)
       Format.info("I'm truncating SQL_sites_to_check file back to #{File.size("#{PATH}/tmp/SQL_sites_to_check.txt")}")
       Copy.file("#{PATH}/tmp/SQL_VULN.txt", "#{PATH}/log/SQL_VULN.LOG")
       File.truncate("#{PATH}/tmp/SQL_VULN.txt", 0)
-      Format.info("I've run all my tests and queries, and logged all important information into #{PATH}/log/SQL_VULN.LOG") unless File.size("#{PATH}/log/SQL_VULN.LOG") == 0
+      Format.info("I've run all my tests and queries, and logged all important information into #{PATH}/log/SQL_VULN.LOG")
     rescue Mechanize::ResponseCodeError, RestClient::ServiceUnavailable, OpenSSL::SSL::SSLError, RestClient::BadGateway => e
       d = DateTime.now
       Format.fatal("Well this is pretty crappy.. I seem to have encountered a #{e} error. I'm gonna take the safe road and quit scanning before I break something. You can either try again, or manually delete the URL that caused the error.")
