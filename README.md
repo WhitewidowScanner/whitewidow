@@ -55,7 +55,7 @@ much whatever you want to do with it. For more information including copyright i
 
 If you decide
 to contribute to this project, your name will go in the docs under the author and credits file. It will remain there to
-show that you have successfully contributed to Whitewidow. Thank you ahead of time for all contributions, this project \
+show that you have successfully contributed to Whitewidow. Thank you ahead of time for all contributions, this project 
 wouldn't exist without your help!
 
 #Misc
