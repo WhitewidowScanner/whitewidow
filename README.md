@@ -1,18 +1,22 @@
 ﻿﻿#Whitewidow
+
 Whitewidow is an open source automated SQL vulnerability scanner, that is capable of running through a file list, or can
 scrape Google for potential vulnerable websites. It allows automatic file formatting, random user agents, IP addresses, server information, multiple SQL injection syntax, and a fun environment. This program was created for learning purposes, and is intended to teach users what vulnerability looks like.
 
 Although whitewidow is a completely open source project, and is completely free. Every once in awhile I need some coffee. If you like this program, and like this idea, you can help me with my [coffee fund.](https://www.paypal.me/Perkins892)
 
 #Screenshots
+
 ![Alt text](http://s30.postimg.org/7ik6ycicx/githubpic.jpg "Credits, legal, TOS")
 ![Alt text](http://s30.postimg.org/lstr9typd/githubpic2.jpg "Default Mode")
 ![Alt text](http://s30.postimg.org/5tb3qa2nl/githubpic3.jpg "File Mode")
 
 #Download
+
 Preferably clone repository, alternatively you can download zip and tarball [here](https://github.com/Ekultek/whitewidow/releases/tag/1.0.6.1)
 
 #Usage
+
 `ruby whitewidow.rb -h` Will print the help page
 
 `ruby whitewidow.rb -e` Will print the examples page
@@ -27,6 +31,7 @@ slash, example:
 `ruby whitewidow.rb -d` Will run whitewidow in default mode and scrape Google using the search queries in the lib directory
 
 #Dependencies
+
 `gem 'mechanize'`
 
 `gem 'nokogiri', '~> 1.6.7.2'`
@@ -44,6 +49,7 @@ To install all gem dependencies, follow the following template:
 This should install all gems needed, and will allow you to run the program without trouble.
 
 #Contribute
+
 Being an open source project, feel free to contribute your ideas and open pull request. You can fork it clone it do pretty
 much whatever you want to do with it. For more information including copyright info please see the docs.
 
