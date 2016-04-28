@@ -69,5 +69,4 @@ Future updates:
 - Will be moving all .rb extension files into lib/core directory
 - Advanced searching, meaning multiple pages of Google, along with multiple parameter checking.
 - Ability to detect database type.
-- Using multiple search engines, such as DuckDuckGo, Google, Bing, Yahoo. This will prevent one search engine from taking the multiple searches as a threat and will give further anomity to the program. I will also be adding IP anomity with a built in proxy feature. This feature will ALWAYS be on, and will have a flag (--no-proxy) so
-That you can decide to not use a proxy.
+- Using multiple search engines, such as DuckDuckGo, Google, Bing, Yahoo. This will prevent one search engine from taking the multiple searches as a threat and will give further anomity to the program. I will also be adding IP anomity with a built in proxy anomity that will be run through Tor, there will be a flag (--switch-proxy) where you will be able to use your own custom proxy, the Tor feature will ALWAYS be on.
