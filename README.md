@@ -15,8 +15,6 @@ Although whitewidow is a completely open source project, and is completely free.
 
 Preferably clone repository, alternatively you can download zip and tarball [here](https://github.com/Ekultek/whitewidow/releases/tag/1.0.6.1)
 
-NOTE: For now just download the tar or zip file, I am currently working on the release of 1.0.7 and will be storing the files in the repository, cloning it will probably not work because the files aren't prepared yet. Thank you and sorry for the inconvenience.
-
 #Usage
 
 `ruby whitewidow.rb -h` Will print the help page
