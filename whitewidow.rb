@@ -89,12 +89,12 @@ require 'optparse'
 require 'tempfile'
 require 'socket'
 require 'net/http'
-require_relative 'lib/format.rb'
-require_relative 'lib/credits.rb'
-require_relative 'lib/legal.rb'
-require_relative 'lib/spider.rb'
-require_relative 'lib/copy.rb'
-require_relative 'lib/site_info.rb'
+require_relative 'lib/modules/format.rb'
+require_relative 'lib/modules/credits.rb'
+require_relative 'lib/modules/legal.rb'
+require_relative 'lib/modules/spider.rb'
+require_relative 'lib/modules/copy.rb'
+require_relative 'lib/modules/site_info.rb'
 
 include Format
 include Credits
