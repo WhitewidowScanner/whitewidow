@@ -1,3 +1,19 @@
+#Version 1.0.7
+- Moved all modules into lib/modules
+- Added Tor tunnel, the switch is --tor
+- Created a blacklist along with a list of search engines to use, these will be used for skipping unwanted URLS, also
+for multiple threading
+- Program will use a random search engine that is provided within the lib/lists directory
+- Added new flag --thread=NUM, to determine the amount of threads you want to use, the default is 1
+- Added new flag -p=PROXY --proxy=PROXY you can use this to switch the Tor tunnel to an proxy of your choice
+- Added new examples page, it runs a test suit that will give you a good example of how this program works and reacts
+- Moved blacklist.txt into a "skip" directory under lists, left the search engine outside of it.
+- Created a new directory to hold the test modules and classes, lib/modules/tools/examples
+- Moved the tools into a new directory lib/modules/tools
+- New format info in format.rb, it asks for information from the user.
+- Created the spider, what this spider will do is crawl an entire webpage and gather the URLs then attempt to find exploits
+in the web page by connecting to the URLs.
+
 #Version 1.0.6 Patches (1.0.6.1)
 - Added around 5,000 more possible search queries
 - Forced encoding to UTF-8, this should take care of the invalid bytes error
