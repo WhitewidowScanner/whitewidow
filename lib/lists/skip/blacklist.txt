@@ -7,3 +7,5 @@ duckfm.net
 search.clearch.org
 webcache.googleusercontent.com
 settings/ads/preferences?
+ads/preferences?
+preferences?
