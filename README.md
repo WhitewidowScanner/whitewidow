@@ -71,6 +71,17 @@ to contribute to this project, your name will go in the docs under the author an
 show that you have successfully contributed to Whitewidow. Thank you ahead of time for all contributions, this project 
 wouldn't exist without your help!
 
-#Misc
+#Misc and troubleshooting 
 
 Current Version 1.0.6.1
+
+For those running Windows 7 with Ruby version 2.3.0p0 or higher; if you are getting an error telling you that you need a
+different version of Ruby to install nokogiri, that is incorrect, here's what you need to do:
+
+`gem install nokogiri --pre`
+
+`gem install nokogiri -v 1.6`
+
+`gem install mechanize`
+
+This will allow you to run this program and will install nokogiri and mechanize successfully
