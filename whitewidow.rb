@@ -47,22 +47,11 @@ def usage_page
   exit
 end
 
-def examples_page
-  Format.prompt("Would you like to run a full test: ")
-  if $stdin.start_with?('YE')
-    #TODO Run test modules and classes from here
-  else
-    #TODO Do something else idk what you're going to do but do it here.
-  end
-end
 
 OptionParser.new do |opt|
   opt.on('-f=FILE', '--file=FILE', 'Pass a file name to me, remember to drop the first slash. /tmp/txt.txt <= INCORRECT tmp/text.txt <= CORRECT') { |o| OPTIONS[:file] = o }
   opt.on('-d', '--default', 'Run me in default mode, this will allow me to scrape Google using my built in search queries.') { |o| OPTIONS[:default] = o }
   opt.on('-e=INPUT', '--example=INPUT', 'Shows my example page, gives you some pointers on how this works.') { |o| OPTIONS[:example] = o }
-  opt.on('--tor', 'Run through thr Tor tunnel on localhost') { |o| OPTIONS[:tor] = o }
-  opt.on('-p=PROXY', '--proxy=PROXY', 'Use your own personal proxy instead of running through Tor tunnel') { |o| OPTIONS[:proxy] = o }
-  opt.on('--thread=INTEGER', 'Require this many threads to be run default is 1') { |o| OPTIONS[:thread] = o }
 end.parse!
 
 def page(site)
