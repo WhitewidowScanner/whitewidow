@@ -13,8 +13,6 @@ for multiple threading
 - New format info in format.rb, it asks for information from the user.
 - Created the spider, what this spider will do is crawl an entire webpage and gather the URLs then attempt to find exploits
 in the web page by connecting to the URLs.
-- Refactor of examples, the examples page will run full example tests (no data will be logged) and explain what is
-happening throughout the process, there will be a default and a file example
 
 #Version 1.0.6 Patches (1.0.6.1)
 - Added around 5,000 more possible search queries
