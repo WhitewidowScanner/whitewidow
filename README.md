@@ -1,3 +1,5 @@
+# THIS PROJECT IS NOT AS WELL MAINTAINED ANYMORE. TO RUN THIS PROJECT PLEASE DOWNLOAD THE LAST RELEASE 
+
 #Whitewidow
 
 Whitewidow is an open source automated SQL vulnerability scanner, that is capable of running through a file list, or can
