@@ -1,4 +1,4 @@
-# THIS PROJECT IS NOT AS WELL MAINTAINED ANYMORE. TO RUN THIS PROJECT PLEASE DOWNLOAD THE LAST RELEASE. I WILL BE PUSHING UPDATES JUST NOT AS FREQUENTLY
+# THIS PROJECT IS NOT AS WELL MAINTAINED ANYMORE. TO RUN THIS PROJECT PLEASE DOWNLOAD THE LAST [RELEASE](https://github.com/Ekultek/whitewidow/releases/tag/1.0.6.1). I WILL BE PUSHING UPDATES JUST NOT AS FREQUENTLY
 
 #Whitewidow
 
@@ -6,9 +6,6 @@ Whitewidow is an open source automated SQL vulnerability scanner, that is capabl
 scrape Google for potential vulnerable websites. It allows automatic file formatting, random user agents, IP addresses,
 server information, multiple SQL injection syntax, and a fun environment. This program was created for learning purposes,
 and is intended to teach users what vulnerability looks like.
-
-Although whitewidow is a completely open source project, and is completely free. Every once in awhile I need some coffee.
-If you like this program, and like this idea, you can help me with my [coffee fund.](https://www.paypal.me/Perkins892)
 
 #Screenshots
 
