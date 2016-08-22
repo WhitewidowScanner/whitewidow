@@ -19,11 +19,6 @@ module Format
     puts "[#{Time.now.strftime("%T")} SUCCESS]#{input}".white.bold
   end
 
-  def prompt(input)
-    print "[#{Time.now.strftime("%T")}] #{input} ".white.bold
-    gets.chomp.upcase
-  end
-
   def site_found(input)
 
     success = 'Possible Vulnerability'.green.bold
