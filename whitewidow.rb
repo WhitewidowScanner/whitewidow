@@ -1,52 +1,11 @@
 #!/usr/local/env ruby
 
-require 'rubygems'
-require 'bundler/setup'
-require 'mechanize'
-require 'nokogiri'
-require 'rest-client'
-require 'timeout'
-require 'uri'
-require 'fileutils'
-require 'colored'
-require 'yaml'
-require 'date'
-require 'optparse'
-require 'tempfile'
-require 'socket'
-require 'net/http'
-require 'test/unit'
-
-require_relative 'lib/modules/credits.rb'
-require_relative 'lib/modules/legal.rb'
-require_relative 'lib/modules/spider.rb'
-require_relative 'lib/modules/site_info.rb'
-require_relative 'lib/modules/tools/blackwidow.rb'
-require_relative 'lib/modules/tools/format.rb'
-require_relative 'lib/modules/tools/copy.rb'
-require_relative 'lib/modules/tools/examples/run_examples.rb'
-
-include Format
-include Credits
-include Legal
-include Whitewidow
-include Copy
-include SiteInfo
-include BlackWidow
-include TestExamples
-
-PATH = Dir.pwd
-VERSION = Whitewidow.version
-SEARCH = File.readlines("#{PATH}/lib/search_query.txt").sample
-info = YAML.load_file("#{PATH}/lib/rand-agents.yaml")
-@user_agent = info['user_agents'][info.keys.sample]
-OPTIONS = {}
+require_relative 'lib/lists/imports/imports_and_constants'
 
 def usage_page
   Format.usage("You can run me with the following flags: #{File.basename(__FILE__)} -[d|e|h] -[f] <path/to/file/if/any>")
   exit
 end
-
 
 OptionParser.new do |opt|
   opt.on('-f=FILE', '--file=FILE', 'Pass a file name to me, remember to drop the first slash. /tmp/txt.txt <= INCORRECT tmp/text.txt <= CORRECT') { |o| OPTIONS[:file] = o }
@@ -94,8 +53,7 @@ def get_urls
   Format.info("I'll run in default mode!")
   Format.info("I'm searching for possible SQL vulnerable sites, using search query #{SEARCH}")
   agent = Mechanize.new
-  agent.user_agent = @user_agent
-  page = agent.get(File.readlines("#{PATH}/lib/lists/search_engines.txt").to_s)
+  page = agent.get('https://google.com')
   google_form = page.form('f')
   google_form.q = "#{SEARCH}"
   url = agent.submit(google_form, google_form.buttons.first)
@@ -143,8 +101,8 @@ def vulnerability_check
         rescue Timeout::Error, OpenSSL::SSL::SSLError
           Format.warning("URL: #{vulns.chomp} failed to load dumped to non_exploitable.txt")
           File.open("#{PATH}/log/non_exploitable.txt", "a+") { |s| s.puts(vulns) }
-          next
           sleep(1)
+          next
         end
       end
     rescue RestClient::ResourceNotFound, RestClient::InternalServerError, RestClient::RequestTimeout, RestClient::Gone, RestClient::SSLCertificateNotVerified, RestClient::Forbidden, OpenSSL::SSL::SSLError, Errno::ECONNREFUSED, URI::InvalidURIError, Errno::ECONNRESET, Timeout::Error, OpenSSL::SSL::SSLError, Zlib::GzipFile::Error, RestClient::MultipleChoices, RestClient::Unauthorized, SocketError, RestClient::BadRequest, RestClient::ServerBrokeConnection, RestClient::MaxRedirectsReached => e

@@ -1,0 +1,51 @@
+GEM
+  remote: https://rubygems.org/
+  specs:
+    colored (1.2)
+    domain_name (0.5.20160615)
+      unf (>= 0.0.5, < 1.0.0)
+    ffi (1.9.14-x86-mingw32)
+    http-cookie (1.0.2)
+      domain_name (~> 0.5)
+    mechanize (2.7.5)
+      domain_name (~> 0.5, >= 0.5.1)
+      http-cookie (~> 1.0)
+      mime-types (>= 1.17.2)
+      net-http-digest_auth (~> 1.1, >= 1.1.1)
+      net-http-persistent (~> 2.5, >= 2.5.2)
+      nokogiri (~> 1.6)
+      ntlm-http (~> 0.1, >= 0.1.1)
+      webrobots (>= 0.0.9, < 0.2)
+    mime-types (3.1)
+      mime-types-data (~> 3.2015)
+    mime-types-data (3.2016.0521)
+    mini_portile2 (2.1.0)
+    net-http-digest_auth (1.4)
+    net-http-persistent (2.9.4)
+    netrc (0.11.0)
+    nokogiri (1.6.8-x86-mingw32)
+      mini_portile2 (~> 2.1.0)
+      pkg-config (~> 1.1.7)
+    ntlm-http (0.1.1)
+    pkg-config (1.1.7)
+    rest-client (2.0.0-x86-mingw32)
+      ffi (~> 1.9)
+      http-cookie (>= 1.0.2, < 2.0)
+      mime-types (>= 1.16, < 4.0)
+      netrc (~> 0.8)
+    unf (0.1.4)
+      unf_ext
+    unf_ext (0.0.7.2-x86-mingw32)
+    webrobots (0.1.2)
+
+PLATFORMS
+  x86-mingw32
+
+DEPENDENCIES
+  colored
+  mechanize
+  nokogiri
+  rest-client
+
+BUNDLED WITH
+   1.11.2
