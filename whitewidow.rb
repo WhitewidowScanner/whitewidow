@@ -1,5 +1,8 @@
 #!/usr/local/env ruby
 
+# I like how I wrote all these comments and completely failed to comment my own code, what the hell was I thinking?
+# Then again this was like my first ever program so... I'll make it that much better
+
 require_relative 'lib/imports/constants_and_requires'
 
 #
@@ -101,7 +104,9 @@ def get_urls
       urls_to_log = URI.decode(urls)
       Format.success("Site found: #{urls_to_log}")
       sleep(1)
-      %w(' ` -- ;).each { |sql| File.open("#{PATH}/tmp/SQL_sites_to_check.txt", 'a+') { |s| s.puts("#{urls_to_log}#{sql}") } }
+      sql_syntax = ["'", "`", "--", ";"].each do |sql|
+        File.open("#{PATH}/tmp/SQL_sites_to_check.txt", 'a+') { |s| s.puts("#{urls_to_log}#{sql}") }
+      end
     end
   end
   Format.info("I've dumped possible vulnerable sites into #{PATH}/tmp/SQL_sites_to_check.txt")
@@ -155,17 +160,18 @@ end
 case
   when OPTIONS[:default]
     begin
-      INFO.spider
+      Whitewidow.spider
       sleep(1)
-      INFO.credits
+      Credits.credits
       sleep(1)
+      Legal.legal
       get_urls
       vulnerability_check unless File.size("#{PATH}/tmp/SQL_sites_to_check.txt") == 0
-      Format.warning("No sites found for search querie: #{SEARCH}. Logging into error_log.LOG. Create a issue regarding this.") if File.size("#{PATH}/tmp/SQL_sites_to_check.txt") == 0
+      Format.warn("No sites found for search querie: #{SEARCH}. Logging into error_log.LOG. Create a issue regarding this.") if File.size("#{PATH}/tmp/SQL_sites_to_check.txt") == 0
       File.open("#{PATH}/log/error_log.LOG", 'a+') { |s| s.puts("No sites found with search querie #{SEARCH}") } if File.size("#{PATH}/tmp/SQL_sites_to_check.txt") == 0
       File.truncate("#{PATH}/tmp/SQL_sites_to_check.txt", 0)
       Format.info("I'm truncating SQL_sites_to_check file back to #{File.size("#{PATH}/tmp/SQL_sites_to_check.txt")}")
-      COPY.file("#{PATH}/tmp/SQL_VULN.txt", "#{PATH}/log/SQL_VULN.LOG")
+      Copy.file("#{PATH}/tmp/SQL_VULN.txt", "#{PATH}/log/SQL_VULN.LOG")
       File.truncate("#{PATH}/tmp/SQL_VULN.txt", 0)
       Format.info("I've run all my tests and queries, and logged all important information into #{PATH}/log/SQL_VULN.LOG")
     rescue Mechanize::ResponseCodeError, RestClient::ServiceUnavailable, OpenSSL::SSL::SSLError, RestClient::BadGateway => e
@@ -176,16 +182,17 @@ case
     end
   when OPTIONS[:file]
     begin
-      INFO.spider
+      Whitewidow.spider
       sleep(1)
-      INFO.credits
+      Credits.credits
       sleep(1)
+      Legal.legal
       Format.info('Formatting file')
       format_file
       vulnerability_check
       File.truncate("#{PATH}/tmp/SQL_sites_to_check.txt", 0)
       Format.info("I'm truncating SQL_sites_to_check file back to #{File.size("#{PATH}/tmp/SQL_sites_to_check.txt")}")
-      COPY.file("#{PATH}/tmp/SQL_VULN.txt", "#{PATH}/log/SQL_VULN.LOG")
+      Copy.file("#{PATH}/tmp/SQL_VULN.txt", "#{PATH}/log/SQL_VULN.LOG")
       File.truncate("#{PATH}/tmp/SQL_VULN.txt", 0)
       Format.info("I've run all my tests and queries, and logged all important information into #{PATH}/log/SQL_VULN.LOG") unless File.size("#{PATH}/log/SQL_VULN.LOG") == 0
     rescue Mechanize::ResponseCodeError, RestClient::ServiceUnavailable, OpenSSL::SSL::SSLError, RestClient::BadGateway => e
