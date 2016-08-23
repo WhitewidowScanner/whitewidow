@@ -1,4 +1,7 @@
+# Legal info, just to make sure that you know what's going on with this
 module Legal
+
+  # Not entirely sure why I have this, this program isn't illegal
   def legal
     puts <<-_END_
          [ LEGAL DISCLAIMER ]
@@ -51,4 +54,5 @@ module Legal
         _END_
           .red.bold
   end
+
 end

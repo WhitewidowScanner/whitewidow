@@ -1,3 +1,4 @@
+# Built in libraries
 require 'rubygems'
 require 'bundler/setup'
 require 'mechanize'
@@ -13,6 +14,8 @@ require 'optparse'
 require 'tempfile'
 require 'socket'
 require 'net/http'
+
+# Created libraries
 require_relative '../../lib/modules/format'
 require_relative '../../lib/misc/credits'
 require_relative '../../lib/misc/legal'
@@ -20,6 +23,7 @@ require_relative '../../lib/misc/spider'
 require_relative '../../lib/modules/copy'
 require_relative '../../lib/modules/site_info'
 
+# Modules that need to be included
 include Format
 include Credits
 include Legal
@@ -27,6 +31,7 @@ include Whitewidow
 include Copy
 include SiteInfo
 
+# Constants used throughout the program
 PATH = Dir.pwd
 VERSION = Whitewidow.version
 SEARCH = File.readlines("#{PATH}/lib/lists/search_query.txt").sample

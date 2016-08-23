@@ -29,25 +29,9 @@
 ########################################################################################################################
 #
 # TODO list:
-#
-# - Add advanced decoding, what advanced decoding will do is attempt to decode multiple parameters of a URL. So if a URL
-#   has more than one equal sign if the first attempts fail, it will attempt to inject SQL vuln syntax into the other
-#   equal sign parameters
-#
-# - Fix IO encoder error, I have a general idea on how to fix this error, the only problem is it keeps happening when
-#   I'm not ready for it to (shocking right?). So I'm working on this, don't worry. I'm about 90% sure that it has
-#   something to do with the fact that the URL is multi encoded, so I'll have to figure out a way to decode the URL's
-#   further if the program throws an encoding error.
-#
-# - Make whitewidow capable of scraping more then one page. Right now whitewidow can only scrape a max of 10 URL's at
-#   a time. That's the first page of Google if you're lucky. However the mechanize gem does indeed give the ability
-#   to sort through pages, no I am not good with the mechanize gem. I am still trying to figure out how to use it.
-#
-# - Will be adding a feature where the program will automatically delete bad search queries, and replace them with
-#   possible good search queries. For example if a search query produces no results it will be deleted, and replaced by
-#   another one that will be in a separate file. This will be added along with the upgrade of scraping multiple pages.
-#   I have begun working on this, the search query list that will replace the deleted queries will be encoded, and I will
-#   be adding a module to decode and add the search queries into the file they will be deleted from
+#  - Fix the YAML file with real agents so that will work
+#  - Refactor modules to classes
+#  - Fix the rescue clauses so that they will work
 #
 ########################################################################################################################
 #
@@ -74,13 +58,22 @@
 #
 ########################################################################################################################
 
+# I like how I wrote all these comments and completely failed to comment my own code, what the hell was I thinking?
+# Then again this was like my first ever program so... I'll make it that much better
+
 require_relative 'lib/imports/constants_and_requires'
 
+#
+# Usage page, shows basic shell of commands
+#
 def usage_page
   Format.usage("You can run me with the following flags: #{File.basename(__FILE__)} -[d|e|h] -[f] <path/to/file/if/any>")
   exit
 end
 
+#
+# Examples page, gives info on how to use the prorgam
+#
 def examples_page
   Format.usage('This is my examples page, I\'ll show you a few examples of how to get me to do what you want.')
   Format.usage('Running me with a file: whitewidow.rb -f <path/to/file> keep the file inside of one of my directories.')
@@ -89,21 +82,37 @@ def examples_page
   Format.usage('Running me without a flag will show you the usage page. Not descriptive at all but gets the point across')
 end
 
+#
+# Append into the OPTIONS constant so that we can call the information from there
+#
 OptionParser.new do |opt|
   opt.on('-f FILE', '--file FILE', "Pass me a file name") { |o| OPTIONS[:file] = o }
   opt.on('-d', '--default', "Run me in default mode, I'll scrape Google") { |o| OPTIONS[:default] = o }
   opt.on('-e', '--example', "Show examples page") { |o| OPTIONS[:example] = o }
 end.parse!
 
+#
+# Method for Nokogiri so I don't have to continually type Nokogiri::HTML
+#
+# @param [String] site
 def page(site)
   Nokogiri::HTML(RestClient.get(site))
 end
 
+#
+# This is actually pretty smart, it's used to parse the HTML
+#
+# @param [String] site
+# @param [String] tag
+# @param [Integer] i
 def parse(site, tag, i)
   parsing = page(site)
   parsing.css(tag)[i].to_s
 end
 
+#
+# File formatting
+#
 def format_file
   Format.info('Writing to temporary file..')
   if File.exists?(OPTIONS[:file])
@@ -131,6 +140,9 @@ def format_file
   end
 end
 
+#
+# Get the URLS by connecting to google and scraping for the URLS on the first page
+#
 def get_urls
   Format.info("I'll run in default mode!")
   Format.info("I'm searching for possible SQL vulnerable sites, using search query #{SEARCH}")
@@ -146,7 +158,7 @@ def get_urls
       str_list = str.split(%r{=|&})
       urls = str_list[1]
       next if urls.split('/')[2].start_with? 'stackoverflow.com', 'github.com', 'www.sa-k.net', 'yoursearch.me', 'search1.speedbit.com', 'duckfm.net', 'search.clearch.org', 'webcache.googleusercontent.com'
-      next if urls.start_with?('settings/ads/preferences?hl=en') #<= ADD HERE REMEMBER A COMMA =>
+      next if urls.start_with?('settings/ads/preferences?hl=en') #<= ADD HERE REMEMBER A COMMA => # This doesn't work.
       urls_to_log = URI.decode(urls)
       Format.success("Site found: #{urls_to_log}")
       sleep(1)
@@ -158,8 +170,11 @@ def get_urls
   Format.info("I've dumped possible vulnerable sites into #{PATH}/tmp/SQL_sites_to_check.txt")
 end
 
+#
+# Check the sites that where found for vulnerabilities by checking if they throw a certain error
+#
 def vulnerability_check
-  case
+  case # A case statement without an else
   when OPTIONS[:default]
     file_to_read = "tmp/SQL_sites_to_check.txt"
   when OPTIONS[:file]
@@ -171,9 +186,9 @@ def vulnerability_check
     begin
       Format.info("Parsing page for SQL syntax error: #{vuln.chomp}")
       Timeout::timeout(10) do
-        vulns = vuln.encode(Encoding.find('UTF-8'), {invalid: :replace, undef: :replace, replace: ''})
+        vulns = vuln.encode(Encoding.find('UTF-8'), {invalid: :replace, undef: :replace, replace: ''}) # Force encoding to UTF-8
         begin
-          if parse("#{vulns.chomp}'", 'html', 0)[/You have an error in your SQL syntax/]
+          if parse("#{vulns.chomp}'", 'html', 0)[/You have an error in your SQL syntax/] # IS this really what I'm relying on?
             Format.site_found(vulns.chomp)
             File.open("#{PATH}/tmp/SQL_VULN.txt", "a+") { |s| s.puts(vulns) }
             sleep(1)
@@ -186,17 +201,20 @@ def vulnerability_check
           Format.warning("URL: #{vulns.chomp} failed to load dumped to non_exploitable.txt")
           File.open("#{PATH}/log/non_exploitable.txt", "a+") { |s| s.puts(vulns) }
           next
-          sleep(1)
+          sleep(1) # A random sleep that is never run
         end
       end
     rescue RestClient::ResourceNotFound, RestClient::InternalServerError, RestClient::RequestTimeout, RestClient::Gone, RestClient::SSLCertificateNotVerified, RestClient::Forbidden, OpenSSL::SSL::SSLError, Errno::ECONNREFUSED, URI::InvalidURIError, Errno::ECONNRESET, Timeout::Error, OpenSSL::SSL::SSLError, Zlib::GzipFile::Error, RestClient::MultipleChoices, RestClient::Unauthorized, SocketError, RestClient::BadRequest, RestClient::ServerBrokeConnection, RestClient::MaxRedirectsReached => e
-      Format.err("URL: #{vuln.chomp} failed due to an error while connecting, URL dumped to non_exploitable.txt")
+      Format.err("URL: #{vuln.chomp} failed due to an error while connecting, URL dumped to non_exploitable.txt") # I'll be putting the error also
       File.open("#{PATH}/log/non_exploitable.txt", "a+") { |s| s.puts(vuln) }
       next
     end
   end
 end
 
+#
+# A case statement that is empty
+#
 case
   when OPTIONS[:default]
     begin

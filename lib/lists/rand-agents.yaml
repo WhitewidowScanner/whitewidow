@@ -1,3 +1,6 @@
+# This doesn't work, you can't have a hash with the same keys, and a YAML file is basically a hash.
+# This is literally pointless, everyone can see who you are because there's no spoofing. Don't worry I'll be
+# fixing this.
 'user_agents':
   'Mozilla': '5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)'
   'Mozilla': '5.0 (compatible; Yahoo! Slurp; http://help.yahoo.com/help/us/ysearch/slurp)'
