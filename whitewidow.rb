@@ -74,41 +74,7 @@
 #
 ########################################################################################################################
 
-require 'rubygems'
-require 'bundler/setup'
-require 'mechanize'
-require 'nokogiri'
-require 'rest-client'
-require 'timeout'
-require 'uri'
-require 'fileutils'
-require 'colored'
-require 'yaml'
-require 'date'
-require 'optparse'
-require 'tempfile'
-require 'socket'
-require 'net/http'
-require_relative 'lib/format.rb'
-require_relative 'lib/credits.rb'
-require_relative 'lib/legal.rb'
-require_relative 'lib/spider.rb'
-require_relative 'lib/copy.rb'
-require_relative 'lib/site_info.rb'
-
-include Format
-include Credits
-include Legal
-include Whitewidow
-include Copy
-include SiteInfo
-
-PATH = Dir.pwd
-VERSION = Whitewidow.version
-SEARCH = File.readlines("#{PATH}/lib/search_query.txt").sample
-info = YAML.load_file("#{PATH}/lib/rand-agents.yaml")
-@user_agent = info['user_agents'][info.keys.sample]
-OPTIONS = {}
+require_relative 'lib/imports/constants_and_requires'
 
 def usage_page
   Format.usage("You can run me with the following flags: #{File.basename(__FILE__)} -[d|e|h] -[f] <path/to/file/if/any>")
@@ -124,9 +90,9 @@ def examples_page
 end
 
 OptionParser.new do |opt|
-  opt.on('-f FILE', '--file FILE', 'Pass a file name to me, remember to drop the first slash. /tmp/txt.txt <= INCORRECT tmp/text.txt <= CORRECT') { |o| OPTIONS[:file] = o }
-  opt.on('-d', '--default', 'Run me in default mode, this will allow me to scrape Google using my built in search queries.') { |o| OPTIONS[:default] = o }
-  opt.on('-e', '--example', 'Shows my example page, gives you some pointers on how this works.') { |o| OPTIONS[:example] = o }
+  opt.on('-f FILE', '--file FILE', "Pass me a file name") { |o| OPTIONS[:file] = o }
+  opt.on('-d', '--default', "Run me in default mode, I'll scrape Google") { |o| OPTIONS[:default] = o }
+  opt.on('-e', '--example', "Show examples page") { |o| OPTIONS[:example] = o }
 end.parse!
 
 def page(site)
