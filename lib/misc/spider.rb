@@ -42,7 +42,7 @@ module Whitewidow
 
 
 
-    _END_ # Cool ass fuckin' spider thingy
+    _END_
   end
 
   # The version the program is currently in
