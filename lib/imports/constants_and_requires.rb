@@ -7,7 +7,6 @@ require 'rest-client'
 require 'timeout'
 require 'uri'
 require 'fileutils'
-require 'colored'
 require 'yaml'
 require 'date'
 require 'optparse'
@@ -17,16 +16,13 @@ require 'net/http'
 
 # Created libraries
 require_relative '../../lib/modules/format'
-require_relative '../../lib/misc/credits'
-require_relative '../../lib/misc/legal'
 require_relative '../../lib/misc/spider'
 require_relative '../../lib/modules/copy'
 require_relative '../../lib/modules/site_info'
+require_relative '../../lib/modules/classes/string_expansion'
 
 # Modules that need to be included
 include Format
-include Credits
-include Legal
 include Whitewidow
 include Copy
 include SiteInfo
@@ -45,7 +41,9 @@ USER_AGENTS = { # Temporary fix for user agents until I can refactor the YAML fi
     10 => 'Mozilla/5.0 (compatible; bingbot/2.0; +http://www.bing.com/bingbot.htm)',
 }
 PATH = Dir.pwd
-VERSION = Whitewidow.version
+INFO = Whitewidow::Credits.new
 SEARCH = File.readlines("#{PATH}/lib/lists/search_query.txt").sample
 OPTIONS = {}
+URLS = /https?:\/\/[\S]+/
+COPY = Copy::CopyToFile.new
 @user_agent = USER_AGENTS[rand(1..10)]

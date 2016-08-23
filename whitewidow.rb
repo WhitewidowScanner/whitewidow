@@ -1,66 +1,5 @@
 #!/usr/local/env ruby
 
-########################################################################################################################
-#
-# Welcome to the whitewidow source code, below you will find a whole ton of rescue clauses, yes they are necessary.
-# Do to the amount of possible errors it's very hard to catch them all, I'm still finding new errors from RestClient,
-# Nokogiri, Kernel, etc. I did a count of how many I've found so far and it's added up to about 60. Now having said
-# that, there are defiantly a couple known bugs that are being worked on.
-#
-########################################################################################################################
-#
-# Known Bugs:
-#
-# - One known bug is that every now and then there's an encoding error, I haven't really figured out how to fix this bug
-#   yet, but I am working on it. This bug, however, won't error out the program and will continue running, it looks
-#   like something along the lines of: 'IO encoder error <some hex> <some more hex>'
-#   If you have any information on how to fix this error please let me know. Make a bug report or something, fork the
-#   project and start working on it. Do whatever you need to do, to get that thing to out of the way.
-#
-# - Another known bug has something to do with how the search queries react when the program is run in default mode.
-#   Occasionally you will get a search that looks something like this: searches/preferencess?en=la
-#   When you receive this search you may ignore it, because the program will take it as a non exploitable, however,
-#   I would like to ask for your help in this matter, when you receive a search result that looks like that one
-#   (THE END (en=la) WILL BE DIFFERENT FOR YOU!!) Please scroll down to where you get the urls and add your search result to
-#   where it says #<= ADD HERE =>
-#   This will require you to fork the repo, and contribute, you may also list the search result in the bug reports
-#   HERE: https://github.com/Ekultek/whitewidow/issues/8
-#
-########################################################################################################################
-#
-# TODO list:
-#  - Fix the YAML file with real agents so that will work
-#  - Refactor modules to classes
-#  - Fix the rescue clauses so that they will work
-#
-########################################################################################################################
-#
-# Some basic information:
-#
-# So since you're here, and reading this, I'm guessing you want to learn how to use this program, well it's pretty
-# simple, as of the new release whitewidow no longer uses ARGV, and uses optparser to parse your options, read the
-# readme because your options have changed!
-#
-# - To scan a file containing the URL's:
-#
-#   ruby whitewidow.rb -f <path/to/file>
-#
-#   File will automatically be formatted, so if there are spaces or problems with the file, it will be formatted and
-#   run as #sites.txt, your original file will also remain so don't worry about that.
-#
-# - To run whitewidow in default mode, and scrape Google for URL's:
-#
-#   ruby whitewidow.rb -d
-#
-#   This will scrape Google for the URL's by using one of the search queries in the lib directory. There's a bunch of
-#   them so chances are you won't get the same one twice in a row. However, there are no guarantees that you will
-#   find vulnerable sites this way. The easiest way is to pull a bunch of URL's and run them through this program.
-#
-########################################################################################################################
-
-# I like how I wrote all these comments and completely failed to comment my own code, what the hell was I thinking?
-# Then again this was like my first ever program so... I'll make it that much better
-
 require_relative 'lib/imports/constants_and_requires'
 
 #
@@ -162,9 +101,7 @@ def get_urls
       urls_to_log = URI.decode(urls)
       Format.success("Site found: #{urls_to_log}")
       sleep(1)
-      sql_syntax = ["'", "`", "--", ";"].each do |sql|
-        File.open("#{PATH}/tmp/SQL_sites_to_check.txt", 'a+') { |s| s.puts("#{urls_to_log}#{sql}") }
-      end
+      %w(' ` -- ;).each { |sql| File.open("#{PATH}/tmp/SQL_sites_to_check.txt", 'a+') { |s| s.puts("#{urls_to_log}#{sql}") } }
     end
   end
   Format.info("I've dumped possible vulnerable sites into #{PATH}/tmp/SQL_sites_to_check.txt")
@@ -218,18 +155,17 @@ end
 case
   when OPTIONS[:default]
     begin
-      Whitewidow.spider
+      INFO.spider
       sleep(1)
-      Credits.credits
+      INFO.credits
       sleep(1)
-      Legal.legal
       get_urls
       vulnerability_check unless File.size("#{PATH}/tmp/SQL_sites_to_check.txt") == 0
-      Format.warn("No sites found for search querie: #{SEARCH}. Logging into error_log.LOG. Create a issue regarding this.") if File.size("#{PATH}/tmp/SQL_sites_to_check.txt") == 0
+      Format.warning("No sites found for search querie: #{SEARCH}. Logging into error_log.LOG. Create a issue regarding this.") if File.size("#{PATH}/tmp/SQL_sites_to_check.txt") == 0
       File.open("#{PATH}/log/error_log.LOG", 'a+') { |s| s.puts("No sites found with search querie #{SEARCH}") } if File.size("#{PATH}/tmp/SQL_sites_to_check.txt") == 0
       File.truncate("#{PATH}/tmp/SQL_sites_to_check.txt", 0)
       Format.info("I'm truncating SQL_sites_to_check file back to #{File.size("#{PATH}/tmp/SQL_sites_to_check.txt")}")
-      Copy.file("#{PATH}/tmp/SQL_VULN.txt", "#{PATH}/log/SQL_VULN.LOG")
+      COPY.file("#{PATH}/tmp/SQL_VULN.txt", "#{PATH}/log/SQL_VULN.LOG")
       File.truncate("#{PATH}/tmp/SQL_VULN.txt", 0)
       Format.info("I've run all my tests and queries, and logged all important information into #{PATH}/log/SQL_VULN.LOG")
     rescue Mechanize::ResponseCodeError, RestClient::ServiceUnavailable, OpenSSL::SSL::SSLError, RestClient::BadGateway => e
@@ -240,17 +176,16 @@ case
     end
   when OPTIONS[:file]
     begin
-      Whitewidow.spider
+      INFO.spider
       sleep(1)
-      Credits.credits
+      INFO.credits
       sleep(1)
-      Legal.legal
       Format.info('Formatting file')
       format_file
       vulnerability_check
       File.truncate("#{PATH}/tmp/SQL_sites_to_check.txt", 0)
       Format.info("I'm truncating SQL_sites_to_check file back to #{File.size("#{PATH}/tmp/SQL_sites_to_check.txt")}")
-      Copy.file("#{PATH}/tmp/SQL_VULN.txt", "#{PATH}/log/SQL_VULN.LOG")
+      COPY.file("#{PATH}/tmp/SQL_VULN.txt", "#{PATH}/log/SQL_VULN.LOG")
       File.truncate("#{PATH}/tmp/SQL_VULN.txt", 0)
       Format.info("I've run all my tests and queries, and logged all important information into #{PATH}/log/SQL_VULN.LOG") unless File.size("#{PATH}/log/SQL_VULN.LOG") == 0
     rescue Mechanize::ResponseCodeError, RestClient::ServiceUnavailable, OpenSSL::SSL::SSLError, RestClient::BadGateway => e

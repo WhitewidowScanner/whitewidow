@@ -1,7 +1,6 @@
 GEM
   remote: https://rubygems.org/
   specs:
-    colored (1.2)
     domain_name (0.5.20160615)
       unf (>= 0.0.5, < 1.0.0)
     ffi (1.9.14-x86-mingw32)
@@ -42,7 +41,6 @@ PLATFORMS
   x86-mingw32
 
 DEPENDENCIES
-  colored
   mechanize
   nokogiri
   rest-client

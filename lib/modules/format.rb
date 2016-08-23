@@ -4,27 +4,27 @@ module Format
   # @param [String] *args
   # Yellow is a warning
   def warning(input)
-    puts "[#{Time.now.strftime("%T")} WARNING]#{input}".yellow.bold
+    puts "[" + "#{Time.now.strftime("%T")}".purple + " WARNING".yellow + "]" + " #{input}".yellow
   end
 
   # Red is a bad thing, this particular instance will kill the program
   def fatal(input)
-    puts "[#{Time.now.strftime("%T")} FATAL]#{input}".red.bold
+    puts "[" + "#{Time.now.strftime("%T")}".purple + " FATAL".red + "]" +  " #{input}".red
   end
 
   # Red is still bad
   def err(input)
-    puts "[#{Time.now.strftime("%T")} ERROR]#{input}".red.bold
+    puts "[" + "#{Time.now.strftime("%T")}".purple + " ERROR".red + "]" + " #{input}".red
   end
 
   # Green is good
   def info(input)
-    puts "[#{Time.now.strftime("%T")} INFO]#{input}".green.bold
+    puts "[" + "#{Time.now.strftime("%T")}".purple + " INFO".green + "]" + " #{input}".green
   end
 
   # Found a site wooohooo
   def success(input)
-    puts "[#{Time.now.strftime("%T")} SUCCESS]#{input}".white.bold
+    puts "[" + "#{Time.now.strftime("%T")}".purple + " SUCCESS" + "]" + " #{input}"
   end
 
   # Throws the valuable information that you will need, this is very good.
@@ -34,11 +34,11 @@ module Format
     puts <<-_END_
     [ x ] -----------------------------------------------
 
-    [#{Time.now.strftime("%T").green.bold} #{success}]
+    [#{Time.now.strftime("%T").purple} #{success}]
 
-    [ X ]    Injection Point       :: #{input.cyan.bold}
-    [ X ]    Server Specifications :: #{SiteInfo.capture_host(input).cyan.bold}
-    [ X ]    Possible IP Address   :: #{SiteInfo.capture_ip(input).cyan.bold}
+    [ X ]    Injection Point       :: #{input.cyan}
+    [ X ]    Server Specifications :: #{SiteInfo.capture_host(input).cyan}
+    [ X ]    Possible IP Address   :: #{SiteInfo.capture_ip(input).cyan}
 
             _END_
   end
@@ -46,7 +46,7 @@ module Format
   # And a normal usage page
   def usage(input)
     puts
-    puts "[USAGE]#{input}".white.bold
+    puts "[USAGE]#{input}".white
     puts
   end
 
