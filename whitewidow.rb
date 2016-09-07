@@ -99,8 +99,7 @@ def get_urls
       str = link.href.to_s
       str_list = str.split(%r{=|&})
       urls = str_list[1]
-      #next if urls.split('/')[2].start_with? 'stackoverflow.com', 'github.com', 'www.sa-k.net', 'yoursearch.me', 'search1.speedbit.com', 'duckfm.net', 'search.clearch.org', 'webcache.googleusercontent.com'
-      #next if urls.start_with?('settings/ads/preferences?hl=en') #<= ADD HERE REMEMBER A COMMA => # This doesn't work.
+      #check_urls_for_blacklist(urls)
       urls_to_log = URI.decode(urls)
       Format.success("Site found: #{urls_to_log}")
       sleep(1)
@@ -111,7 +110,15 @@ def get_urls
   end
   Format.info("I've dumped possible vulnerable sites into #{PATH}/tmp/SQL_sites_to_check.txt")
 end
-
+=begin # trying to fix the google cache literally made it worse lol
+def check_urls_for_blacklist(url)
+  File.readlines("#{PATH}/lib/lists/blacklist.txt").each do |blacklist|
+    if url.to_s.include?(blacklist)
+      File.open("#{PATH}/log/non_exploitable.txt", "a+") { |s| s.puts(url) }
+    end
+  end
+end
+=end
 #
 # Check the sites that where found for vulnerabilities by checking if they throw a certain error
 #
@@ -167,7 +174,7 @@ case
       Legal.legal
       get_urls
       vulnerability_check unless File.size("#{PATH}/tmp/SQL_sites_to_check.txt") == 0
-      Format.warning("No sites found for search querie: #{SEARCH}. Logging into error_log.LOG. Create a issue regarding this.") if File.size("#{PATH}/tmp/SQL_sites_to_check.txt") == 0
+      Format.warning("No sites found for search query: #{SEARCH}. Logging into error_log.LOG. Create a issue regarding this.") if File.size("#{PATH}/tmp/SQL_sites_to_check.txt") == 0
       File.open("#{PATH}/log/error_log.LOG", 'a+') { |s| s.puts("No sites found with search querie #{SEARCH}") } if File.size("#{PATH}/tmp/SQL_sites_to_check.txt") == 0
       File.truncate("#{PATH}/tmp/SQL_sites_to_check.txt", 0)
       Format.info("I'm truncating SQL_sites_to_check file back to #{File.size("#{PATH}/tmp/SQL_sites_to_check.txt")}")

@@ -681,7 +681,6 @@ view_items.php?id=
 customer/board.htm?mode=
 help/com_view.html?code=
 n_replyboard.php?typeboard=
-eng_board/view.php?T****=
 prev_results.php?prodID=
 bbs/view.php?no=
 gnu/?doc=
