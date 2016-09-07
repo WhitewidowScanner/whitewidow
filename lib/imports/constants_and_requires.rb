@@ -32,6 +32,7 @@ include Copy
 include SiteInfo
 
 # Constants used throughout the program
+=begin
 USER_AGENTS = { # Temporary fix for user agents until I can refactor the YAML file
     1 => 'Mozilla/5.0 (compatible; 008/0.83; http://www.80legs.com/webcrawler.html) Gecko/2008032620',
     2 => 'Mozilla/5.0 (compatible; U; ABrowse 0.6; Syllable) AppleWebKit/420+ (KHTML, like Gecko)',
@@ -44,8 +45,10 @@ USER_AGENTS = { # Temporary fix for user agents until I can refactor the YAML fi
     9 => 'Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:15.0) Gecko/20100101 Firefox/15.0.1',
     10 => 'Mozilla/5.0 (compatible; bingbot/2.0; +http://www.bing.com/bingbot.htm)',
 }
+=end
 PATH = Dir.pwd
 VERSION = Whitewidow.version
 SEARCH = File.readlines("#{PATH}/lib/lists/search_query.txt").sample
+USER_AGENTS = YAML.load_file("#{PATH}/lib/lists/rand-age.yml")
 OPTIONS = {}
-@user_agent = USER_AGENTS[rand(1..10)]
+USER_AGENT = USER_AGENTS[rand(1..10)]
