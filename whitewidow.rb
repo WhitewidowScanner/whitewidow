@@ -14,7 +14,7 @@ def usage_page
 end
 
 #
-# Examples page, gives info on how to use the prorgam
+# Examples page, gives info on how to use the program
 #
 def examples_page
   Format.usage('This is my examples page, I\'ll show you a few examples of how to get me to do what you want.')
@@ -99,14 +99,14 @@ def get_urls
       str = link.href.to_s
       str_list = str.split(%r{=|&})
       urls = str_list[1]
-      next if urls.split('/')[2].start_with? 'stackoverflow.com', 'github.com', 'www.sa-k.net', 'yoursearch.me', 'search1.speedbit.com', 'duckfm.net', 'search.clearch.org', 'webcache.googleusercontent.com'
-      next if urls.start_with?('settings/ads/preferences?hl=en') #<= ADD HERE REMEMBER A COMMA => # This doesn't work.
+      #next if urls.split('/')[2].start_with? 'stackoverflow.com', 'github.com', 'www.sa-k.net', 'yoursearch.me', 'search1.speedbit.com', 'duckfm.net', 'search.clearch.org', 'webcache.googleusercontent.com'
+      #next if urls.start_with?('settings/ads/preferences?hl=en') #<= ADD HERE REMEMBER A COMMA => # This doesn't work.
       urls_to_log = URI.decode(urls)
       Format.success("Site found: #{urls_to_log}")
       sleep(1)
-      sql_syntax = ["'", "`", "--", ";"].each do |sql|
+      %w(' ` -- ;).each { |sql|
         File.open("#{PATH}/tmp/SQL_sites_to_check.txt", 'a+') { |s| s.puts("#{urls_to_log}#{sql}") }
-      end
+      }
     end
   end
   Format.info("I've dumped possible vulnerable sites into #{PATH}/tmp/SQL_sites_to_check.txt")
@@ -142,8 +142,8 @@ def vulnerability_check
         rescue Timeout::Error, OpenSSL::SSL::SSLError
           Format.warning("URL: #{vulns.chomp} failed to load dumped to non_exploitable.txt")
           File.open("#{PATH}/log/non_exploitable.txt", "a+") { |s| s.puts(vulns) }
+          sleep(1)
           next
-          sleep(1) # A random sleep that is never run
         end
       end
     rescue RestClient::ResourceNotFound, RestClient::InternalServerError, RestClient::RequestTimeout, RestClient::Gone, RestClient::SSLCertificateNotVerified, RestClient::Forbidden, OpenSSL::SSL::SSLError, Errno::ECONNREFUSED, URI::InvalidURIError, Errno::ECONNRESET, Timeout::Error, OpenSSL::SSL::SSLError, Zlib::GzipFile::Error, RestClient::MultipleChoices, RestClient::Unauthorized, SocketError, RestClient::BadRequest, RestClient::ServerBrokeConnection, RestClient::MaxRedirectsReached => e
@@ -167,7 +167,7 @@ case
       Legal.legal
       get_urls
       vulnerability_check unless File.size("#{PATH}/tmp/SQL_sites_to_check.txt") == 0
-      Format.warn("No sites found for search querie: #{SEARCH}. Logging into error_log.LOG. Create a issue regarding this.") if File.size("#{PATH}/tmp/SQL_sites_to_check.txt") == 0
+      Format.warning("No sites found for search querie: #{SEARCH}. Logging into error_log.LOG. Create a issue regarding this.") if File.size("#{PATH}/tmp/SQL_sites_to_check.txt") == 0
       File.open("#{PATH}/log/error_log.LOG", 'a+') { |s| s.puts("No sites found with search querie #{SEARCH}") } if File.size("#{PATH}/tmp/SQL_sites_to_check.txt") == 0
       File.truncate("#{PATH}/tmp/SQL_sites_to_check.txt", 0)
       Format.info("I'm truncating SQL_sites_to_check file back to #{File.size("#{PATH}/tmp/SQL_sites_to_check.txt")}")
