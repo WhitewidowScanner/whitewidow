@@ -1,53 +1,20 @@
 # The opening, this will output every time the program is run.
-# That seems kind of annoying so I'll probably change this
 module Whitewidow
 
-  # Spider, big fancy spider thingy
   def spider
     puts <<-_END_
-
-
-           ;               ,
-         ,;                 '.
-        ;:                   :;
-       ::                     ::
-       ::       White         ::
-       ':       Widow         :
-        :.                    :
-     ;' ::                   ::  '
-    .'  ';                   ;'  '.
-   ::    :;                 ;:    ::
-   ;      :;.             ,;:     ::
-   :;      :;:           ,;"      ::
-   ::.      ':;  ..,.;  ;:'     ,.;:
-    "'"...   '::,::::: ;:   .;.;""'
-        '"""....;:::::;,;.;"""
-    .:::.....'"':::::::'",...;::::;.
-   ;:' '""'"";.,;:::::;.'""""""  ':;
-  ::'         ;::;:::;::..         :;
- ::         ,;:::::::::::;:..       ::
- ;'     ,;;:;::::::::::::::;";..    ':.
-::     ;:"  ::::::"""'::::::  ":     ::
- :.    ::   ::::::;  :::::::   :     ;
-  ;    ::   :::::::  :::::::   :    ;
-   '   ::   ::::::....:::::'  ,:   '
-    '  ::    :::::::::::::"   ::
-       ::     ':::::::::"'    ::
-       ':       """""""'      ::
-        ::                   ;:
-        ':;                 ;:"
-          ';              ,;'
-            "'           '"
-              '
-
-
-
+88    88
+88    88 HITE
+88 88 88      88    88
+ 88  88       88    88 IDOW
+              88 88 88
+               88  88
     _END_
   end
 
   # The version the program is currently in
   def version
-    '1.0.6.2' # Version number
+    '1.0.6.3' # Version number
   end
 
 end
