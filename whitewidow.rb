@@ -89,7 +89,7 @@ def get_urls
   Format.info("I'll run in default mode!")
   Format.info("I'm searching for possible SQL vulnerable sites, using search query #{SEARCH}")
   agent = Mechanize.new
-  agent.user_agent = @user_agent
+  agent.user_agent = USER_AGENT
   page = agent.get('http://www.google.com/')
   google_form = page.form('f')
   google_form.q = "#{SEARCH}"
