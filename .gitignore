@@ -1,2 +1,3 @@
-.idea
+.idea/*xml
+.idea/*iml
 Gemfile.lock
