@@ -1,3 +1,9 @@
+#Version 1.0.6.3
+- Fixed user agents issues
+- Reverted complete program to run
+- bumped version number
+- Added all new user agents
+
 #Version 1.0.6 Patches (1.0.6.1)
 - Added around 5,000 more possible search queries
 - Forced encoding to UTF-8, this should take care of the invalid bytes error
