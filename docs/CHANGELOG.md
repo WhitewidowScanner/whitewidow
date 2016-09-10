@@ -1,3 +1,10 @@
+#Version 2.0.0.0
+- Removed colored gem and added string expansion
+- Moved all errors to their own constants
+- Fixed the google webcache issue
+- Added country specific search queries
+- 
+
 #Version 1.0.6.3
 - Fixed user agents issues
 - Reverted complete program to run
