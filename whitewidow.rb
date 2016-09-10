@@ -99,9 +99,7 @@ def get_urls
       str = link.href.to_s
       str_list = str.split(%r{=|&})
       urls = str_list[1]
-      SKIP.each do |blacklist|
-        next if urls.to_s.include?(blacklist)
-      end
+      next if urls.split("/")[2].start_with? *SKIP
       #check_urls_for_blacklist(urls)
       urls_to_log = URI.decode(urls)
       FORMAT.success("Site found: #{urls_to_log}")

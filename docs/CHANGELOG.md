@@ -1,9 +1,14 @@
-#Version 2.0.0.0
+#Version 1.1.0
 - Removed colored gem and added string expansion
 - Moved all errors to their own constants
 - Fixed the google webcache issue
-- Added country specific search queries
-- 
+- Added all th skipped websites to a single constant
+- Edited the format.rb file
+- Edited some search queries
+- Edited the welcome banner
+- Edited readme
+- Grammar fixes and minor text fixes
+- Bumped version number
 
 #Version 1.0.6.3
 - Fixed user agents issues

@@ -25,7 +25,7 @@ BookDetails.php?ID=
 browse.php?catid=
 browse_item_details.php
 Browse_Item_Details.php?Store_Id=
-buy.php?
+buy.php?ID=
 buy.php?bookid=
 bycategory.php?id=
 cardinfo.php?card=
@@ -36,11 +36,11 @@ cart_additem.php?id=
 cart_validate.php?id=
 cartadd.php?id=
 cat.php?iCat=
-catalog.php
+catalog.php?id=
 catalog.php?CatalogID=
 catalog_item.php?ID=
 catalog_main.php?catid=
-category.php
+category.php?id=
 category.php?catid=
 category_list.php?id=
 categorydisplay.php?catid=
@@ -63,7 +63,7 @@ details.php?Press_Release_ID=
 details.php?Product_ID=
 details.php?Service_ID=
 display_item.php?id=
-displayproducts.php
+displayproducts.php?id=
 downloadTrial.php?intProdID=
 emailproduct.php?itemid=
 emailToFriend.php?idProduct=
@@ -111,7 +111,7 @@ page.php?PartID=
 payment.php?CartID=
 pdetail.php?item_id=
 powersearch.php?CartId=
-price.php
+price.php?id=
 privacy.php?cartID=
 prodbycat.php?intCatalogID=
 prodetails.php?prodid=
@@ -123,7 +123,7 @@ productDetails.php?idProduct=
 productDisplay.php
 productinfo.php?item=
 productlist.php?ViewType=Category&CategoryID=
-productpage.php
+productpage.php?ID=
 products.php?ID=
 products.php?keyword=
 products_category.php?CategoryID=
@@ -185,7 +185,7 @@ storefronts.php?title=
 storeitem.php?item=
 StoreRedirect.php?ID=
 subcategories.php?id=
-tek9.php?
+tek9.php?id=
 template.php?Action=Item&pid=
 topic.php?ID=
 tuangou.php?bookid=

@@ -53,12 +53,13 @@ SEARCH = File.readlines("#{PATH}/lib/lists/search_query.txt").sample
 agents = YAML.load_file("#{PATH}/lib/lists/rand-age.yml")
 OPTIONS = {}
 USER_AGENT = agents[rand(1..20)]
-SKIP = %w(/webcache.googleusercontent.com stackoverflow.com github.com)
+SKIP = %w(stackoverflow.com github.com www.sa-k.net yoursearch.me search1.speedbit.com duckfm.net
+          search.clearch.org webcache.googleusercontent.com m.facebook.com)
 LOADING_ERRORS = [RestClient::ResourceNotFound, RestClient::InternalServerError, RestClient::RequestTimeout,
-                RestClient::Gone, RestClient::SSLCertificateNotVerified, RestClient::Forbidden,
-                OpenSSL::SSL::SSLError, Errno::ECONNREFUSED, URI::InvalidURIError, Errno::ECONNRESET,
-                Timeout::Error, OpenSSL::SSL::SSLError, Zlib::GzipFile::Error, RestClient::MultipleChoices,
-                RestClient::Unauthorized, SocketError, RestClient::BadRequest, RestClient::ServerBrokeConnection,
-                RestClient::MaxRedirectsReached]
+                  RestClient::Gone, RestClient::SSLCertificateNotVerified, RestClient::Forbidden,
+                  OpenSSL::SSL::SSLError, Errno::ECONNREFUSED, URI::InvalidURIError, Errno::ECONNRESET,
+                  Timeout::Error, OpenSSL::SSL::SSLError, Zlib::GzipFile::Error, RestClient::MultipleChoices,
+                  RestClient::Unauthorized, SocketError, RestClient::BadRequest, RestClient::ServerBrokeConnection,
+                  Errno::ECONNABORTED]
 FATAL_ERRORS = [Mechanize::ResponseCodeError, RestClient::ServiceUnavailable, OpenSSL::SSL::SSLError,
                 RestClient::BadGateway]
