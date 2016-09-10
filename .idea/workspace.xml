@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fae855c0-4fb5-443d-971b-661d3547b6f5" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docs/LICENSE.txt" />
     </list>
     <ignored path="whitewidow.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -89,7 +89,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="README.md" pinned="false" current-in-tab="true">
+      <file leaf-file-name="README.md" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/README.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
@@ -98,6 +98,16 @@
                 <folding />
               </first_editor>
               <second_editor />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="LICENSE.txt" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/docs/LICENSE.txt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="136">
+              <caret line="8" column="60" selection-start-line="8" selection-start-column="60" selection-end-line="8" selection-end-column="60" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -117,16 +127,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="51">
               <caret line="3" column="0" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="whitewidow.rb" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/whitewidow.rb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="812">
-              <caret line="216" column="0" selection-start-line="216" selection-start-column="0" selection-end-line="216" selection-end-column="3" />
               <folding />
             </state>
           </provider>
@@ -165,6 +165,7 @@
         <option value="$PROJECT_DIR$/log/non_exploitable.txt" />
         <option value="$PROJECT_DIR$/log/SQL_VULN.LOG" />
         <option value="$PROJECT_DIR$/README.md" />
+        <option value="$PROJECT_DIR$/docs/LICENSE.txt" />
       </list>
     </option>
   </component>
@@ -503,12 +504,12 @@
       <workItem from="1473286752416" duration="5288000" />
       <workItem from="1473380162028" duration="795000" />
       <workItem from="1473380987147" duration="1374000" />
-      <workItem from="1473470745667" duration="9092000" />
+      <workItem from="1473470745667" duration="9289000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="16610000" />
+    <option name="totallyTimeSpent" value="16807000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1938" height="1050" extended-state="6" />
@@ -910,6 +911,14 @@
             <folding />
           </first_editor>
           <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/docs/LICENSE.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="60" selection-start-line="8" selection-start-column="60" selection-end-line="8" selection-end-column="60" />
+          <folding />
         </state>
       </provider>
     </entry>
