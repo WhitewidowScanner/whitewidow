@@ -1,9 +1,11 @@
 # Legal info, just to make sure that you know what's going on with this
 module Legal
 
-  # Not entirely sure why I have this, this program isn't illegal
-  def legal
-    puts <<-_END_
+  class Legal
+
+    # Not entirely sure why I have this, this program isn't illegal
+    def legal
+      puts <<-_END_
          [ LEGAL DISCLAIMER ]
 
          I was written and created for learning purposes only, I should
@@ -14,13 +16,13 @@ module Legal
 
                  - Blackhat database take overs, to exploit, deface, or
                    steal sensitive material.
-                 - Black mailing the owners of the webpages
+                 - Black mailing the owners of the web pages
                  - Selling personal information found within the databases
                    of the websites discovered to be vulnerable
 
          Is illegal and will not be tolerated. If you plan to use me for any
          of the listed purposes, or for any illegal activity, do not go forward
-         and exit immediatly.
+         and exit immediately.
 
          My owner Ekultek, takes no responsibility for the actions taken
          from the knowledge you have gained from using me.
@@ -46,13 +48,15 @@ module Legal
          Terms of Service.
 
          If for any reason you do not agree with the disclaimer, or terms,
-         please exit this program immediatly.
+         please exit this program immediately.
 
          Having said that, knowledge is not illegal, and I hope you take
          away as much from this program, as I gained from writing it.
 
-        _END_
-          .red.bold
+           _END_
+               .red.bold
+    end
+
   end
 
 end

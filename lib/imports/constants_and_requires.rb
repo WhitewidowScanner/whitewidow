@@ -22,8 +22,10 @@ require_relative '../../lib/misc/spider'
 require_relative '../../lib/modules/copy'
 require_relative '../../lib/modules/site_info'
 require_relative '../../lib/modules/expansion/string_expan'
+require_relative '../../lib/modules/detection'
 
 # Modules that need to be included
+include MultipleParameters
 include Format
 include Credits
 include Legal
@@ -46,20 +48,22 @@ USER_AGENTS = { # Temporary fix for user agents until I can refactor the YAML fi
     10 => 'Mozilla/5.0 (compatible; bingbot/2.0; +http://www.bing.com/bingbot.htm)',
 }
 =end
+@vuln_found = 0
+MULTIPARAMS = MultipleParameters::TestAllParameters.new
 FORMAT = Format::StringFormat.new
 PATH = Dir.pwd
-VERSION = Whitewidow.version
+VERSION = Whitewidow::Misc.new.version
 SEARCH = File.readlines("#{PATH}/lib/lists/search_query.txt").sample
 agents = YAML.load_file("#{PATH}/lib/lists/rand-age.yml")
 OPTIONS = {}
 USER_AGENT = agents[rand(1..20)]
 SKIP = %w(stackoverflow.com github.com www.sa-k.net yoursearch.me search1.speedbit.com duckfm.net
-          search.clearch.org webcache.googleusercontent.com m.facebook.com)
+          search.clearch.org webcache.googleusercontent.com m.facebook.com youtube.com)
 LOADING_ERRORS = [RestClient::ResourceNotFound, RestClient::InternalServerError, RestClient::RequestTimeout,
                   RestClient::Gone, RestClient::SSLCertificateNotVerified, RestClient::Forbidden,
                   OpenSSL::SSL::SSLError, Errno::ECONNREFUSED, URI::InvalidURIError, Errno::ECONNRESET,
                   Timeout::Error, OpenSSL::SSL::SSLError, Zlib::GzipFile::Error, RestClient::MultipleChoices,
                   RestClient::Unauthorized, SocketError, RestClient::BadRequest, RestClient::ServerBrokeConnection,
-                  Errno::ECONNABORTED]
+                  Errno::ECONNABORTED, Zlib::BufError]
 FATAL_ERRORS = [Mechanize::ResponseCodeError, RestClient::ServiceUnavailable, OpenSSL::SSL::SSLError,
                 RestClient::BadGateway]

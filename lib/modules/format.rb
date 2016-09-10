@@ -1,6 +1,4 @@
 # Color format the output of the program based on severity of the issue
-require_relative "../../lib/modules/expansion/string_expan"
-
 module Format
 
   class StringFormat
@@ -45,13 +43,6 @@ module Format
     [ X ]    Possible IP Address   :: #{SiteInfo.capture_ip(input).cyan}
 
       _END_
-    end
-
-    # And a normal usage page
-    def usage(input)
-      puts
-      puts "[USAGE]#{input}".white
-      puts
     end
 
   end

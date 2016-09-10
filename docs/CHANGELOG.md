@@ -1,3 +1,16 @@
+#Version 1.1.1
+- Minor text and grammatical fixes
+- Moved the misc (banner, etc) and the legal into a class
+- Removed blacklist.txt
+- Added license
+- Added badges to readme
+- Added multiple parameter testing (still working on it it works though)
+- Added flags, you now choose to see the credits or the legal information
+- Removed examples page because it was pointless
+- Added a flag so that you can hide the banner
+- Edited readme
+- Bumped version number
+
 #Version 1.1.0
 - Removed colored gem and added string expansion
 - Moved all errors to their own constants

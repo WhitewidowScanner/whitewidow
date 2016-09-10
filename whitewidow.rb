@@ -14,23 +14,14 @@ def usage_page
 end
 
 #
-# Examples page, gives info on how to use the program
-#
-def examples_page
-  FORMAT.usage('This is my examples page, I\'ll show you a few examples of how to get me to do what you want.')
-  FORMAT.usage('Running me with a file: whitewidow.rb -f <path/to/file> keep the file inside of one of my directories.')
-  FORMAT.usage('Running me default, if you don\'t want to use a file, because you don\'t think I can handle it, or for whatever reason, you can run me default by passing the Default flag: whitewidow.rb -d this will allow me to scrape Google for some SQL vuln sites, no guarentees though!')
-  FORMAT.usage('Running me with my Help flag will show you all options an explanation of what they do and how to use them')
-  FORMAT.usage('Running me without a flag will show you the usage page. Not descriptive at all but gets the point across')
-end
-
-#
 # Append into the OPTIONS constant so that we can call the information from there
 #
 OptionParser.new do |opt|
-  opt.on('-f FILE', '--file FILE', "Pass me a file name") { |o| OPTIONS[:file] = o }
+  opt.on('-f FILE', '--file FILE', 'Pass a filename to scan') { |o| OPTIONS[:file] = o }
   opt.on('-d', '--default', "Run me in default mode, I'll scrape Google") { |o| OPTIONS[:default] = o }
-  opt.on('-e', '--example', "Show examples page") { |o| OPTIONS[:example] = o }
+  opt.on('-l', '--legal', 'Show the legal information and the TOS') { |o| OPTIONS[:legal] = o }
+  opt.on('-c', '--credits', 'Show the credits to the creator') { |o| OPTIONS[:credits] = o }
+  opt.on('--banner', 'Run without displaying the banner') { |o| OPTIONS[:banner] = o }
 end.parse!
 
 #
@@ -105,6 +96,7 @@ def get_urls
       FORMAT.success("Site found: #{urls_to_log}")
       sleep(1)
       %w(' ` -- ;).each { |sql|
+        MULTIPARAMS.check_for_multiple_parameters(urls_to_log, sql)
         File.open("#{PATH}/tmp/SQL_sites_to_check.txt", 'a+') { |s| s.puts("#{urls_to_log}#{sql}") }
       }
     end
@@ -168,11 +160,15 @@ end
 case
   when OPTIONS[:default]
     begin
-      Whitewidow.spider
+      Whitewidow::Misc.new.spider unless OPTIONS[:banner]
       sleep(1)
-      Credits.credits
-      sleep(1)
-      Legal.legal
+      if OPTIONS[:credits]
+        Credits.credits
+        sleep(1)
+      end
+      if OPTIONS[:legal]
+        Legal::Legal.new.legal
+      end
       get_urls
       vulnerability_check unless File.size("#{PATH}/tmp/SQL_sites_to_check.txt") == 0
       FORMAT.warning("No sites found for search query: #{SEARCH}. Logging into error_log.LOG. Create a issue regarding this.") if File.size("#{PATH}/tmp/SQL_sites_to_check.txt") == 0
@@ -182,6 +178,7 @@ case
       Copy.file("#{PATH}/tmp/SQL_VULN.txt", "#{PATH}/log/SQL_VULN.LOG")
       File.truncate("#{PATH}/tmp/SQL_VULN.txt", 0)
       FORMAT.info("I've run all my tests and queries, and logged all important information into #{PATH}/log/SQL_VULN.LOG")
+      FORMAT.info("I've found #{@vuln_foundl} possible vulnerabilities.")
     rescue *FATAL_ERRORS => e
       d = DateTime.now
       FORMAT.fatal("Well this is pretty crappy.. I seem to have encountered a #{e} error. I'm gonna take the safe road and quit scanning before I break something. You can either try again, or manually delete the URL that caused the error.")
@@ -190,11 +187,18 @@ case
     end
   when OPTIONS[:file]
     begin
-      Whitewidow.spider
+      Whitewidow::Misc.new.spider unless OPTIONS[:banner]
       sleep(1)
-      Credits.credits
-      sleep(1)
-      Legal.legal
+      if OPTIONS[:credits]
+        Credits.credits
+        sleep(1)
+      end
+      if OPTIONS[:legal]
+        Legal::Legal.new.legal
+      end
+      if OPTIONS[:legal]
+        Legal::Legal.new.legal
+      end
       FORMAT.info('Formatting file')
       format_file
       vulnerability_check
@@ -209,8 +213,10 @@ case
       File.open("#{PATH}/log/error_log.LOG", 'a+'){ |error| error.puts("[#{d.month}-#{d.day}-#{d.year} :: #{Time.now.strftime("%T")}]#{e}") }
       FORMAT.info("I'll log the error inside of #{PATH}/log/error_log.LOG for further analysis.")
     end
-  when OPTIONS[:example]
-    examples_page
+  when OPTIONS[:legal]
+    Legal::Legal.new.legal
+  when OPTIONS[:credits]
+    Credits.credits
   else
     FORMAT.warning('You failed to pass me a flag!')
     usage_page
