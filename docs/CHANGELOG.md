@@ -5,6 +5,9 @@
 - Removed commented out code that is now deprecated
 - Made the program a little quicker
 - Added proxy support, use the --proxy flag
+- Added a dry run and batch flag
+- Edited the readme to reflect changes
+- Bumped version number
 
 #Version 1.1.1
 - Minor text and grammatical fixes

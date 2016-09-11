@@ -82,9 +82,9 @@ end
 def get_urls
   query = SEARCH
 
-  File.read("#{PATH}/log/query_blacklist").each_line do |blacked|
+  File.read("#{PATH}/log/query_blacklist").each_line do |blacked| # Check if the query is blacklisted or not
     if query == blacked
-      query = File.readlines("#{PATH}/lib/lists/search_query.txt").sample
+      query = File.readlines("#{PATH}/lib/lists/search_query.txt").sample # If it is, change it.
     end
   end
 
@@ -104,14 +104,13 @@ def get_urls
       str = link.href.to_s
       str_list = str.split(%r{=|&})
       urls = str_list[1]
-      next if urls.split("/")[2].start_with? *SKIP
-      #check_urls_for_blacklist(urls)
+      next if urls.split("/")[2].start_with? *SKIP # Skip all the bad URLs
       urls_to_log = URI.decode(urls)
       FORMAT.success("Site found: #{urls_to_log}")
       sleep(0.5)
       %w(' ` -- ;).each { |sql|
         MULTIPARAMS.check_for_multiple_parameters(urls_to_log, sql)
-        File.open("#{PATH}/tmp/SQL_sites_to_check.txt", 'a+') { |s| s.puts("#{urls_to_log}#{sql}") }
+        File.open("#{PATH}/tmp/SQL_sites_to_check.txt", 'a+') { |s| s.puts("#{urls_to_log}#{sql}") } # Add sql syntax to all "="
       }
     end
   end

@@ -9,6 +9,7 @@ module Format
       puts "[#{Time.now.strftime("%T").purple} " + "WARNING".yellow + "] " + "#{input.yellow}"
     end
 
+    # Prompt for information when there's a dry run done
     def prompt(input)
       print "#{input}: ".yellow
       STDIN.gets.chomp

@@ -1,3 +1,6 @@
+#
+# String expansion for colored output
+#
 class String
   def black;          "\e[30m#{self}\e[0m" end
   def red;            "\e[31m#{self}\e[0m" end
