@@ -23,6 +23,8 @@ OptionParser.new do |opt|
   opt.on('-c', '--credits', 'Show the credits to the creator') { |o| OPTIONS[:credits] = o }
   opt.on('--banner', 'Run without displaying the banner') { |o| OPTIONS[:banner] = o }
   opt.on('--proxy IP:PORT', 'Configure to run with a proxy, must use ":"') { |o| OPTIONS[:proxy] = o }
+  opt.on('--batch', 'No prompts, used in conjunction with the dry run') { |o| OPTIONS[:batch] = o }
+  opt.on('--dry-run', 'Save the sites to the SQL_sites_to_check file only, no checking.') { |o| OPTIONS[:dry] = o }
 end.parse!
 
 #
@@ -180,6 +182,16 @@ case
         File.open("#{PATH}/log/query_blacklist", "a+"){ |query| query.puts(SEARCH) }
         FORMAT.info("Query added to blacklist and will not be run again, exiting..")
         exit(1)
+      elsif OPTIONS[:dry]
+        dry = FORMAT.prompt('Run the sites[Y/N]') unless OPTIONS[:batch]
+        dry = 'N' if OPTIONS[:batch]
+        if dry.upcase == 'N'
+          FORMAT.info('Sites saved to file, will not run scan now..')
+          exit(1)
+        else
+          vulnerability_check
+        end
+
       else
         vulnerability_check
       end
