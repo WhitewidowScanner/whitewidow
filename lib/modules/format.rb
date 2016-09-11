@@ -9,6 +9,11 @@ module Format
       puts "[#{Time.now.strftime("%T").purple} " + "WARNING".yellow + "] " + "#{input.yellow}"
     end
 
+    def prompt(input)
+      print "#{input}: ".yellow
+      STDIN.gets.chomp
+    end
+
     # Red is a bad thing, this particular instance will kill the program
     def fatal(input)
       puts "[#{Time.now.strftime("%T").purple} " + "FATAL".red.bold + "] " + "#{input.red.bold}"
