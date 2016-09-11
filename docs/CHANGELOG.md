@@ -1,3 +1,11 @@
+# Version 1.2.0
+- Removed dependency from readme that is no longer used
+- Fixed some spacing issues
+- Added a query blacklist
+- Removed commented out code that is now deprecated
+- Made the program a little quicker
+- Added proxy support, use the --proxy flag
+
 #Version 1.1.1
 - Minor text and grammatical fixes
 - Moved the misc (banner, etc) and the legal into a class

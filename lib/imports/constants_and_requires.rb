@@ -52,4 +52,5 @@ LOADING_ERRORS = [RestClient::ResourceNotFound, RestClient::InternalServerError,
                   RestClient::Unauthorized, SocketError, RestClient::BadRequest, RestClient::ServerBrokeConnection,
                   Errno::ECONNABORTED, Zlib::BufError]
 FATAL_ERRORS = [Mechanize::ResponseCodeError, RestClient::ServiceUnavailable, OpenSSL::SSL::SSLError,
-                RestClient::BadGateway]
+                RestClient::BadGateway, Errno::ENETUNREACH, Net::HTTP::Persistent::Error,
+                Errno::ETIMEDOUT]
