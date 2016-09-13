@@ -25,6 +25,7 @@ OptionParser.new do |opt|
   opt.on('--proxy IP:PORT', 'Configure to run with a proxy, must use ":"') { |o| OPTIONS[:proxy] = o }
   opt.on('--batch', 'No prompts, used in conjunction with the dry run') { |o| OPTIONS[:batch] = o }
   opt.on('--dry-run', 'Save the sites to the SQL_sites_to_check file only, no checking.') { |o| OPTIONS[:dry] = o }
+  opt.on('--beep', 'Make a beep when the program finds a vulnerability') { |o| OPTIONS[:beep] = o }
 end.parse!
 
 #
@@ -160,6 +161,7 @@ def vulnerability_check
   end
 end
 
+
 #
 # This case statement has to be empty or the program won't read the options constants
 #
@@ -190,7 +192,6 @@ case
         else
           vulnerability_check
         end
-
       else
         vulnerability_check
       end
