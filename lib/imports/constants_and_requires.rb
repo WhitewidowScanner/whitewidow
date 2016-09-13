@@ -23,6 +23,7 @@ require_relative '../../lib/modules/copy'
 require_relative '../../lib/modules/site_info'
 require_relative '../../lib/modules/expansion/string_expan'
 require_relative '../../lib/modules/detection'
+require_relative '../../lib/modules/check_platform'
 
 # Modules that need to be included
 include MultipleParameters
@@ -34,7 +35,7 @@ include Copy
 include SiteInfo
 
 # Constants used throughout the program
-@vuln_found = 0
+BEEP = Platform::CheckBeep.new
 MULTIPARAMS = MultipleParameters::TestAllParameters.new
 FORMAT = Format::StringFormat.new
 PATH = Dir.pwd
