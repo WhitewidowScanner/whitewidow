@@ -1,3 +1,13 @@
+//# Version 1.3.0
+//- Added a beep flag that will make a beep when a vulnerability is found
+//- Added a platform check to figure out which beep to use
+//- Refactored the formatting module to include the beep
+//- Did some testing on proxies, it works feel free to use it
+//- Added comments
+//-
+###NOT READY YET
+-
+
 # Version 1.2.0
 - Removed dependency from readme that is no longer used
 - Fixed some spacing issues
