@@ -6,7 +6,7 @@ require_relative 'lib/imports/constants_and_requires'
 # Usage page, shows basic shell of commands
 #
 def usage_page
-  FORMAT.info("You can run me with the following flags: #{File.basename(__FILE__)} -[d|e|h] -[f] <path/to/file/if/any>")
+  FORMAT.info("ruby #{File.basename(__FILE__)} -[d|h|f] PATH --[dry-run|batch|banner|beep|proxy] PROXY")
   exit
 end
 
