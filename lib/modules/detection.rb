@@ -9,8 +9,8 @@ module MultipleParameters
     #
     # @param [String] site to check for
     def check_for_multiple_parameters(site, syntax)
-      if site.scan("=") != 1
-        site.gsub!("=", "=" + syntax)
+      if site.scan("=").count != 1
+        site.sub!("=", "=" + syntax)
       end
     end
 
