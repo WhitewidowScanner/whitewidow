@@ -4,7 +4,9 @@
 //- Refactored the formatting module to include the beep
 //- Did some testing on proxies, it works feel free to use it
 //- Added comments
-//-
+//- Fixed some issues
+//- Made it so that it will not inject unless there's multiple parameters
+//- Minor text fixes
 ###NOT READY YET
 -
 
