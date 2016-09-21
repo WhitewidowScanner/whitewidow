@@ -38,6 +38,7 @@ module Format
     # Throws the valuable information that you will need, this is very good.
     def site_found(input)
       BEEP.check_platform if OPTIONS[:beep]
+      @vuln_found += 1
       success = 'Possible Vulnerability'
       puts <<-_END_
     [ x ] -----------------------------------------------
