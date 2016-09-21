@@ -45,7 +45,8 @@ agents = YAML.load_file("#{PATH}/lib/lists/rand-age.yml")
 OPTIONS = {}
 USER_AGENT = agents[rand(1..20)]
 SKIP = %w(stackoverflow.com github.com www.sa-k.net yoursearch.me search1.speedbit.com duckfm.net
-          search.clearch.org webcache.googleusercontent.com m.facebook.com youtube.com)
+          search.clearch.org webcache.googleusercontent.com m.facebook.com youtube.com facebook.com
+          twitter.com wikipedia.org tumblr.com pinterest.com)
 LOADING_ERRORS = [RestClient::ResourceNotFound, RestClient::InternalServerError, RestClient::RequestTimeout,
                   RestClient::Gone, RestClient::SSLCertificateNotVerified, RestClient::Forbidden,
                   OpenSSL::SSL::SSLError, Errno::ECONNREFUSED, URI::InvalidURIError, Errno::ECONNRESET,
@@ -55,3 +56,4 @@ LOADING_ERRORS = [RestClient::ResourceNotFound, RestClient::InternalServerError,
 FATAL_ERRORS = [Mechanize::ResponseCodeError, RestClient::ServiceUnavailable, OpenSSL::SSL::SSLError,
                 RestClient::BadGateway, Errno::ENETUNREACH, Net::HTTP::Persistent::Error,
                 Errno::ETIMEDOUT]
+@vuln_found = 0
