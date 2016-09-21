@@ -1,8 +1,5 @@
 #!/usr/local/env ruby
 
-# I like how I wrote all these comments and completely failed to comment my own code, what the hell was I thinking?
-# Then again this was like my first ever program so... I'll make it that much better
-
 require_relative 'lib/imports/constants_and_requires'
 
 #
@@ -122,7 +119,7 @@ end
 # Check the sites that where found for vulnerabilities by checking if they throw a certain error
 #
 def vulnerability_check
-  case # A case statement without an else
+  case
   when OPTIONS[:default]
     FORMAT.info("Running in default mode..")
     file_to_read = "tmp/SQL_sites_to_check.txt"
@@ -188,7 +185,7 @@ case
         dry = 'N' if OPTIONS[:batch]
         if dry.upcase == 'N'
           FORMAT.info('Sites saved to file, will not run scan now..')
-          exit(1)
+          exit(0)
         else
           vulnerability_check
         end
@@ -203,7 +200,7 @@ case
       Copy.file("#{PATH}/tmp/SQL_VULN.txt", "#{PATH}/log/SQL_VULN.LOG")
       File.truncate("#{PATH}/tmp/SQL_VULN.txt", 0)
       FORMAT.info("I've run all my tests and queries, and logged all important information into #{PATH}/log/SQL_VULN.LOG")
-      FORMAT.info("I've found #{@vuln_foundl} possible vulnerabilities.")
+      FORMAT.info("I've found #{@vuln_found} possible vulnerabilities.")
     rescue *FATAL_ERRORS => e
       d = DateTime.now
       FORMAT.fatal("I've experienced an error and won't continue.. It's gonna break something if I keep trying.. Error: #{e}")
