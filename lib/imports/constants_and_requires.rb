@@ -35,6 +35,8 @@ include Copy
 include SiteInfo
 
 # Constants used throughout the program
+vuln_specs = [/SQL query error/, /MySQL Query Error/,
+              /expects parameter/, /You have an error in your SQL syntax/]
 BEEP = Platform::CheckBeep.new
 MULTIPARAMS = MultipleParameters::TestAllParameters.new
 FORMAT = Format::StringFormat.new
@@ -52,8 +54,8 @@ LOADING_ERRORS = [RestClient::ResourceNotFound, RestClient::InternalServerError,
                   OpenSSL::SSL::SSLError, Errno::ECONNREFUSED, URI::InvalidURIError, Errno::ECONNRESET,
                   Timeout::Error, OpenSSL::SSL::SSLError, Zlib::GzipFile::Error, RestClient::MultipleChoices,
                   RestClient::Unauthorized, SocketError, RestClient::BadRequest, RestClient::ServerBrokeConnection,
-                  Errno::ECONNABORTED, Zlib::BufError]
-FATAL_ERRORS = [Mechanize::ResponseCodeError, RestClient::ServiceUnavailable, OpenSSL::SSL::SSLError,
-                RestClient::BadGateway, Errno::ENETUNREACH, Net::HTTP::Persistent::Error,
-                Errno::ETIMEDOUT]
+                  Errno::ECONNABORTED, Zlib::BufError, RestClient::ServiceUnavailabl]
+FATAL_ERRORS = [Mechanize::ResponseCodeError, RestClient::BadGateway, Errno::ENETUNREACH,
+                Net::HTTP::Persistent::Error]
+REGEX = Regexp.union(vuln_specs)
 @vuln_found = 0
