@@ -3,11 +3,12 @@ module Credits
 
   # Outputs the version number and credits to myself because I'm an arrogant fuck head.
   def credits
-    print 'Credits to my creator: '.white, "Ekultek, he's a beast!\n".blue.bold,
-          'I am currently version: '.white, "#{VERSION}, stick around for upgrades!\n".blue.bold,
-          'My name is: '.white, "Whitewidow, that's right albino deadly spider\n".blue.bold,
-         puts
-         puts
+     puts <<~_END_
+     Credits to my creator: Ekultek, he's a beast!
+     I am currently version: 1.3.0, stick around for upgrades!
+     My name is: Whitewidow, that's right albino deadly spider
+     _END_
+    .blue.bold
   end
 
 end
