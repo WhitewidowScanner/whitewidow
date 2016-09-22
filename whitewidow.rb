@@ -27,17 +27,15 @@ end.parse!
 
 #
 # Method for Nokogiri so I don't have to continually type Nokogiri::HTML
-#
-# @param [String] site
+# @param [String] site url
 def page(site)
   Nokogiri::HTML(RestClient.get(site))
 end
 
 #
 # This is actually pretty smart, it's used to parse the HTML
-#
-# @param [String] site
-# @param [String] tag
+# @param [String] site url
+# @param [String] tag css selector
 # @param [Integer] i
 def parse(site, tag, i)
   parsing = page(site)
@@ -60,7 +58,7 @@ def format_file
     file.unlink
     FORMAT.info("File: #{OPTIONS[:file]}, has been formatted and saved as #sites.txt in the tmp directory.")
   else
-    puts <<-_END_
+    puts <<~_END_
 
              Hey now my friend, I know you're eager, I am also, but that file #{OPTIONS[:file]}
              either doesn't exist, or it's not in the directory you say it's in..
@@ -86,8 +84,7 @@ def get_urls
     end
   end
 
-  FORMAT.info("I'll run in default mode!")
-  FORMAT.info("I'm searching for possible SQL vulnerable sites, using search query #{SEARCH}")
+  FORMAT.info("I'm searching for possible SQL vulnerable sites, using search query #{query}")
   agent = Mechanize.new
   if OPTIONS[:proxy]
     agent.set_proxy(OPTIONS[:proxy].split(":").first, OPTIONS[:proxy].split(":").last)
@@ -102,7 +99,7 @@ def get_urls
       str = link.href.to_s
       str_list = str.split(%r{=|&})
       urls = str_list[1]
-      next if urls.split("/")[2].start_with? *SKIP # Skip all the bad URLs
+      next if urls.split("/")[2].start_with?(*SKIP) # Skip all the bad URLs
       urls_to_log = URI.decode(urls)
       FORMAT.success("Site found: #{urls_to_log}")
       sleep(0.5)
@@ -134,25 +131,25 @@ def vulnerability_check
       Timeout::timeout(10) do
         vulns = vuln.encode(Encoding.find('UTF-8'), {invalid: :replace, undef: :replace, replace: ''}) # Force encoding to UTF-8
         begin
-          if parse("#{vulns.chomp}'", 'html', 0)[/You have an error in your SQL syntax/]
+          if parse("#{vulns.chomp}'", 'html', 0) =~ REGEX
             FORMAT.site_found(vulns.chomp)
-            File.open("#{PATH}/tmp/SQL_VULN.txt", "a+") { |s| s.puts(vulns) }
+            File.open("#{PATH}/tmp/SQL_VULN.txt", "a+") { |vulnerable| vulnerable.puts(vulns) }
             sleep(1)
           else
             FORMAT.warning("URL: #{vulns.chomp} is not vulnerable, dumped to non_exploitable.txt")
-            File.open("#{PATH}/log/non_exploitable.txt", "a+") { |s| s.puts(vulns) }
+            File.open("#{PATH}/log/non_exploitable.txt", "a+") { |non_exploit| non_exploit.puts(vulns) }
             sleep(1)
           end
         rescue Timeout::Error, OpenSSL::SSL::SSLError
           FORMAT.warning("URL: #{vulns.chomp} failed to load dumped to non_exploitable.txt")
-          File.open("#{PATH}/log/non_exploitable.txt", "a+") { |s| s.puts(vulns) }
+          File.open("#{PATH}/log/non_exploitable.txt", "a+") { |timeout| timeout.puts(vulns) }
           sleep(1)
           next
         end
       end
     rescue *LOADING_ERRORS
       FORMAT.err("URL: #{vuln.chomp} failed due to an error while connecting, URL dumped to non_exploitable.txt")
-      File.open("#{PATH}/log/non_exploitable.txt", "a+") { |s| s.puts(vuln) }
+      File.open("#{PATH}/log/non_exploitable.txt", "a+") { |error| error.puts(vuln) }
       next
     end
   end
