@@ -54,8 +54,7 @@ LOADING_ERRORS = [RestClient::ResourceNotFound, RestClient::InternalServerError,
                   OpenSSL::SSL::SSLError, Errno::ECONNREFUSED, URI::InvalidURIError, Errno::ECONNRESET,
                   Timeout::Error, OpenSSL::SSL::SSLError, Zlib::GzipFile::Error, RestClient::MultipleChoices,
                   RestClient::Unauthorized, SocketError, RestClient::BadRequest, RestClient::ServerBrokeConnection,
-                  Errno::ECONNABORTED, Zlib::BufError, RestClient::ServiceUnavailabl]
+                  Errno::ECONNABORTED, Zlib::BufError, RestClient::ServiceUnavailable]
 FATAL_ERRORS = [Mechanize::ResponseCodeError, RestClient::BadGateway, Errno::ENETUNREACH,
                 Net::HTTP::Persistent::Error]
 REGEX = Regexp.union(vuln_specs)
-@vuln_found = 0

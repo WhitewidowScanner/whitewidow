@@ -5,7 +5,7 @@ module Credits
   def credits
      puts <<~_END_
      Credits to my creator: Ekultek, he's a beast!
-     I am currently version: 1.3.0, stick around for upgrades!
+     I am currently version: #{VERSION}, stick around for upgrades!
      My name is: Whitewidow, that's right albino deadly spider
      _END_
     .blue.bold

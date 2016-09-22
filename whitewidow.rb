@@ -99,7 +99,7 @@ def get_urls
       str = link.href.to_s
       str_list = str.split(%r{=|&})
       urls = str_list[1]
-      next if urls.split("/")[2].start_with?(*SKIP) # Skip all the bad URLs
+      next if urls.split("/")[2].start_with?(*SKIP)# Skip all the bad URLs
       urls_to_log = URI.decode(urls)
       FORMAT.success("Site found: #{urls_to_log}")
       sleep(0.5)
@@ -197,7 +197,6 @@ case
       Copy.file("#{PATH}/tmp/SQL_VULN.txt", "#{PATH}/log/SQL_VULN.LOG")
       File.truncate("#{PATH}/tmp/SQL_VULN.txt", 0)
       FORMAT.info("I've run all my tests and queries, and logged all important information into #{PATH}/log/SQL_VULN.LOG")
-      FORMAT.info("I've found #{@vuln_found} possible vulnerabilities.")
     rescue *FATAL_ERRORS => e
       d = DateTime.now
       FORMAT.fatal("I've experienced an error and won't continue.. It's gonna break something if I keep trying.. Error: #{e}")

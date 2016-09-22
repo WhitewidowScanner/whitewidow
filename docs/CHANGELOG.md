@@ -1,20 +1,18 @@
-//# Version 1.3.0
-//- Added a beep flag that will make a beep when a vulnerability is found
-//- Added a platform check to figure out which beep to use
-//- Refactored the formatting module to include the beep
-//- Did some testing on proxies, it works feel free to use it
-//- Added comments
-//- Fixed some issues
-//- Made it so that it will not inject unless there's multiple parameters
-//- Minor text fixes
-//- Created a regex for the sql vuln errors
-//- Added more random agents
-//- Added 300 new search queries
-//- Edited license, credits, TOS, and legal info. Please familiarize yourself with the new information
-//- Removed information from the string expansion that is not used in the program
-//- Bumped version number
-###NOT READY YET
--
+# Version 1.3.0
+- Added a beep flag that will make a beep when a vulnerability is found
+- Added a platform check to figure out which beep to use
+- Refactored the formatting module to include the beep
+- Did some testing on proxies, it works feel free to use it
+- Added comments
+- Fixed some issues
+- Made it so that it will not inject unless there's multiple parameters
+- Minor text fixes
+- Created a regex for the sql vuln errors
+- Added more random agents
+- Added 300 new search queries
+- Edited license, credits, TOS, and legal info. Please familiarize yourself with the new information
+- Removed information from the string expansion that is not used in the program
+- Bumped version number
 
 # Version 1.2.0
 - Removed dependency from readme that is no longer used
