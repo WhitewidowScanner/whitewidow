@@ -1,4 +1,4 @@
-# The opening, this will output every time the program is run.
+# The opening, this will output every time the program is run unless you specify otherwise.
 module Whitewidow
 
   class Misc
@@ -17,7 +17,7 @@ module Whitewidow
 
     # The version the program is currently in
     def version
-      '1.3.0' # Version number
+      '1.4.0' # Version number
     end
 
   end
