@@ -1,3 +1,15 @@
+# Version 1.4.0
+- Added a --run-x flag, specify how many runs to make before exiting, will run dry runs and will not search for vulns
+- Updated some info in readme
+- Added some sites to the SKIP constant
+- Minor comment fixes
+- Minor grammar fixes
+- Minor style fixes
+- Minor issue fixes
+- Minor text fixes
+- Bumped version numebr
+- Added some new search queries
+
 # Version 1.3.0
 - Added a beep flag that will make a beep when a vulnerability is found
 - Added a platform check to figure out which beep to use
