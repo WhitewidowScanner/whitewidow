@@ -46,9 +46,10 @@ SEARCH = File.readlines("#{PATH}/lib/lists/search_query.txt").sample
 agents = YAML.load_file("#{PATH}/lib/lists/rand-age.yml")
 OPTIONS = {}
 USER_AGENT = agents[rand(1..20)]
-SKIP = %w(stackoverflow.com github.com www.sa-k.net yoursearch.me search1.speedbit.com duckfm.net
-          search.clearch.org webcache.googleusercontent.com m.facebook.com youtube.com facebook.com
-          twitter.com wikipedia.org tumblr.com pinterest.com)
+SKIP = %w(stackoverflow.com www.stackoverflow.com github.com www.github.com www.sa-k.net yoursearch.me search1.speedbit.com
+          duckfm.net search.clearch.org webcache.googleusercontent.com m.facebook.com youtube.com facebook.com
+          twitter.com wikipedia.org tumblr.com pinterest.com www.facebook.com pinterest.com www.pinterest.com
+          m.pinterest.com)
 LOADING_ERRORS = [RestClient::ResourceNotFound, RestClient::InternalServerError, RestClient::RequestTimeout,
                   RestClient::Gone, RestClient::SSLCertificateNotVerified, RestClient::Forbidden,
                   OpenSSL::SSL::SSLError, Errno::ECONNREFUSED, URI::InvalidURIError, Errno::ECONNRESET,
