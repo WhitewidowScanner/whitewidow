@@ -1916,3 +1916,11 @@ inurl:/prodotti.php?id= title:login 2015
 inurl:/Details.asp?id= title:shop 2015
 inurl:/category.asp?id= title:shop 2015
 intitle:"fashion" .php?id= intext:login
+allinurl:/cart32.exe/
+inurl:"/cart.php?m="
+allinurlroddetail.asp?prod=
+allinurl: /cgi-local/shopper.cgi
+allinurl: Lobby.asp
+allinurl:/vpasp/shopsearch.asp
+allinurl:/vpasp/shopdisplayproducts.asp
+allinurl:/store/index.cgi/page=
