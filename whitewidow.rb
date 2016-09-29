@@ -3,7 +3,7 @@
 require_relative 'lib/imports/constants_and_requires'
 
 #
-# Usage page, shows basic shell of commands
+# Usage page, basic help page for commands
 #
 def usage_page
   FORMAT.info("ruby #{File.basename(__FILE__)} -[d|h|f] PATH --[dry-run|batch|banner|beep|proxy] PROXY")
@@ -15,13 +15,14 @@ end
 #
 OptionParser.new do |opt|
   opt.on('-f FILE', '--file FILE', 'Pass a filename to scan') { |o| OPTIONS[:file] = o }
-  opt.on('-d', '--default', "Run me in default mode, I'll scrape Google") { |o| OPTIONS[:default] = o }
+  opt.on('-d', '--default', "Run in default mode, scrape Google") { |o| OPTIONS[:default] = o }
   opt.on('-l', '--legal', 'Show the legal information and the TOS') { |o| OPTIONS[:legal] = o }
   opt.on('-c', '--credits', 'Show the credits to the creator') { |o| OPTIONS[:credits] = o }
   opt.on('--banner', 'Run without displaying the banner') { |o| OPTIONS[:banner] = o }
   opt.on('--proxy IP:PORT', 'Configure to run with a proxy, must use ":"') { |o| OPTIONS[:proxy] = o }
-  opt.on('--batch', 'No prompts, used in conjunction with the dry run') { |o| OPTIONS[:batch] = o }
   opt.on('--dry-run', 'Save the sites to the SQL_sites_to_check file only, no checking.') { |o| OPTIONS[:dry] = o }
+  opt.on('--batch', 'No prompts, used in conjunction with the dry run') { |o| OPTIONS[:batch] = o }
+  opt.on('--run-x NUM', Integer, 'Run the specified amount of dry runs') { |o| OPTIONS[:run] = o}
   opt.on('--beep', 'Make a beep when the program finds a vulnerability') { |o| OPTIONS[:beep] = o }
 end.parse!
 
@@ -48,27 +49,27 @@ end
 def format_file
   FORMAT.info('Writing to temporary file..')
   if File.exists?(OPTIONS[:file])
-    file = Tempfile.new('file')
-    IO.read(OPTIONS[:file]).each_line do |s|
-      File.open(file, 'a+') { |format| format.puts(s) unless s.chomp.empty? }
+    file = Tempfile.new('file') # Write to a temp file
+    IO.read(OPTIONS[:file]).each_line do |line|
+      File.open(file, 'a+') { |format| format.puts(line) unless line.chomp.empty? }
     end
-    IO.read(file).each_line do |file|
-      File.open("#{PATH}/tmp/#sites.txt", 'a+') { |line| line.puts(file) }
+    IO.read(file).each_line do |to_file|
+      File.open("#{PATH}/tmp/#sites.txt", 'a+') { |line| line.puts(to_file) }
     end
     file.unlink
     FORMAT.info("File: #{OPTIONS[:file]}, has been formatted and saved as #sites.txt in the tmp directory.")
   else
     puts <<~_END_
 
-             Hey now my friend, I know you're eager, I am also, but that file #{OPTIONS[:file]}
-             either doesn't exist, or it's not in the directory you say it's in..
+      Hey now my friend, I know you're eager, I am also, but that file #{OPTIONS[:file]}
+      either doesn't exist, or it's not in the directory you say it's in..
 
-             I'm gonna need you to go find that file, move it to the correct directory and then
-             run me again.
+      I'm gonna need you to go find that file, move it to the correct directory and then
+      run me again.
 
-             Don't worry I'll wait!
-    _END_
-    .yellow.bold
+      Don't worry I'll wait!
+         _END_
+             .yellow.bold
   end
 end
 
@@ -84,7 +85,7 @@ def get_urls
     end
   end
 
-  FORMAT.info("I'm searching for possible SQL vulnerable sites, using search query #{query}")
+  FORMAT.info("I'm searching for possible SQL vulnerable sites, using search query #{query.chomp}")
   agent = Mechanize.new
   if OPTIONS[:proxy]
     agent.set_proxy(OPTIONS[:proxy].split(":").first, OPTIONS[:proxy].split(":").last)
@@ -99,13 +100,15 @@ def get_urls
       str = link.href.to_s
       str_list = str.split(%r{=|&})
       urls = str_list[1]
-      next if urls.split("/")[2].start_with?(*SKIP)# Skip all the bad URLs
+      if urls.split("/")[2].start_with?(*SKIP) # Skip all the bad URLs
+        next
+      end
       urls_to_log = URI.decode(urls)
       FORMAT.success("Site found: #{urls_to_log}")
-      sleep(0.5)
+      sleep(0.3)
       %w(' ` -- ;).each { |sql|
         MULTIPARAMS.check_for_multiple_parameters(urls_to_log, sql)
-        File.open("#{PATH}/tmp/SQL_sites_to_check.txt", 'a+') { |s| s.puts("#{urls_to_log}#{sql}") } # Add sql syntax to all "="
+        File.open("#{PATH}/tmp/SQL_sites_to_check.txt", 'a+') { |to_check| to_check.puts("#{urls_to_log}#{sql}") } # Add sql syntax to all "="
       }
     end
   end
@@ -117,12 +120,14 @@ end
 #
 def vulnerability_check
   case
-  when OPTIONS[:default]
-    FORMAT.info("Running in default mode..")
-    file_to_read = "tmp/SQL_sites_to_check.txt"
-  when OPTIONS[:file]
-    FORMAT.info("Running in file mode..")
-    file_to_read = "tmp/#sites.txt"
+    when OPTIONS[:default]
+      FORMAT.info("Running in default mode..")
+      file_to_read = "tmp/SQL_sites_to_check.txt"
+    when OPTIONS[:file]
+      FORMAT.info("Running in file mode..")
+      file_to_read = "tmp/#sites.txt"
+  else
+    raise InvalidSpecificationException
   end
   FORMAT.info('Forcing encoding to UTF-8') unless OPTIONS[:file]
   IO.read("#{PATH}/#{file_to_read}").each_line do |vuln|
@@ -134,16 +139,16 @@ def vulnerability_check
           if parse("#{vulns.chomp}'", 'html', 0) =~ REGEX
             FORMAT.site_found(vulns.chomp)
             File.open("#{PATH}/tmp/SQL_VULN.txt", "a+") { |vulnerable| vulnerable.puts(vulns) }
-            sleep(1)
+            sleep(0.5)
           else
             FORMAT.warning("URL: #{vulns.chomp} is not vulnerable, dumped to non_exploitable.txt")
             File.open("#{PATH}/log/non_exploitable.txt", "a+") { |non_exploit| non_exploit.puts(vulns) }
-            sleep(1)
+            sleep(0.5)
           end
         rescue Timeout::Error, OpenSSL::SSL::SSLError
           FORMAT.warning("URL: #{vulns.chomp} failed to load dumped to non_exploitable.txt")
           File.open("#{PATH}/log/non_exploitable.txt", "a+") { |timeout| timeout.puts(vulns) }
-          sleep(1)
+          sleep(0.5)
           next
         end
       end
@@ -174,7 +179,7 @@ case
       get_urls
       if File.size("#{PATH}/tmp/SQL_sites_to_check.txt") == 0
         FORMAT.warning("No sites found for search query: #{SEARCH}. Adding query to blacklist so it won't be run again.")
-        File.open("#{PATH}/log/query_blacklist", "a+"){ |query| query.puts(SEARCH) }
+        File.open("#{PATH}/log/query_blacklist", "a+") { |query| query.puts(SEARCH) }
         FORMAT.info("Query added to blacklist and will not be run again, exiting..")
         exit(1)
       elsif OPTIONS[:dry]
@@ -241,6 +246,11 @@ case
     Legal::Legal.new.legal
   when OPTIONS[:credits]
     Credits.credits
+  when OPTIONS[:run]
+    OPTIONS[:run].times do
+      system('ruby whitewidow.rb -d --dry-run --batch --banner')
+    end
+    FORMAT.info("#{OPTIONS[:run]} runs completed successfully.")
   else
     FORMAT.warning('You failed to pass me a flag!')
     usage_page
