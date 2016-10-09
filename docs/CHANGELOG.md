@@ -2,7 +2,9 @@
  Edited SQL vuln syntax, there's a few more and this should help with finding more vulns
  Edited the constants a little
  Started working on a spider bot
- Started working on a google captcha bot~~
+ Started working on a google captcha bot
+ Minor comment fixed
+ Bumped version number~~
  
  ---
  ---
