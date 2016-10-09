@@ -15,10 +15,10 @@ end
 #
 OptionParser.new do |opt|
   opt.on('-f FILE', '--file FILE', 'Pass a filename to scan')                             { |o| OPTIONS[:file]    = o }
+  opt.on('-s URL', '--spider URL', 'Spider a web page and save all the URLS')             { |o| OPTIONS[:spider]  = o }
   opt.on('-d', '--default', "Run in default mode, scrape Google")                         { |o| OPTIONS[:default] = o }
   opt.on('-l', '--legal', 'Show the legal information and the TOS')                       { |o| OPTIONS[:legal]   = o }
   opt.on('-c', '--credits', 'Show the credits to the creator')                            { |o| OPTIONS[:credits] = o }
-  opt.on('-s', '--spider', 'Spider a web page and save all the URLS')                     { |o| OPTIONS[:spider]  = o }
   opt.on('--banner', 'Run without displaying the banner')                                 { |o| OPTIONS[:banner]  = o }
   opt.on('--proxy IP:PORT', 'Configure to run with a proxy, must use ":"')                { |o| OPTIONS[:proxy]   = o }
   opt.on('--dry-run', 'Save the sites to the SQL_sites_to_check file only, no checking.') { |o| OPTIONS[:dry]     = o }
