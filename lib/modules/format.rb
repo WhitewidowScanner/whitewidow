@@ -30,7 +30,7 @@ module Format
       puts "[#{Time.now.strftime("%T").purple} " + "INFO".green + "] " + "#{input.green.bold}"
     end
 
-    # Found a site wooohooo
+    # Found a site, provides the resolve IP and the server information
     def success(input)
       puts "[#{Time.now.strftime("%T").purple} " + "SUCCESS" + "] " + "#{input.white}"
     end
