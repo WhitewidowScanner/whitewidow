@@ -25,6 +25,3 @@ module BlackWidow
   end
 
 end
-
-test = BlackWidow::RecursiveSpider.new("http://www.distance-cities.com/distance-fayetteville-ar-to-prairie-grove-ar")
-test.follow_links
