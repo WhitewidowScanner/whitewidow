@@ -11,19 +11,20 @@ def usage_page
 end
 
 #
-# Append into the OPTIONS constant so that we can call the information from there
+# Append into the OPTIONS constant so that we can call the flag from the constant instead of a class
 #
 OptionParser.new do |opt|
-  opt.on('-f FILE', '--file FILE', 'Pass a filename to scan') { |o| OPTIONS[:file] = o }
-  opt.on('-d', '--default', "Run in default mode, scrape Google") { |o| OPTIONS[:default] = o }
-  opt.on('-l', '--legal', 'Show the legal information and the TOS') { |o| OPTIONS[:legal] = o }
-  opt.on('-c', '--credits', 'Show the credits to the creator') { |o| OPTIONS[:credits] = o }
-  opt.on('--banner', 'Run without displaying the banner') { |o| OPTIONS[:banner] = o }
-  opt.on('--proxy IP:PORT', 'Configure to run with a proxy, must use ":"') { |o| OPTIONS[:proxy] = o }
-  opt.on('--dry-run', 'Save the sites to the SQL_sites_to_check file only, no checking.') { |o| OPTIONS[:dry] = o }
-  opt.on('--batch', 'No prompts, used in conjunction with the dry run') { |o| OPTIONS[:batch] = o }
-  opt.on('--run-x NUM', Integer, 'Run the specified amount of dry runs') { |o| OPTIONS[:run] = o}
-  opt.on('--beep', 'Make a beep when the program finds a vulnerability') { |o| OPTIONS[:beep] = o }
+  opt.on('-f FILE', '--file FILE', 'Pass a filename to scan')                             { |o| OPTIONS[:file]    = o }
+  opt.on('-d', '--default', "Run in default mode, scrape Google")                         { |o| OPTIONS[:default] = o }
+  opt.on('-l', '--legal', 'Show the legal information and the TOS')                       { |o| OPTIONS[:legal]   = o }
+  opt.on('-c', '--credits', 'Show the credits to the creator')                            { |o| OPTIONS[:credits] = o }
+  opt.on('-s', '--spider', 'Spider a web page and save all the URLS')                     { |o| OPTIONS[:spider]  = o }
+  opt.on('--banner', 'Run without displaying the banner')                                 { |o| OPTIONS[:banner]  = o }
+  opt.on('--proxy IP:PORT', 'Configure to run with a proxy, must use ":"')                { |o| OPTIONS[:proxy]   = o }
+  opt.on('--dry-run', 'Save the sites to the SQL_sites_to_check file only, no checking.') { |o| OPTIONS[:dry]     = o }
+  opt.on('--batch', 'No prompts, used in conjunction with the dry run')                   { |o| OPTIONS[:batch]   = o }
+  opt.on('--run-x NUM', Integer, 'Run the specified amount of dry runs')                  { |o| OPTIONS[:run]     = o }
+  opt.on('--beep', 'Make a beep when the program finds a vulnerability')                  { |o| OPTIONS[:beep]    = o }
 end.parse!
 
 #
@@ -37,7 +38,7 @@ end
 # This is actually pretty smart, it's used to parse the HTML
 # @param [String] site url
 # @param [String] tag css selector
-# @param [Integer] i
+# @param [Integer] i the given html row
 def parse(site, tag, i)
   parsing = page(site)
   parsing.css(tag)[i].to_s
@@ -77,11 +78,11 @@ end
 # Get the URLS by connecting to google and scraping for the URLS on the first page
 #
 def get_urls
-  query = SEARCH
+  query = SEARCH_QUERY
 
-  File.read("#{PATH}/log/query_blacklist").each_line do |blacked| # Check if the query is blacklisted or not
-    if query == blacked
-      query = File.readlines("#{PATH}/lib/lists/search_query.txt").sample # If it is, change it.
+  File.read("#{PATH}/log/query_blacklist").each_line do |black|
+    if query == black
+      query = File.readlines("#{PATH}/lib/lists/search_query.txt").sample
     end
   end
 
@@ -106,7 +107,7 @@ def get_urls
       urls_to_log = URI.decode(urls)
       FORMAT.success("Site found: #{urls_to_log}")
       sleep(0.3)
-      %w(' ` -- ;).each { |sql|
+      %w(' -- ; " /* '/* '-- "-- '; "; `).each { |sql|
         MULTIPARAMS.check_for_multiple_parameters(urls_to_log, sql)
         File.open("#{PATH}/tmp/SQL_sites_to_check.txt", 'a+') { |to_check| to_check.puts("#{urls_to_log}#{sql}") } # Add sql syntax to all "="
       }
@@ -119,16 +120,7 @@ end
 # Check the sites that where found for vulnerabilities by checking if they throw a certain error
 #
 def vulnerability_check
-  case
-    when OPTIONS[:default]
-      FORMAT.info("Running in default mode..")
-      file_to_read = "tmp/SQL_sites_to_check.txt"
-    when OPTIONS[:file]
-      FORMAT.info("Running in file mode..")
-      file_to_read = "tmp/#sites.txt"
-  else
-    raise InvalidSpecificationException
-  end
+  OPTIONS[:default] ? file_to_read = "tmp/SQL_sites_to_check.txt" : file_to_read = "tmp/#sites.txt"
   FORMAT.info('Forcing encoding to UTF-8') unless OPTIONS[:file]
   IO.read("#{PATH}/#{file_to_read}").each_line do |vuln|
     begin
@@ -136,7 +128,7 @@ def vulnerability_check
       Timeout::timeout(10) do
         vulns = vuln.encode(Encoding.find('UTF-8'), {invalid: :replace, undef: :replace, replace: ''}) # Force encoding to UTF-8
         begin
-          if parse("#{vulns.chomp}'", 'html', 0) =~ REGEX
+          if parse("#{vulns.chomp}'", 'html', 0) =~ SQL_VULN_REGEX
             FORMAT.site_found(vulns.chomp)
             File.open("#{PATH}/tmp/SQL_VULN.txt", "a+") { |vulnerable| vulnerable.puts(vulns) }
             sleep(0.5)
@@ -160,7 +152,6 @@ def vulnerability_check
   end
 end
 
-
 #
 # This case statement has to be empty or the program won't read the options constants
 #
@@ -178,8 +169,8 @@ case
       end
       get_urls
       if File.size("#{PATH}/tmp/SQL_sites_to_check.txt") == 0
-        FORMAT.warning("No sites found for search query: #{SEARCH}. Adding query to blacklist so it won't be run again.")
-        File.open("#{PATH}/log/query_blacklist", "a+") { |query| query.puts(SEARCH) }
+        FORMAT.warning("No sites found for search query: #{SEARCH_QUERY}. Adding query to blacklist so it won't be run again.")
+        File.open("#{PATH}/log/query_blacklist", "a+") { |query| query.puts(SEARCH_QUERY) }
         FORMAT.info("Query added to blacklist and will not be run again, exiting..")
         exit(1)
       elsif OPTIONS[:dry]
@@ -195,7 +186,7 @@ case
         vulnerability_check
       end
       File.open("#{PATH}/log/error_log.LOG", 'a+') {
-          |s| s.puts("No sites found with search query #{SEARCH}")
+          |s| s.puts("No sites found with search query #{SEARCH_QUERY}")
       } if File.size("#{PATH}/tmp/SQL_sites_to_check.txt") == 0
       File.truncate("#{PATH}/tmp/SQL_sites_to_check.txt", 0)
       FORMAT.info("I'm truncating SQL_sites_to_check file back to #{File.size("#{PATH}/tmp/SQL_sites_to_check.txt")}")
@@ -238,7 +229,7 @@ case
       d = DateTime.now
       FORMAT.fatal("I've experienced an error and won't continue.. It's gonna break something if I keep trying.. Error: #{e}")
       File.open("#{PATH}/log/error_log.LOG", 'a+') {
-          |error| error.puts("[#{d.month}-#{d.day}-#{d.year} :: #{Time.now.strftime("%T")}]#{e}")
+          |error| error.puts("[#{d.month}-#{d.day}-#{d.year}::#{Time.now.strftime("%T")}] Error: #{e}")
       }
       FORMAT.info("I'll log the error inside of #{PATH}/log/error_log.LOG for further analysis.")
     end
@@ -255,3 +246,4 @@ case
     FORMAT.warning('You failed to pass me a flag!')
     usage_page
 end
+
