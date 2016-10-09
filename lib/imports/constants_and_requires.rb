@@ -58,5 +58,7 @@ LOADING_ERRORS = [RestClient::ResourceNotFound, RestClient::InternalServerError,
                   Errno::ECONNABORTED, Zlib::BufError, RestClient::ServiceUnavailable, ArgumentError]
 FATAL_ERRORS = [Mechanize::ResponseCodeError, RestClient::BadGateway, Errno::ENETUNREACH,
                 Net::HTTP::Persistent::Error]
+
+# Regexps
 SQL_VULN_REGEX = Regexp.union(vuln_specs)
 LINK_URL_REGEX = [/\w+:\/\/[\w.-]+(?::?\d{1,5})?[-\w.\/?=&%]*/]
