@@ -17,7 +17,7 @@ module Whitewidow
 
     # The version the program is currently in
     def version
-      '1.4.01' # Version number
+      '1.4.03' # Version number
     end
 
   end
