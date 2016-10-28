@@ -45,7 +45,7 @@ VERSION = Whitewidow::Misc.new.version
 SEARCH_QUERY = File.readlines("#{PATH}/lib/lists/search_query.txt").sample
 agents = YAML.load_file("#{PATH}/lib/lists/rand-age.yml")
 OPTIONS = {}
-USER_AGENT = agents[rand(1..41)]
+USER_AGENT = agents["rand_agents"][rand(1..41)]
 SKIP = %w(stackoverflow.com www.stackoverflow.com github.com www.github.com www.sa-k.net yoursearch.me search1.speedbit.com
           duckfm.net search.clearch.org webcache.googleusercontent.com m.facebook.com youtube.com facebook.com
           twitter.com wikipedia.org tumblr.com pinterest.com www.facebook.com pinterest.com www.pinterest.com
@@ -61,4 +61,4 @@ FATAL_ERRORS = [Mechanize::ResponseCodeError, RestClient::BadGateway, Errno::ENE
 
 # Regexps
 SQL_VULN_REGEX = Regexp.union(vuln_specs)
-LINK_URL_REGEX = [/\w+:\/\/[\w.-]+(?::?\d{1,5})?[-\w.\/?=&%]*/]
+#LINK_URL_REGEX = [/\w+:\/\/[\w.-]+(?::?\d{1,5})?[-\w.\/?=&%]*/]
