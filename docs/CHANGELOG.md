@@ -1,13 +1,10 @@
-~~# Version 1.5.0
- Edited SQL vuln syntax, there's a few more and this should help with finding more vulns
- Edited the constants a little
- Started working on a spider bot
- Started working on a google captcha bot
- Minor comment fixed
- Bumped version number~~
- 
- ---
- ---
+# Patch release v1.4.01
+- Fixed issue where the agents always showed up as nil
+- Made the flags look pretty
+- Edited the constants
+- Edited readme
+- Edited some xml data
+- Bumped version number
 
 # Version 1.4.0
 - Added a --run-x flag, specify how many runs to make before exiting, will run dry runs and will not search for vulns
