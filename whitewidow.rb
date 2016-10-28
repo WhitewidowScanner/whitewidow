@@ -19,11 +19,11 @@ OptionParser.new do |opt|
   opt.on('-d', '--default', "Run in default mode, scrape Google")                         { |o| OPTIONS[:default] = o }
   opt.on('-l', '--legal', 'Show the legal information and the TOS')                       { |o| OPTIONS[:legal]   = o }
   opt.on('-c', '--credits', 'Show the credits to the creator')                            { |o| OPTIONS[:credits] = o }
-  opt.on('--banner', 'Run without displaying the banner')                                 { |o| OPTIONS[:banner]  = o }
   opt.on('--proxy IP:PORT', 'Configure to run with a proxy, must use ":"')                { |o| OPTIONS[:proxy]   = o }
+  opt.on('--run-x NUM', Integer, 'Run the specified amount of dry runs')                  { |o| OPTIONS[:run]     = o }
+  opt.on('--banner', 'Run without displaying the banner')                                 { |o| OPTIONS[:banner]  = o }
   opt.on('--dry-run', 'Save the sites to the SQL_sites_to_check file only, no checking.') { |o| OPTIONS[:dry]     = o }
   opt.on('--batch', 'No prompts, used in conjunction with the dry run')                   { |o| OPTIONS[:batch]   = o }
-  opt.on('--run-x NUM', Integer, 'Run the specified amount of dry runs')                  { |o| OPTIONS[:run]     = o }
   opt.on('--beep', 'Make a beep when the program finds a vulnerability')                  { |o| OPTIONS[:beep]    = o }
 end.parse!
 
