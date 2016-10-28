@@ -868,7 +868,6 @@ club.php?cid=
 view_items.php?id=
 aboutchiangmai/details.php?id=
 view_items.php?id=
-book.php?isbn=
 blog_detail.php?id=
 event.php?id=
 default.php?cPath=
