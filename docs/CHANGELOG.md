@@ -1,4 +1,4 @@
-# Patch release v1.4.01
+# Patch release v1.4.03
 - Fixed issue where the agents always showed up as nil
 - Made the flags look pretty
 - Edited the constants
