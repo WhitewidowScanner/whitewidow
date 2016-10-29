@@ -1,3 +1,14 @@
+# Prerelease 1.5.0
+- Added a spider flag, recursively search a url
+- Edited some comments
+- Created the search under lib/modules/blackwidow.rb
+- Edited readme
+- Bumped version number to prerelease
+
+######Looking for testers for this pre-release. Check the new issue that was created for this
+
+---
+
 # Patch release v1.4.03
 - Fixed issue where the agents always showed up as nil
 - Made the flags look pretty
