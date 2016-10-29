@@ -242,6 +242,14 @@ case
       system('ruby whitewidow.rb -d --dry-run --batch --banner')
     end
     FORMAT.info("#{OPTIONS[:run]} runs completed successfully.")
+  when OPTIONS[:spider]
+    begin
+      spider = BlackWidow::RecursiveSpider.new(OPTIONS[:spider])
+      link_arr = spider.pull_links
+      data = spider.follow_links(link_arr)
+    rescue *SPIDER_ERRORS
+      FORMAT.err("#{OPTIONS.spider} encountered an error, skipping..")
+    end
   else
     FORMAT.warning('You failed to pass me a flag!')
     usage_page
