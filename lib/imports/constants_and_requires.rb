@@ -24,6 +24,7 @@ require_relative '../../lib/modules/site_info'
 require_relative '../../lib/modules/expansion/string_expan'
 require_relative '../../lib/modules/detection'
 require_relative '../../lib/modules/check_platform'
+require_relative '../../lib/modules/blackwidow'
 
 # Modules that need to be included
 include MultipleParameters
@@ -33,6 +34,7 @@ include Legal
 include Whitewidow
 include Copy
 include SiteInfo
+include BlackWidow
 
 # Constants used throughout the program
 vuln_specs = [/SQL query error/, /MySQL Query Error/,
@@ -58,7 +60,7 @@ LOADING_ERRORS = [RestClient::ResourceNotFound, RestClient::InternalServerError,
                   Errno::ECONNABORTED, Zlib::BufError, RestClient::ServiceUnavailable, ArgumentError]
 FATAL_ERRORS = [Mechanize::ResponseCodeError, RestClient::BadGateway, Errno::ENETUNREACH,
                 Net::HTTP::Persistent::Error]
+SPIDER_ERRORS = [RestClient::NotFound, URI::InvalidURIError, RestClient::SSLCertificateNotVerified]
 
 # Regexps
 SQL_VULN_REGEX = Regexp.union(vuln_specs)
-#LINK_URL_REGEX = [/\w+:\/\/[\w.-]+(?::?\d{1,5})?[-\w.\/?=&%]*/]
