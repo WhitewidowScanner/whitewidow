@@ -244,9 +244,11 @@ case
     FORMAT.info("#{OPTIONS[:run]} runs completed successfully.")
   when OPTIONS[:spider]
     begin
-      spider = BlackWidow::RecursiveSpider.new(OPTIONS[:spider])
-      link_arr = spider.pull_links
-      data = spider.follow_links(link_arr)
+      arr = SPIDER_BOT.pull_links(OPTIONS[:spider])
+      SPIDER_BOT.follow_links(arr)
+      FORMAT.info("Found a total of #{File.open("tmp/blackwidow_log.txt").readlines.size} links. Running them as file..")
+      system("ruby whitewidow.rb --banner -f tmp/blackwidow_log.txt")
+      File.truncate("tmp/blackwidow_log.txt", 0)
     rescue *SPIDER_ERRORS
       FORMAT.err("#{OPTIONS.spider} encountered an error, skipping..")
     end
