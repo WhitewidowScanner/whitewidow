@@ -1,3 +1,17 @@
+# Version 1.5.0
+- Created the spider flag and edited it to run through whitewidows file flag, how to will work is it will extract
+all links from a websites source (given url) so make sure that the links direct to somewhere good.
+- Changed a file name to banner
+- Added a version type, stable, pre-release, or update available (will be changing with releases)
+- Edited some constants
+- Fixed the beep module will run from regexs now
+- Changed some comments in the log files and temp files
+- Removed tm from gitignore for this release
+- Changed readme to reflect new information
+- Changed the credits check them out
+- Minor text fixes
+- Bumped version number
+
 # Prerelease 1.5.0
 - Added a spider flag, recursively search a url
 - Edited some comments
