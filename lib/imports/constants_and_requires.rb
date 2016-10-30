@@ -18,7 +18,7 @@ require 'net/http'
 require_relative '../../lib/modules/format'
 require_relative '../../lib/misc/credits'
 require_relative '../../lib/misc/legal'
-require_relative '../../lib/misc/spider'
+require_relative '../../lib/misc/banner'
 require_relative '../../lib/modules/copy'
 require_relative '../../lib/modules/site_info'
 require_relative '../../lib/modules/expansion/string_expan'
@@ -37,8 +37,6 @@ include SiteInfo
 include BlackWidow
 
 # Constants used throughout the program
-vuln_specs = [/SQL query error/, /MySQL Query Error/,
-              /expects parameter/, /You have an error in your SQL syntax/]
 BEEP = Platform::CheckBeep.new
 MULTIPARAMS = MultipleParameters::TestAllParameters.new
 FORMAT = Format::StringFormat.new
@@ -48,6 +46,8 @@ SEARCH_QUERY = File.readlines("#{PATH}/lib/lists/search_query.txt").sample
 agents = YAML.load_file("#{PATH}/lib/lists/rand-age.yml")
 OPTIONS = {}
 USER_AGENT = agents["rand_agents"][rand(1..41)]
+VERSION_TYPE = VERSION.include?("prv") ? "Pre-Release".yellow : VERSION.include?("1.4") ? "Upgrade Available".red : "Stable".green
+SPIDER_BOT = BlackWidow::RecursiveSpider.new
 SKIP = %w(stackoverflow.com www.stackoverflow.com github.com www.github.com www.sa-k.net yoursearch.me search1.speedbit.com
           duckfm.net search.clearch.org webcache.googleusercontent.com m.facebook.com youtube.com facebook.com
           twitter.com wikipedia.org tumblr.com pinterest.com www.facebook.com pinterest.com www.pinterest.com
@@ -63,4 +63,8 @@ FATAL_ERRORS = [Mechanize::ResponseCodeError, RestClient::BadGateway, Errno::ENE
 SPIDER_ERRORS = [RestClient::NotFound, URI::InvalidURIError, RestClient::SSLCertificateNotVerified]
 
 # Regexps
+vuln_specs = [/SQL query error/, /MySQL Query Error/,
+              /expects parameter/, /You have an error in your SQL syntax/]
 SQL_VULN_REGEX = Regexp.union(vuln_specs)
+WINDOWS_PLATFORM_REGEX = [/cygwin|mswin|mingw|bccwin|wince|emx/]
+DARWIN_PLATFORM_REGEX = [/darwin/]
