@@ -4,9 +4,8 @@ module Credits
   # Outputs the version number and credits to myself because I'm an arrogant fuck head.
   def credits
      puts <<~_END_
-     Credits to my creator: Ekultek, he's a beast!
-     I am currently version: #{VERSION}, stick around for upgrades!
-     My name is: Whitewidow, that's right albino deadly spider
+     Program written and created by "Ekultek".
+     Current version: #{VERSION} (#{VERSION_TYPE})
      _END_
     .blue.bold
   end
