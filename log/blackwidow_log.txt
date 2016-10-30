@@ -1,3 +1,0 @@
-# All urls found by the spider will be logged here
-#
-#
