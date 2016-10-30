@@ -9,14 +9,14 @@ module Platform
     # Check if you're running Windows
     #
     def Platform.windows?
-      (/cygwin|mswin|mingw|bccwin|wince|emx/ =~ RUBY_PLATFORM) != nil
+      (WINDOWS_PLATFORM_REGEX =~ RUBY_PLATFORM) != nil
     end
 
     #
     # Check if your a apple type of person
     #
     def Platform.mac?
-      (/darwin/ =~ RUBY_PLATFORM) != nil
+      (DARWIN_PLATFORM_REGEX =~ RUBY_PLATFORM) != nil
     end
 
     #
@@ -38,10 +38,8 @@ module Platform
         print "\a"  # Windows beep command
       elsif Platform.mac?
         system('say "beep"')  # Mac beep command
-      elsif Platform.unix?
-        system('echo -e "\a"')  # Unix and Linux beep command
       else
-        system('echo -e "\a"')
+        system('echo -e "\a"') # Linux and Unix beep
       end
     end
 
