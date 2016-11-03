@@ -1,4 +1,10 @@
-# Version 1.5.0
+# Version 1.5.0.1
+- Edited the version type constant, didn't like how it worked so I did something a little different
+- Edited the credits, didn't look the way I wanted it to look.
+- Fixed a bunch of comments
+- Bumped version number
+
+# Version 1.5.0 (last release)
 - Created the spider flag and edited it to run through whitewidows file flag, how to will work is it will extract
 all links from a websites source (given url) so make sure that the links direct to somewhere good.
 - Changed a file name to banner
