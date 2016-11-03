@@ -1,9 +1,13 @@
+#
 # Legal info, just to make sure that you know what's going on with this
+#
 module Legal
 
   class Legal
 
-    # Not entirely sure why I have this, this program isn't illegal
+    #
+    # Not entirely sure why I have this, this program isn't illegal. Better safe then sorry though.
+    #
     def legal
       puts <<-_END_
          [ LEGAL DISCLAIMER ]
