@@ -1,10 +1,11 @@
-# Color format the output of the program based on severity of the issue
+#
+# Color code the output by serverity of issue
+#
 module Format
 
   class StringFormat
 
-    # @param [String] *args
-    # Yellow is a warning
+    # Yellow is a warning, something happened that shouldn't have
     def warning(input)
       puts "[#{Time.now.strftime("%T").purple} " + "WARNING".yellow + "] " + "#{input.yellow}"
     end
@@ -20,24 +21,24 @@ module Format
       puts "[#{Time.now.strftime("%T").purple} " + "FATAL".red.bold + "] " + "#{input.red.bold}"
     end
 
-    # Red is still bad
+    # Red is still bad, this is an error, usually means the site didn't load or doesn't exist
     def err(input)
       puts "[#{Time.now.strftime("%T").purple} " + "ERROR".red + "] " + "#{input.red}"
     end
 
-    # Green is good
+    # Green is good, basic information, saying "hey, this is what's happening and why"
     def info(input)
       puts "[#{Time.now.strftime("%T").purple} " + "INFO".green + "] " + "#{input.green.bold}"
     end
 
-    # Found a site, provides the resolve IP and the server information
+    # Tells you that something worked successfully
     def success(input)
       puts "[#{Time.now.strftime("%T").purple} " + "SUCCESS" + "] " + "#{input.white}"
     end
 
-    # Throws the valuable information that you will need, this is very good.
+    # Throws the valuable information that you will need, this is very good. Provides the IP and server info of the site
     def site_found(input)
-      BEEP.check_platform if OPTIONS[:beep]
+      BEEP.check_platform if OPTIONS[:beep]  # TODO: When a IPv6 is thrown, resolve the IPv6 and give further info
       success = 'Possible Vulnerability'
       puts <<-_END_
     [ x ] -----------------------------------------------
