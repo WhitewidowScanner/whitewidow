@@ -1,11 +1,11 @@
 module Copy
 
-  # Copy from file to file instead of using the IO steam method.
-  # @param [String] from_file
-  # @param [String] to_file
+  #
+  # Copy from one file to another
+  #
   def file(from_file, to_file)
     File.open(from_file, "a+").each_line do |copy|
-      File.open(to_file, "a+") { |vul| vul.puts(copy) }
+      File.open(to_file, "a+") { |vul| vul.puts(copy) }  # TODO: Copy with IO.copy_stream instead
     end
   end
 
