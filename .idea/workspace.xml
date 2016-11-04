@@ -2,15 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fae855c0-4fb5-443d-971b-661d3547b6f5" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docs/CHANGELOG.md" afterPath="$PROJECT_DIR$/docs/CHANGELOG.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/imports/constants_and_requires.rb" afterPath="$PROJECT_DIR$/lib/imports/constants_and_requires.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/lists/rand-age.yml" afterPath="$PROJECT_DIR$/lib/lists/rand-age.yml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/misc/banner.rb" afterPath="$PROJECT_DIR$/lib/misc/banner.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/misc/credits.rb" afterPath="$PROJECT_DIR$/lib/misc/credits.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/misc/legal.rb" afterPath="$PROJECT_DIR$/lib/misc/legal.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/blackwidow.rb" afterPath="$PROJECT_DIR$/lib/modules/blackwidow.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/copy.rb" afterPath="$PROJECT_DIR$/lib/modules/copy.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/detection.rb" afterPath="$PROJECT_DIR$/lib/modules/detection.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/expansion/string_expan.rb" afterPath="$PROJECT_DIR$/lib/modules/expansion/string_expan.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/format.rb" afterPath="$PROJECT_DIR$/lib/modules/format.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/site_info.rb" afterPath="$PROJECT_DIR$/lib/modules/site_info.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/whitewidow.rb" afterPath="$PROJECT_DIR$/whitewidow.rb" />
     </list>
     <ignored path="whitewidow.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -35,12 +32,22 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name="CHANGELOG.md" pinned="false" current-in-tab="true">
+      <file leaf-file-name="banner.rb" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/lib/misc/banner.rb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="323">
+              <caret line="19" column="12" selection-start-line="19" selection-start-column="12" selection-end-line="19" selection-end-column="12" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CHANGELOG.md" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/docs/CHANGELOG.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
-              <first_editor relative-caret-position="476">
-                <caret line="28" column="0" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
+              <first_editor relative-caret-position="136">
+                <caret line="8" column="17" selection-start-line="8" selection-start-column="17" selection-end-line="8" selection-end-column="17" />
                 <folding />
               </first_editor>
               <second_editor />
@@ -48,31 +55,31 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="check_platform.rb" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/lib/modules/check_platform.rb">
+      <file leaf-file-name="constants_and_requires.rb" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/lib/imports/constants_and_requires.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="799">
-              <caret line="47" column="3" selection-start-line="47" selection-start-column="3" selection-end-line="47" selection-end-column="3" />
+            <state relative-caret-position="421">
+              <caret line="46" column="6" selection-start-line="46" selection-start-column="6" selection-end-line="46" selection-end-column="6" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="copy.rb" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/lib/modules/copy.rb">
+      <file leaf-file-name="blackwidow.rb" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/lib/modules/blackwidow.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
-              <caret line="7" column="97" selection-start-line="7" selection-start-column="97" selection-end-line="7" selection-end-column="97" />
+            <state relative-caret-position="272">
+              <caret line="16" column="71" selection-start-line="16" selection-start-column="71" selection-end-line="16" selection-end-column="71" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="format.rb" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/lib/modules/format.rb">
+      <file leaf-file-name="whitewidow.rb" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/whitewidow.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="680">
-              <caret line="40" column="114" selection-start-line="40" selection-start-column="114" selection-end-line="40" selection-end-column="114" />
+            <state relative-caret-position="340">
+              <caret line="90" column="17" selection-start-line="90" selection-start-column="17" selection-end-line="90" selection-end-column="17" />
               <folding />
             </state>
           </provider>
@@ -101,8 +108,8 @@
       <file leaf-file-name="rand-age.yml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/lib/lists/rand-age.yml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="697">
-              <caret line="41" column="6" selection-start-line="41" selection-start-column="6" selection-end-line="41" selection-end-column="6" />
+            <state relative-caret-position="492">
+              <caret line="41" column="95" selection-start-line="41" selection-start-column="95" selection-end-line="41" selection-end-column="95" />
               <folding />
             </state>
           </provider>
@@ -128,16 +135,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="detection.rb" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/lib/modules/detection.rb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="323">
-              <caret line="19" column="0" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
     </leaf>
   </component>
   <component name="Git.Settings">
@@ -153,7 +150,6 @@
         <option value="$PROJECT_DIR$/.github/ISSUE_TEMPLATE.md" />
         <option value="$PROJECT_DIR$/Gemfile" />
         <option value="$PROJECT_DIR$/docs/LICENSE.txt" />
-        <option value="$PROJECT_DIR$/lib/lists/rand-age.yml" />
         <option value="$PROJECT_DIR$/docs/LICENSE.md" />
         <option value="$PROJECT_DIR$/log/SQL_VULN.LOG" />
         <option value="$PROJECT_DIR$/lib/modules/google_captcha_bot.rb" />
@@ -168,17 +164,13 @@
         <option value="$PROJECT_DIR$/log/non_exploitable.txt" />
         <option value="$PROJECT_DIR$/log/blackwidow_log.txt" />
         <option value="$PROJECT_DIR$/log/query_blacklist" />
-        <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/lib/modules/check_platform.rb" />
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/tmp/SQL_sites_to_check.txt" />
         <option value="$PROJECT_DIR$/tmp/SQL_VULN.txt" />
         <option value="$PROJECT_DIR$/tmp/blackwidow_log.txt" />
         <option value="$PROJECT_DIR$/lib/misc/spider.rb" />
-        <option value="$PROJECT_DIR$/whitewidow.rb" />
         <option value="$PROJECT_DIR$/lib/misc/credits.rb" />
-        <option value="$PROJECT_DIR$/lib/imports/constants_and_requires.rb" />
-        <option value="$PROJECT_DIR$/lib/misc/banner.rb" />
         <option value="$PROJECT_DIR$/lib/modules/blackwidow.rb" />
         <option value="$PROJECT_DIR$/lib/modules/copy.rb" />
         <option value="$PROJECT_DIR$/lib/modules/detection.rb" />
@@ -186,6 +178,11 @@
         <option value="$PROJECT_DIR$/lib/modules/site_info.rb" />
         <option value="$PROJECT_DIR$/lib/misc/legal.rb" />
         <option value="$PROJECT_DIR$/lib/modules/expansion/string_expan.rb" />
+        <option value="$PROJECT_DIR$/README.md" />
+        <option value="$PROJECT_DIR$/lib/imports/constants_and_requires.rb" />
+        <option value="$PROJECT_DIR$/whitewidow.rb" />
+        <option value="$PROJECT_DIR$/lib/misc/banner.rb" />
+        <option value="$PROJECT_DIR$/lib/lists/rand-age.yml" />
         <option value="$PROJECT_DIR$/docs/CHANGELOG.md" />
       </list>
     </option>
@@ -533,20 +530,20 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="87848000" />
+    <option name="totallyTimeSpent" value="87939000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1938" height="1050" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2296875" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2296875" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.17508417" sideWeight="0.503125" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32946146" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.17508417" sideWeight="0.496875" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.13410771" sideWeight="0.496875" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39915523" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -766,7 +763,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="409">
           <caret line="52" column="71" selection-start-line="52" selection-start-column="71" selection-end-line="52" selection-end-column="71" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -815,18 +811,11 @@
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="714">
-            <caret line="42" column="161" selection-start-line="42" selection-start-column="161" selection-end-line="42" selection-end-column="161" />
+          <first_editor relative-caret-position="544">
+            <caret line="38" column="0" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
+            <folding />
           </first_editor>
           <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/imports/constants_and_requires.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="867">
-          <caret line="51" column="18" selection-start-line="51" selection-start-column="18" selection-end-line="51" selection-end-column="18" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -838,35 +827,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lib/misc/banner.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="25" column="0" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/whitewidow.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-408">
-          <caret line="32" column="14" selection-start-line="32" selection-start-column="14" selection-end-line="32" selection-end-column="14" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/modules/blackwidow.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="16" column="71" selection-start-line="16" selection-start-column="71" selection-end-line="16" selection-end-column="71" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/lib/modules/check_platform.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="799">
           <caret line="47" column="3" selection-start-line="47" selection-start-column="3" selection-end-line="47" selection-end-column="3" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -874,7 +838,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="323">
           <caret line="19" column="0" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -882,7 +845,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="119">
           <caret line="7" column="97" selection-start-line="7" selection-start-column="97" selection-end-line="7" selection-end-column="97" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -890,7 +852,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="680">
           <caret line="40" column="114" selection-start-line="40" selection-start-column="114" selection-end-line="40" selection-end-column="114" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -898,14 +859,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="357">
           <caret line="21" column="64" selection-start-line="21" selection-start-column="64" selection-end-line="21" selection-end-column="64" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/lists/rand-age.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="697">
-          <caret line="41" column="6" selection-start-line="41" selection-start-column="6" selection-end-line="41" selection-end-column="6" />
           <folding />
         </state>
       </provider>
@@ -934,14 +887,54 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/lib/modules/blackwidow.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="16" column="71" selection-start-line="16" selection-start-column="71" selection-end-line="16" selection-end-column="71" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/misc/banner.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="19" column="12" selection-start-line="19" selection-start-column="12" selection-end-line="19" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/lists/rand-age.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="492">
+          <caret line="41" column="95" selection-start-line="41" selection-start-column="95" selection-end-line="41" selection-end-column="95" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/docs/CHANGELOG.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="476">
-            <caret line="28" column="0" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
+          <first_editor relative-caret-position="136">
+            <caret line="8" column="17" selection-start-line="8" selection-start-column="17" selection-end-line="8" selection-end-column="17" />
             <folding />
           </first_editor>
           <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/imports/constants_and_requires.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="421">
+          <caret line="46" column="6" selection-start-line="46" selection-start-column="6" selection-end-line="46" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/whitewidow.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="90" column="17" selection-start-line="90" selection-start-column="17" selection-end-line="90" selection-end-column="17" />
+          <folding />
         </state>
       </provider>
     </entry>
