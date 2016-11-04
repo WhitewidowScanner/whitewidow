@@ -1,3 +1,11 @@
+# Version 1.5.1.2
+- Added more random agents
+- Added a random agent flag, check the readme for more information
+- Edited constants to reflect new additions
+- Minor text fixes
+- Edited readme to reflect new flag
+- Bumped version number
+
 # Version 1.5.0.1
 - Edited the version type constant, didn't like how it worked so I did something a little different
 - Edited the credits, didn't look the way I wanted it to look.
