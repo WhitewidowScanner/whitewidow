@@ -95,7 +95,7 @@ def get_urls
   if OPTIONS[:agent]
     agent.user_agent = USER_AGENTS["rand_agents"][rand(1..55)]  # Grab a random user agent from the YAML file
   else
-    agent.user_agent = "Whitewidow 1.5.0.2 SQL Vuln Scanner Ruby:#{RUBY_VERSION}->Platform:#{RUBY_PLATFORM}"  # Default agent
+    agent.user_agent = DEFAULT_USER_AGENT
   end
   page = agent.get('http://www.google.com/')
   google_form = page.form('f')
