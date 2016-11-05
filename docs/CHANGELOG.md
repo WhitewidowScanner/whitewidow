@@ -1,3 +1,18 @@
+# Version 1.5.1.4
+- Changed the version type, it's now in the banner.rb file, it pulls the version from github itself and compares what version you have to it
+- Bumped version number
+
+# Version 1.5.1.3
+- Realized that I lied to you guys and never fixed the version constant. It's fixed now. How it works is it will check
+  the changelog for the last release which is specified by `(last release)`, then it will extract the version number from
+  that and compare it to the current version. If the version == the last release (will probably not happen going to pull
+  the version number from github itself for this one) then it will output "upgrade available" otherwise if it doesn't then
+  it will check if the version length has 4 or more integers in it, if that is the case it outputs "dev". Otherwise it 
+  means you cloned it probably and it will output "stable"
+- Instead of hardcoding the version number in the default user agent, it pulls it from the VERSION constant
+- Made the default user agent a constant
+- Bumped version number
+
 # Version 1.5.1.2
 - Added more random agents
 - Added a random agent flag, check the readme for more information
