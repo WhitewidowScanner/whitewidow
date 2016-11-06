@@ -1,3 +1,14 @@
+# Version 1.6.0
+- Moved all files in the modules directory into new folders specified by type of file it is, such as core files, spider, etc.
+- Edited the constants_and_requires to match changes
+- Created a VERSION_STRING constant
+- Put the version number and version type in the banner itself, this deprecated the use for the credits file. It'll be saved incase something bad happens and I need it, just commented out with a deprecation notice
+- Edited README
+- Deprecated --credits flag
+- Deprecated page and parse() methods (moved to settings file)
+- Removed search query that was failing and was in the file multiple times
+- Bumped version number
+
 # Version 1.5.1.4
 - Changed the version type, it's now in the banner.rb file, it pulls the version from github itself and compares what version you have to it
 - Bumped version number
@@ -27,7 +38,7 @@
 - Fixed a bunch of comments
 - Bumped version number
 
-# Version 1.5.0 (last release)
+# Version 1.5.0
 - Created the spider flag and edited it to run through whitewidows file flag, how to will work is it will extract
 all links from a websites source (given url) so make sure that the links direct to somewhere good.
 - Changed a file name to banner
