@@ -6,7 +6,9 @@ require_relative 'lib/imports/constants_and_requires'
 # Usage page, basic help page for commands
 #
 def usage_page
-  FORMAT.info("ruby #{File.basename(__FILE__)} -[d|h|f] PATH --[dry-run|batch|banner|beep|proxy] PROXY")
+  FORMAT.info("ruby #{File.basename(__FILE__)} -[OPTIONS] --[OPTIONAL-OPTIONS]")
+  FORMAT.info("Check the README.md file for a list of flags and further information")
+  system('ruby whitewidow.rb --help')
   exit
 end
 
@@ -18,7 +20,7 @@ OptionParser.new do |opt|
   opt.on('-s URL', '--spider URL', 'Spider a web page and save all the URLS')             { |o| OPTIONS[:spider]  = o }
   opt.on('-d', '--default', "Run in default mode, scrape Google")                         { |o| OPTIONS[:default] = o }
   opt.on('-l', '--legal', 'Show the legal information and the TOS')                       { |o| OPTIONS[:legal]   = o }
-  opt.on('-c', '--credits', 'Show the credits to the creator')                            { |o| OPTIONS[:credits] = o }
+#  opt.on('-c', '--credits', 'Show the credits of the program')                           { |o| OPTIONS[:credits] = o } Deprecated since version 1.6.0
   opt.on('--proxy IP:PORT', 'Configure to run with a proxy, must use ":"')                { |o| OPTIONS[:proxy]   = o }
   opt.on('--run-x NUM', Integer, 'Run the specified amount of dry runs')                  { |o| OPTIONS[:run]     = o }
   opt.on('--banner', 'Run without displaying the banner')                                 { |o| OPTIONS[:banner]  = o }
@@ -27,14 +29,14 @@ OptionParser.new do |opt|
   opt.on('--beep', 'Make a beep when the program finds a vulnerability')                  { |o| OPTIONS[:beep]    = o }
   opt.on('--rand-agent', 'Use a random user agent')                                       { |o| OPTIONS[:agent]   = o }
 end.parse!
-
+=begin
 #
 # Method for Nokogiri so I don't have to continually type Nokogiri::HTML
 # @param [String] site url
 def page(site)
   Nokogiri::HTML(RestClient.get(site))
 end
-
+    # Deprecated since version 1.6.0 moved to settings.rb
 #
 # This is actually pretty smart, it's used to parse the HTML
 # @param [String] site url
@@ -44,7 +46,7 @@ def parse(site, tag, i)
   parsing = page(site)
   parsing.css(tag)[i].to_s
 end
-
+=end
 #
 # File formatting
 #
@@ -133,7 +135,7 @@ def vulnerability_check
       Timeout::timeout(10) do
         vulns = vuln.encode(Encoding.find('UTF-8'), {invalid: :replace, undef: :replace, replace: ''}) # Force encoding to UTF-8
         begin
-          if parse("#{vulns.chomp}'", 'html', 0) =~ SQL_VULN_REGEX
+          if SETTINGS.parse("#{vulns.chomp}'", 'html', 0) =~ SQL_VULN_REGEX
             FORMAT.site_found(vulns.chomp)
             File.open("#{PATH}/tmp/SQL_VULN.txt", "a+") { |vulnerable| vulnerable.puts(vulns) }
             sleep(0.5)
@@ -240,8 +242,9 @@ case
     end
   when OPTIONS[:legal]
     Legal::Legal.new.legal
-  when OPTIONS[:credits]
-    Credits.credits
+=begin  when OPTIONS[:credits]
+    Credits.credits  Deprecated since version 1.6.0
+=end
   when OPTIONS[:run]
     OPTIONS[:run].times do
       system('ruby whitewidow.rb -d --dry-run --batch --banner')
@@ -261,4 +264,3 @@ case
     FORMAT.warning('You failed to pass me a flag!')
     usage_page
 end
-
