@@ -1,3 +1,7 @@
+# Version 1.6.1.1
+- Removed deprecated code
+- Bumped version number
+
 # Version 1.6.1
 - Moved all files in the modules directory into new folders specified by type of file it is, such as core files, spider, etc.
 - Edited the constants_and_requires to match changes
