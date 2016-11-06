@@ -25,18 +25,9 @@ module Whitewidow
 
     # The version the program is currently in
     def version
-      '1.6.1' # Version number <major>.<minor>.<patch>.<monthly commit>
+      '1.6.1.1' # Version number <major>.<minor>.<patch>.<monthly commit>
     end
-=begin
-    def page(site)
-      Nokogiri::HTML(RestClient.get(site))
-    end
-    # Deprecated, left for backup
-    def parse(site, tag, i)
-      parsing = page(site)
-      parsing.css(tag)[i].to_s
-    end
-=end
+
     #
     # The type of version you have, usually it'll be stable or dev
     #
@@ -44,14 +35,15 @@ module Whitewidow
       data = Settings::ProgramSettings.new.parse("https://github.com/Ekultek/whitewidow/blob/master/lib/misc/banner.rb", "td", 55)
       arr = data.split(" ")
       version_number = arr[7][/(\d+\.)?(\d+\.)?(\d+\.)?(\*|\d+)/]
-      puts version_number
 
       if version_number != version
-        return "Upgrade Available".red.bold
+        return "Upgrade Available".red
+      elsif version.count(".") == 2
+        return "stable".green.bold
       elsif version.length != 3
         return "dev".yellow.bold
       else
-        return "stable".green.bold
+        return "unknown".red.bold
       end
 
     end
