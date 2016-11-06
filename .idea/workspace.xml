@@ -1,15 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="fae855c0-4fb5-443d-971b-661d3547b6f5" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/misc/credits.rb" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docs/CHANGELOG.md" afterPath="$PROJECT_DIR$/docs/CHANGELOG.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/imports/constants_and_requires.rb" afterPath="$PROJECT_DIR$/lib/imports/constants_and_requires.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/misc/banner.rb" afterPath="$PROJECT_DIR$/lib/misc/banner.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tmp/SQL_sites_to_check.txt" afterPath="$PROJECT_DIR$/tmp/SQL_sites_to_check.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/whitewidow.rb" afterPath="$PROJECT_DIR$/whitewidow.rb" />
-    </list>
+    <list default="true" id="fae855c0-4fb5-443d-971b-661d3547b6f5" name="Default" comment="" />
     <ignored path="whitewidow.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path=".idea/dataSources.local.xml" />
@@ -64,7 +56,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CHANGELOG.md" pinned="false" current-in-tab="true">
+      <file leaf-file-name="CHANGELOG.md" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/docs/CHANGELOG.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
@@ -73,6 +65,16 @@
                 <folding />
               </first_editor>
               <second_editor />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SQL_sites_to_check.txt" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/tmp/SQL_sites_to_check.txt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -163,7 +165,6 @@
         <option value="$PROJECT_DIR$/log/blackwidow_log.txt" />
         <option value="$PROJECT_DIR$/log/query_blacklist" />
         <option value="$PROJECT_DIR$/lib/modules/check_platform.rb" />
-        <option value="$PROJECT_DIR$/tmp/SQL_sites_to_check.txt" />
         <option value="$PROJECT_DIR$/tmp/SQL_VULN.txt" />
         <option value="$PROJECT_DIR$/tmp/blackwidow_log.txt" />
         <option value="$PROJECT_DIR$/lib/misc/spider.rb" />
@@ -187,6 +188,7 @@
         <option value="$PROJECT_DIR$/whitewidow.rb" />
         <option value="$PROJECT_DIR$/lib/imports/constants_and_requires.rb" />
         <option value="$PROJECT_DIR$/docs/CHANGELOG.md" />
+        <option value="$PROJECT_DIR$/tmp/SQL_sites_to_check.txt" />
       </list>
     </option>
   </component>
@@ -549,12 +551,12 @@
       <workItem from="1478213777164" duration="880000" />
       <workItem from="1478260045974" duration="6504000" />
       <workItem from="1478373685447" duration="4371000" />
-      <workItem from="1478458115406" duration="6141000" />
+      <workItem from="1478458115406" duration="6269000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="105531000" />
+    <option name="totallyTimeSpent" value="105659000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1938" height="1050" extended-state="6" />
@@ -750,13 +752,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tmp/SQL_sites_to_check.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/tmp/SQL_VULN.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -945,6 +940,14 @@
             <folding />
           </first_editor>
           <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tmp/SQL_sites_to_check.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
