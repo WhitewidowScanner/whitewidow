@@ -25,7 +25,7 @@ module Whitewidow
 
     # The version the program is currently in
     def version
-      '1.5.1.4' # Version number <major>.<minor>.<patch>.<monthly commit>
+      '1.6.1' # Version number <major>.<minor>.<patch>.<monthly commit>
     end
 =begin
     def page(site)
@@ -41,9 +41,11 @@ module Whitewidow
     # The type of version you have, usually it'll be stable or dev
     #
     def version_type(version)
-      data = Settings::ProgramSettings.new.parse("https://github.com/Ekultek/whitewidow/blob/master/lib/misc/banner.rb", "td", 39)
+      data = Settings::ProgramSettings.new.parse("https://github.com/Ekultek/whitewidow/blob/master/lib/misc/banner.rb", "td", 55)
       arr = data.split(" ")
       version_number = arr[7][/(\d+\.)?(\d+\.)?(\d+\.)?(\*|\d+)/]
+      puts version_number
+
       if version_number != version
         return "Upgrade Available".red.bold
       elsif version.length != 3
@@ -51,6 +53,7 @@ module Whitewidow
       else
         return "stable".green.bold
       end
+
     end
 
   end
