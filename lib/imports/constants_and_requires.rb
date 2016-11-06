@@ -15,26 +15,28 @@ require 'socket'
 require 'net/http'
 
 # Created libraries
-require_relative '../../lib/modules/format'
-require_relative '../../lib/misc/credits'
+require_relative '../../lib/modules/core/format'
+#require_relative '../../lib/misc/credits'  # Deprecated since version 1.6.0
 require_relative '../../lib/misc/legal'
 require_relative '../../lib/misc/banner'
-require_relative '../../lib/modules/copy'
-require_relative '../../lib/modules/site_info'
+require_relative '../../lib/modules/core/copy'
+require_relative '../../lib/modules/core/site_info'
 require_relative '../../lib/modules/expansion/string_expan'
-require_relative '../../lib/modules/detection'
-require_relative '../../lib/modules/check_platform'
-require_relative '../../lib/modules/blackwidow'
+require_relative '../../lib/modules/core/detection'
+require_relative '../../lib/modules/core/check_platform'
+require_relative '../../lib/modules/spider/blackwidow'
+require_relative '../../lib/modules/core/settings'
 
 # Modules that need to be included
 include MultipleParameters
 include Format
-include Credits
+#include Credits Deprecated since version 1.6.0
 include Legal
 include Whitewidow
 include Copy
 include SiteInfo
 include BlackWidow
+include Settings
 
 # Constants used throughout the program
 BEEP = Platform::CheckBeep.new
@@ -46,8 +48,12 @@ USER_AGENTS = YAML.load_file("#{PATH}/lib/lists/rand-age.yml")
 OPTIONS = {}
 VERSION = Whitewidow::Misc.new.version
 VERSION_TYPE = Whitewidow::Misc.new.version_type(VERSION)
+VERSION_STRING = "v" + VERSION.green.bold + '(' + VERSION_TYPE + ')'
 DEFAULT_USER_AGENT = "Whitewidow #{VERSION} SQL Vuln Scanner Ruby:#{RUBY_VERSION}->Platform:#{RUBY_PLATFORM}"
 SPIDER_BOT = BlackWidow::RecursiveSpider.new
+SETTINGS = Settings::ProgramSettings.new
+
+# Skips and errors
 SKIP = %w(stackoverflow.com www.stackoverflow.com github.com www.github.com www.sa-k.net yoursearch.me search1.speedbit.com
           duckfm.net search.clearch.org webcache.googleusercontent.com m.facebook.com youtube.com facebook.com
           twitter.com wikipedia.org tumblr.com pinterest.com www.facebook.com pinterest.com www.pinterest.com
@@ -68,4 +74,4 @@ vuln_specs = [/SQL query error/, /MySQL Query Error/,
 SQL_VULN_REGEX = Regexp.union(vuln_specs)
 WINDOWS_PLATFORM_REGEX = [/cygwin|mswin|mingw|bccwin|wince|emx/]
 DARWIN_PLATFORM_REGEX = [/darwin/]
-VERSION_REGEX = /(\d+\.)?(\d+\.)?(\d+\.)?(\*|\d+)/
+#VERSION_REGEX = /(\d+\.)?(\d+\.)?(\d+\.)?(\*|\d+)/   Deprecated since version 1.6.0
