@@ -20,7 +20,6 @@ OptionParser.new do |opt|
   opt.on('-s URL', '--spider URL', 'Spider a web page and save all the URLS')             { |o| OPTIONS[:spider]  = o }
   opt.on('-d', '--default', "Run in default mode, scrape Google")                         { |o| OPTIONS[:default] = o }
   opt.on('-l', '--legal', 'Show the legal information and the TOS')                       { |o| OPTIONS[:legal]   = o }
-#  opt.on('-c', '--credits', 'Show the credits of the program')                           { |o| OPTIONS[:credits] = o } Deprecated since version 1.6.0
   opt.on('--proxy IP:PORT', 'Configure to run with a proxy, must use ":"')                { |o| OPTIONS[:proxy]   = o }
   opt.on('--run-x NUM', Integer, 'Run the specified amount of dry runs')                  { |o| OPTIONS[:run]     = o }
   opt.on('--banner', 'Run without displaying the banner')                                 { |o| OPTIONS[:banner]  = o }
@@ -242,9 +241,6 @@ case
     end
   when OPTIONS[:legal]
     Legal::Legal.new.legal
-=begin  when OPTIONS[:credits]
-    Credits.credits  Deprecated since version 1.6.0
-=end
   when OPTIONS[:run]
     OPTIONS[:run].times do
       system('ruby whitewidow.rb -d --dry-run --batch --banner')
