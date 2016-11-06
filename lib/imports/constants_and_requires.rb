@@ -16,7 +16,6 @@ require 'net/http'
 
 # Created libraries
 require_relative '../../lib/modules/core/format'
-#require_relative '../../lib/misc/credits'  # Deprecated since version 1.6.0
 require_relative '../../lib/misc/legal'
 require_relative '../../lib/misc/banner'
 require_relative '../../lib/modules/core/copy'
@@ -30,7 +29,6 @@ require_relative '../../lib/modules/core/settings'
 # Modules that need to be included
 include MultipleParameters
 include Format
-#include Credits Deprecated since version 1.6.0
 include Legal
 include Whitewidow
 include Copy
@@ -74,4 +72,3 @@ vuln_specs = [/SQL query error/, /MySQL Query Error/,
 SQL_VULN_REGEX = Regexp.union(vuln_specs)
 WINDOWS_PLATFORM_REGEX = [/cygwin|mswin|mingw|bccwin|wince|emx/]
 DARWIN_PLATFORM_REGEX = [/darwin/]
-#VERSION_REGEX = /(\d+\.)?(\d+\.)?(\d+\.)?(\*|\d+)/   Deprecated since version 1.6.0
