@@ -1,6 +1,8 @@
 # IntelliJ project files
 .idea
 *.iml
+/tmp
+/log
 out
 gen### Ruby template
 *.gem
