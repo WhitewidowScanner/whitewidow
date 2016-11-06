@@ -1,4 +1,9 @@
 # The opening, this will output every time the program is run unless you specify otherwise.
+
+require_relative '../../lib/modules/core/settings'
+
+include Settings
+
 module Whitewidow
 
   class Misc
@@ -11,6 +16,9 @@ module Whitewidow
    \\        /|   Y  \\  ||  | \\  ___/\\        /|  / /_/ (  <_> )     /
     \\__/\\  / |___|  /__||__|  \\___  >\\__/\\  / |__\____ | \\____/ \\/\\_/
          \\/       \\/              \\/      \\/           \\/
+
+  https://github.com/ekultek/whitewiow.git
+  #{VERSION_STRING}
            _END_
                .cyan
     end
@@ -19,27 +27,27 @@ module Whitewidow
     def version
       '1.5.1.4' # Version number <major>.<minor>.<patch>.<monthly commit>
     end
-
+=begin
     def page(site)
       Nokogiri::HTML(RestClient.get(site))
     end
-    # Need these to get it to output the version number correctly
+    # Deprecated, left for backup
     def parse(site, tag, i)
       parsing = page(site)
       parsing.css(tag)[i].to_s
     end
-
+=end
     #
     # The type of version you have, usually it'll be stable or dev
     #
     def version_type(version)
-      data = parse("https://github.com/Ekultek/whitewidow/blob/master/lib/misc/banner.rb", "td", 39)
+      data = Settings::ProgramSettings.new.parse("https://github.com/Ekultek/whitewidow/blob/master/lib/misc/banner.rb", "td", 39)
       arr = data.split(" ")
       version_number = arr[7][/(\d+\.)?(\d+\.)?(\d+\.)?(\*|\d+)/]
-      if version_number.count(".") > 2
-        return "dev".yellow.bold
-      elsif version_number != version
+      if version_number != version
         return "Upgrade Available".red.bold
+      elsif version.length != 3
+        return "dev".yellow.bold
       else
         return "stable".green.bold
       end
