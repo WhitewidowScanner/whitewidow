@@ -1,3 +1,9 @@
+# Version 1.6.1.2
+- Removed deprecated code
+- Converted legal heredoc to squiggly heredoc
+- Added new comments all around
+- Bumped version number
+
 # Version 1.6.1.1
 - Removed deprecated code
 - Bumped version number
