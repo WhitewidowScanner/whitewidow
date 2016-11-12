@@ -1,3 +1,7 @@
+# Version 1.6.1.3
+- Fix #26 https://github.com/Ekultek/whitewidow/issues/26
+- Bumped version number
+
 # Version 1.6.1.2
 - Removed deprecated code
 - Converted legal heredoc to squiggly heredoc
