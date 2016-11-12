@@ -27,6 +27,7 @@ OptionParser.new do |opt|
   opt.on('--batch', 'No prompts, used in conjunction with the dry run')                   { |o| OPTIONS[:batch]   = o }
   opt.on('--beep', 'Make a beep when the program finds a vulnerability')                  { |o| OPTIONS[:beep]    = o }
   opt.on('--rand-agent', 'Use a random user agent')                                       { |o| OPTIONS[:agent]   = o }
+#  opt.on('--sqlmap', 'Run sqlmap through the bulk file')                                  { |o| OPTIONS[:sqlmap]  = o }  # Currently obtaining permission from developers
 end.parse!
 
 #
@@ -229,6 +230,9 @@ case
       system('ruby whitewidow.rb -d --dry-run --batch --banner')
     end
     FORMAT.info("#{OPTIONS[:run]} runs completed successfully.")
+#  when OPTIONS[:sqlmap]  # Obtaining permission from sqlmap devs
+#    commands = FORMAT.prompt("Enter the sqlmap commands you wish to use")
+#    system("python sqlmap.py -m log/SQL_VULN.LOG #{commands}")
   when OPTIONS[:spider]
     begin
       arr = SPIDER_BOT.pull_links(OPTIONS[:spider])

@@ -2,9 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fae855c0-4fb5-443d-971b-661d3547b6f5" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docs/CHANGELOG.md" afterPath="$PROJECT_DIR$/docs/CHANGELOG.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/imports/constants_and_requires.rb" afterPath="$PROJECT_DIR$/lib/imports/constants_and_requires.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/misc/banner.rb" afterPath="$PROJECT_DIR$/lib/misc/banner.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/whitewidow.rb" afterPath="$PROJECT_DIR$/whitewidow.rb" />
     </list>
     <ignored path="whitewidow.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -47,7 +46,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CHANGELOG.md" pinned="false" current-in-tab="true">
+      <file leaf-file-name="CHANGELOG.md" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/docs/CHANGELOG.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
@@ -90,11 +89,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="whitewidow.rb" pinned="false" current-in-tab="false">
+      <file leaf-file-name="whitewidow.rb" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/whitewidow.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2720">
-              <caret line="160" column="161" selection-start-line="160" selection-start-column="161" selection-end-line="160" selection-end-column="161" />
+            <state relative-caret-position="1088">
+              <caret line="232" column="65" selection-start-line="232" selection-start-column="65" selection-end-line="232" selection-end-column="65" />
               <folding />
             </state>
           </provider>
@@ -142,7 +141,6 @@
         <option value="$PROJECT_DIR$/lib/misc/credits.rb" />
         <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/lib/misc/legal.rb" />
-        <option value="$PROJECT_DIR$/whitewidow.rb" />
         <option value="$PROJECT_DIR$/lib/modules/core/settings.rb" />
         <option value="$PROJECT_DIR$/tmp/SQL_sites_to_check.txt" />
         <option value="$PROJECT_DIR$/log/non_exploitable.txt" />
@@ -150,6 +148,7 @@
         <option value="$PROJECT_DIR$/lib/imports/constants_and_requires.rb" />
         <option value="$PROJECT_DIR$/lib/misc/banner.rb" />
         <option value="$PROJECT_DIR$/docs/CHANGELOG.md" />
+        <option value="$PROJECT_DIR$/whitewidow.rb" />
       </list>
     </option>
   </component>
@@ -539,12 +538,12 @@
       <workItem from="1478260045974" duration="6504000" />
       <workItem from="1478373685447" duration="4371000" />
       <workItem from="1478458115406" duration="6269000" />
-      <workItem from="1478977779668" duration="1921000" />
+      <workItem from="1478977779668" duration="2694000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="107580000" />
+    <option name="totallyTimeSpent" value="108353000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1938" height="1050" extended-state="0" />
@@ -850,14 +849,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/whitewidow.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2720">
-          <caret line="160" column="161" selection-start-line="160" selection-start-column="161" selection-end-line="160" selection-end-column="161" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/tmp/SQL_sites_to_check.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -930,6 +921,14 @@
             <folding />
           </first_editor>
           <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/whitewidow.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1088">
+          <caret line="232" column="65" selection-start-line="232" selection-start-column="65" selection-end-line="232" selection-end-column="65" />
+          <folding />
         </state>
       </provider>
     </entry>
