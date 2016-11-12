@@ -1,3 +1,7 @@
+# Version 1.6.1.4
+- Edited the banner because I didn't like it, has repo and download link now
+- Bumped version number
+
 # Version 1.6.1.3
 - Fix #26 https://github.com/Ekultek/whitewidow/issues/26
 - Bumped version number
