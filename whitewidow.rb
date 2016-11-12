@@ -28,24 +28,7 @@ OptionParser.new do |opt|
   opt.on('--beep', 'Make a beep when the program finds a vulnerability')                  { |o| OPTIONS[:beep]    = o }
   opt.on('--rand-agent', 'Use a random user agent')                                       { |o| OPTIONS[:agent]   = o }
 end.parse!
-=begin
-#
-# Method for Nokogiri so I don't have to continually type Nokogiri::HTML
-# @param [String] site url
-def page(site)
-  Nokogiri::HTML(RestClient.get(site))
-end
-    # Deprecated since version 1.6.0 moved to settings.rb
-#
-# This is actually pretty smart, it's used to parse the HTML
-# @param [String] site url
-# @param [String] tag css selector
-# @param [Integer] i the given html row
-def parse(site, tag, i)
-  parsing = page(site)
-  parsing.css(tag)[i].to_s
-end
-=end
+
 #
 # File formatting
 #
@@ -72,7 +55,7 @@ def format_file
 
       Don't worry I'll wait!
          _END_
-             .yellow.bold
+             .yellow.bold  # Error out because the file doesn't exist
   end
 end
 
@@ -82,32 +65,32 @@ end
 def get_urls
   query = SEARCH_QUERY
 
-  File.read("#{PATH}/log/query_blacklist").each_line do |black|
+  File.read("#{PATH}/log/query_blacklist").each_line do |black|  # check if the search query is black listed
     if query == black
-      query = File.readlines("#{PATH}/lib/lists/search_query.txt").sample
+      query = File.readlines("#{PATH}/lib/lists/search_query.txt").sample  # Retry if it is
     end
   end
 
   FORMAT.info("I'm searching for possible SQL vulnerable sites, using search query #{query.chomp}")
   agent = Mechanize.new
   if OPTIONS[:proxy]
-    agent.set_proxy(OPTIONS[:proxy].split(":").first, OPTIONS[:proxy].split(":").last)
+    agent.set_proxy(OPTIONS[:proxy].split(":").first, OPTIONS[:proxy].split(":").last)  # Set your proxy if used
   end
   if OPTIONS[:agent]
     agent.user_agent = USER_AGENTS["rand_agents"][rand(1..55)]  # Grab a random user agent from the YAML file
   else
-    agent.user_agent = DEFAULT_USER_AGENT
+    agent.user_agent = DEFAULT_USER_AGENT  # Default user agent
   end
   page = agent.get('http://www.google.com/')
   google_form = page.form('f')
-  google_form.q = "#{query}"
+  google_form.q = "#{query}"  # Search Google for te query
   url = agent.submit(google_form, google_form.buttons.first)
   url.links.each do |link|
-    if link.href.to_s =~ /url.q/
+    if link.href.to_s =~ /url.q/  # Pull the links from the search
       str = link.href.to_s
       str_list = str.split(%r{=|&})
       urls = str_list[1]
-      if urls.split("/")[2].start_with?(*SKIP) # Skip all the bad URLs
+      if urls.split("/")[2].start_with?(*SKIP)  # Skip all the bad URLs
         next
       end
       urls_to_log = URI.decode(urls)
@@ -134,7 +117,7 @@ def vulnerability_check
       Timeout::timeout(10) do
         vulns = vuln.encode(Encoding.find('UTF-8'), {invalid: :replace, undef: :replace, replace: ''}) # Force encoding to UTF-8
         begin
-          if SETTINGS.parse("#{vulns.chomp}'", 'html', 0) =~ SQL_VULN_REGEX
+          if SETTINGS.parse("#{vulns.chomp}'", 'html', 0) =~ SQL_VULN_REGEX  # If it has the vuln regex error
             FORMAT.site_found(vulns.chomp)
             File.open("#{PATH}/tmp/SQL_VULN.txt", "a+") { |vulnerable| vulnerable.puts(vulns) }
             sleep(0.5)
@@ -143,7 +126,7 @@ def vulnerability_check
             File.open("#{PATH}/log/non_exploitable.txt", "a+") { |non_exploit| non_exploit.puts(vulns) }
             sleep(0.5)
           end
-        rescue Timeout::Error, OpenSSL::SSL::SSLError
+        rescue Timeout::Error, OpenSSL::SSL::SSLError  # Timeout or SSL errors
           FORMAT.warning("URL: #{vulns.chomp} failed to load dumped to non_exploitable.txt")
           File.open("#{PATH}/log/non_exploitable.txt", "a+") { |timeout| timeout.puts(vulns) }
           sleep(0.5)
@@ -175,7 +158,7 @@ case
       end
       get_urls
       if File.size("#{PATH}/tmp/SQL_sites_to_check.txt") == 0
-        FORMAT.warning("No sites found for search query: #{SEARCH_QUERY}. Adding query to blacklist so it won't be run again.")
+        FORMAT.warning("No sites found for search query: #{SEARCH_QUERY}. Adding query to blacklist so it won't be run again.")  # Add the query to the blacklist
         File.open("#{PATH}/log/query_blacklist", "a+") { |query| query.puts(SEARCH_QUERY) }
         FORMAT.info("Query added to blacklist and will not be run again, exiting..")
         exit(1)
