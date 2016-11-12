@@ -63,8 +63,14 @@ VERSION = Whitewidow::Misc.new.version
 # What type of version do you have? Is there an upgrade? Stable? Dev version?
 VERSION_TYPE = Whitewidow::Misc.new.version_type(VERSION)
 
+# Download link for the banner
+DOWNLOAD_LINK = "https://github.com/Ekultek/whitewidow/releases"
+
+# Repository link for the banner
+REPO_LINK = "https://github.com/Ekultek/whitewidow"
+
 # The output version string
-VERSION_STRING = "v" + VERSION.green.bold + '(' + VERSION_TYPE + ')'
+VERSION_STRING = "v".green + VERSION.green.bold + '('.cyan.bold + VERSION_TYPE + ')'.cyan.bold
 
 # Default user agent used by whitewidow
 DEFAULT_USER_AGENT = "Whitewidow #{VERSION} SQL Vuln Scanner Ruby:#{RUBY_VERSION}->Platform:#{RUBY_PLATFORM}"
