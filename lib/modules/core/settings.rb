@@ -6,7 +6,8 @@ module Settings
     # Method for Nokogiri so I don't have to continually type Nokogiri::HTML
     # @param [String] site url
     def page(site)
-      Nokogiri::HTML(RestClient.get(site))
+      # Nokogiri::HTML(RestClient.get(site))  # Saving for further use
+      Nokogiri::HTML(RestClient::Request.execute(:url => site, :method => :get, :verify_ssl => false)) # Fix #26 https://github.com/Ekultek/whitewidow/issues/26
     end
 
 #
