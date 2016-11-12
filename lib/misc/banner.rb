@@ -17,15 +17,16 @@ module Whitewidow
     \\__/\\  / |___|  /__||__|  \\___  >\\__/\\  / |__\____ | \\____/ \\/\\_/
          \\/       \\/              \\/      \\/           \\/
 
-  https://github.com/ekultek/whitewiow.git
+  Repo: #{REPO_LINK}
+  Releases: #{DOWNLOAD_LINK}
   #{VERSION_STRING}
            _END_
-               .cyan
+               .cyan.bold
     end
 
     # The version the program is currently in
     def version
-      '1.6.1.3' # Version number <major>.<minor>.<patch>.<monthly commit>
+      '1.6.1.4' # Version number <major>.<minor>.<patch>.<monthly commit>
     end
 
     #
