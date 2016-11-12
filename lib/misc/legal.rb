@@ -9,7 +9,7 @@ module Legal
     # Not entirely sure why I have this, this program isn't illegal. Better safe then sorry though.
     #
     def legal
-      puts <<-_END_
+      puts <<~_END_
          [ LEGAL DISCLAIMER ]
 
          I was written and created for learning purposes only, I should
