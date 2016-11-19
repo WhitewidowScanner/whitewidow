@@ -21,7 +21,7 @@ module Settings
     end
 
     def sqlmap_config
-      data = File.open("#{PATH}/lib/lists/default_sqlmap_config.txt", "a+")
+      data = File.open("#{PATH}/lib/lists/default_sqlmap_config.txt", "w")
       if data.read == "false"
         commands = FORMAT.prompt("Enter sqlmap commands, bulkfile is already default")
         answer = FORMAT.prompt("Would you like to make these commands your default?[y/N]")
