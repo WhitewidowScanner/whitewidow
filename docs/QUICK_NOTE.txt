@@ -1,0 +1,3 @@
+I have gained permission to use this software under the license that is already enforced by it.
+
+All credits for this miraculous program go to the creators of it, if you would like to see their repo: https://github.com/sqlmapproject/sqlmap
