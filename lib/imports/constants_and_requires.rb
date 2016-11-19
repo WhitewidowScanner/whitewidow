@@ -81,6 +81,8 @@ SPIDER_BOT = BlackWidow::RecursiveSpider.new
 # Program settings
 SETTINGS = Settings::ProgramSettings.new
 
+SQLMAP_PATH = "#{PATH}/lib/modules/tools/sqlmap/sqlmap.py"
+
 # Skip these sites because chances are they will never be vulnerable
 SKIP = %w(stackoverflow.com www.stackoverflow.com github.com www.github.com www.sa-k.net yoursearch.me search1.speedbit.com
           duckfm.net search.clearch.org webcache.googleusercontent.com m.facebook.com youtube.com facebook.com
