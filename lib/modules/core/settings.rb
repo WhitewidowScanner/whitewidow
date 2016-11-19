@@ -21,11 +21,11 @@ module Settings
     end
 
     def sqlmap_config
-      data = File.open("#{PATH}/lib/lists/default_sqlmap_config.txt", "w")
+      data = File.open("#{PATH}/lib/lists/default_sqlmap_config.txt", "a+")
       if data.read == "false"
         commands = FORMAT.prompt("Enter sqlmap commands, bulkfile is already default")
         answer = FORMAT.prompt("Would you like to make these commands your default?[y/N]")
-        answer.downcase.start_with?("y") ? File.open("#{PATH}/lib/lists/default_sqlmap_config.txt", "a+") { |config| config.write("#{commands}") } : File.open("#{PATH}/lib/lists/default_sqlmap_config.txt", "a+") { |config| config.write("false") }
+        answer.downcase.start_with?("y") ? File.open("#{PATH}/lib/lists/default_sqlmap_config.txt", "w") { |config| config.write("#{commands}") } : File.open("#{PATH}/lib/lists/default_sqlmap_config.txt", "w") { |config| config.write("false") }
       else
         config = File.read("#{PATH}/lib/lists/default_sqlmap_config.txt").strip!
         return "#{config}"

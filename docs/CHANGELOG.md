@@ -1,3 +1,8 @@
+# Version 1.7.0.2
+- Fixed issue with sqlmap flag where the file wasn't opened
+- Bumped version number
+- Drafted re-release
+
 # Version 1.7.0
 - Added sqlmap to the mix, you can now run sqlmap through your SQL_VULN file and it will work successfully
 - Added new flag for sqlmap
