@@ -26,25 +26,24 @@ module Whitewidow
 
     # The version the program is currently in
     def version
-      '1.7.0' # Version number <major>.<minor>.<patch>.<monthly commit>
+      '1.7.0.1' # Version number <major>.<minor>.<patch>.<monthly commit>
     end
 
     #
     # The type of version you have, usually it'll be stable or dev
     #
     def version_type(version)
-      data = Settings::ProgramSettings.new.parse("https://github.com/Ekultek/whitewidow/blob/master/lib/misc/banner.rb", "td", 55)
+      data = Settings::ProgramSettings.new.parse("https://github.com/Ekultek/whitewidow/blob/master/lib/misc/banner.rb", "td", 57)
       arr = data.split(" ")
       version_number = arr[7][/(\d+\.)?(\d+\.)?(\d+\.)?(\*|\d+)/]
-
-      if version_number != version
-        return "Upgrade Available".red
-      elsif version.count(".") == 2
+      if version.count(".") == 2
         return "stable".green.bold
       elsif version.length != 3
         return "dev".yellow.bold
+      elsif version != version_number
+        return "upgrade available".red.bold
       else
-        return "unknown".red.bold
+        return "unknown version type".red.bold
       end
 
     end

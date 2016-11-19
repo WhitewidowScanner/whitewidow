@@ -10,8 +10,5 @@
     <ConfirmationsSetting value="0" id="Add" />
     <ConfirmationsSetting value="0" id="Remove" />
   </component>
-  <component name="ProjectPlainTextFileTypeManager">
-    <file url="file://$PROJECT_DIR$/lib/modules/core/sqlmap_config.rb" />
-  </component>
   <component name="ProjectRootManager" version="2" project-jdk-name="ruby-2.3.0-p0" project-jdk-type="RUBY_SDK" />
 </project>
