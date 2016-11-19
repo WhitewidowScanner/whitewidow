@@ -27,7 +27,7 @@ OptionParser.new do |opt|
   opt.on('--batch', 'No prompts, used in conjunction with the dry run')                   { |o| OPTIONS[:batch]   = o }
   opt.on('--beep', 'Make a beep when the program finds a vulnerability')                  { |o| OPTIONS[:beep]    = o }
   opt.on('--rand-agent', 'Use a random user agent')                                       { |o| OPTIONS[:agent]   = o }
-#  opt.on('--sqlmap', 'Run sqlmap through the bulk file')                                  { |o| OPTIONS[:sqlmap]  = o }  # Currently obtaining permission from developers
+  opt.on('--sqlmap', 'Run sqlmap through the SQL_VULN.LOG file as a bulk file')           { |o| OPTIONS[:sqlmap]  = o }
 end.parse!
 
 #
@@ -84,7 +84,7 @@ def get_urls
   end
   page = agent.get('http://www.google.com/')
   google_form = page.form('f')
-  google_form.q = "#{query}"  # Search Google for te query
+  google_form.q = "#{query}"  # Search Google for the query
   url = agent.submit(google_form, google_form.buttons.first)
   url.links.each do |link|
     if link.href.to_s =~ /url.q/  # Pull the links from the search
@@ -230,9 +230,10 @@ case
       system('ruby whitewidow.rb -d --dry-run --batch --banner')
     end
     FORMAT.info("#{OPTIONS[:run]} runs completed successfully.")
-#  when OPTIONS[:sqlmap]  # Obtaining permission from sqlmap devs
-#    commands = FORMAT.prompt("Enter the sqlmap commands you wish to use")
-#    system("python sqlmap.py -m log/SQL_VULN.LOG #{commands}")
+  when OPTIONS[:sqlmap]
+    commands = SETTINGS.sqlmap_config
+    FORMAT.info("Launching sqlmap..")
+    system("python #{PATH}/lib/modules/core/tools/sqlmap/sqlmap.py -m #{PATH}/log/SQL_VULN.LOG #{commands}")
   when OPTIONS[:spider]
     begin
       arr = SPIDER_BOT.pull_links(OPTIONS[:spider])
