@@ -3,6 +3,10 @@
 - Added sqlmap to the .gitignore I'll keep up to date with the clones but I won't be playing with it
 - Edited comments in blackwidow.rb
 - Believe it or not, my version of copying a file is faster than IO.copy_stream, tested it and put results in comments
+- Edited the README again for instructions on how to contact me
+- License has been edited
+- ISSUE_TEMPLATE has been edited as well
+- Minor text and grammatical fixes
 - Bumped the version number
 
 # Version 1.7.1.5
