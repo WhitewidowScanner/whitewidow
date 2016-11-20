@@ -3,6 +3,7 @@
 *.iml
 /tmp
 /log
+/lib/modules/core/tools/sqlmap
 out
 gen### Ruby template
 *.gem
