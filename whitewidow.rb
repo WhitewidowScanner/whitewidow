@@ -98,8 +98,9 @@ def get_urls
       FORMAT.success("Site found: #{urls_to_log}")
       sleep(0.3)
       %w(' -- ; " /* '/* '-- "-- '; "; `).each { |sql|
-        MULTIPARAMS.check_for_multiple_parameters(urls_to_log, sql)
+        # MULTIPARAMS.check_for_multiple_parameters(urls_to_log, sql)
         File.open("#{PATH}/tmp/SQL_sites_to_check.txt", 'a+') { |to_check| to_check.puts("#{urls_to_log}#{sql}") } # Add sql syntax to all "="
+        MULTIPARAMS.check_for_multiple_parameters(urls_to_log, sql)
       }
     end
   end
