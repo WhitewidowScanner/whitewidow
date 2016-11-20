@@ -18,7 +18,7 @@ module BlackWidow
     end
 
     #
-    # Extract the links from that URL as well and save them into a file
+    # Extracts the links from the links that were extracted making even more links, it's pretty sexy..
     #
     def follow_links(url_arr)
       url_arr.each do |link|
