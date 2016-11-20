@@ -242,7 +242,7 @@ case
       system("ruby whitewidow.rb --banner -f tmp/blackwidow_log.txt")
       File.truncate("tmp/blackwidow_log.txt", 0)
     rescue *SPIDER_ERRORS
-      FORMAT.err("#{OPTIONS.spider} encountered an error, skipping..")
+      FORMAT.err("#{OPTIONS[:spider]} encountered an error and cannot continue.")
     end
   else
     FORMAT.warning('You failed to pass me a flag!')
