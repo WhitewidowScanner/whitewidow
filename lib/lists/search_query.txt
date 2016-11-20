@@ -1629,7 +1629,6 @@ intitle:"market" .php?id= intext:login 2015 site:us
 intitle:"singapore" .php?id= intext:login 2015
 intitle:"10%" .php?id= intext:login 2015
 intitle:"20%" .php?id= intext:login 2015
-inurl:/eventdetails.php?*= title:login 2015
 inurl:/*.php?id= title:login 2015
 inurl:/Content.asp?id= title:login 2015
 inurl:".php?cat="+intext:"Paypal"+site:UK
@@ -1868,7 +1867,6 @@ inurl:".php?sub_id=" intext:"event" 2015
 inurl:.php?business_profile= intext:"login" 2015
 inurl:".php?pgID=" intext:"bathroom" 2015
 inurl:".asp?ID=" intext:"housekeeping" 2015
-inurl:".asp?ID=" intext:"boots" site:us 2015inurl:".php?ID=" intext:"boots" site:us 2015
 inurl:".php?ID=" intext:"collection" site:us 2015
 inurl:".php?ID=" intext:"customer" site:us 2015
 inurl:".php?ID=" intext:"members" site:us 2015
