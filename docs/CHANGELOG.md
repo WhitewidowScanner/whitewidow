@@ -1,3 +1,7 @@
+# Version 1.7.0.300
+- New contrib, thanks for the video
+- Bumped version number
+
 # Version 1.7.0.2
 - Fixed issue with sqlmap flag where the file wasn't opened
 - Bumped version number
