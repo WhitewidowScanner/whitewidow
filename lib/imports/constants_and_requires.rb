@@ -23,7 +23,7 @@ require_relative '../../lib/modules/core/site_info'
 require_relative '../../lib/modules/expansion/string_expan'
 require_relative '../../lib/modules/core/detection'
 require_relative '../../lib/modules/core/check_platform'
-require_relative '../../lib/modules/spider/blackwidow'
+require_relative '../../lib/modules/core/tools/spider/blackwidow'
 require_relative '../../lib/modules/core/settings'
 
 # Modules that need to be included for whitewidow
