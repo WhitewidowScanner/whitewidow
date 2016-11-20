@@ -1,5 +1,6 @@
 # Version 1.7.0.300
 - New contrib, thanks for the video
+- Read the to_the_community text file, thanks everyone. It means a lot to me.
 - Bumped version number
 
 # Version 1.7.0.2
