@@ -1,6 +1,6 @@
 # Version 1.7.1.5
 - More fixes for the recursive spider, found another error for it
-- Removed two old search queries that were failing and added two in replace of them
+- Removed two old search queries that were failing
 - Edited when the spider fails.
 - Bumped version number
 
