@@ -1,4 +1,12 @@
-# Version 1.7.0.300
+# Version 1.7.1.4
+- First of all, I had no idea that the spider wasn't working. I apologize! It's working now, it'll pull all the links from the sites, make sure you get a good site
+- Edited speed of spider, depending on the site, the spider can take for fucking ever, so I made it so that it'll be a bit faster
+- Moved the spider bot to lib/modules/core/tools
+- Fixed the constants and requires to reflect the fix
+- Edited the README it looks pretty badass now and gives some further information pertaining to the program and how it works.
+- Bumped version number, because that's what I do.
+
+# Version 1.7.0.3
 - New contrib, thanks for the video
 - Read the to_the_community text file, thanks everyone. It means a lot to me.
 - Bumped version number
