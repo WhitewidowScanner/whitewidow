@@ -102,7 +102,7 @@ FATAL_ERRORS = [Mechanize::ResponseCodeError, RestClient::BadGateway, Errno::ENE
                 Net::HTTP::Persistent::Error]
 
 # Spider bot errors, still a work in progress
-SPIDER_ERRORS = [RestClient::NotFound, URI::InvalidURIError, RestClient::SSLCertificateNotVerified]
+SPIDER_ERRORS = [RestClient::NotFound, URI::InvalidURIError, RestClient::SSLCertificateNotVerified, RestClient::MethodNotAllowed]
 
 # Errors thrown when a webpage has unclosed SQL syntax
 vuln_specs = [/SQL query error/, /MySQL Query Error/,
