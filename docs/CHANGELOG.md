@@ -1,3 +1,10 @@
+# Version 1.7.2.6
+- Patched the multiple parameter check so that it will test the URL with one parameter before it starts adding
+- Added sqlmap to the .gitignore I'll keep up to date with the clones but I won't be playing with it
+- Edited comments in blackwidow.rb
+- Believe it or not, my version of copying a file is faster than IO.copy_stream, tested it and put results in comments
+- Bumped the version number
+
 # Version 1.7.1.5
 - More fixes for the recursive spider, found another error for it
 - Removed two old search queries that were failing
