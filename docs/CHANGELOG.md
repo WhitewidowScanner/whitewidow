@@ -1,3 +1,9 @@
+# Version 1.7.1.5
+- More fixes for the recursive spider, found another error for it
+- Removed two old search queries that were failing and added two in replace of them
+- Edited when the spider fails.
+- Bumped version number
+
 # Version 1.7.1.4
 - First of all, I had no idea that the spider wasn't working. I apologize! It's working now, it'll pull all the links from the sites, make sure you get a good site
 - Edited speed of spider, depending on the site, the spider can take for fucking ever, so I made it so that it'll be a bit faster
