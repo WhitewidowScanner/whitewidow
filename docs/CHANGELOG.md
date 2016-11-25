@@ -1,6 +1,7 @@
 # Version 1.7.2.7
 - Created some short options for some flags
 - Edited the options banner, shows mandatory, enumeration, anomity, processing, and misc options
+- Edited settings for the banner and legal
 - Bumped version number
 
 # Version 1.7.2.6
