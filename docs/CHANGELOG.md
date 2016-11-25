@@ -1,3 +1,8 @@
+# Version 1.7.2.7
+- Created some short options for some flags
+- Edited the options banner, shows mandatory, enumeration, anomity, processing, and misc options
+- Bumped version number
+
 # Version 1.7.2.6
 - Patched the multiple parameter check so that it will test the URL with one parameter before it starts adding
 - Added sqlmap to the .gitignore I'll keep up to date with the clones but I won't be playing with it
