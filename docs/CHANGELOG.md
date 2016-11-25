@@ -1,3 +1,16 @@
+# Version 1.7.2.8
+- Added a basic legal disclaimer
+- Added a SQLMAP_PATH constant
+- Edited some comments in the constants_and_requires file
+- Made use of the squiggly heredoc (<<~)
+- Changed the repo link to the clone link
+- Edited the download link constant
+- Edited some comments in settings
+- Began working on a new flag for random search engines, commented out code
+- Fixed the version string
+- Edited the help menu
+- Bumped the version number
+
 # Version 1.7.2.7
 - Created some short options for some flags
 - Edited the options banner, shows mandatory, enumeration, anomity, processing, and misc options
