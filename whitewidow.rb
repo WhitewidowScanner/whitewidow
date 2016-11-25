@@ -156,15 +156,8 @@ end
 case
   when OPTIONS[:default]
     begin
-      Whitewidow::Misc.new.spider unless OPTIONS[:banner]
-      sleep(1)
-      if OPTIONS[:credits]
-        Credits.credits
-        sleep(1)
-      end
-      if OPTIONS[:legal]
-        Legal::Legal.new.legal
-      end
+      SETTINGS.hide_banner?
+      SETTINGS.show_legal?
       get_urls
       if File.size("#{PATH}/tmp/SQL_sites_to_check.txt") == 0
         FORMAT.warning("No sites found for search query: #{SEARCH_QUERY}. Adding query to blacklist so it won't be run again.")  # Add the query to the blacklist
@@ -201,18 +194,8 @@ case
     end
   when OPTIONS[:file]
     begin
-      Whitewidow::Misc.new.spider unless OPTIONS[:banner]
-      sleep(1)
-      if OPTIONS[:credits]
-        Credits.credits
-        sleep(1)
-      end
-      if OPTIONS[:legal]
-        Legal::Legal.new.legal
-      end
-      if OPTIONS[:legal]
-        Legal::Legal.new.legal
-      end
+      SETTINGS.hide_banner?
+      SETTINGS.show_legal?
       FORMAT.info('Formatting file')
       format_file
       vulnerability_check
@@ -232,7 +215,7 @@ case
       FORMAT.info("I'll log the error inside of #{PATH}/log/error_log.LOG for further analysis.")
     end
   when OPTIONS[:legal]
-    Legal::Legal.new.legal
+    SETTINGS.show_legal?
   when OPTIONS[:run]
     OPTIONS[:run].to_i.times do
       system('ruby whitewidow.rb -d --dry-run --batch --banner')
