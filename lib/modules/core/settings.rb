@@ -32,6 +32,18 @@ module Settings
       end
     end
 
+    def hide_banner?
+      if !(OPTIONS[:banner])
+        Whitewidow::Misc.new.spider
+      end
+    end
+
+    def show_legal?
+      if OPTIONS[:legal]
+        Legal::Legal.new.legal
+      end
+    end
+
   end
 
 end
