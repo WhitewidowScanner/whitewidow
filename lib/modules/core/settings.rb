@@ -20,29 +20,52 @@ module Settings
       parsing.css(tag)[i].to_s
     end
 
+    #
+    # sqlmap configuration, will prompt you if you want to save the commands
+    #
     def sqlmap_config
       data = File.open("#{PATH}/lib/lists/default_sqlmap_config.txt", "a+")
       if data.read == "false"
         commands = FORMAT.prompt("Enter sqlmap commands, bulkfile is already default")
         answer = FORMAT.prompt("Would you like to make these commands your default?[y/N]")
-        answer.downcase.start_with?("y") ? File.open("#{PATH}/lib/lists/default_sqlmap_config.txt", "w") { |config| config.write("#{commands}") } : File.open("#{PATH}/lib/lists/default_sqlmap_config.txt", "w") { |config| config.write("false") }
+        if answer.downcase.start_with?("y")
+          File.open("#{PATH}/lib/lists/default_sqlmap_config.txt", "w") { |config| config.write("#{commands}") }
+        else
+          File.open("#{PATH}/lib/lists/default_sqlmap_config.txt", "w") { |config| config.write("false") }
+        end
       else
         config = File.read("#{PATH}/lib/lists/default_sqlmap_config.txt").strip!
         return "#{config}"
       end
     end
 
+    #
+    # Hide the banner?
+    #
     def hide_banner?
       if !(OPTIONS[:banner])
         Whitewidow::Misc.new.spider
       end
     end
 
+    #
+    # Show the legal and TOS?
+    #
     def show_legal?
       if OPTIONS[:legal]
         Legal::Legal.new.legal
       end
     end
+
+=begin
+      def obtain_Search_engine_link
+        if OPTIONS[:se]
+          return SEARCH_ENGINES[rand(1..3)]
+        else
+          return DEFAULT_SEARCH_ENGINE
+        end
+      end
+=end
 
   end
 
