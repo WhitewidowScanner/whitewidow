@@ -9,24 +9,24 @@ module Whitewidow
   class Misc
 
     def spider
-      puts <<-_END_
+      puts <<~_END_
    __      __.__    .__  __         __      __.__    .___
   /  \\    /  \\  |__ |__|/  |_  ____/  \\    /  \\__| __| _/______  _  __
   \\   \\/\\/   /  |  \\|  \\   __\\/ __ \\   \\/\\/   /  |/ __ |/  _ \\ \\/ \\/ /
    \\        /|   Y  \\  ||  | \\  ___/\\        /|  / /_/ (  <_> )     /
-    \\__/\\  / |___|  /__||__|  \\___  >\\__/\\  / |__\____ | \\____/ \\/\\_/
+    \\__/\\  / |___|  /__||__|  \\___  >\\__/\\  / |__\____ | \\____/ \\/\\_/    #{VERSION_STRING}
          \\/       \\/              \\/      \\/           \\/
 
-  Repo: #{REPO_LINK}
-  Releases: #{DOWNLOAD_LINK}
-  #{VERSION_STRING}
+  #{REPO_LINK}
+  #{DOWNLOAD_LINK}
+  #{BASIC_LEGAL_DISCLAIMER}
            _END_
                .cyan.bold
     end
 
     # The version the program is currently in
     def version
-      '1.7.2.7' # Version number <major>.<minor>.<patch>.<monthly commit>
+      '1.7.2.8' # Version number <major>.<minor>.<patch>.<monthly commit>
     end
 
     #
