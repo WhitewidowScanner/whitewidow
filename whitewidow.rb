@@ -16,8 +16,8 @@ end
 # Append into the OPTIONS constant so that we can call the flag from the constant instead of a class
 #
 OptionParser.new do |opt|
-  opt.banner="Mandatory options  : -[d|f] FILE --[default|file] FILE
-Enumeration options: -[s|x] URL|NUM --[dry-run|batch|run-x|spider] NUM|URL
+  opt.banner="Mandatory options  : -[d|f|s] FILE|URL --[default|file|spider] FILE|URL
+Enumeration options: -[x] NUM --[dry-run|batch|run-x] NUM
 Anomity options    : -[p] IP:PORT --[rand-agent|proxy] IP:PORT
 Processing options : --[sqlmap]
 Misc options       : -[l|b] --[legal|banner|beep]
@@ -30,7 +30,8 @@ Misc options       : -[l|b] --[legal|banner|beep]
   opt.on('-p IP:PORT', '--proxy IP:PORT', 'Configure to run with a proxy, must use ":"')  { |o| OPTIONS[:proxy]   = o }
   opt.on('-x NUM', '--run-x NUM', 'Run the specified amount of dry runs')                 { |o| OPTIONS[:run]     = o }
   opt.on('-b', '--banner', 'Hide the banner')                                             { |o| OPTIONS[:banner]  = o }
-  opt.on('--dry-run', 'Run a dry run (no checking for vulnerability with prompt)')  { |o| OPTIONS[:dry]     = o }
+#  opt.on('--rand-se', 'Use a random search engine')                                       { |o| OPTIONS[:se]      = o }
+  opt.on('--dry-run', 'Run a dry run (no checking for vulnerability with prompt)')        { |o| OPTIONS[:dry]     = o }
   opt.on('--batch', 'No prompts, used in conjunction with the dry run')                   { |o| OPTIONS[:batch]   = o }
   opt.on('--beep', 'Make a beep when the program finds a vulnerability')                  { |o| OPTIONS[:beep]    = o }
   opt.on('--rand-agent', 'Use a random user agent')                                       { |o| OPTIONS[:agent]   = o }
@@ -89,7 +90,7 @@ def get_urls
   else
     agent.user_agent = DEFAULT_USER_AGENT  # Default user agent
   end
-  page = agent.get('http://www.google.com/')
+  page = agent.get(DEFAULT_SEARCH_ENGINE)
   google_form = page.form('f')
   google_form.q = "#{query}"  # Search Google for the query
   url = agent.submit(google_form, google_form.buttons.first)
@@ -224,7 +225,7 @@ case
   when OPTIONS[:sqlmap]
     commands = SETTINGS.sqlmap_config
     FORMAT.info("Launching sqlmap..")
-    system("python #{PATH}/lib/modules/core/tools/sqlmap/sqlmap.py -m #{PATH}/log/SQL_VULN.LOG #{commands}")
+    system("python #{SQLMAP_PATH} -m #{PATH}/log/SQL_VULN.LOG #{commands}")
   when OPTIONS[:spider]
     begin
       arr = SPIDER_BOT.pull_links(OPTIONS[:spider])
