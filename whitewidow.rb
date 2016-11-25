@@ -6,8 +6,8 @@ require_relative 'lib/imports/constants_and_requires'
 # Usage page, basic help page for commands
 #
 def usage_page
-  FORMAT.info("ruby #{File.basename(__FILE__)} -[OPTIONS] --[OPTIONAL-OPTIONS]")
-  FORMAT.info("Check the README.md file for a list of flags and further information")
+  FORMAT.info("ruby #{File.basename(__FILE__)} -[SHORT-OPTS] --[LONG-OPTS]")
+  FORMAT.info("Check the README.md file for a list of flags and further information\n")
   system('ruby whitewidow.rb --help')
   exit
 end
@@ -16,14 +16,21 @@ end
 # Append into the OPTIONS constant so that we can call the flag from the constant instead of a class
 #
 OptionParser.new do |opt|
+  opt.banner="Mandatory options  : -[d|f] FILE --[default|file] FILE
+Enumeration options: -[s|x] URL|NUM --[dry-run|batch|run-x|spider] NUM|URL
+Anomity options    : -[p] IP:PORT --[rand-agent|proxy] IP:PORT
+Processing options : --[sqlmap]
+Misc options       : -[l|b] --[legal|banner|beep]
+
+" # Blank line has to be there so that the help menu looks good.
   opt.on('-f FILE', '--file FILE', 'Pass a filename to scan')                             { |o| OPTIONS[:file]    = o }
   opt.on('-s URL', '--spider URL', 'Spider a web page and save all the URLS')             { |o| OPTIONS[:spider]  = o }
   opt.on('-d', '--default', "Run in default mode, scrape Google")                         { |o| OPTIONS[:default] = o }
   opt.on('-l', '--legal', 'Show the legal information and the TOS')                       { |o| OPTIONS[:legal]   = o }
-  opt.on('--proxy IP:PORT', 'Configure to run with a proxy, must use ":"')                { |o| OPTIONS[:proxy]   = o }
-  opt.on('--run-x NUM', Integer, 'Run the specified amount of dry runs')                  { |o| OPTIONS[:run]     = o }
-  opt.on('--banner', 'Run without displaying the banner')                                 { |o| OPTIONS[:banner]  = o }
-  opt.on('--dry-run', 'Save the sites to the SQL_sites_to_check file only, no checking.') { |o| OPTIONS[:dry]     = o }
+  opt.on('-p IP:PORT', '--proxy IP:PORT', 'Configure to run with a proxy, must use ":"')  { |o| OPTIONS[:proxy]   = o }
+  opt.on('-x NUM', '--run-x NUM', 'Run the specified amount of dry runs')                 { |o| OPTIONS[:run]     = o }
+  opt.on('-b', '--banner', 'Hide the banner')                                             { |o| OPTIONS[:banner]  = o }
+  opt.on('--dry-run', 'Run a dry run (no checking for vulnerability with prompt)')  { |o| OPTIONS[:dry]     = o }
   opt.on('--batch', 'No prompts, used in conjunction with the dry run')                   { |o| OPTIONS[:batch]   = o }
   opt.on('--beep', 'Make a beep when the program finds a vulnerability')                  { |o| OPTIONS[:beep]    = o }
   opt.on('--rand-agent', 'Use a random user agent')                                       { |o| OPTIONS[:agent]   = o }
@@ -227,7 +234,7 @@ case
   when OPTIONS[:legal]
     Legal::Legal.new.legal
   when OPTIONS[:run]
-    OPTIONS[:run].times do
+    OPTIONS[:run].to_i.times do
       system('ruby whitewidow.rb -d --dry-run --batch --banner')
     end
     FORMAT.info("#{OPTIONS[:run]} runs completed successfully.")
