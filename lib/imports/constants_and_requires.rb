@@ -64,16 +64,16 @@ VERSION = Whitewidow::Misc.new.version
 VERSION_TYPE = Whitewidow::Misc.new.version_type(VERSION)
 
 # Download link for the banner
-DOWNLOAD_LINK = "https://github.com/Ekultek/whitewidow/releases"
+DOWNLOAD_LINK = "Downloads: https://github.com/Ekultek/whitewidow/releases".cyan
 
 # Repository link for the banner
-REPO_LINK = "https://github.com/Ekultek/whitewidow"
+REPO_LINK = "Clone: https://github.com/Ekultek/whitewidow.git".cyan
 
 # The output version string
 VERSION_STRING = "v".green + VERSION.green.bold + '('.cyan.bold + VERSION_TYPE + ')'.cyan.bold
 
 # Default user agent used by whitewidow
-DEFAULT_USER_AGENT = "Whitewidow #{VERSION} SQL Vuln Scanner Ruby:#{RUBY_VERSION}->Platform:#{RUBY_PLATFORM}"
+DEFAULT_USER_AGENT = "Whitewidow #{VERSION} SQL Vuln Scanner/Ruby:#{RUBY_VERSION}->Platform:#{RUBY_PLATFORM}"
 
 # Spider a webpage with the blackwidow spider bot (work in progress)
 SPIDER_BOT = BlackWidow::RecursiveSpider.new
@@ -81,7 +81,21 @@ SPIDER_BOT = BlackWidow::RecursiveSpider.new
 # Program settings
 SETTINGS = Settings::ProgramSettings.new
 
-SQLMAP_PATH = "#{PATH}/lib/modules/tools/sqlmap/sqlmap.py"
+# Path to sqlmap
+SQLMAP_PATH = "#{PATH}/lib/modules/core/tools/sqlmap/sqlmap.py"
+
+# Basic legal disclaimer of the program, for full legal and TOS run --legal
+BASIC_LEGAL_DISCLAIMER = "[ ! ] Use this program for malicious intent is illegal. For more information run the --legal flag".red
+=begin
+# Possible search engines to use
+SEARCH_ENGINES = {
+    1 => "http://www.dogpile.com/",
+    2 => "http://google.com",
+    3 => "http://www.bing.com/"
+}
+=end
+# Default search engine
+DEFAULT_SEARCH_ENGINE = "http://google.com"
 
 # Skip these sites because chances are they will never be vulnerable
 SKIP = %w(stackoverflow.com www.stackoverflow.com github.com www.github.com www.sa-k.net yoursearch.me search1.speedbit.com
