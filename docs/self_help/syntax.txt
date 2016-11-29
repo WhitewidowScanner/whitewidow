@@ -1,0 +1,33 @@
+If you get an error that looks something like this:
+
+whitewidow.rb:66: syntax error, unexpected tIDENTIFIER, expecting keyword_do or '{' or '('
+...      Hey now my friend, I know you're eager, I am also, but...
+...                               ^
+whitewidow.rb:67: syntax error, unexpected tIDENTIFIER, expecting keyword_end
+      either doesn't exist, or it's not in the di...
+                    ^
+whitewidow.rb:67: syntax error, unexpected keyword_or
+      either doesn't exist, or it's not in the directory yo...
+                              ^
+whitewidow.rb:67: syntax error, unexpected tIDENTIFIER, expecting keyword_end
+...t in the directory you say it's in..
+...                               ^
+whitewidow.rb:72: syntax error, unexpected tIDENTIFIER, expecting keyword_end
+      Don't worry I'll wait!
+           ^
+whitewidow.rb:90: syntax error, unexpected tIDENTIFIER, expecting keyword_end
+  FORMAT.info("I'm searching for possible SQL v...
+                  ^
+whitewidow.rb:90: syntax error, unexpected tCONSTANT, expecting keyword_do or '{' or '('
+..."I'm searching for possible SQL vulnerable sites, using sear...
+...                               ^
+whitewidow.rb:90: syntax error, unexpected tIDENTIFIER, expecting keyword_do or '{' or '('
+... vulnerable sites, using search query #{query.chomp}")
+...                               ^
+whitewidow.rb:104: syntax error, unexpected keyword_do_block, expecting keyword_end
+  url.links.each do |link|
+
+The issue is that your Ruby version is not compatible with whitewidow. I suggest you use the newest version of Ruby
+for whitewidow however whtewidow is compatible with Ruby version 2.3 and higher.
+
+To fix this, install the newest version of Ruby.
