@@ -1,3 +1,12 @@
+# Version 1.7.2.9
+- Updated readme
+- Added self help file with some troubleshooting steps
+- Updated the issue template
+- Moved the copyright and the license to a new folder labeled "legal"
+- Moved the author and credits, community notes and notes to third party programs to a new folder labeled "misc"
+- Renamed QUICK_NOTE.txt to third_part_recognition.txt
+- Bumped version number
+
 # Version 1.7.2.8
 - Added a basic legal disclaimer
 - Added a SQLMAP_PATH constant
