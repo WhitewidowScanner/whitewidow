@@ -1,0 +1,19 @@
+If during installation of whitewidow (bundle install) and you get an error that looks something like this:
+
+bundle install
+Fetching gem metadata from https://rubygems.org/........
+Fetching version metadata from https://rubygems.org/.
+Resolving dependencies...
+Installing unf_ext 0.0.7.2 with native extensions
+Using mime-types-data 3.2016.0521
+Using net-http-digest_auth 1.4
+Using net-http-persistent 2.9.4
+Using mini_portile2 2.1.0
+Using pkg-config 1.1.7
+Using ntlm-http 0.1.1
+Using webrobots 0.1.2
+Using netrc 0.11.0
+Using bundler 1.13.6
+Gem::Ext::BuildError: ERROR: Failed to build gem native extension.
+
+The issue is this, you don't have a dev environment setup for Ruby. You will need to install Ruby's dev environment.
