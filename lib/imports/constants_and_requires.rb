@@ -49,7 +49,7 @@ FORMAT = Format::StringFormat.new
 PATH = Dir.pwd
 
 # Grab a random search query from the lib/lists/search_query.txt file
-SEARCH_QUERY = File.readlines("#{PATH}/lib/lists/search_query.txt").sample
+DEFAULT_SEARCH_QUERY = File.readlines("#{PATH}/lib/lists/search_query.txt").sample
 
 # YAML file of random user agents
 USER_AGENTS = YAML.load_file("#{PATH}/lib/lists/rand-age.yml")
@@ -84,18 +84,29 @@ SETTINGS = Settings::ProgramSettings.new
 # Path to sqlmap
 SQLMAP_PATH = "#{PATH}/lib/modules/core/tools/sqlmap/sqlmap.py"
 
+# Path to the error log for fatal errors
+ERROR_LOG_PATH = "#{PATH}/log/error_log.LOG"
+
+# Path to the SQL_VULN.LOG file
+SQL_VULN_SITES_LOG = "#{PATH}/log/SQL_VULN.LOG"
+
+# Path to temp vuln log
+TEMP_VULN_LOG = "#{PATH}/tmp/SQL_VULN.txt"
+
+# Path to the sql_sites_to_check file
+SITES_TO_CHECK_PATH = "#{PATH}/tmp/SQL_sites_to_check.txt"
+
+# Path to the search query blacklist
+QUERY_BLACKLIST_PATH = "#{PATH}/log/query_blacklist"
+
+# Path to non_exploitable.txt
+NON_EXPLOITABLE_PATH = "#{PATH}/log/non_exploitable.txt"
+
+# Path to the file when the file flag is used
+FILE_FLAG_FILE_PATH = "#{PATH}/tmp/#sites.txt"
+
 # Basic legal disclaimer of the program, for full legal and TOS run --legal
 BASIC_LEGAL_DISCLAIMER = "[ ! ] Use this program for malicious intent is illegal. For more information run the --legal flag".red
-=begin
-# Possible search engines to use
-SEARCH_ENGINES = {
-    1 => "http://www.dogpile.com/",
-    2 => "http://google.com",
-    3 => "http://www.bing.com/"
-}
-=end
-# Default search engine
-DEFAULT_SEARCH_ENGINE = "http://google.com"
 
 # Skip these sites because chances are they will never be vulnerable
 SKIP = %w(stackoverflow.com www.stackoverflow.com github.com www.github.com www.sa-k.net yoursearch.me search1.speedbit.com
@@ -116,11 +127,13 @@ FATAL_ERRORS = [Mechanize::ResponseCodeError, RestClient::BadGateway, Errno::ENE
                 Net::HTTP::Persistent::Error]
 
 # Spider bot errors, still a work in progress
-SPIDER_ERRORS = [RestClient::NotFound, URI::InvalidURIError, RestClient::SSLCertificateNotVerified, RestClient::MethodNotAllowed]
+SPIDER_ERRORS = [RestClient::NotFound, URI::InvalidURIError, RestClient::SSLCertificateNotVerified,
+                 RestClient::MethodNotAllowed]
 
 # Errors thrown when a webpage has unclosed SQL syntax
 vuln_specs = [/SQL query error/, /MySQL Query Error/,
-              /expects parameter/, /You have an error in your SQL syntax/]
+              /expects parameter/, /You have an error in your SQL syntax/,
+              /Syntax error:/]
 
 # Regex created from the above specifications looks something along the lines of:
 # /(?-mix:SQL query error)|(?-mix:MySQL Query Error)|(?-mix:expects parameter)|(?-mix:You have an error in your SQL syntax)/
