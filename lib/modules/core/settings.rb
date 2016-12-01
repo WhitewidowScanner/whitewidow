@@ -40,7 +40,7 @@ module Settings
     end
 
     #
-    # Hide the banner?
+    # Hide the banner if the banner flag is used
     #
     def hide_banner?
       if !(OPTIONS[:banner])
@@ -49,7 +49,7 @@ module Settings
     end
 
     #
-    # Show the legal and TOS?
+    # Show the legal and TOS if the legal flag is used
     #
     def show_legal?
       if OPTIONS[:legal]
@@ -57,15 +57,27 @@ module Settings
       end
     end
 
-=begin
-      def obtain_Search_engine_link
-        if OPTIONS[:se]
-          return SEARCH_ENGINES[rand(1..3)]
-        else
-          return DEFAULT_SEARCH_ENGINE
-        end
+    #
+    # Customize your search queries if the dork flag is use
+    #
+    def extract_query!
+      if !(OPTIONS[:dork])
+        return DEFAULT_SEARCH_QUERY
+      else
+        return OPTIONS[:dork]
       end
-=end
+    end
+
+    #
+    # Extract a random user agent if the user agent flag is used
+    #
+    def random_agent?
+      if !(OPTIONS[:agent])
+        return DEFAULT_USER_AGENT
+      else
+        return USER_AGENTS["rand_agents"][rand(1..102)]
+      end
+    end
 
   end
 
