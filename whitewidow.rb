@@ -6,7 +6,7 @@ require_relative 'lib/imports/constants_and_requires'
 # Usage page, basic help page for commands
 #
 def usage_page
-  FORMAT.info("ruby #{File.basename(__FILE__)} -[SHORT-OPTS] --[LONG-OPTS]")
+  FORMAT.info("ruby #{File.basename(__FILE__)} -[SHORT-OPTS] [ARGS] --[LONG-OPTS] [ARGS]")
   FORMAT.info("Check the README.md file for a list of flags and further information\n")
   system('ruby whitewidow.rb --help')
   exit
@@ -19,18 +19,19 @@ OptionParser.new do |opt|
   opt.banner="Mandatory options  : -[d|f|s] FILE|URL --[default|file|spider] FILE|URL
 Enumeration options: -[x] NUM --[dry-run|batch|run-x] NUM
 Anomity options    : -[p] IP:PORT --[rand-agent|proxy] IP:PORT
-Processing options : --[sqlmap]
+Processing options : -[D] DORK --[sqlmap|dork] DORK
 Misc options       : -[l|b] --[legal|banner|beep]
 
 " # Blank line has to be there so that the help menu looks good.
-  opt.on('-f FILE', '--file FILE', 'Pass a filename to scan')                             { |o| OPTIONS[:file]    = o }
+  opt.on('-f FILE', '--file FILE', 'Pass a filename to scan for vulnerabilities')         { |o| OPTIONS[:file]    = o }
   opt.on('-s URL', '--spider URL', 'Spider a web page and save all the URLS')             { |o| OPTIONS[:spider]  = o }
-  opt.on('-d', '--default', "Run in default mode, scrape Google")                         { |o| OPTIONS[:default] = o }
+  opt.on('-d', '--default', 'Run in default mode, scrape Google')                         { |o| OPTIONS[:default] = o }
   opt.on('-l', '--legal', 'Show the legal information and the TOS')                       { |o| OPTIONS[:legal]   = o }
   opt.on('-p IP:PORT', '--proxy IP:PORT', 'Configure to run with a proxy, must use ":"')  { |o| OPTIONS[:proxy]   = o }
   opt.on('-x NUM', '--run-x NUM', 'Run the specified amount of dry runs')                 { |o| OPTIONS[:run]     = o }
   opt.on('-b', '--banner', 'Hide the banner')                                             { |o| OPTIONS[:banner]  = o }
-#  opt.on('--rand-se', 'Use a random search engine')                                       { |o| OPTIONS[:se]      = o }
+  opt.on('-D DORK', '--dork DORK', 'Use your own dork to do the searching')               { |o| OPTIONS[:dork]    = o } # Issue #32 https://github.com/Ekultek/whitewidow/issues/32
+  opt.on('-v', '--version', 'Display the version number and exit')                        { |o| OPTIONS[:version] = o }
   opt.on('--dry-run', 'Run a dry run (no checking for vulnerability with prompt)')        { |o| OPTIONS[:dry]     = o }
   opt.on('--batch', 'No prompts, used in conjunction with the dry run')                   { |o| OPTIONS[:batch]   = o }
   opt.on('--beep', 'Make a beep when the program finds a vulnerability')                  { |o| OPTIONS[:beep]    = o }
@@ -46,7 +47,7 @@ def format_file
   if File.exists?(OPTIONS[:file])
     file = Tempfile.new('file') # Write to a temp file
     IO.read(OPTIONS[:file]).each_line do |line|
-      File.open(file, 'a+') { |format| format.puts(line) unless line.chomp.empty? }
+      File.open(file, 'a+') { |format| format.puts(line) unless line.chomp.empty? } # Skip blank lines and whitespace
     end
     IO.read(file).each_line do |to_file|
       File.open("#{PATH}/tmp/#sites.txt", 'a+') { |line| line.puts(to_file) }
@@ -72,10 +73,11 @@ end
 # Get the URLS by connecting to google and scraping for the URLS on the first page
 #
 def get_urls
-  query = SEARCH_QUERY
+  query = SETTINGS.extract_query!
 
-  File.read("#{PATH}/log/query_blacklist").each_line do |black|  # check if the search query is black listed
+  File.read("#{QUERY_BLACKLIST_PATH}").each_line do |black|  # check if the search query is black listed
     if query == black
+      FORMAT.warning("Query: #{query} is blacklisted, defaulting to random query")
       query = File.readlines("#{PATH}/lib/lists/search_query.txt").sample  # Retry if it is
     end
   end
@@ -85,12 +87,11 @@ def get_urls
   if OPTIONS[:proxy]
     agent.set_proxy(OPTIONS[:proxy].split(":").first, OPTIONS[:proxy].split(":").last)  # Set your proxy if used
   end
-  if OPTIONS[:agent]
-    agent.user_agent = USER_AGENTS["rand_agents"][rand(1..55)]  # Grab a random user agent from the YAML file
-  else
-    agent.user_agent = DEFAULT_USER_AGENT  # Default user agent
-  end
-  page = agent.get(DEFAULT_SEARCH_ENGINE)
+  correct_agent = SETTINGS.random_agent?
+  agent.user_agent = correct_agent
+  correct_agent == DEFAULT_USER_AGENT ? FORMAT.info("Using default user agent") :
+      FORMAT.info("Grabbed random agent: #{correct_agent}")
+  page = agent.get("http://google.com")
   google_form = page.form('f')
   google_form.q = "#{query}"  # Search Google for the query
   url = agent.submit(google_form, google_form.buttons.first)
@@ -106,22 +107,21 @@ def get_urls
       FORMAT.success("Site found: #{urls_to_log}")
       sleep(0.3)
       %w(' -- ; " /* '/* '-- "-- '; "; `).each { |sql|
-        # MULTIPARAMS.check_for_multiple_parameters(urls_to_log, sql)
-        File.open("#{PATH}/tmp/SQL_sites_to_check.txt", 'a+') { |to_check| to_check.puts("#{urls_to_log}#{sql}") } # Add sql syntax to all "="
+        File.open("#{SITES_TO_CHECK_PATH}", 'a+') { |to_check| to_check.puts("#{urls_to_log}#{sql}") } # Add sql syntax to all "="
         MULTIPARAMS.check_for_multiple_parameters(urls_to_log, sql)
       }
     end
   end
-  FORMAT.info("I've dumped possible vulnerable sites into #{PATH}/tmp/SQL_sites_to_check.txt")
+  FORMAT.info("I've dumped possible vulnerable sites into #{SITES_TO_CHECK_PATH}")
 end
 
 #
 # Check the sites that where found for vulnerabilities by checking if they throw a certain error
 #
 def vulnerability_check
-  OPTIONS[:default] ? file_to_read = "tmp/SQL_sites_to_check.txt" : file_to_read = "tmp/#sites.txt"
+  OPTIONS[:default] ? file_to_read = SITES_TO_CHECK_PATH : file_to_read = FILE_FLAG_FILE_PATH
   FORMAT.info('Forcing encoding to UTF-8') unless OPTIONS[:file]
-  IO.read("#{PATH}/#{file_to_read}").each_line do |vuln|
+  IO.read("#{file_to_read}").each_line do |vuln|
     begin
       FORMAT.info("Parsing page for SQL syntax error: #{vuln.chomp}")
       Timeout::timeout(10) do
@@ -129,23 +129,23 @@ def vulnerability_check
         begin
           if SETTINGS.parse("#{vulns.chomp}'", 'html', 0) =~ SQL_VULN_REGEX  # If it has the vuln regex error
             FORMAT.site_found(vulns.chomp)
-            File.open("#{PATH}/tmp/SQL_VULN.txt", "a+") { |vulnerable| vulnerable.puts(vulns) }
+            File.open("#{TEMP_VULN_LOG}", "a+") { |vulnerable| vulnerable.puts(vulns) }
             sleep(0.5)
           else
             FORMAT.warning("URL: #{vulns.chomp} is not vulnerable, dumped to non_exploitable.txt")
-            File.open("#{PATH}/log/non_exploitable.txt", "a+") { |non_exploit| non_exploit.puts(vulns) }
+            File.open("#{NON_EXPLOITABLE_PATH}", "a+") { |non_exploit| non_exploit.puts(vulns) }
             sleep(0.5)
           end
         rescue Timeout::Error, OpenSSL::SSL::SSLError  # Timeout or SSL errors
           FORMAT.warning("URL: #{vulns.chomp} failed to load dumped to non_exploitable.txt")
-          File.open("#{PATH}/log/non_exploitable.txt", "a+") { |timeout| timeout.puts(vulns) }
+          File.open("#{NON_EXPLOITABLE_PATH}", "a+") { |timeout| timeout.puts(vulns) }
           sleep(0.5)
           next
         end
       end
     rescue *LOADING_ERRORS
       FORMAT.err("URL: #{vuln.chomp} failed due to an error while connecting, URL dumped to non_exploitable.txt")
-      File.open("#{PATH}/log/non_exploitable.txt", "a+") { |error| error.puts(vuln) }
+      File.open("#{NON_EXPLOITABLE_PATH}", "a+") { |error| error.puts(vuln) }
       next
     end
   end
@@ -153,16 +153,15 @@ end
 
 #
 # This case statement has to be empty or the program won't read the options constants
-#
 case
   when OPTIONS[:default]
     begin
       SETTINGS.hide_banner?
       SETTINGS.show_legal?
       get_urls
-      if File.size("#{PATH}/tmp/SQL_sites_to_check.txt") == 0
+      if File.size("#{SITES_TO_CHECK_PATH}") == 0
         FORMAT.warning("No sites found for search query: #{SEARCH_QUERY}. Adding query to blacklist so it won't be run again.")  # Add the query to the blacklist
-        File.open("#{PATH}/log/query_blacklist", "a+") { |query| query.puts(SEARCH_QUERY) }
+        File.open("#{QUERY_BLACKLIST_PATH}", "a+") { |query| query.puts(SEARCH_QUERY) }
         FORMAT.info("Query added to blacklist and will not be run again, exiting..")
         exit(1)
       elsif OPTIONS[:dry]
@@ -177,21 +176,22 @@ case
       else
         vulnerability_check
       end
-      File.open("#{PATH}/log/error_log.LOG", 'a+') {
-          |s| s.puts("No sites found with search query #{SEARCH_QUERY}")
-      } if File.size("#{PATH}/tmp/SQL_sites_to_check.txt") == 0
-      File.truncate("#{PATH}/tmp/SQL_sites_to_check.txt", 0)
-      FORMAT.info("I'm truncating SQL_sites_to_check file back to #{File.size("#{PATH}/tmp/SQL_sites_to_check.txt")}")
-      Copy.file("#{PATH}/tmp/SQL_VULN.txt", "#{PATH}/log/SQL_VULN.LOG")
-      File.truncate("#{PATH}/tmp/SQL_VULN.txt", 0)
-      FORMAT.info("I've run all my tests and queries, and logged all important information into #{PATH}/log/SQL_VULN.LOG")
+      File.open("#{ERROR_LOG_PATH}", 'a+') {
+          |s| s.puts("No sites found with search query #{DEFAULT_SEARCH_QUERY}")
+      } if File.size("#{SITES_TO_CHECK_PATH}") == 0
+      File.truncate("#{SITES_TO_CHECK_PATH}", 0)
+      FORMAT.info("I'm truncating SQL_sites_to_check file back to #{File.size("#{SITES_TO_CHECK_PATH}")}")
+      Copy.file("#{TEMP_VULN_LOG}", "#{SQL_VULN_SITES_LOG}")
+      File.truncate("#{TEMP_VULN_LOG}", 0)
+      FORMAT.info("I've run all my tests and queries, and logged all important information into #{SQL_VULN_SITES_LOG}")
     rescue *FATAL_ERRORS => e
       d = DateTime.now
       FORMAT.fatal("I've experienced an error and won't continue.. It's gonna break something if I keep trying.. Error: #{e}")
-      File.open("#{PATH}/log/error_log.LOG", 'a+') {
-          |error| error.puts("[#{d.month}-#{d.day}-#{d.year} :: #{Time.now.strftime("%T")}]#{e}")
+      File.open("#{ERROR_LOG_PATH}", 'a+') {
+          |error| error.puts("[#{d.month}-#{d.day}-#{d.year}::#{Time.now.strftime("%T")}] Error: #{e.backtrace_locations}")
       }
-      FORMAT.info("I'll log the error inside of #{PATH}/log/error_log.LOG for further analysis.")
+      FORMAT.info("I'll log the error inside of #{ERROR_LOG_PATH} for further analysis.")
+      FORMAT.info("Create an issue for the error and label it as 'Fatal error #{e} #{File.readlines(ERROR_LOG_PATH).size - 4}'")
     end
   when OPTIONS[:file]
     begin
@@ -200,20 +200,21 @@ case
       FORMAT.info('Formatting file')
       format_file
       vulnerability_check
-      File.truncate("#{PATH}/tmp/SQL_sites_to_check.txt", 0)
-      FORMAT.info("I'm truncating SQL_sites_to_check file back to #{File.size("#{PATH}/tmp/SQL_sites_to_check.txt")}")
-      Copy.file("#{PATH}/tmp/SQL_VULN.txt", "#{PATH}/log/SQL_VULN.LOG")
-      File.truncate("#{PATH}/tmp/SQL_VULN.txt", 0)
+      File.truncate("#{SITES_TO_CHECK_PATH}", 0)
+      FORMAT.info("I'm truncating SQL_sites_to_check file back to #{File.size("#{SITES_TO_CHECK_PATH}")}")
+      Copy.file("#{TEMP_VULN_LOG}", "#{SQL_VULN_SITES_LOG}")
+      File.truncate("#{TEMP_VULN_LOG}", 0)
       FORMAT.info(
-          "I've run all my tests and queries, and logged all important information into #{PATH}/log/SQL_VULN.LOG"
-      ) unless File.size("#{PATH}/log/SQL_VULN.LOG") == 0
+          "I've run all my tests and queries, and logged all important information into #{SQL_VULN_SITES_LOG}"
+      ) unless File.size("#{SQL_VULN_SITES_LOG}") == 0
     rescue *FATAL_ERRORS => e
       d = DateTime.now
       FORMAT.fatal("I've experienced an error and won't continue.. It's gonna break something if I keep trying.. Error: #{e}")
-      File.open("#{PATH}/log/error_log.LOG", 'a+') {
-          |error| error.puts("[#{d.month}-#{d.day}-#{d.year}::#{Time.now.strftime("%T")}] Error: #{e}")
+      File.open("#{ERROR_LOG_PATH}", 'a+') {
+          |error| error.puts("[#{d.month}-#{d.day}-#{d.year}::#{Time.now.strftime("%T")}] Error: #{e.backtrace_locations}")
       }
-      FORMAT.info("I'll log the error inside of #{PATH}/log/error_log.LOG for further analysis.")
+      FORMAT.info("I'll log the error inside of #{ERROR_LOG_PATH} for further analysis.")
+      FORMAT.info("Create an issue for the error and label it as 'Fatal error #{e} #{File.readlines(ERROR_LOG_PATH).size - 4}'")
     end
   when OPTIONS[:legal]
     SETTINGS.show_legal?
@@ -225,7 +226,7 @@ case
   when OPTIONS[:sqlmap]
     commands = SETTINGS.sqlmap_config
     FORMAT.info("Launching sqlmap..")
-    system("python #{SQLMAP_PATH} -m #{PATH}/log/SQL_VULN.LOG #{commands}")
+    system("python #{SQLMAP_PATH} -m #{SQL_VULN_SITES_LOG} #{commands}")
   when OPTIONS[:spider]
     begin
       arr = SPIDER_BOT.pull_links(OPTIONS[:spider])
@@ -234,8 +235,12 @@ case
       system("ruby whitewidow.rb --banner -f tmp/blackwidow_log.txt")
       File.truncate("tmp/blackwidow_log.txt", 0)
     rescue *SPIDER_ERRORS
-      FORMAT.err("#{OPTIONS[:spider]} encountered an error and cannot continue.")
+      FORMAT.err("#{OPTIONS[:spider]} encountered an error and cannot continue. Running site obtained so far")
+      system("ruby whitewidow.rb --banner -f tmp/blackwidow_log.txt")
     end
+  when OPTIONS[:version]
+    FORMAT.info("Currently version: #{VERSION}")
+    exit
   else
     FORMAT.warning('You failed to pass me a flag!')
     usage_page
