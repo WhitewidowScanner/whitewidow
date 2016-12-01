@@ -1,3 +1,21 @@
+# Version 1.8.0
+- Added 46 new user agents
+- Fixed user agent flag to include the new agents
+- Added a -D/--dork flag
+- Changed SEARCH_QUERY constant to DEFAULT_SEARCH_QUERY
+- Moved the query and random agent search to settings
+- Edited issue template a little bit
+- Removed deprecated code
+- Random search engines is going to have to wait
+- Updated the bundle issues self help file
+- Updated the syntax error issues
+- Shazgul you are awesome for finding the IO errors with the spider, welcome to the contrib list
+- Added a version flag, show version number and exit
+- Added constants to the file paths instead of hard coding them
+- Added a new regex to the SQL_VULN_REGEX
+- Patched the spider, if it encounters an error that is fatal, it will run the sites already in the log file
+- Bumped version number
+
 # Version 1.7.2.9
 - Updated readme
 - Added self help file with some troubleshooting steps
