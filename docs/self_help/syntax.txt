@@ -30,4 +30,4 @@ whitewidow.rb:104: syntax error, unexpected keyword_do_block, expecting keyword_
 The issue is that your Ruby version is not compatible with whitewidow. I suggest you use the newest version of Ruby
 for whitewidow however whtewidow is compatible with Ruby version 2.3 and higher.
 
-To fix this, install the newest version of Ruby.
+To fix this, install the newest version of Ruby here: https://www.ruby-lang.org/en/
