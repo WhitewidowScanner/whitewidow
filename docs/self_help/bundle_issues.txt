@@ -16,4 +16,30 @@ Using netrc 0.11.0
 Using bundler 1.13.6
 Gem::Ext::BuildError: ERROR: Failed to build gem native extension.
 
-The issue is this, you don't have a dev environment setup for Ruby. You will need to install Ruby's dev environment.
+The issue is that Nokogiri is failing when being installed. Now Nokogiri is a pain in the butt and fails
+to be installed 93 out of 95 times. This is due to the way it's built. Here's how we can fiz this:
+
+Linux like systems:
+
+Run these commands in this order
+
+gem install nokogiri --pre
+gem install nokogiri -v 1.6
+
+
+This can take awhile to finish because of the --pre part, let this run through and from there
+cd into whitewidow and run bundle install.
+
+Windows OS:
+
+This is a little different then the above because there's one extra step:
+
+gem install nokogiri --pre
+gem install nokogiri -v 1.6
+gem install mechanize
+
+cd into whitewidow and bundle install.
+
+These should work and help you to install the program successfully. If for any reason you find yourself
+having trouble with installation and are unable to install the program, please create an issue here
+https://github.com/Ekultek/whitewidow/issues and I will do my best to help you solve your issue.
