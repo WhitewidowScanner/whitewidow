@@ -153,6 +153,7 @@ end
 
 #
 # This case statement has to be empty or the program won't read the options constants
+begin
 case
   when OPTIONS[:default]
     begin
@@ -231,12 +232,12 @@ case
     begin
       arr = SPIDER_BOT.pull_links(OPTIONS[:spider])
       SPIDER_BOT.follow_links(arr)
-      FORMAT.info("Found a total of #{File.open("tmp/blackwidow_log.txt").readlines.size} links. Running them as file..")
-      system("ruby whitewidow.rb --banner -f tmp/blackwidow_log.txt")
+      FORMAT.info("Found a total of #{File.open(BLACKWIDOW_LOG).readlines.size} links. Running them as file..")
+      system("ruby whitewidow.rb --banner -f #{BLACKWIDOW_LOG}")
       File.truncate("tmp/blackwidow_log.txt", 0)
     rescue *SPIDER_ERRORS
       FORMAT.err("#{OPTIONS[:spider]} encountered an error and cannot continue. Running site obtained so far")
-      system("ruby whitewidow.rb --banner -f tmp/blackwidow_log.txt")
+      system("ruby whitewidow.rb --banner -f #{BLACKWIDOW_LOG}")
     end
   when OPTIONS[:version]
     FORMAT.info("Currently version: #{VERSION}")
@@ -244,4 +245,12 @@ case
   else
     FORMAT.warning('You failed to pass me a flag!')
     usage_page
+end
+rescue => e
+  FORMAT.err("Failed with error code #{e}")
+  if e.inspect =~ /OpenSSL::SSL::SSLError/
+    FORMAT.warning("Your user agent is bad, make an issue with the user agent")
+    FORMAT.info("Running as default..")  # Temp fix until I can fix the user agents.
+    system("ruby whitewidow.rb -d --banner")
+  end
 end
