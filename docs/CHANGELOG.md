@@ -1,3 +1,9 @@
+# Version 1.8.1.2
+- Added a regex to catch IPv6, it will now attempt to decode them
+- Edited whitewidow.rb to reflect that there is nothing in the LOG file
+- Edited log file
+- bumped version number
+
 # Version 1.8.1.1
 - Temp fix for failing user agents
 - Edited the basic legal banner
