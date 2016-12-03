@@ -13,6 +13,7 @@ require 'optparse'
 require 'tempfile'
 require 'socket'
 require 'net/http'
+require 'ipaddr'
 
 # Created libraries that are relied on for the program to run
 require_relative '../../lib/modules/core/format'
