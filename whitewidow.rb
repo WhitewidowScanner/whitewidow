@@ -192,7 +192,7 @@ case
           |error| error.puts("[#{d.month}-#{d.day}-#{d.year}::#{Time.now.strftime("%T")}] Error: #{e.backtrace_locations}")
       }
       FORMAT.info("I'll log the error inside of #{ERROR_LOG_PATH} for further analysis.")
-      FORMAT.info("Create an issue for the error and label it as 'Fatal error #{e} #{File.readlines(ERROR_LOG_PATH).size - 4}'")
+      FORMAT.info("Create an issue for the error and label it as 'Fatal error #{e} #{File.readlines(ERROR_LOG_PATH).size}'")
     end
   when OPTIONS[:file]
     begin
@@ -215,7 +215,7 @@ case
           |error| error.puts("[#{d.month}-#{d.day}-#{d.year}::#{Time.now.strftime("%T")}] Error: #{e.backtrace_locations}")
       }
       FORMAT.info("I'll log the error inside of #{ERROR_LOG_PATH} for further analysis.")
-      FORMAT.info("Create an issue for the error and label it as 'Fatal error #{e} #{File.readlines(ERROR_LOG_PATH).size - 4}'")
+      FORMAT.info("Create an issue for the error and label it as 'Fatal error #{e} #{File.readlines(ERROR_LOG_PATH).size}'")
     end
   when OPTIONS[:legal]
     SETTINGS.show_legal?
