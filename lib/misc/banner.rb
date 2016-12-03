@@ -14,8 +14,8 @@ module Whitewidow
   /  \\    /  \\  |__ |__|/  |_  ____/  \\    /  \\__| __| _/______  _  __
   \\   \\/\\/   /  |  \\|  \\   __\\/ __ \\   \\/\\/   /  |/ __ |/  _ \\ \\/ \\/ /
    \\        /|   Y  \\  ||  | \\  ___/\\        /|  / /_/ (  <_> )     /
-    \\__/\\  / |___|  /__||__|  \\___  >\\__/\\  / |__\____ | \\____/ \\/\\_/    #{VERSION_STRING}
-         \\/       \\/              \\/      \\/           \\/
+    \\__/\\  / |___|  /__||__|  \\___  >\\__/\\  / |__\____ | \\____/ \\/\\_/
+         \\/       \\/              \\/      \\/           \\/    #{VERSION_STRING}
 
   #{REPO_LINK}
   #{DOWNLOAD_LINK}
@@ -26,7 +26,7 @@ module Whitewidow
 
     # The version the program is currently in
     def version
-      '1.8.0' # Version number <major>.<minor>.<patch>.<monthly commit>
+      '1.8.1.1' # Version number <major>.<minor>.<patch>.<monthly commit>
     end
 
     #
