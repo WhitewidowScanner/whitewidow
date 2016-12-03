@@ -105,8 +105,11 @@ NON_EXPLOITABLE_PATH = "#{PATH}/log/non_exploitable.txt"
 # Path to the file when the file flag is used
 FILE_FLAG_FILE_PATH = "#{PATH}/tmp/#sites.txt"
 
+# Blackwidow log file path
+BLACKWIDOW_LOG = "#{PATH}/tmp/blackwidow_log.txt"
+
 # Basic legal disclaimer of the program, for full legal and TOS run --legal
-BASIC_LEGAL_DISCLAIMER = "[ ! ] Use this program for malicious intent is illegal. For more information run the --legal flag".red
+BASIC_LEGAL_DISCLAIMER = "[ ! ] Use of this program for malicious intent is illegal. For more information run the --legal flag".red
 
 # Skip these sites because chances are they will never be vulnerable
 SKIP = %w(stackoverflow.com www.stackoverflow.com github.com www.github.com www.sa-k.net yoursearch.me search1.speedbit.com
