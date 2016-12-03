@@ -1,3 +1,8 @@
+# Version 1.8.1.1
+- Temp fix for failing user agents
+- Edited the basic legal banner
+- Minor fixes for random files
+
 # Version 1.8.0
 - Added 46 new user agents
 - Fixed user agent flag to include the new agents
