@@ -79,6 +79,10 @@ module Settings
       end
     end
 
+    def update!
+      system("git pull origin master")
+    end
+
   end
 
 end
