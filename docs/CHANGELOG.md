@@ -1,3 +1,8 @@
+# Version 1.8.1.3
+- Added an update flag, will update the program to the latest version
+- Created a temp fix that will try to run with a different user agent when one fails
+- Bumped version number
+
 # Version 1.8.1.2
 - Added a regex to catch IPv6, it will now attempt to decode them
 - Edited whitewidow.rb to reflect that there is nothing in the LOG file
