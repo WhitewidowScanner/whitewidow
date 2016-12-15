@@ -13,7 +13,7 @@ module BlackWidow
     # Extracts all the links from a url
     #
     def pull_links(url)
-      data = Settings::ProgramSettings.new.parse(url, 'html', 0).encode("utf-8", invalid: :replace, undef: :replace)  # Temp fix issue #30 https://github.com/Ekultek/whitewidow/issues/30
+      data = Settings::ProgramSettings.new.parse(url, 'html', 0)
       return URI.extract(data, ['http', 'https'])
     end
 
