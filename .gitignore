@@ -1,9 +1,9 @@
 # IntelliJ project files
 .idea
 *.iml
-/tmp
-/log
-/lib/modules/core/tools/sqlmap
+/tmp/
+/log/
+/lib/modules/core/tools/sqlmap/
 out
 gen### Ruby template
 *.gem
