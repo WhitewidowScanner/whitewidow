@@ -32,7 +32,7 @@ Misc options       : -[l|b|u] --[legal|banner|beep|update]
   opt.on('-b', '--banner', 'Hide the banner')                                             { |o| OPTIONS[:banner]  = o }
   opt.on('-D DORK', '--dork DORK', 'Use your own dork to do the searching')               { |o| OPTIONS[:dork]    = o } # Issue #32 https://github.com/Ekultek/whitewidow/issues/32
   opt.on('-v', '--version', 'Display the version number and exit')                        { |o| OPTIONS[:version] = o }
-  opt.on('-u', '--update', 'Update whitewidow with the latesy version')                   { |o| OPTIONS[:update]  = o }
+  opt.on('-u', '--update', 'Update whitewidow with the newest version')                   { |o| OPTIONS[:update]  = o }
   opt.on('--dry-run', 'Run a dry run (no checking for vulnerability with prompt)')        { |o| OPTIONS[:dry]     = o }
   opt.on('--batch', 'No prompts, used in conjunction with the dry run')                   { |o| OPTIONS[:batch]   = o }
   opt.on('--beep', 'Make a beep when the program finds a vulnerability')                  { |o| OPTIONS[:beep]    = o }
@@ -260,7 +260,7 @@ rescue => e
       system("ruby whitewidow.rb -d --banner --rand-agent")
     rescue OpenSSL::SSL::SSLError
       FORMAT.fatal("User agent failed to load, running as default..")
-      system("runy whitewidow.rb -d --banner")
+      system("ruby whitewidow.rb -d --banner")
     end
   end
 end
