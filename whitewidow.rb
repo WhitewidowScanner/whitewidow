@@ -261,6 +261,9 @@ rescue => e
     rescue OpenSSL::SSL::SSLError
       FORMAT.fatal("User agent failed to load, running as default..")
       system("ruby whitewidow.rb -d --banner")
-    end
+    end  
+  elsif e.inspect =~ /tIDENTIFIER/
+    FORMAT.fatal("To run this program you need a Ruby version >=v2.3.0, current version: v#{RUBY_VERSION}. Link: #{RUBY_DOWNLOAD_LINK}")
+    exit(1) 
   end
 end
