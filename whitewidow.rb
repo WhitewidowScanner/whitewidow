@@ -4,6 +4,7 @@ require_relative 'lib/imports/constants_and_requires'
 #
 # Append into the OPTIONS constant so that we can call the flag from the constant instead of a class
 #
+ARGV << '-h' if ARGV.empty? # Display help dialog if no flags are passed
 OptionParser.new do |opt|
   opt.banner="Mandatory options  : -[d|f|s] FILE|URL --[default|file|spider] FILE|URL
   Enumeration options: -[x] NUM --[dry-run|batch|run-x] NUM
@@ -27,6 +28,10 @@ OptionParser.new do |opt|
   opt.on('--beep', 'Make a beep when the program finds a vulnerability')                  { |o| OPTIONS[:beep]    = o }
   opt.on('--rand-agent', 'Use a random user agent')                                       { |o| OPTIONS[:agent]   = o }
   opt.on('--sqlmap', 'Run sqlmap through the SQL_VULN.LOG file as a bulk file')           { |o| OPTIONS[:sqlmap]  = o }
+  opt.on('-h', '--help', 'Display this help dialog') do
+    Whitewidow::Scanner.usage_page
+    puts opt
+  end
 end.parse!
 
 # This case statement has to be empty or the program won't read the options constants
@@ -36,7 +41,7 @@ begin
     begin
       SETTINGS.hide_banner?
       SETTINGS.show_legal?
-      Whitewidow::Scanner.get_urls
+      Whitewidow::Scanner.get_urls(OPTIONS[:proxy])
       if File.size("#{SITES_TO_CHECK_PATH}") == 0
         FORMAT.warning("No sites found for search query: #{SEARCH_QUERY}. Adding query to blacklist so it won't be run again.")  # Add the query to the blacklist
         File.open("#{QUERY_BLACKLIST_PATH}", "a+") { |query| query.puts(SEARCH_QUERY) }
@@ -49,10 +54,10 @@ begin
           FORMAT.info('Sites saved to file, will not run scan now..')
           exit(0)
         else
-          Whitewidow::Scanner.vulnerability_check
+          Whitewidow::Scanner.vulnerability_check(file_mode: false)
         end
       else
-        Whitewidow::Scanner.vulnerability_check
+        Whitewidow::Scanner.vulnerability_check(file_mode: false)
       end
       File.open("#{ERROR_LOG_PATH}", 'a+') {
           |s| s.puts("No sites found with search query #{DEFAULT_SEARCH_QUERY}")
@@ -124,8 +129,7 @@ begin
     SETTINGS.update!
     FORMAT.info("Successfully upgraded to #{VERSION_STRING}")
   else
-    FORMAT.warning('You failed to pass me a flag!')
-    usage_page
+    exit(1)
   end
 rescue => e
   FORMAT.err("Failed with error code #{e}")
