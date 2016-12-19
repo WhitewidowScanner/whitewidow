@@ -40,6 +40,19 @@ module Settings
         return "#{config}"
       end
     end
+
+    #
+    # Specify the download link for the user
+    #
+    def ruby_download_link
+      if RUBY_PLATFORM =~ /linux/
+        " running sudo apt-get install ruby-full"
+      elsif RUBY_PLATFORM =~ /windows/ || /cygwin/
+        " going to this link: https://rubyinstaller.org/"
+      else
+        " going to this link: https://www.ruby-lang.org/en/"
+      end  
+    end  
 =begin  # Still working on this, temporarily in the main file
     #
     # Error based SQL injection
