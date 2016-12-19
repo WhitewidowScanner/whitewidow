@@ -1,3 +1,8 @@
+# Version 1.8.4.7
+- Patched ruby download link
+- Added a method to figure out what link you need or command to run
+- Bumped version number
+
 # Version 1.8.3.6
 - Added a temp blind based
 - Started working on all injection techniques
