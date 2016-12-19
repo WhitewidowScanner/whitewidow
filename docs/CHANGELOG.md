@@ -1,3 +1,15 @@
+# Version 1.8.3.5
+- Fixed formats, looks a little better than it did before
+- New contrib, thank you for fixing the encoding errors
+  - Fixed encoding errors with spider and with pretty much everything else
+  - Removed some data that was not in the .gitignore
+  - Be an all around badass
+  - More info see here: https://github.com/WhitewidowScanner/whitewidow/pull/34
+- Added a catch for the syntax error to specify that you will need a higher Ruby version number
+- Added Ruby download link constant
+- Edited issue template, because people are confused I guess
+- Bumped vesion number
+
 # Version 1.8.1.3
 - Added an update flag, will update the program to the latest version
 - Created a temp fix that will try to run with a different user agent when one fails
