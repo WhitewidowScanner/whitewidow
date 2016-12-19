@@ -47,7 +47,7 @@ module Settings
     def ruby_download_link
       if RUBY_PLATFORM =~ /linux/
         " running sudo apt-get install ruby-full"
-      elsif RUBY_PLATFORM =~ /windows/ || /cygwin/
+      elsif RUBY_PLATFORM =~ /windows/
         " going to this link: https://rubyinstaller.org/"
       else
         " going to this link: https://www.ruby-lang.org/en/"

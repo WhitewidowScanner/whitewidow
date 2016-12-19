@@ -1,3 +1,8 @@
+# Version 1.8.5.8
+- Patched the warning
+- Patched the black_widow_log error
+- Bumped version number
+
 # Version 1.8.4.7
 - Patched ruby download link
 - Added a method to figure out what link you need or command to run
