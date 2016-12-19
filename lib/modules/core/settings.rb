@@ -40,7 +40,26 @@ module Settings
         return "#{config}"
       end
     end
+=begin  # Still working on this, temporarily in the main file
+    #
+    # Error based SQL injection
+    #
+    def add_error_based_sql_test(url)
+      %w(' -- ; " /* '/* '-- "-- '; "; `).each { |error|
+        File.open("#{SITES_TO_CHECK_PATH}", "a+") { |error_check| error_check.puts("#{url}#{error}") }
+        MULTIPARAMS.check_for_multiple_parameters(url, error)
+      }
+    end
 
+    #
+    # Blind based SQL injection
+    #
+    def add_blind_based_sql_test(url)
+      [" AND 1=1"].each { |blind|
+        File.open("#{SITES_TO_CHECK_PATH}", "a+") { |blind_check| blind_check.puts("#{urls_to_log}#{blind}") }
+      }
+    end
+=end
     #
     # Hide the banner if the banner flag is used
     #

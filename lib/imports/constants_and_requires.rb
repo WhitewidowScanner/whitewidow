@@ -73,6 +73,9 @@ REPO_LINK = "Clone: https://github.com/Ekultek/whitewidow.git".cyan
 # The output version string
 VERSION_STRING = "v".green + VERSION.green.bold + '('.cyan.bold + VERSION_TYPE + ')'.cyan.bold
 
+# Ruby downloads link
+RUBY_DOWNLOAD_LINK = "https://www.ruby-lang.org/en/"
+
 # Default user agent used by whitewidow
 DEFAULT_USER_AGENT = "Whitewidow #{VERSION} SQL Vuln Scanner/Ruby:#{RUBY_VERSION}->Platform:#{RUBY_PLATFORM}"
 

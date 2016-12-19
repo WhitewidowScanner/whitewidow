@@ -75,6 +75,7 @@ end
 #
 def get_urls
   query = SETTINGS.extract_query!
+  url_arr = Array.new
 
   File.read("#{QUERY_BLACKLIST_PATH}").each_line do |black|  # check if the search query is black listed
     if query == black
@@ -107,9 +108,13 @@ def get_urls
       urls_to_log = URI.decode(urls)
       FORMAT.success("Site found: #{urls_to_log}")
       sleep(0.3)
-      %w(' -- ; " /* '/* '-- "-- '; "; `).each { |sql|
-        File.open("#{SITES_TO_CHECK_PATH}", 'a+') { |to_check| to_check.puts("#{urls_to_log}#{sql}") } # Add sql syntax to all "="
-        MULTIPARAMS.check_for_multiple_parameters(urls_to_log, sql)
+      url_arr.insert(-1, urls_to_log)
+      %w(' -- ; " /* '/* '-- "-- '; "; `).each { |err|
+        File.open("#{SITES_TO_CHECK_PATH}", 'a+') { |error_check| error_check.puts("#{urls_to_log}#{err}") } # Add sql syntax to all "="
+        MULTIPARAMS.check_for_multiple_parameters(urls_to_log, err)
+      }
+      [" AND 1=1"].each { |blind| # Temp working on adding all types of sql injection techniques
+        File.open("#{SITES_TO_CHECK_PATH}", "a+") { |blind_check| blind_check.puts("#{urls_to_log}#{blind}") }
       }
     end
   end
@@ -144,7 +149,7 @@ def vulnerability_check
           next
         end
       end
-    rescue *LOADING_ERRORS
+    rescue *LOADING_ERRORS  # site doesn't exist or this is not a valid URL
       FORMAT.err("URL: #{vuln.chomp} failed due to an error while connecting, URL dumped to non_exploitable.txt")
       File.open("#{NON_EXPLOITABLE_PATH}", "a+") { |error| error.puts(vuln) }
       next
@@ -263,7 +268,9 @@ rescue => e
       system("ruby whitewidow.rb -d --banner")
     end  
   elsif e.inspect =~ /tIDENTIFIER/
-    FORMAT.fatal("To run this program you need a Ruby version >=v2.3.0, current version: v#{RUBY_VERSION}. Link: #{RUBY_DOWNLOAD_LINK}")
+    FORMAT.fatal("To run this program you need a Ruby version >=2.3.0.")
+    FORMAT.fatal("Your current ruby version: #{RUBY_VERSION}")
+    FORMAT.fatal("Download the latest Ruby from: #{DOWNLOAD_LINK}")
     exit(1) 
   end
 end

@@ -1,3 +1,9 @@
+# Version 1.8.3.6
+- Added a temp blind based
+- Started working on all injection techniques
+- Minor text fixes
+- Bumped version number
+
 # Version 1.8.3.5
 - Fixed formats, looks a little better than it did before
 - New contrib, thank you for fixing the encoding errors
