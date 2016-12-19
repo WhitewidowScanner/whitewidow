@@ -1,3 +1,7 @@
+# Version 1.8.6.9
+- Patched the no such file or directory error
+- Bumped version number
+
 # Version 1.8.5.8
 - Patched the warning
 - Patched the black_widow_log error
