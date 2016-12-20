@@ -5,8 +5,7 @@ require 'webmock/rspec'
 require'vcr'
 
 
-WebMock.disable_net_connect!(allow: 'github.com')
-#WebMock.allow_net_connect!
+WebMock.disable_net_connect!
 
 VCR.configure do |config|
   config.cassette_library_dir = "spec/fixtures/vcr_cassettes"
@@ -20,6 +19,7 @@ RSpec.configure do |config|
     File.truncate('tmp/#sites.txt', 0)
   end
 
+  ### Silence stdout during tests ###
   original_stderr = $stderr
   original_stdout = $stdout
   config.before(:all) do

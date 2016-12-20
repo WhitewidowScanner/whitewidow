@@ -1,18 +1,22 @@
 #!/usr/local/env ruby
 require_relative 'lib/imports/constants_and_requires'
 
+def banner_message
+  [
+    "Mandatory options  : -[d|f|s] FILE|URL --[default|file|spider] FILE|URL",
+    "Enumeration options: -[x] NUM --[dry-run|batch|run-x] NUM",
+    "Anomity options    : -[p] IP:PORT --[rand-agent|proxy] IP:PORT",
+    "Processing options : -[D] DORK --[sqlmap|dork] DORK",
+    "Misc options       : -[l|b|u] --[legal|banner|beep|update]",
+    " " # Blank line for nice formatting
+  ].join("\n")
+end
 #
 # Append into the OPTIONS constant so that we can call the flag from the constant instead of a class
 #
 ARGV << '-h' if ARGV.empty? # Display help dialog if no flags are passed
 OptionParser.new do |opt|
-  opt.banner="Mandatory options  : -[d|f|s] FILE|URL --[default|file|spider] FILE|URL
-  Enumeration options: -[x] NUM --[dry-run|batch|run-x] NUM
-  Anomity options    : -[p] IP:PORT --[rand-agent|proxy] IP:PORT
-  Processing options : -[D] DORK --[sqlmap|dork] DORK
-  Misc options       : -[l|b|u] --[legal|banner|beep|update]
-
-  " # Blank line has to be there so that the help menu looks good.
+  opt.banner = banner_message
   opt.on('-f FILE', '--file FILE', 'Pass a filename to scan for vulnerabilities')         { |o| OPTIONS[:file]    = o }
   opt.on('-s URL', '--spider URL', 'Spider a web page and save all the URLS')             { |o| OPTIONS[:spider]  = o }
   opt.on('-d', '--default', 'Run in default mode, scrape Google')                         { |o| OPTIONS[:default] = o }

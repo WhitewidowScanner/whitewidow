@@ -48,27 +48,6 @@ module Whitewidow
       def get_urls(proxy = nil)
         query = SETTINGS.extract_query!
 
-        # NOTE: This logic may potentially allow blacklisted items.
-        # e.g. query == 'user=?'
-        # blacklist ==
-        # 'id=?'
-        # 'user=?'
-        # When we get to the last line, query will be assigned a new sample from the default list.
-        # If 'id=?' is in the default list, we don't perform any more checks, and it may be assigned
-        # as the query despite being on the blacklist
-        # To solve this issue, we could do the following:
-        #
-        # query = validate_query(query)
-        #
-        # def validate_query(query)
-        #   blacklist = File.readlines("{QUERY_BLACKLIST_PATH}")
-        #   if blacklist.any?{ |line| line == query }
-        #     new_query = File.readlines("{PATH}/lib/lists/search_query.txt").sample
-        #     validate_query(new_query)
-        #   else
-        #     query
-        #   end
-        # end
         File.read("#{QUERY_BLACKLIST_PATH}").each_line do |black|  # check if the search query is black listed
           if query == black
             FORMAT.warning("Query: #{query} is blacklisted, defaulting to random query")
@@ -120,20 +99,19 @@ module Whitewidow
           begin
             FORMAT.info("Parsing page for SQL syntax error: #{vuln.chomp}")
             Timeout::timeout(10) do
-              vulns = vuln.encode(Encoding.find('UTF-8'), {invalid: :replace, undef: :replace, replace: ''}) # Force encoding to UTF-8
               begin
-                if SETTINGS.parse("#{vulns.chomp}'", 'html', 0) =~ SQL_VULN_REGEX  # If it has the vuln regex error
-                  FORMAT.site_found(vulns.chomp)
-                  File.open("#{TEMP_VULN_LOG}", "a+") { |vulnerable| vulnerable.puts(vulns) }
+                if SETTINGS.parse("#{vuln.chomp}'", 'html', 0) =~ SQL_VULN_REGEX  # If it has the vuln regex error
+                  FORMAT.site_found(vuln.chomp)
+                  File.open("#{TEMP_VULN_LOG}", "a+") { |vulnerable| vulnerable.puts(vuln) }
                   sleep(0.5)
                 else
-                  FORMAT.warning("URL: #{vulns.chomp} is not vulnerable, dumped to non_exploitable.txt")
-                  File.open("#{NON_EXPLOITABLE_PATH}", "a+") { |non_exploit| non_exploit.puts(vulns) }
+                  FORMAT.warning("URL: #{vuln.chomp} is not vulnerable, dumped to non_exploitable.txt")
+                  File.open("#{NON_EXPLOITABLE_PATH}", "a+") { |non_exploit| non_exploit.puts(vuln) }
                   sleep(0.5)
                 end
               rescue Timeout::Error, OpenSSL::SSL::SSLError  # Timeout or SSL errors
-                FORMAT.warning("URL: #{vulns.chomp} failed to load dumped to non_exploitable.txt")
-                File.open("#{NON_EXPLOITABLE_PATH}", "a+") { |timeout| timeout.puts(vulns) }
+                FORMAT.warning("URL: #{vuln.chomp} failed to load, dumped to non_exploitable.txt")
+                File.open("#{NON_EXPLOITABLE_PATH}", "a+") { |timeout| timeout.puts(vuln) }
                 sleep(0.5)
                 next
               end
