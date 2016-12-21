@@ -11,6 +11,15 @@ def banner_message
     " " # Blank line for nice formatting
   ].join("\n")
 end
+
+#
+# Usage page, basic help page for commands
+#
+def usage_page
+  FORMAT.info("ruby whitewidow.rb -[SHORT-OPTS] [ARGS] --[LONG-OPTS] [ARGS]")
+  FORMAT.info("Check the README.md file for a list of flags and further information\n")
+end
+
 #
 # Append into the OPTIONS constant so that we can call the flag from the constant instead of a class
 #
@@ -32,8 +41,8 @@ OptionParser.new do |opt|
   opt.on('--beep', 'Make a beep when the program finds a vulnerability')                  { |o| OPTIONS[:beep]    = o }
   opt.on('--rand-agent', 'Use a random user agent')                                       { |o| OPTIONS[:agent]   = o }
   opt.on('--sqlmap', 'Run sqlmap through the SQL_VULN.LOG file as a bulk file')           { |o| OPTIONS[:sqlmap]  = o }
-  opt.on('-h', '--help', 'Display this help dialog') do
-    Whitewidow::Scanner.usage_page
+  opt.on('-h', '--help', 'Display this help dialog and exit') do
+    usage_page
     puts opt
   end
 end.parse!
@@ -151,5 +160,11 @@ rescue => e
     FORMAT.fatal("Your current ruby version: #{RUBY_VERSION}")
     FORMAT.fatal("Download the latest Ruby by #{SETTINGS.ruby_download_link}")
     exit(1)
+  else
+    FORMAT.fatal("Program failed with error code: #{e}, error saved to error_log.txt")
+    File.open(ERROR_LOG_PATH, "a+") { |error| error.puts(e) }
   end
+rescue Interrupt
+  FORMAT.err("User aborted scanning.")
+  exit(1)
 end
