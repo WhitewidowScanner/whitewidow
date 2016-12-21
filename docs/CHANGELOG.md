@@ -1,3 +1,9 @@
+# Version 1.9.0
+- Merged new pull request to create testing environment for the program
+- Fixed an issue where the test would fail
+- Edited readme to reflect new release
+- Bumped version number
+
 # Version 1.8.6.9
 - Patched the no such file or directory error
 - Bumped version number
