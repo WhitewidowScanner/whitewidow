@@ -1,3 +1,8 @@
+# Version 1.9.2.2
+- Minor patch for download links
+- Minor comment and string fixes
+- Bumped version number
+
 # Version 1.9.1.1
 - Fixed most of the user agents, still working on some of them but it shouldn't fail as much, so --rand-agent is a go
 - Moved the usage_page method to the main whitewidow file, because it makes no sense for it to be in the scanner file
