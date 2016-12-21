@@ -98,5 +98,7 @@ describe Whitewidow::Scanner do
       let(:response) { OpenSSL::SSL::SSLError }
       it_behaves_like 'a non-exploitable site'
     end
+
   end
+
 end

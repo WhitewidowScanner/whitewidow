@@ -12,7 +12,7 @@ http_interactions:
       Accept:
       - "*/*"
       User-Agent:
-      - Whitewidow 1.8.3.5 SQL Vuln Scanner/Ruby:2.3.1->Platform:x86_64-darwin15
+      - Whitewidow 1.9.0 SQL Vuln Scanner/Ruby:2.3.1->Platform:x86_64-darwin15
       Accept-Charset:
       - ISO-8859-1,utf-8;q=0.7,*;q=0.7
       Accept-Language:
@@ -65,7 +65,7 @@ http_interactions:
       Accept:
       - "*/*"
       User-Agent:
-      - Whitewidow 1.8.3.5 SQL Vuln Scanner/Ruby:2.3.1->Platform:x86_64-darwin15
+      - Whitewidow 1.9.0 SQL Vuln Scanner/Ruby:2.3.1->Platform:x86_64-darwin15
       Accept-Charset:
       - ISO-8859-1,utf-8;q=0.7,*;q=0.7
       Accept-Language:
@@ -219,7 +219,7 @@ http_interactions:
       Accept:
       - "*/*"
       User-Agent:
-      - Whitewidow 1.8.3.5 SQL Vuln Scanner/Ruby:2.3.1->Platform:x86_64-darwin15
+      - Whitewidow 1.9.0 SQL Vuln Scanner/Ruby:2.3.1->Platform:x86_64-darwin15
       Accept-Charset:
       - ISO-8859-1,utf-8;q=0.7,*;q=0.7
       Accept-Language:
