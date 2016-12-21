@@ -66,10 +66,10 @@ VERSION = Whitewidow::Misc.new.version
 VERSION_TYPE = Whitewidow::Misc.new.version_type(VERSION)
 
 # Download link for the banner
-DOWNLOAD_LINK = "Downloads: https://github.com/Ekultek/whitewidow/releases".cyan
+DOWNLOAD_LINK = "Downloads: https://github.com/WhitewidowScanner/whitewidow/releases".cyan
 
 # Repository link for the banner
-REPO_LINK = "Clone: https://github.com/Ekultek/whitewidow.git".cyan
+REPO_LINK = "Clone: https://github.com/WhitewidowScanner/whitewidow.git".cyan
 
 # The output version string
 VERSION_STRING = "v".green + VERSION.green.bold + '('.cyan.bold + VERSION_TYPE + ')'.cyan.bold
