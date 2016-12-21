@@ -6,7 +6,6 @@ module Settings
     # Method for Nokogiri so I don't have to continually type Nokogiri::HTML
     # @param [String] site url
     def page(site)
-      # Nokogiri::HTML(RestClient.get(site))  # Saving for further use
       response = RestClient::Request.execute(:url => site, :method => :get, :verify_ssl => false) # Fix #26 https://github.com/Ekultek/whitewidow/issues/26
       response.force_encoding('iso-8859-1').encode('utf-8')  # Force the response into UTF-8
       Nokogiri::HTML(response)  # Pull the HTML from the UTF-8 encoded response
@@ -45,7 +44,7 @@ module Settings
     def ruby_download_link
       if RUBY_PLATFORM =~ /linux/
         " running sudo apt-get install ruby-full"
-      elsif RUBY_PLATFORM =~ /windows/
+      elsif RUBY_PLATFORM =~ /cygwin|mswin|mingw|bccwin|wince|emx/
         " going to this link: https://dl.bintray.com/oneclick/rubyinstaller/rubyinstaller-2.3.3.exe"
       else
         " going to this link: https://www.ruby-lang.org/en/documentation/installation/#package-management-systems"
