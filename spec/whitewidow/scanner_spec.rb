@@ -1,19 +1,7 @@
 require 'spec_helper'
 
 describe Whitewidow::Scanner do
-  describe 'usage_page' do
-    subject { described_class.usage_page }
-    it 'displays usage info' do
-      expect{subject}.to output(/ruby/).to_stdout
-    end
-
-    it 'displays a reference to the README' do
-      expect{subject}.to output(/README/).to_stdout
-    end
-
-  end
-
-  describe 'format_file' do
+  describe 'format_file' do  # Test file formatting
     let(:test_website) { 'http://fakesite.com/' }
     let(:filename) { "asdf.txt" }
     subject { described_class.format_file(filename) }
@@ -40,7 +28,7 @@ describe Whitewidow::Scanner do
     end
   end
 
-  describe 'get_urls' do
+  describe 'get_urls' do  # Test get_urls method
     subject { described_class.get_urls }
     # Ensure we search for the same query every time
     before { stub_const('DEFAULT_SEARCH_QUERY', 'user_id=') }
@@ -63,7 +51,7 @@ describe Whitewidow::Scanner do
     end
   end
 
-  describe 'vulnerability_check' do
+  describe 'vulnerability_check' do  # Test the vulnerability check
     let(:test_website) { 'http://fakesite.com/' }
     subject { described_class.vulnerability_check(file_mode: true) }
 
