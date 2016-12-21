@@ -120,7 +120,7 @@ BASIC_LEGAL_DISCLAIMER = "[ ! ] Use of this program for malicious intent is ille
 SKIP = %w(stackoverflow.com www.stackoverflow.com github.com www.github.com www.sa-k.net yoursearch.me search1.speedbit.com
           duckfm.net search.clearch.org webcache.googleusercontent.com m.facebook.com youtube.com facebook.com
           twitter.com wikipedia.org tumblr.com pinterest.com www.facebook.com pinterest.com www.pinterest.com
-          m.pinterest.com go.speedbit.com speedbit.com)
+          m.pinterest.com go.speedbit.com speedbit.com codegists.com)
 
 # Loading errors, basically the page didn't load becasue it's either not vulnerable or doesn't exist
 LOADING_ERRORS = [RestClient::ResourceNotFound, RestClient::InternalServerError, RestClient::RequestTimeout,
