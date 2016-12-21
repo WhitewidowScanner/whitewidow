@@ -1,3 +1,12 @@
+# Version 1.9.2.3
+- Fixed some of the search queries, I messed up on them sorry guys
+- Fixed a regex in settings
+- Removed deprecated code
+- Updated the IPv6 regex
+- Edited the success format
+- Added site to the skip constant
+- Bumped version number
+
 # Version 1.9.2.2
 - Minor patch for download links
 - Minor comment and string fixes
