@@ -26,7 +26,7 @@ require_relative '../../lib/modules/core/detection'
 require_relative '../../lib/modules/core/check_platform'
 require_relative '../../lib/modules/core/tools/spider/blackwidow'
 require_relative '../../lib/modules/core/settings'
-require_relative '../../lib/whitewidow/scanner'
+
 # Modules that need to be included for whitewidow
 include MultipleParameters
 include Format

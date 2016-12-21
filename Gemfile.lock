@@ -1,14 +1,9 @@
 GEM
   remote: https://rubygems.org/
   specs:
-    addressable (2.4.0)
-    crack (0.4.3)
-      safe_yaml (~> 1.0.0)
-    diff-lcs (1.2.5)
     domain_name (0.5.20160615)
       unf (>= 0.0.5, < 1.0.0)
     ffi (1.9.14-x86-mingw32)
-    hashdiff (0.3.0)
     http-cookie (1.0.2)
       domain_name (~> 0.5)
     mechanize (2.7.5)
@@ -44,29 +39,10 @@ GEM
       http-cookie (>= 1.0.2, < 2.0)
       mime-types (>= 1.16, < 4.0)
       netrc (~> 0.8)
-    rspec (3.5.0)
-      rspec-core (~> 3.5.0)
-      rspec-expectations (~> 3.5.0)
-      rspec-mocks (~> 3.5.0)
-    rspec-core (3.5.4)
-      rspec-support (~> 3.5.0)
-    rspec-expectations (3.5.0)
-      diff-lcs (>= 1.2.0, < 2.0)
-      rspec-support (~> 3.5.0)
-    rspec-mocks (3.5.0)
-      diff-lcs (>= 1.2.0, < 2.0)
-      rspec-support (~> 3.5.0)
-    rspec-support (3.5.0)
-    safe_yaml (1.0.4)
     unf (0.1.4)
       unf_ext
     unf_ext (0.0.7.2)
     unf_ext (0.0.7.2-x86-mingw32)
-    vcr (3.0.0)
-    webmock (1.24.2)
-      addressable (>= 2.3.6)
-      crack (>= 0.3.2)
-      hashdiff
     webrobots (0.1.2)
 
 PLATFORMS
@@ -77,9 +53,6 @@ DEPENDENCIES
   mechanize
   nokogiri
   rest-client
-  rspec
-  vcr
-  webmock
 
 BUNDLED WITH
    1.13.6

