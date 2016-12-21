@@ -4,14 +4,6 @@ module Whitewidow
 
     class << self
       #
-      # Usage page, basic help page for commands
-      #
-      def usage_page
-        FORMAT.info("ruby whitewidow.rb -[SHORT-OPTS] [ARGS] --[LONG-OPTS] [ARGS]")
-        FORMAT.info("Check the README.md file for a list of flags and further information\n")
-      end
-
-      #
       # File formatting
       #
       def format_file(user_file)
@@ -92,10 +84,10 @@ module Whitewidow
       # Check the sites that where found for vulnerabilities by checking if they throw a certain error
       #
       def vulnerability_check(file_mode: false)
-        file_to_read = file_mode ? FILE_FLAG_FILE_PATH : SITES_TO_CHECK_PATH
+        file_to_read = file_mode ? FILE_FLAG_FILE_PATH : SITES_TO_CHECK_PATH  # Check which file to read
+        FORMAT.info("Reading from #{file_to_read}")
         FORMAT.info('Forcing encoding to UTF-8') unless file_mode
         IO.read("#{file_to_read}").each_line do |vuln|
-          FORMAT.info("Reading from #{file_to_read}")
           begin
             FORMAT.info("Parsing page for SQL syntax error: #{vuln.chomp}")
             Timeout::timeout(10) do
@@ -123,6 +115,7 @@ module Whitewidow
           end
         end
       end
+
     end
 
   end
