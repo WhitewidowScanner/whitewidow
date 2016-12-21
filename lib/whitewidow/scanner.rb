@@ -1,11 +1,11 @@
 module Whitewidow
   # Preliminary extraction of Scanner logic
   class Scanner
+
     class << self
       #
       # Usage page, basic help page for commands
       #
-      # TODO: Move this method into a Notification or similar class
       def usage_page
         FORMAT.info("ruby whitewidow.rb -[SHORT-OPTS] [ARGS] --[LONG-OPTS] [ARGS]")
         FORMAT.info("Check the README.md file for a list of flags and further information\n")
@@ -124,5 +124,7 @@ module Whitewidow
         end
       end
     end
+
   end
+
 end
