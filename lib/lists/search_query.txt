@@ -765,7 +765,6 @@ product-list.php?id=
 lmsrecords_cd.php?cdid=
 /blank.php?xlink=
 Book.asp?bookID=
-inurl:viewArticles.php?id= title:login
 board_view.php?s_board_id=
 /all.php?itemid=
 /all.php?origem=
