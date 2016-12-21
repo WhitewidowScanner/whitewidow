@@ -1,3 +1,11 @@
+# Version 1.9.1.1
+- Fixed most of the user agents, still working on some of them but it shouldn't fail as much, so --rand-agent is a go
+- Moved the usage_page method to the main whitewidow file, because it makes no sense for it to be in the scanner file
+- Added a rescue for a keyboard interrupt, will say user aborted
+- Removed failing search query
+- Fixed some styling issues
+- Bumped version number
+
 # Version 1.9.0
 - Merged new pull request to create testing environment for the program
 - Fixed an issue where the test would fail
