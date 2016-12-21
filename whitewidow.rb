@@ -158,7 +158,7 @@ rescue => e
   elsif e.inspect =~ /tIDENTIFIER/
     FORMAT.fatal("To run this program you need a Ruby version >=2.3.0.")
     FORMAT.fatal("Your current ruby version: #{RUBY_VERSION}")
-    FORMAT.fatal("Download the latest Ruby by #{SETTINGS.ruby_download_link}")
+    FORMAT.fatal("Download the latest Ruby by#{SETTINGS.ruby_download_link}")
     exit(1)
   else
     FORMAT.fatal("Program failed with error code: #{e}, error saved to error_log.txt")
