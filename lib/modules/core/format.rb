@@ -38,8 +38,8 @@ module Format
 
     # Throws the valuable information that you will need, this is very good. Provides the IP and server info of the site
     def site_found(input)
-      BEEP.check_platform if OPTIONS[:beep]  # TODO: When a IPv6 is thrown, resolve the IPv6 and give further info
-      success = 'Possible Vulnerability'
+      BEEP.check_platform if OPTIONS[:beep]
+      success = 'Possible Vulnerability'.white.bold
       puts <<-_END_
     [ x ] -----------------------------------------------
 
@@ -47,7 +47,7 @@ module Format
 
     [ X ]    Injection Point       :: #{input.cyan}
     [ X ]    Server Specifications :: #{SiteInfo.capture_host(input).cyan}
-    [ X ]    Possible IP Address   :: #{SiteInfo.capture_ip(input).cyan}
+    [ X ]    Possible IP Address   :: #{SiteInfo.capture_ip(input)}
 
       _END_
     end
