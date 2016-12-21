@@ -1,6 +1,6 @@
 inurl:play.php?id= title:paypal
 .php?secao="
-inurl::/content.php?inc=
+inurl:/content.php?inc=
 sw_comment.php?id=
 pagina.php?tipo=
 index.php?fase= index.php?fase="
@@ -518,7 +518,6 @@ login.php?dir=
 inurl:/componentsinurl:/com_extended_registrationinurl:/registration_detailed.inc.php?mosConfig_absolute_path= "com_extended_registration"
 nota.php?OpenPage=
 "help.asp?CartId="
-inurl:/allindex2.php?root_PATH=
 view.php?seccion=
 page.php?section=
 start.php?addr=
@@ -4955,7 +4954,6 @@ pagesinurl:/print.php?id=
 products.php?keyword=
 inurl:/default.php?sivu=
 inurl:/allindex2.php?sub2=
-inurl:/embedinurl:/day.php?path= Login to Calendar
 inurl:/all.php?next=
 main.php?f1= .php?f1="
 home.php?page=
@@ -5901,9 +5899,7 @@ include.php?module=
 print.php?inc=
 inurl:/all.php?post=
 info.php?f=
-inurl:/wsinurl:/get_events.php?includedir= "inurl:/WebCalendarinurl:/"
 .php?destino="
-componentsinurl:/com_extended_registrationinurl:/registration_detailed.inc.php?mosConfig_absolute_path=
 enter.php?link=
 index.php?d=
 item.php?sub_id=
@@ -5913,7 +5909,6 @@ product.php?sku=
 head.php?sivu=
 index2.php?path= AKI
 middle.php?file= ".php?page="
-componentsinurl:/com_performsinurl:/performs.php?mosConfig_absolute_path= "com_performs"
 general.php?header=
 page.php?*
 sitio.php?section=
@@ -5924,7 +5919,6 @@ sub*.php?recipe=
 category.asp
 home.php?secao=
 index.php?mf= .php?mf=
-inurl:/palportalinurl:/index.php?page= pal portal
 general.php?pollname=
 *inc*.php?m=
 main.php?ref=
@@ -5941,9 +5935,6 @@ print.php?itemnav=
 shopdisplayproduct.php?catalogid=
 .php?c="
 phpinurl:/event.php?id=
-inurl:/help_text_vars.php?cmd=dir&PGV_BASE_DIRECTORY= PHPGedView <= 3.3.7
-modulesinurl:/coppermineinurl:/themesinurl:/coppercopinurl:/theme.php?THEME_DIR=
-inurl:/templatesinurl:/headline_temp.php?nst_inc=
 "savecart.asp?CartId="
 index.php?secao= index.php?secao=
 loc.php?loc= loc.php?loc="
@@ -5953,7 +5944,6 @@ inurl:/includeinurl:/write.php?dir=
 info.php?adresa=
 itemdetails.asp?catalogid=
 .php?release_id="
-modulesinurl:/coppermineinurl:/includeinurl:/init.inc.php?CPG_M_DIR=
 index.php?place=
 inurl:/all.php?class=
 inurl:/big.php?pathtotemplate=
@@ -5971,11 +5961,9 @@ inurl:/all.php?cat=
 define.php?term= .php?term="
 .asp?idproduct=
 index3.php?secc=
-encinurl:/content.php?Home_Path= "powered by doodle cart"
 press.php?mid=
 addedit.php?root_dir=
 page.php?e=
-skinsinurl:/advancedinurl:/advanced1.php?pluginpath[0]= Sabdrimer CMS
 shredder-categories.php?id=
 principal.php?w=
 downloads.php?id=
@@ -6005,13 +5993,10 @@ press.php?include=
 index2.php?funcion=
 view.php?incl=
 inurl:events.php?id= title:login 2015
-inurl:/administratorinurl:/componentsinurl:/com_mgminurl:/help.mgm.php?mosConfig_absolute_path=
 "ancillary.asp?ID="
-inurl:/componentsinurl:/com_facileformsinurl:/facileforms.frame.php?ff_compath= "com_facileforms"
 inurl:/blank.php?in=
 "customerService.asp?TextID1="
 news.php?id=
-componentsinurl:/com_rsgeryinurl:/rsgery.html.php?mosConfig_absolute_path= rsgery.php
 index.php?act= "index.php?act="
 nota.php?inc=
 inurl:staff_id= title:login 2015
@@ -6050,7 +6035,7 @@ details.php?loc= .php?loc=
 inurl:/deportes.cgi?a=latest&t=
 general.php?modo=
 news_display.php?getid=
-fshstatisticinurl:/index.php?PID=
+fshstatistic/index.php?PID=
 index.php?content= .php?content=
 updates.asp?ID=
 home.php?index=
@@ -6065,7 +6050,7 @@ whatsnew.php?idCategory=
 inurl:/allindex2.php?v=
 inurl:Art.php?id= title:login
 inurl:/args.php?arg=
-inurl:/admininurl:/index.php?o= admininurl:/index.php";
+inurl:/admin/index.php?o= admin/index.php";
 "folder.php?id="
 inurl:/index.php?loc=&lang= .php?loc="
 standard.php?middle=
@@ -6080,14 +6065,12 @@ inurl:/base.php?subject=
 bbsinurl:/view.php?no=
 display.php?file= display.php?file=
 dork: "Login to Calendar"
-30.  inurl:/osticketinurl:/
 .php?f_content="
 13. keyword : "powered by paBugs 2.0 Beta 3?
-inurl:/commoninurl:/func.php?CommonAbsDir=
-dbinurl:/CARTinurl:/product_details.php?product_id=
+inurl:/common/func.php?CommonAbsDir=
+dbinurl:/CART/product_details.php?product_id=
 main.php?mod=
 default.php?tipo=
-impexinurl:/ImpExData.php?systempath= intext:powered by vbulletin
 index.php3?pag= index.php3?pag=
 default.php?destino=
 ancillary.php?ID=
@@ -6102,8 +6085,6 @@ list.php?table= .php?table=
 enter.php?texto=
 template.php?param=
 rounds-detail.php?id=
-inurl:/templatesinurl:/mangoberyinurl:/footer.sample.php?Site_Path= Mangobery 0.5.5
 blank.php?get=
-*incinurl:/header.phpinurl:/step_one.php?server_inc=
 inurl:main.php?id= title:login 2015
 index.php?dept=
