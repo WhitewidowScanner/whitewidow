@@ -8,15 +8,13 @@ module Settings
     def page(site)
       # Nokogiri::HTML(RestClient.get(site))  # Saving for further use
       response = RestClient::Request.execute(:url => site, :method => :get, :verify_ssl => false) # Fix #26 https://github.com/Ekultek/whitewidow/issues/26
-      response.force_encoding('iso-8859-1').encode('utf-8')
-      Nokogiri::HTML(response)
+      response.force_encoding('iso-8859-1').encode('utf-8')  # Force the response into UTF-8
+      Nokogiri::HTML(response)  # Pull the HTML from the UTF-8 encoded response
     end
 
     #
-    # This is actually pretty smart, it's used to parse the HTML
-    # @param [String] site url
-    # @param [String] tag css selector
-    # @param [Integer] i the given html row
+    # This is actually pretty smart, it's used to parse the HTML and pull from css selectors
+    #
     def parse(site, tag, i)
       parsing = page(site)
       parsing.css(tag)[i].to_s
@@ -48,11 +46,11 @@ module Settings
       if RUBY_PLATFORM =~ /linux/
         " running sudo apt-get install ruby-full"
       elsif RUBY_PLATFORM =~ /windows/
-        " going to this link: https://rubyinstaller.org/"
+        " going to this link: https://dl.bintray.com/oneclick/rubyinstaller/rubyinstaller-2.3.3.exe"
       else
-        " going to this link: https://www.ruby-lang.org/en/"
+        " going to this link: https://www.ruby-lang.org/en/documentation/installation/#package-management-systems"
       end  
-    end  
+    end
 =begin  # Still working on this, temporarily in the main file
     #
     # Error based SQL injection
