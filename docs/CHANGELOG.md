@@ -1,3 +1,8 @@
+# Version 1.9.4.7
+- Removed some search queries that where failing
+- Minor fixes for error catching while dry runs and file runs are being processed
+- Bumped version number
+
 # Version 1.9.3.6
 - Patch `no implict version of string into array` error
 - Bumped version number
