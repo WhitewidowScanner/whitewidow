@@ -4,7 +4,7 @@ module Settings
 
     #
     # Method for Nokogiri so I don't have to continually type Nokogiri::HTML
-    # @param [String] site url
+    #
     def page(site)
       response = RestClient::Request.execute(:url => site, :method => :get, :verify_ssl => false) # Fix #26 https://github.com/Ekultek/whitewidow/issues/26
       response.force_encoding('iso-8859-1').encode('utf-8')  # Force the response into UTF-8
@@ -50,7 +50,23 @@ module Settings
         " going to this link: https://www.ruby-lang.org/en/documentation/installation/#package-management-systems"
       end  
     end
-=begin  # Still working on this, temporarily in the main file
+
+    #
+    # Create a unique random issue name
+    #
+    def random_issue_name
+      o = [('a'..'z'), ('A'..'Z'), (1..9)].map { |i| i.to_a }.flatten
+      string = (0...7).map { o[rand(o.length)] }.join
+      return string
+    end
+
+    #
+    # Create the issue
+    #
+    def create_issue_page(issue, error, steps, query)
+      CREATE_ISSUE.issue_template(issue, error, steps, query)
+    end
+=begin
     #
     # Error based SQL injection
     #
@@ -66,7 +82,7 @@ module Settings
     #
     def add_blind_based_sql_test(url)
       [" AND 1=1"].each { |blind|
-        File.open("#{SITES_TO_CHECK_PATH}", "a+") { |blind_check| blind_check.puts("#{urls_to_log}#{blind}") }
+        File.open("#{SITES_TO_CHECK_PATH}", "a+") { |blind_check| blind_check.puts("#{url}#{blind}") }
       }
     end
 =end

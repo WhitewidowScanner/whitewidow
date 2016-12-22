@@ -27,6 +27,7 @@ require_relative '../../lib/modules/core/check_platform'
 require_relative '../../lib/modules/core/tools/spider/blackwidow'
 require_relative '../../lib/modules/core/settings'
 require_relative '../../lib/whitewidow/scanner'
+require_relative '../../lib/modules/core/template/issue_template'
 
 # Modules that need to be included for whitewidow
 include MultipleParameters
@@ -37,6 +38,7 @@ include Copy
 include SiteInfo
 include BlackWidow
 include Settings
+include Template
 
 # Runs a beep depending on the platform you have
 BEEP = Platform::CheckBeep.new
@@ -86,6 +88,9 @@ SPIDER_BOT = BlackWidow::RecursiveSpider.new
 # Program settings
 SETTINGS = Settings::ProgramSettings.new
 
+# Create an issue
+CREATE_ISSUE = Template::Templates.new
+
 # Path to sqlmap
 SQLMAP_PATH = "#{PATH}/lib/modules/core/tools/sqlmap/sqlmap.py"
 
@@ -112,6 +117,9 @@ FILE_FLAG_FILE_PATH = "#{PATH}/tmp/#sites.txt"
 
 # Blackwidow log file path
 BLACKWIDOW_LOG = "#{PATH}/tmp/blackwidow_log.txt"
+
+# Issue path
+ISSUE_TEMPLATE_PATH = "#{PATH}/tmp/issues"
 
 # Basic legal disclaimer of the program, for full legal and TOS run --legal
 BASIC_LEGAL_DISCLAIMER = "[ ! ] Use of this program for malicious intent is illegal. For more information run the --legal flag".red
