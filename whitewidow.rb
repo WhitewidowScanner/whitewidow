@@ -55,12 +55,14 @@ begin
       SETTINGS.hide_banner?
       SETTINGS.show_legal?
       Whitewidow::Scanner.get_urls(OPTIONS[:proxy])
-      if File.size("#{SITES_TO_CHECK_PATH}") == 0
-        FORMAT.warning("No sites found for search query: #{SEARCH_QUERY}. Adding query to blacklist so it won't be run again.")  # Add the query to the blacklist
-        File.open("#{QUERY_BLACKLIST_PATH}", "a+") { |query| query.puts(SEARCH_QUERY) }
+      #SETTINGS.black_list_query(OPTIONS[:dork] == nil ? DEFAULT_SEARCH_QUERY : OPTIONS[:dork],
+                                #IO.read(SITES_TO_CHECK_PATH).size)
+      if File.size("#{SITES_TO_CHECK_PATH}") == 0  # Saving just in case
+        FORMAT.warning("No sites found for search query: #{SEARCH_QUERY}. Adding query to blacklist so it won't be run again.")  # Add the query to the blacklist #  File.open("#{QUERY_BLACKLIST_PATH}", "a+") { |query| query.puts(SEARCH_QUERY) }
         FORMAT.info("Query added to blacklist and will not be run again, exiting..")
         exit(1)
       elsif OPTIONS[:dry]
+      #if OPTIONS[:dry]
         dry = FORMAT.prompt('Run the sites[Y/N]') unless OPTIONS[:batch]
         dry = 'N' if OPTIONS[:batch]
         if dry.upcase == 'N'
@@ -81,13 +83,11 @@ begin
       File.truncate("#{TEMP_VULN_LOG}", 0)
       FORMAT.info("I've run all my tests and queries, and logged all important information into #{SQL_VULN_SITES_LOG}")
     rescue *FATAL_ERRORS => e
-      d = DateTime.now
-      FORMAT.fatal("I've experienced an error and won't continue.. It's gonna break something if I keep trying.. Error: #{e}")
-      File.open("#{ERROR_LOG_PATH}", 'a+') {
-          |error| error.puts("[#{d.month}-#{d.day}-#{d.year}::#{Time.now.strftime("%T")}] Error: #{e.backtrace_locations}")
-      }
-      FORMAT.info("I'll log the error inside of #{ERROR_LOG_PATH} for further analysis.")
-      FORMAT.info("Create an issue for the error and label it as 'Fatal error #{e} #{File.readlines(ERROR_LOG_PATH).size}'")
+      File.open(ERROR_LOG_PATH, 'a+') { |error| error.puts("#{Date.today}\n#{e.backtrace}\n---") }
+      FORMAT.fatal("Issue template has been generated for this error, create a new issue named: #{SETTINGS.random_issue_name} #{e}")
+      FORMAT.info("An issue template has been generated for you and is located in #{ISSUE_TEMPLATE_PATH}")
+      SETTINGS.create_issue_page("Getting error: #{e}", e, "Run with #{OPTIONS}",
+                                 OPTIONS[:dork] == nil ? DEFAULT_SEARCH_QUERY : OPTIONS[:dork])
     end
   when OPTIONS[:file]
     begin
@@ -104,13 +104,11 @@ begin
           "I've run all my tests and queries, and logged all important information into #{SQL_VULN_SITES_LOG}"
       ) unless File.size("#{SQL_VULN_SITES_LOG}") == 0
     rescue *FATAL_ERRORS => e
-      d = DateTime.now
-      FORMAT.fatal("I've experienced an error and won't continue.. It's gonna break something if I keep trying.. Error: #{e}")
-      File.open("#{ERROR_LOG_PATH}", 'a+') {
-          |error| error.puts("[#{d.month}-#{d.day}-#{d.year}::#{Time.now.strftime("%T")}] Error: #{e.backtrace_locations}")
-      }
-      FORMAT.info("I'll log the error inside of #{ERROR_LOG_PATH} for further analysis.")
-      FORMAT.info("Create an issue for the error and label it as 'Fatal error #{e} #{File.readlines(ERROR_LOG_PATH).size}'")
+      File.open(ERROR_LOG_PATH, 'a+') { |error| error.puts("#{Date.today}\n#{e.backtrace}\n---") }
+      FORMAT.fatal("Issue template has been generated for this error, create a new issue named: #{SETTINGS.random_issue_name} #{e}")
+      FORMAT.info("An issue template has been generated for you and is located in #{ISSUE_TEMPLATE_PATH}")
+      SETTINGS.create_issue_page("Getting error: #{e}", e, "Run with #{OPTIONS}",
+                                 OPTIONS[:dork] == nil ? DEFAULT_SEARCH_QUERY : OPTIONS[:dork])
     end
   when OPTIONS[:legal]
     SETTINGS.show_legal?
@@ -164,7 +162,8 @@ rescue => e
     File.open(ERROR_LOG_PATH, 'a+') { |error| error.puts("#{Date.today}\n#{e.backtrace}\n---") }
     FORMAT.fatal("Issue template has been generated for this error, create a new issue named: #{SETTINGS.random_issue_name} #{e}")
     FORMAT.info("An issue template has been generated for you and is located in #{ISSUE_TEMPLATE_PATH}")
-    SETTINGS.create_issue_page("Getting error: #{e}", e, "Run with #{OPTIONS}", OPTIONS[:dork] == nil ? DEFAULT_SEARCH_QUERY : OPTIONS[:dork])
+    SETTINGS.create_issue_page("Getting error: #{e}", e, "Run with #{OPTIONS}",
+                               OPTIONS[:dork] == nil ? DEFAULT_SEARCH_QUERY : OPTIONS[:dork])
   end
 rescue Interrupt
   FORMAT.err("User aborted scanning.")
