@@ -10,7 +10,7 @@ describe FileHelper do
       before { FileUtils.touch(filename) }
 
       it 'returns the filename and the file can be opened' do
-        expect{subject}.to_not raise_error
+        expect{ subject }.to_not raise_error
       end
     end
 

@@ -36,8 +36,8 @@ describe Whitewidow::Scanner do
     it 'returns the correct data' do
       VCR.use_cassette('google_search') do
         subject
-        expect(results.first).to eq("https://msdn.microsoft.com/en-us/library/ms181466.aspx'")
-        expect(results.last).to eq('http://www.authorcode.com/user_id-and-user_name-in-sql-server/`')
+        expect(results.first).to include("https://msdn.microsoft.com/en-us/library/ms181466.aspx")
+        expect(results.last).to include('http://www.authorcode.com/user_id-and-user_name-in-sql-server/')
       end
     end
   end
