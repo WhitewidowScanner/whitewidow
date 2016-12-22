@@ -68,6 +68,18 @@ module Settings
     end
 =begin
     #
+    # Blacklist the search query
+    #
+    def black_list_query(query, file_size)
+      if File.size("#{SITES_TO_CHECK_PATH}") == file_size
+        FORMAT.warning("No sites found for search query: #{query}. Adding query to blacklist so it won't be run again.")  # Add the query to the blacklist
+        File.open("#{QUERY_BLACKLIST_PATH}", "a+") { |blacked| blacked.puts(SEARCH_QUERY) }
+        FORMAT.info("Query added to blacklist and will not be run again, exiting..")
+        exit(1)
+      end
+    end
+
+    #
     # Error based SQL injection
     #
     def add_error_based_sql_test(url)
