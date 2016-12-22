@@ -1,3 +1,8 @@
+# Version 1.9.3.5
+- Created an automatic issue templating system, it will create a template of an issue for you when you get an error so you can just CNTRL-C CNTRL-V it
+- Continued working on multiple SQL injection techniques, there's an issue where it's saving one URL multiple times so currently working on that
+- Bumped version number
+
 # Version 1.9.2.4
 - Updated sqlmap to the newest version
 - Updated the update flag so it will now include a sqlmap update
