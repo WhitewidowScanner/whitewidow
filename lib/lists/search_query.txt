@@ -12,7 +12,7 @@ index2.php?sub=
 inurl:/index.php?lang=en&cat= index.php?lang="
 pagina.php?link=
 gery.php?phpbb_root_path=
-inurl:/yabbseinurl:/Sourcesinurl:/Packages.php?sourcedir=
+inurl:/yabbse:/Sources:/Packages.php?sourcedir=
 standard.php?var=
 cmd.php?arg= .php?arg=
 layout.php?path=
@@ -21,10 +21,10 @@ inurl:/blank.php?filepath=
 inurl:/login.php?dir= "login.php?dir="
 inurl:".php?id=" intext:"electronics" title:login 2015
 inurl:/allindex.php?h=
-inurl:/supportinurl:/faqinurl:/incinurl:/pipe.php?HCL_path=
+inurl:/support/faq/inc/pipe.php?HCL_path=
 rss.php?cat=
 index.php?pageN= .php?pageN="
-magazinesinurl:/adult_magazine_single_page.php?magid=
+magazines/adult_magazine_single_page.php?magid=
 club.php?cid=
 inurl:/login.php?dir= login.php?dir=
 inurl:/allstart_lobby.php?CONFIG[MWCHAT_Libs]=
@@ -40,7 +40,7 @@ order.php?BookID=
 item.asp?prodtype=
 index.php?arg= index.php?arg=
 *.php?mode=
-frontinurl:/bininurl:/forumview.phtml?bbcode=
+front/bin/forumview.phtml?bbcode=
 inurl:/all.php?formatword=
 pagina.php?filepath=
 article.asp?id=
@@ -60,7 +60,7 @@ inurl:index2.php?pa=
 inurl:rubp.php?idr=
 index.php?id=1&lang= index.php?id=
 catalog_item.php?ID=
-globalinurl:/productinurl:/product.php?gubun=
+global/product/product.php?gubun=
 inc.php?inc= .php?inc="
 blank.php?header=
 start.php?play=
@@ -68,23 +68,23 @@ start.php?play=
 mod*.php?pageweb=
 intext:"styles" .php?id= title:login
 inurl:".php?categoryid=" intext:"Buy Now"
-calendarinurl:/event.php?id=
+calendar/event.php?id=
 press.php?base_dir=
 inurl:/zipndownload.php?PP_PATH= Powered by: PhotoPost PHP 4.6
 advSearch_h.php?idCategory=
 index.php?content= index.php?content=
 "pdetail.asp?item_id="
 affiliate.php?ID=
-inurl::/classified_right.php?language_dir= classified.php phpbazar
+inurl:/classified_right.php?language_dir= classified.php phpbazar
 general.php?doshow=
-dotprojectinurl:/modulesinurl:/projectsinurl:/vw_files.php?root_dir=
+dotproject/modules/projects/vw_files.php?root_dir=
 index.php?document=
 main.php?filepath=
 mod*.php?choix=
 inurl:/blank.php?goto=
 module_db.php?pivot_path=
 sub*.php?modo=
-inurl::/codebbinurl:/lang_select?phpbb_root_path= codebb
+inurl:/codebb/lang_select?phpbb_root_path= codebb
 padrao.php?sivu=
 index2.php?lnk=
 inurl:/index.php?file= site:*.dk
@@ -94,7 +94,7 @@ inurl:/blank.php?page=
 shopdisplaycategories.php
 faqs.php?id=
 .php?da="
-inurl::/wsinurl:/get_events.php?includedir= WebCalendar
+inurl:/wsinurl:/get_events.php?includedir= WebCalendar
 biznews.cgi?a=33&t=
 inurl:/base.php?chapter=
 base.php?path=
@@ -102,7 +102,7 @@ shopbycategory.asp?catid=
 blank.php?pr=
 home.php?i= "home.php?i="
 index5.php?cont=
-inurl::/all.php?destino=
+inurl:/all.php?destino=
 inurl:".php?id=" intext"perfume" title:login
 template.php?doshow=
 index2.php?content= index2.php?cont="
@@ -114,7 +114,7 @@ enter.php?second=
 inurl:/base.php?second=
 show.php?l=
 index.php?filename=
-administratorinurl:/componentsinurl:/com_webringinurl:/admin.webring.docs.php?component_dir=
+administrator/components/com_webring/admin.webring.docs.php?component_dir=
 rubrika.php?idr=
 index.php?mn= index.php?mn="
 inurl:".php?id=" intext:"telescopes" title:login 2015
@@ -123,7 +123,7 @@ mod*.php?pg=
 com_extended_registration
 inurl:/allcom_extended_registration
 inurl:/default.php?p=
-inurl:/templatesinurl:/mangoberyinurl:/footer.sample.php?Site_Path= Mangobery
+inurl:/templates/mangobery/footer.sample.php?Site_Path= Mangobery
 file.php?ref=
 enter.php?sivu=
 inurl:/default.php?secc=
@@ -140,14 +140,14 @@ file.php?url=
 sitio.php?rub=
 *inc*.php?open=
 browse.php?catid=
-*includesinurl:/header.php?systempath=
+*includes/header.php?systempath=
 "inurl:/lire.php?rub="
 inurl:collection.php?id= title:login
 customerService.php?****ID1=
 "view_detail.asp?ID="
 inurl:".php?pid="
 home.php?middlePart=
-inurl:/administratorinurl:/componentsinurl:/com_jcsinurl:/jcs.function.php?mosConfig_absolute_path=
+inurl:/administrator/components/com_jcs/jcs.function.php?mosConfig_absolute_path=
 index1.php?sekce=
 sub*.php?phpbb_root_path=
 home.php?menu=
@@ -161,20 +161,20 @@ detail.php?prod= detail.php?prod="
 press.php?opcion=
 standard.php?ref=
 start.php?seccion=
-bb_usage_statsinurl:/includeinurl:/bb_usage_stats.php?phpbb_root_path=
+bb_usage_stats/include/bb_usage_stats.php?phpbb_root_path=
 head.php?pname=
 comments.php?id=
 index5.php?do=
 gallery.php?id=
-cgi-bininurl:/acartinurl:/acart.pl?&page=
+cgi-bin/acart/acart.pl?&page=
 login.php?loca= .php?loca=
 index.php?s= index.php?s=
 down*.php?doshow=
 product.php?intProductID=
 title.php?id=
 show.php?middlePart=
-profilesinurl:/profile.php?profileid=
-eninurl:/main.php?id=
+profiles/profile.php?profileid=
+en/main.php?id=
 WsPages.php?ID=noticiasDetalle.php?xid=
 intext:"payment" .php?id= title:login
 inurl:/index.php?page= site:*.dk
@@ -192,10 +192,10 @@ shopinurl:/eventshopinurl:/product_detail.php?itemid=
 add_cart.asp?num=
 index2.php?e=
 file.php?play=
-inurl:/componentsinurl:/com_colorlabinurl:/admin.color.php?mosConfig_live_site=
+inurl:/components/com_colorlab/admin.color.php?mosConfig_live_site=
 principal.php?cont=
 reply.php?id=
-inurl:/contenidoinurl:/classesinurl:/class.inuse.php
+inurl:/contenido/classes/class.inuse.php
 inurl:".php?sub_id=" intext:"event" 2015
 index.php?z=
 pagina.php?OpenPage=
@@ -237,7 +237,7 @@ index2.php?chapter=
 "emailproduct.asp?itemid="
 main.php?sit= .php?sit="
 "contact.asp?cartId="
-mwchatinurl:/libsinurl:/start_lobby.php?CONFIG[MWCHAT_Libs]=
+mwchat/libs/start_lobby.php?CONFIG[MWCHAT_Libs]=
 "GetItems.asp?itemid="
 index3.php?seccion=
 inurl:".php?cat="
@@ -947,7 +947,6 @@ inurl:/all.php?display=
 content.php?PID=
 "index.php?Language="
 inurl:/default.php?mod=
-inurl:/includesinurl:/kb_constants.php?module_root_path= Base
 home.php?tipo=
 pagina.php?incl=
 main.php?d1= .php?d1="
@@ -1174,7 +1173,6 @@ index2.php?root_PATH=
 standard.php?cmd=
 index.php3?s= index.php3?s="
 inurl:/database.php?mosConfig_absolute_path=
-index.php?u=administratorinurl:/componentsinurl:/com_linkdirectoryinurl:/toolbar.linkdirectory.html.php?mosConfig_absolute_path=
 inurl:/all.php?go=
 index.php?play=
 principal.php?z=
@@ -2727,7 +2725,6 @@ inurl:/mylinksinurl:/includeinurl:/footer.inc.php?_AMLconfig[cfg_serverpath]=
 index1.php?go=
 path.php?subject=
 side.php?arq= .php?arq=
-inurl:/allindex2.php?c=
 inurl:".php?catid=" intext:"inurl:/shopinurl:/"
 inurl:/componentsinurl:/com_foruminurl:/download.php?phpbb_root_path= com_forum
 "shopthanks.asp"
