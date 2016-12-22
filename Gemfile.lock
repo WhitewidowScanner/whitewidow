@@ -2,6 +2,7 @@ GEM
   remote: https://rubygems.org/
   specs:
     addressable (2.4.0)
+    byebug (9.0.6)
     crack (0.4.3)
       safe_yaml (~> 1.0.0)
     diff-lcs (1.2.5)
@@ -74,6 +75,7 @@ PLATFORMS
   x86-mingw32
 
 DEPENDENCIES
+  byebug
   mechanize
   nokogiri
   rest-client
