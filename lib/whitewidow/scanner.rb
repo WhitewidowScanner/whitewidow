@@ -124,7 +124,7 @@ module Whitewidow
       def prepare_file_flag_file(user_file)
         # Skip blank lines and whitespace
         IO.read(user_file).each_line do |line|
-          File.open(FILE_FLAG_FILE_PATH, 'a+') { |outfile| outfile.puts(line) unless line.chomp.empty? }
+          File.open(FILE_FLAG_FILE_PATH, 'a+') { |outfile| outfile.puts(line.strip) unless line.chomp.empty? }
         end
       end
     end

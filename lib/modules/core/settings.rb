@@ -116,7 +116,7 @@ module Settings
     # Customize your search queries if the dork flag is use
     #
     def extract_query!
-      OPTIONS[:dork] || RANDOM_SEARCH_QUERY
+      OPTIONS[:dork] || DEFAULT_SEARCH_QUERY
     end
 
     #
