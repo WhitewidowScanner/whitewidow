@@ -8,10 +8,8 @@ See the file 'doc/COPYING' for copying permission
 import locale
 import os
 import re
+import subprocess
 import time
-
-from subprocess import PIPE
-from subprocess import Popen as execute
 
 from lib.core.common import dataToStdout
 from lib.core.common import getSafeExString
@@ -31,7 +29,7 @@ def update():
 
     if not os.path.exists(os.path.join(paths.SQLMAP_ROOT_PATH, ".git")):
         errMsg = "not a git repository. Please checkout the 'sqlmapproject/sqlmap' repository "
-        errMsg += "from GitHub (e.g. 'git clone https://github.com/sqlmapproject/sqlmap.git sqlmap')"
+        errMsg += "from GitHub (e.g. 'git clone --depth 1 https://github.com/sqlmapproject/sqlmap.git sqlmap')"
         logger.error(errMsg)
     else:
         infoMsg = "updating sqlmap to the latest development version from the "
@@ -44,7 +42,7 @@ def update():
         dataToStdout("\r[%s] [INFO] update in progress " % time.strftime("%X"))
 
         try:
-            process = execute("git checkout . && git pull %s HEAD" % GIT_REPOSITORY, shell=True, stdout=PIPE, stderr=PIPE, cwd=paths.SQLMAP_ROOT_PATH.encode(locale.getpreferredencoding()))  # Reference: http://blog.stastnarodina.com/honza-en/spot/python-unicodeencodeerror/
+            process = subprocess.Popen("git checkout . && git pull %s HEAD" % GIT_REPOSITORY, shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE, cwd=paths.SQLMAP_ROOT_PATH.encode(locale.getpreferredencoding()))  # Reference: http://blog.stastnarodina.com/honza-en/spot/python-unicodeencodeerror/
             pollProcess(process, True)
             stdout, stderr = process.communicate()
             success = not process.returncode
@@ -57,7 +55,7 @@ def update():
         else:
             if "Not a git repository" in stderr:
                 errMsg = "not a valid git repository. Please checkout the 'sqlmapproject/sqlmap' repository "
-                errMsg += "from GitHub (e.g. 'git clone https://github.com/sqlmapproject/sqlmap.git sqlmap')"
+                errMsg += "from GitHub (e.g. 'git clone --depth 1 https://github.com/sqlmapproject/sqlmap.git sqlmap')"
                 logger.error(errMsg)
             else:
                 logger.error("update could not be completed ('%s')" % re.sub(r"\W+", " ", stderr).strip())

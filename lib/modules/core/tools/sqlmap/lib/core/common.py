@@ -23,6 +23,7 @@ import random
 import re
 import socket
 import string
+import subprocess
 import sys
 import tempfile
 import time
@@ -37,8 +38,6 @@ from StringIO import StringIO
 from difflib import SequenceMatcher
 from math import sqrt
 from optparse import OptionValueError
-from subprocess import PIPE
-from subprocess import Popen as execute
 from xml.dom import minidom
 from xml.sax import parse
 from xml.sax import SAXParseException
@@ -1889,7 +1888,7 @@ def getConsoleWidth(default=80):
                 FNULL = open(os.devnull, 'w')
             except IOError:
                 FNULL = None
-            process = execute("stty size", shell=True, stdout=PIPE, stderr=FNULL or PIPE)
+            process = subprocess.Popen("stty size", shell=True, stdout=subprocess.PIPE, stderr=FNULL or subprocess.PIPE)
             stdout, _ = process.communicate()
             items = stdout.split()
 
@@ -3155,7 +3154,16 @@ def unhandledExceptionMessage():
     errMsg += "Operating system: %s\n" % PLATFORM
     errMsg += "Command line: %s\n" % re.sub(r".+?\bsqlmap.py\b", "sqlmap.py", getUnicode(" ".join(sys.argv), encoding=sys.stdin.encoding))
     errMsg += "Technique: %s\n" % (enumValueToNameLookup(PAYLOAD.TECHNIQUE, kb.technique) if kb.get("technique") else ("DIRECT" if conf.get("direct") else None))
-    errMsg += "Back-end DBMS: %s" % ("%s (fingerprinted)" % Backend.getDbms() if Backend.getDbms() is not None else "%s (identified)" % Backend.getIdentifiedDbms())
+    errMsg += "Back-end DBMS:"
+
+    if Backend.getDbms() is not None:
+        errMsg += " %s (fingerprinted)" % Backend.getDbms()
+
+    if Backend.getIdentifiedDbms() is not None and (Backend.getDbms() is None or Backend.getIdentifiedDbms() != Backend.getDbms()):
+        errMsg += " %s (identified)" % Backend.getIdentifiedDbms()
+
+    if not errMsg.endswith(')'):
+        errMsg += " None"
 
     return errMsg
 
@@ -3728,7 +3736,6 @@ def isAdminFromPrivileges(privileges):
 
     # In Firebird there is no specific privilege that means
     # that the user is DBA
-    # TODO: confirm
     retVal |= (Backend.isDbms(DBMS.FIREBIRD) and all(_ in privileges for _ in ("SELECT", "INSERT", "UPDATE", "DELETE", "REFERENCES", "EXECUTE")))
 
     return retVal
@@ -3811,7 +3818,7 @@ def findPageForms(content, url, raise_=False, addToTargets=False):
                     continue
 
                 # flag to know if we are dealing with the same target host
-                _ = reduce(lambda x, y: x == y, map(lambda x: urlparse.urlparse(x).netloc.split(':')[0], (response.geturl(), url)))
+                _ = checkSameHost(response.geturl(), url)
 
                 if conf.scope:
                     if not re.search(conf.scope, url, re.I):
@@ -3833,6 +3840,23 @@ def findPageForms(content, url, raise_=False, addToTargets=False):
             kb.targets.add(target)
 
     return retVal
+
+def checkSameHost(*urls):
+    """
+    Returns True if all provided urls share that same host
+
+    >>> checkSameHost('http://www.target.com/page1.php?id=1', 'http://www.target.com/images/page2.php')
+    True
+    >>> checkSameHost('http://www.target.com/page1.php?id=1', 'http://www.target2.com/images/page2.php')
+    False
+    """
+
+    if not urls:
+        return None
+    elif len(urls) == 1:
+        return True
+    else:
+        return all(urlparse.urlparse(url or "").netloc.split(':')[0] == urlparse.urlparse(urls[0] or "").netloc.split(':')[0] for url in urls[1:])
 
 def getHostHeader(url):
     """
@@ -3903,6 +3927,13 @@ def evaluateCode(code, variables=None):
 def serializeObject(object_):
     """
     Serializes given object
+
+    >>> serializeObject([1, 2, 3, ('a', 'b')])
+    'gAJdcQEoSwFLAksDVQFhVQFihnECZS4='
+    >>> serializeObject(None)
+    'gAJOLg=='
+    >>> serializeObject('foobar')
+    'gAJVBmZvb2JhcnEBLg=='
     """
 
     return base64pickle(object_)
@@ -3913,6 +3944,8 @@ def unserializeObject(value):
 
     >>> unserializeObject(serializeObject([1, 2, 3])) == [1, 2, 3]
     True
+    >>> unserializeObject('gAJVBmZvb2JhcnEBLg==')
+    'foobar'
     """
 
     return base64unpickle(value) if value else None
@@ -3959,6 +3992,8 @@ def decodeHexValue(value, raw=False):
 
     >>> decodeHexValue('3132332031')
     u'123 1'
+    >>> decodeHexValue(['0x31', '0x32'])
+    [u'1', u'2']
     """
 
     retVal = value
