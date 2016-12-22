@@ -71,9 +71,18 @@ module Whitewidow
             urls_to_log = URI.decode(urls)
             FORMAT.success("Site found: #{urls_to_log}")
             sleep(0.3)
+            # sites_found = []
+            # sites_found.push(urls_to_log).uniq!
+            # sites_found.each { |url|   # TODO: Figure out why it's saving the sites multiple times
+            #   SETTINGS.add_error_based_sql_test(url)
+            #   SETTINGS.add_blind_based_sql_test(url)
+            #}
             %w(' -- ; " /* '/* '-- "-- '; "; `).each { |sql|
               File.open("#{SITES_TO_CHECK_PATH}", 'a+') { |to_check| to_check.puts("#{urls_to_log}#{sql}") } # Add sql syntax to all "="
               MULTIPARAMS.check_for_multiple_parameters(urls_to_log, sql)
+            }
+            [" AND 1=1"].each { |blind|  # Temp added again
+              File.open("#{SITES_TO_CHECK_PATH}", "a+") { |blind_check| blind_check.puts("#{urls_to_log}#{blind}") }
             }
           end
         end
