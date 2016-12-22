@@ -1,6 +1,8 @@
 # Allows files to be opened without having to write an explicit check to see if the file or directory exists
 class FileHelper
+
   class << self
+
     def open_or_create(filename)
       unless File.exist?(filename)
         directory = directory_path(filename)
@@ -27,5 +29,7 @@ class FileHelper
     def directory_exists?(dir)
       File.directory?(dir)
     end
+
   end
+
 end

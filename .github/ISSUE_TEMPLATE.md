@@ -4,7 +4,7 @@ Before you create an issue please make sure that there are no issues that relate
 ## Issue/Enhancement/Question (be specific)
 
 
-## Exact error message/Enhancment information
+## Exact error message/Enhancement information
 
 
 ## Steps to reproduce if applicable or steps on what should be done

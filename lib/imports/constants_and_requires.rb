@@ -120,7 +120,7 @@ FILE_FLAG_FILE_PATH = FileHelper.open_or_create("#{PATH}/tmp/#sites.txt")
 BLACKWIDOW_LOG = FileHelper.open_or_create("#{PATH}/tmp/blackwidow_log.txt")
 
 # Issue path
-ISSUE_TEMPLATE_PATH = "#{PATH}/tmp/issues"
+ISSUE_TEMPLATE_PATH = FileHelper.open_or_create("#{PATH}/tmp/issues/#{SETTINGS.random_issue_name}.txt")
 
 # Basic legal disclaimer of the program, for full legal and TOS run --legal
 BASIC_LEGAL_DISCLAIMER = "[ ! ] Use of this program for malicious intent is illegal. For more information run the --legal flag".red

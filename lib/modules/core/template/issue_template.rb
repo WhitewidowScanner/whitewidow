@@ -12,7 +12,7 @@ Before you create an issue please make sure that there are no issues that relate
 ## Issue/Enhancement/Question (be specific)
 #{issue}
 
-## Exact error message/Enhancment information
+## Exact error message/Enhancement information
 #{error}
 
 ## Steps to reproduce if applicable or steps on what should be done
@@ -30,7 +30,7 @@ Before you create an issue please make sure that there are no issues that relate
 ## Ruby version number (run ruby --version)
 #{ruby_version}
       _TEMPLATE_
-      File.open("#{ISSUE_TEMPLATE_PATH}/#{SETTINGS.random_issue_name}.txt", 'a+') { |issues| issues.puts(template) }
+      File.open("#{ISSUE_TEMPLATE_PATH}", 'a+') { |issues| issues.puts(template) }
     end
 
   end
