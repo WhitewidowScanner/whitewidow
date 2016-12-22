@@ -16,6 +16,7 @@ require 'net/http'
 require 'ipaddr'
 
 # Created libraries that are relied on for the program to run
+require_relative '../../lib/helpers/file_helper'
 require_relative '../../lib/modules/core/format'
 require_relative '../../lib/misc/legal'
 require_relative '../../lib/misc/banner'
@@ -95,28 +96,28 @@ CREATE_ISSUE = Template::Templates.new
 SQLMAP_PATH = "#{PATH}/lib/modules/core/tools/sqlmap/sqlmap.py"
 
 # Path to the error log for fatal errors
-ERROR_LOG_PATH = "#{PATH}/log/error_log.LOG"
+ERROR_LOG_PATH = FileHelper.open_or_create("#{PATH}/log/error_log.LOG")
 
 # Path to the SQL_VULN.LOG file
-SQL_VULN_SITES_LOG = "#{PATH}/log/SQL_VULN.LOG"
+SQL_VULN_SITES_LOG = FileHelper.open_or_create("#{PATH}/log/SQL_VULN.LOG")
 
 # Path to temp vuln log
-TEMP_VULN_LOG = "#{PATH}/tmp/SQL_VULN.txt"
+TEMP_VULN_LOG = FileHelper.open_or_create("#{PATH}/tmp/SQL_VULN.txt")
 
 # Path to the sql_sites_to_check file
-SITES_TO_CHECK_PATH = "#{PATH}/tmp/SQL_sites_to_check.txt"
+SITES_TO_CHECK_PATH = FileHelper.open_or_create("#{PATH}/tmp/SQL_sites_to_check.txt")
 
 # Path to the search query blacklist
-QUERY_BLACKLIST_PATH = "#{PATH}/log/query_blacklist"
+QUERY_BLACKLIST_PATH = FileHelper.open_or_create("#{PATH}/log/query_blacklist")
 
 # Path to non_exploitable.txt
-NON_EXPLOITABLE_PATH = "#{PATH}/log/non_exploitable.txt"
+NON_EXPLOITABLE_PATH = FileHelper.open_or_create("#{PATH}/log/non_exploitable.txt")
 
 # Path to the file when the file flag is used
-FILE_FLAG_FILE_PATH = "#{PATH}/tmp/#sites.txt"
+FILE_FLAG_FILE_PATH = FileHelper.open_or_create("#{PATH}/tmp/#sites.txt")
 
 # Blackwidow log file path
-BLACKWIDOW_LOG = "#{PATH}/tmp/blackwidow_log.txt"
+BLACKWIDOW_LOG = FileHelper.open_or_create("#{PATH}/tmp/blackwidow_log.txt")
 
 # Issue path
 ISSUE_TEMPLATE_PATH = "#{PATH}/tmp/issues"
