@@ -110,8 +110,24 @@ module Settings
       end
     end
 
+    #
+    # Update the program to the newest version
+    #
     def update!
-      system("git pull origin master")
+      data = `git pull origin master 2>&1`  # Disabled $stdout for the git command
+      if data.to_s.include?('Already up-to date')
+        FORMAT.info('Whitewidow is already up-to date with origin master')
+      elsif $?.exitstatus > 0  # If git doesn't exit with a 0
+        FORMAT.fatal("Git failed to pull from origin master, manually download. #{REPO_LINK}")
+      else
+        FORMAT.info("Successfully updated to #{VERSION_STRING}")
+        question = FORMAT.prompt('Update sqlmap?[y/N]')
+        if question.downcase.start_with?('y')
+          Dir.chdir("#{PATH}/lib/modules/core/tools/sqlmap")  # Change to sqlmap
+          system('python sqlmap.py --update')
+          Dir.chdir("#{PATH}")  # Change back to whitewidow
+        end
+      end
     end
 
   end

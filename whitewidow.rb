@@ -140,7 +140,6 @@ begin
   when OPTIONS[:update]
     FORMAT.info("Updating to newest version..")
     SETTINGS.update!
-    FORMAT.info("Successfully upgraded to #{VERSION_STRING}")
   else
     exit(1)
   end
