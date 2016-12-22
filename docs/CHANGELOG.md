@@ -1,3 +1,9 @@
+# Version 1.9.2.4
+- Updated sqlmap to the newest version
+- Updated the update flag so it will now include a sqlmap update
+- Fixed the update flag so it will not display the actual command
+- Bumped version number
+
 # Version 1.9.2.3
 - Fixed some of the search queries, I messed up on them sorry guys
 - Fixed a regex in settings
