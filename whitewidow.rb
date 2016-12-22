@@ -161,10 +161,10 @@ rescue => e
     exit(1)
   else
     FORMAT.fatal("Program failed with error code: #{e}, error saved to error_log.txt")
-    File.open(ERROR_LOG_PATH, 'a+') { |error| error.puts(e.backtrace + "---" + "\n") }
+    File.open(ERROR_LOG_PATH, 'a+') { |error| error.puts("#{Date.today}\n#{e.backtrace}\n---") }
     FORMAT.fatal("Issue template has been generated for this error, create a new issue named: #{SETTINGS.random_issue_name} #{e}")
     FORMAT.info("An issue template has been generated for you and is located in #{ISSUE_TEMPLATE_PATH}")
-    SETTINGS.create_issue_page("Getting error: #{e}", e.backtrace, "Run with #{OPTIONS}", OPTIONS[:dork] == nil ? DEFAULT_SEARCH_QUERY : OPTIONS[:dork])
+    SETTINGS.create_issue_page("Getting error: #{e}", e, "Run with #{OPTIONS}", OPTIONS[:dork] == nil ? DEFAULT_SEARCH_QUERY : OPTIONS[:dork])
   end
 rescue Interrupt
   FORMAT.err("User aborted scanning.")

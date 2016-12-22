@@ -1,3 +1,7 @@
+# Version 1.9.3.6
+- Patch `no implict version of string into array` error
+- Bumped version number
+
 # Version 1.9.3.5
 - Created an automatic issue templating system, it will create a template of an issue for you when you get an error so you can just CNTRL-C CNTRL-V it
 - Continued working on multiple SQL injection techniques, there's an issue where it's saving one URL multiple times so currently working on that
