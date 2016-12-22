@@ -14,7 +14,7 @@ module Whitewidow
             File.open(file, 'a+') { |format| format.puts(line) unless line.chomp.empty? } # Skip blank lines and whitespace
           end
           IO.read(file).each_line do |to_file|
-            File.open("#{PATH}/tmp/#sites.txt", 'a+') { |line| line.puts(to_file) }
+            File.open(FILE_FLAG_FILE_PATH, 'a+') { |line| line.puts(to_file) }
           end
           file.unlink
           FORMAT.info("File: #{user_file}, has been formatted and saved as #sites.txt in the tmp directory.")

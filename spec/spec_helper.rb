@@ -14,9 +14,8 @@ end
 
 RSpec.configure do |config|
   config.after(:each) do
-    # TODO: Remove dependency on tmp directory's existence so we can just FileUtils.rm_rf('tmp')
     File.truncate(SITES_TO_CHECK_PATH, 0)
-    File.truncate('tmp/#sites.txt', 0)
+    File.truncate(FILE_FLAG_FILE_PATH , 0)
   end
 
   ### Silence stdout during tests ###

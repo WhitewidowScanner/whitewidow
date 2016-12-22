@@ -13,7 +13,7 @@ describe Whitewidow::Scanner do
 
       it 'creates a properly formatted #sites.txt file' do
         expect { subject }.to output(/formatted/).to_stdout
-        expect(IO.read("#{PATH}/tmp/#sites.txt")).to eq("#{test_website}\n")
+        expect(IO.read(FILE_FLAG_FILE_PATH)).to eq("#{test_website}\n")
       end
     end
 
