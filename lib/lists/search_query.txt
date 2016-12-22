@@ -5781,7 +5781,6 @@ inurl:/toolsinurl:/send_reminders.php?includedir=
 view.php?content=
 includeinurl:/editfunc.inc.php?NWCONF_SYSTEM[server_path]= site:.gr
 index.php?loc=
-inurl:List.asp?CatID= title:login 2015
 inurl:/sourcesinurl:/functions.php?CONFIG[main_path]= (Powered By ScozNews)
 addtomylist.php?ProdId=
 inurl:/index.php?page=
