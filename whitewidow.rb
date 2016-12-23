@@ -79,7 +79,7 @@ begin
       } if File.size("#{SITES_TO_CHECK_PATH}") == 0
       File.truncate("#{SITES_TO_CHECK_PATH}", 0)
       FORMAT.info("I'm truncating SQL_sites_to_check file back to #{File.size("#{SITES_TO_CHECK_PATH}")}")
-      Copy.file("#{TEMP_VULN_LOG}", "#{SQL_VULN_SITES_LOG}")
+      FileUtils.copy(TEMP_VULN_LOG, SQL_VULN_SITES_LOG)
       File.truncate("#{TEMP_VULN_LOG}", 0)
       FORMAT.info("I've run all my tests and queries, and logged all important information into #{SQL_VULN_SITES_LOG}")
     rescue *FATAL_ERRORS => e
@@ -98,7 +98,7 @@ begin
       Whitewidow::Scanner.vulnerability_check(file_mode: true)
       File.truncate("#{SITES_TO_CHECK_PATH}", 0)
       FORMAT.info("I'm truncating SQL_sites_to_check file back to #{File.size("#{SITES_TO_CHECK_PATH}")}")
-      Copy.file("#{TEMP_VULN_LOG}", "#{SQL_VULN_SITES_LOG}")
+      FileUtils.copy(TEMP_VULN_LOG, SQL_VULN_SITES_LOG)
       File.truncate("#{TEMP_VULN_LOG}", 0)
       FORMAT.info(
           "I've run all my tests and queries, and logged all important information into #{SQL_VULN_SITES_LOG}"

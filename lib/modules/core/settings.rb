@@ -102,40 +102,28 @@ module Settings
     # Hide the banner if the banner flag is used
     #
     def hide_banner?
-      if !(OPTIONS[:banner])
-        Whitewidow::Misc.new.spider
-      end
+      Whitewidow::Misc.new.spider unless OPTIONS[:banner]
     end
 
     #
     # Show the legal and TOS if the legal flag is used
     #
     def show_legal?
-      if OPTIONS[:legal]
-        Legal::Legal.new.legal
-      end
+      Legal::Legal.new.legal if OPTIONS[:legal]
     end
 
     #
     # Customize your search queries if the dork flag is use
     #
     def extract_query!
-      if !(OPTIONS[:dork])
-        return DEFAULT_SEARCH_QUERY
-      else
-        return OPTIONS[:dork]
-      end
+      OPTIONS[:dork] || DEFAULT_SEARCH_QUERY
     end
 
     #
     # Extract a random user agent if the user agent flag is used
     #
     def random_agent?
-      if !(OPTIONS[:agent])
-        return DEFAULT_USER_AGENT
-      else
-        return USER_AGENTS["rand_agents"][rand(1..102)]
-      end
+      OPTIONS[:agent] || DEFAULT_USER_AGENT
     end
 
     #

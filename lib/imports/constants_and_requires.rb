@@ -20,7 +20,6 @@ require_relative '../../lib/helpers/file_helper'
 require_relative '../../lib/modules/core/format'
 require_relative '../../lib/misc/legal'
 require_relative '../../lib/misc/banner'
-require_relative '../../lib/modules/core/copy'
 require_relative '../../lib/modules/core/site_info'
 require_relative '../../lib/modules/expansion/string_expan'
 require_relative '../../lib/modules/core/detection'
@@ -35,7 +34,6 @@ include MultipleParameters
 include Format
 include Legal
 include Whitewidow
-include Copy
 include SiteInfo
 include BlackWidow
 include Settings

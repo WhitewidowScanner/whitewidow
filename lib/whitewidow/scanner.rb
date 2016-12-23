@@ -7,31 +7,10 @@ module Whitewidow
       # File formatting
       #
       def format_file(user_file)
+        display_file_missing_error(user_file) unless File.exist?(user_file)
         FORMAT.info('Writing to temporary file..')
-        if File.exists?(user_file)
-          file = Tempfile.new('file') # Write to a temp file
-          IO.read(user_file).each_line do |line|
-            File.open(file, 'a+') { |format| format.puts(line) unless line.chomp.empty? } # Skip blank lines and whitespace
-          end
-          IO.read(file).each_line do |to_file|
-            File.open(FILE_FLAG_FILE_PATH, 'a+') { |line| line.puts(to_file) }
-          end
-          file.unlink
-          FORMAT.info("File: #{user_file}, has been formatted and saved as #sites.txt in the tmp directory.")
-        else
-          puts <<~_END_
-
-            Hey now my friend, I know you're eager, I am also, but that file #{user_file}
-            either doesn't exist, or it's not in the directory you say it's in..
-
-            I'm gonna need you to go find that file, move it to the correct directory and then
-            run me again.
-
-            Don't worry I'll wait!
-               _END_
-                   .yellow.bold  # Error out because the file doesn't exist
-          exit(0)
-        end
+        prepare_file_flag_file(user_file)
+        FORMAT.info("File: #{user_file}, has been formatted and saved as #sites.txt in the tmp directory.")
       end
 
       #
@@ -125,8 +104,29 @@ module Whitewidow
         end
       end
 
+      private
+
+      def display_file_missing_error(user_file)
+        puts <<~_END_
+
+          Hey now my friend, I know you're eager, I am also, but that file #{user_file}
+          either doesn't exist, or it's not in the directory you say it's in..
+
+          I'm gonna need you to go find that file, move it to the correct directory and then
+          run me again.
+
+          Don't worry I'll wait!
+             _END_
+                 .yellow.bold  # Error out because the file doesn't exist
+        exit(0)
+      end
+
+      def prepare_file_flag_file(user_file)
+        # Skip blank lines and whitespace
+        IO.read(user_file).each_line do |line|
+          File.open(FILE_FLAG_FILE_PATH, 'a+') { |outfile| outfile.puts(line.strip) unless line.chomp.empty? }
+        end
+      end
     end
-
   end
-
 end
