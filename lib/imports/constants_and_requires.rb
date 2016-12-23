@@ -106,7 +106,7 @@ TEMP_VULN_LOG = FileHelper.open_or_create("#{PATH}/tmp/SQL_VULN.txt")
 SITES_TO_CHECK_PATH = FileHelper.open_or_create("#{PATH}/tmp/SQL_sites_to_check.txt")
 
 # Path to the search query blacklist
-QUERY_BLACKLIST_PATH = FileHelper.open_or_create("#{PATH}/log/query_blacklist")
+QUERY_BLACKLIST_PATH = FileHelper.open_or_create("#{PATH}/log/blacklists/query_blacklist")
 
 # Path to non_exploitable.txt
 NON_EXPLOITABLE_PATH = FileHelper.open_or_create("#{PATH}/log/non_exploitable.txt")

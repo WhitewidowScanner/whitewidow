@@ -1,6 +1,9 @@
 #!/usr/local/env ruby
 require_relative 'lib/imports/constants_and_requires'
 
+#
+# Options banner
+#
 def banner_message
   [
     "Mandatory options  : -[d|f|s] FILE|URL --[default|file|spider] FILE|URL",
@@ -153,7 +156,7 @@ rescue => e
       system("ruby whitewidow.rb -d --banner")
     end
   elsif e.inspect =~ /tIDENTIFIER/
-    FORMAT.fatal("To run this program you need a Ruby version >=2.3.0.")
+    FORMAT.fatal("What we have here is a P.I.C.N.I.C. To run this program you need a Ruby version >=2.3.0.")
     FORMAT.fatal("Your current ruby version: #{RUBY_VERSION}")
     FORMAT.fatal("Download the latest Ruby by#{SETTINGS.ruby_download_link}")
     exit(1)

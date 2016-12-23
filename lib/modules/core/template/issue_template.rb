@@ -19,7 +19,7 @@ Before you create an issue please make sure that there are no issues that relate
 #{steps}
 
 ## Search query if applicable (please use exact search query)
-#{query}
+#{OPTIONS[:default] ? query : "N/A"}
 
 ## User agent (if applicable)
 #{agent}
