@@ -1,3 +1,7 @@
+# Version 1.9.5.9
+- Merged pull request that updated the file formatting.
+- Bumped version number
+
 # Version 1.9.5.8
 - Merged pull request from the badass Tyler, whitewidow will no longer crash if the file does not exist, instead it will create it without problems
 - Bumped version number
