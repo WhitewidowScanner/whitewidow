@@ -1,3 +1,7 @@
+# Version 1.9.5.10
+- Minor tweak to issue template
+- Bumped version number
+
 # Version 1.9.5.9
 - Merged pull request that updated the file formatting.
 - Bumped version number
