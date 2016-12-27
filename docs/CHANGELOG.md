@@ -1,3 +1,9 @@
+# Version 1.9.6.13
+- Added some new user agents
+- Edited the banner and message
+- Added a link to the functionality page
+- Bumped version number
+
 # Version 1.9.6.12
 - Patched the random user agent issue where it will display 'true' instead of the path to the agents
 - Implemented union based sql injection tests, will be moving to settings eventually. How it works
