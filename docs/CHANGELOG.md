@@ -1,3 +1,8 @@
+# Version 1.9.7.14
+- Patched a lot of the failing user agents, still working on them but a lot of them are fixed
+- Removed some failing search queries
+- Bumped version number
+
 # Version 1.9.6.13
 - Added some new user agents
 - Edited the banner and message
