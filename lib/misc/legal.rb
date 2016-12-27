@@ -75,8 +75,13 @@ module Legal
          I hope you take away as much from this program, as I gained from
          writing it.
 
+         By continuing with this process you agree to the above terms and
+         conditions and will are liable for your own actions.
+
+         Press 'Enter' to continue..
            _END_
                .red.bold
+      gets.chomp
     end
 
   end
