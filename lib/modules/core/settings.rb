@@ -66,7 +66,7 @@ module Settings
     def create_issue_page(issue, error, steps, query)
       CREATE_ISSUE.issue_template(issue, error, steps, query)
     end
-=begin
+
     #
     # Blacklist the search query
     #
@@ -79,25 +79,6 @@ module Settings
       end
     end
 
-    #
-    # Error based SQL injection
-    #
-    def add_error_based_sql_test(url)
-      %w(' -- ; " /* '/* '-- "-- '; "; `).each { |error|
-        File.open("#{SITES_TO_CHECK_PATH}", "a+") { |error_check| error_check.puts("#{url}#{error}") }
-        MULTIPARAMS.check_for_multiple_parameters(url, error)
-      }
-    end
-
-    #
-    # Blind based SQL injection
-    #
-    def add_blind_based_sql_test(url)
-      [" AND 1=1"].each { |blind|
-        File.open("#{SITES_TO_CHECK_PATH}", "a+") { |blind_check| blind_check.puts("#{url}#{blind}") }
-      }
-    end
-=end
     #
     # Hide the banner if the banner flag is used
     #

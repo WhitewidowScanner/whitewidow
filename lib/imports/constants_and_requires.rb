@@ -54,6 +54,9 @@ PATH = Dir.pwd
 # Grab a random search query from the lib/lists/search_query.txt file
 DEFAULT_SEARCH_QUERY = File.readlines("#{PATH}/lib/lists/search_query.txt").sample
 
+# Grab a random common column from the file and attempt to use it for an exploit
+RAND_COMMON_COL = File.readlines("#{PATH}/lib/lists/common_columns.txt").sample
+
 # YAML file of random user agents
 USER_AGENTS = YAML.load_file("#{PATH}/lib/lists/rand-age.yml")
 
@@ -119,6 +122,19 @@ BLACKWIDOW_LOG = FileHelper.open_or_create("#{PATH}/tmp/blackwidow_log.txt")
 
 # Issue path
 ISSUE_TEMPLATE_PATH = FileHelper.open_or_create("#{PATH}/tmp/issues/#{SETTINGS.random_issue_name}.txt")
+
+# Path to random user agents
+RAND_AGENT_PATH = "#{PATH}/lib/lists/rand-age.yml"
+
+# Blind based sql injection test parameters
+BLIND_BASED_SQL_INJECTION_TEST = ['AND 1=1', 'OR 13=13', 'AND 13=13']
+
+# Error based sql injection test parameters
+ERROR_BASED_SQL_INJECTION_TEST = %w(' -- ; " /* '/* '-- "-- '; "; `)
+
+# Union based sql injection test parameters
+UNION_BASED_SQL_INJECTION_TEST = [" SELECT #{RAND_COMMON_COL.chomp}", " union select #{RAND_COMMON_COL.chomp}",
+                                  " false union select #{RAND_COMMON_COL.chomp}"]
 
 # Basic legal disclaimer of the program, for full legal and TOS run --legal
 BASIC_LEGAL_DISCLAIMER = "[ ! ] Use of this program for malicious intent is illegal. For more information run the --legal flag".red

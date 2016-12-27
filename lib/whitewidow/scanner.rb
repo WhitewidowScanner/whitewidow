@@ -34,7 +34,7 @@ module Whitewidow
         correct_agent = SETTINGS.random_agent?
         agent.user_agent = correct_agent
         correct_agent == DEFAULT_USER_AGENT ? FORMAT.info("Using default user agent") :
-            FORMAT.info("Grabbed random agent: #{correct_agent}")
+            FORMAT.info("Grabbed random agent from #{RAND_AGENT_PATH}")
         page = agent.get("http://google.com")
         google_form = page.form('f')
         google_form.q = "#{query}"  # Search Google for the query
@@ -50,18 +50,15 @@ module Whitewidow
             urls_to_log = URI.decode(urls)
             FORMAT.success("Site found: #{urls_to_log}")
             sleep(0.3)
-            # sites_found = []
-            # sites_found.push(urls_to_log).uniq!
-            # sites_found.each { |url|   # TODO: Figure out why it's saving the sites multiple times
-            #   SETTINGS.add_error_based_sql_test(url)
-            #   SETTINGS.add_blind_based_sql_test(url)
-            #}
-            %w(' -- ; " /* '/* '-- "-- '; "; `).each { |sql|
-              File.open("#{SITES_TO_CHECK_PATH}", 'a+') { |to_check| to_check.puts("#{urls_to_log}#{sql}") } # Add sql syntax to all "="
-              MULTIPARAMS.check_for_multiple_parameters(urls_to_log, sql)
+            ERROR_BASED_SQL_INJECTION_TEST.each { |sql|
+              File.open("#{SITES_TO_CHECK_PATH}", 'a+') { |to_check| to_check.puts("#{urls_to_log}#{sql}") }  # Error based
+              MULTIPARAMS.check_for_multiple_parameters(urls_to_log, sql) # Add sql syntax to all "="
             }
-            [" AND 1=1", " OR 13=13", " AND 13=13"].each { |blind|  # Temp added again
-              File.open("#{SITES_TO_CHECK_PATH}", "a+") { |blind_check| blind_check.puts("#{urls_to_log}#{blind}") }
+            BLIND_BASED_SQL_INJECTION_TEST.each { |blind|
+              File.open("#{SITES_TO_CHECK_PATH}", "a+") { |blind_check| blind_check.puts("#{urls_to_log} #{blind}") }  # Blind based
+            }
+            UNION_BASED_SQL_INJECTION_TEST.each { |union|
+              File.open("#{SITES_TO_CHECK_PATH}", "a+") { |union_check| union_check.puts("#{urls_to_log}#{union}") }  # Union test
             }
           end
         end
