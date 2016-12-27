@@ -2,11 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fae855c0-4fb5-443d-971b-661d3547b6f5" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/lists/rand-age.yml" afterPath="$PROJECT_DIR$/lib/lists/rand-age.yml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/lists/search_query.txt" afterPath="$PROJECT_DIR$/lib/lists/search_query.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/core/settings.rb" afterPath="$PROJECT_DIR$/lib/modules/core/settings.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/whitewidow/scanner.rb" afterPath="$PROJECT_DIR$/lib/whitewidow/scanner.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docs/legal/COPYRIGHT.md" afterPath="$PROJECT_DIR$/docs/legal/COPYRIGHT.md" />
     </list>
     <ignored path="whitewidow.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -49,12 +45,38 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="non_exploitable.txt" pinned="false" current-in-tab="true">
+      <file leaf-file-name="non_exploitable.txt" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/log/non_exploitable.txt">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="0">
               <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="COPYRIGHT.md" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/docs/legal/COPYRIGHT.md">
+          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+            <state split_layout="SPLIT">
+              <first_editor relative-caret-position="292">
+                <caret line="152" column="9" lean-forward="false" selection-start-line="152" selection-start-column="9" selection-end-line="152" selection-end-column="9" />
+                <folding />
+              </first_editor>
+              <second_editor />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="LICENSE.md" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/docs/legal/LICENSE.md">
+          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+            <state split_layout="SPLIT">
+              <first_editor relative-caret-position="0">
+                <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+                <folding />
+              </first_editor>
+              <second_editor />
             </state>
           </provider>
         </entry>
@@ -104,7 +126,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/lib/modules/core/sqlmap_config.rb" />
         <option value="$PROJECT_DIR$/lib/lists/default_sqlmap_config.txt" />
         <option value="$PROJECT_DIR$/log/query_blacklist" />
         <option value="$PROJECT_DIR$/.gitignore" />
@@ -155,6 +176,7 @@
         <option value="$PROJECT_DIR$/lib/misc/banner.rb" />
         <option value="$PROJECT_DIR$/log/error_log.LOG" />
         <option value="$PROJECT_DIR$/log/non_exploitable.txt" />
+        <option value="$PROJECT_DIR$/docs/legal/COPYRIGHT.md" />
       </list>
     </option>
   </component>
@@ -462,6 +484,24 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="whitewidow" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="whitewidow" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="docs" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="legal" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
       <pane id="Scratches" />
@@ -670,12 +710,12 @@
       <workItem from="1482507098701" duration="232000" />
       <workItem from="1482511444811" duration="1471000" />
       <workItem from="1482845064211" duration="3196000" />
-      <workItem from="1482851539495" duration="11761000" />
+      <workItem from="1482851539495" duration="12049000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="208777000" />
+    <option name="totallyTimeSpent" value="209065000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -734,20 +774,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Gemfile.lock">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Gemfile">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="17" lean-forward="false" selection-start-line="4" selection-start-column="17" selection-end-line="4" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/log/blacklists/agent_blacklist" />
     <entry file="file://$PROJECT_DIR$/tmp/issues/1Ese77I.txt" />
     <entry file="file://$PROJECT_DIR$/lib/modules/core/template/issue_template.rb">
@@ -1048,6 +1074,28 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/docs/legal/COPYRIGHT.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="292">
+            <caret line="152" column="9" lean-forward="false" selection-start-line="152" selection-start-column="9" selection-end-line="152" selection-end-column="9" />
+            <folding />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/docs/legal/LICENSE.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="0">
+            <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <folding />
+          </first_editor>
+          <second_editor />
         </state>
       </provider>
     </entry>

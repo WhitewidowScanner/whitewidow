@@ -129,7 +129,7 @@ If the disclaimer of warranty and limitation of liability provided above cannot 
 
 =======
 ##Copyright announcement
-     Whitewidw SQL Vulnerability automated SQL scanning tool
+     Whitewidw Automated SQL Vulnerability Scanning Tool
      Copyright (C) 2016 Ekultek
 
      This program is free software: you can redistribute it and/or modify
@@ -146,3 +146,8 @@ If the disclaimer of warranty and limitation of liability provided above cannot 
      along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 ######END OF TERMS AND CONDITIONS
+
+--
+######This does not apply to third party applications used by whitewidow
+
+ - sqlmap
