@@ -84,6 +84,9 @@ RUBY_DOWNLOAD_LINK = "https://www.ruby-lang.org/en/"
 # Default user agent used by whitewidow
 DEFAULT_USER_AGENT = "Whitewidow #{VERSION} SQL Vuln Scanner/Ruby:#{RUBY_VERSION}->Platform:#{RUBY_PLATFORM}"
 
+# Link to whitewidows function page on the wiki
+FUNCTION_PAGE_LINK = "https://github.com/WhitewidowScanner/whitewidow/wiki/Functionality"
+
 # Spider a webpage with the blackwidow spider bot (work in progress)
 SPIDER_BOT = BlackWidow::RecursiveSpider.new
 
