@@ -35,6 +35,7 @@ module Whitewidow
         agent.user_agent = correct_agent
         correct_agent == DEFAULT_USER_AGENT ? FORMAT.info("Using default user agent") :
             FORMAT.info("Grabbed random agent from #{RAND_AGENT_PATH}")
+        puts correct_agent
         page = agent.get("http://google.com")
         google_form = page.form('f')
         google_form.q = "#{query}"  # Search Google for the query
