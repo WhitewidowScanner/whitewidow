@@ -25,9 +25,6 @@ module Legal
                    of the websites discovered to be vulnerable
                  - Any and all malicious intents
 
-         Is illegal and will not be tolerated. If you plan to use me for any
-         of the listed purposes, or for any illegal activity, do not go forward
-         and exit immediately.
 
          My owner Ekultek, takes no responsibility for the actions taken
          from the knowledge you have gained from using me.

@@ -1,3 +1,8 @@
+# Version 1.9.5.11
+- Minor refractors and tweaks
+- Deleted some failing queries
+- Bumped version number
+
 # Version 1.9.5.10
 - Minor tweak to issue template
 - Bumped version number

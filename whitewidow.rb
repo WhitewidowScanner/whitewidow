@@ -44,6 +44,7 @@ OptionParser.new do |opt|
   opt.on('--beep', 'Make a beep when the program finds a vulnerability')                  { |o| OPTIONS[:beep]    = o }
   opt.on('--rand-agent', 'Use a random user agent')                                       { |o| OPTIONS[:agent]   = o }
   opt.on('--sqlmap', 'Run sqlmap through the SQL_VULN.LOG file as a bulk file')           { |o| OPTIONS[:sqlmap]  = o }
+  opt.on('--test', 'Used mostly for development use')                                     { |o| OPTIONS[:test]    = o }
   opt.on('-h', '--help', 'Display this help dialog and exit') do
     usage_page
     puts opt
@@ -141,6 +142,8 @@ begin
   when OPTIONS[:update]
     FORMAT.info("Updating to newest version..")
     SETTINGS.update!
+  when OPTIONS[:test]
+    system('rspec')
   else
     exit(1)
   end

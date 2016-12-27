@@ -3,7 +3,7 @@ require 'spec_helper'
 describe FileHelper do
   describe 'open_or_create' do
     subject { File.open(FileHelper.open_or_create(filename)) }
-    after { FileUtils.rm(filename) }
+    after { FileUtils.rm_f(filename) }  # Force the removal
 
     context 'when the file exists' do
       let(:filename) { 'testing_file' }

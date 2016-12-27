@@ -1,5 +1,5 @@
 module Whitewidow
-  # Preliminary extraction of Scanner logic
+  # Preliminary extraction of Scanner logic into self class
   class Scanner
 
     class << self
@@ -60,7 +60,7 @@ module Whitewidow
               File.open("#{SITES_TO_CHECK_PATH}", 'a+') { |to_check| to_check.puts("#{urls_to_log}#{sql}") } # Add sql syntax to all "="
               MULTIPARAMS.check_for_multiple_parameters(urls_to_log, sql)
             }
-            [" AND 1=1"].each { |blind|  # Temp added again
+            [" AND 1=1", " OR 13=13", " AND 13=13"].each { |blind|  # Temp added again
               File.open("#{SITES_TO_CHECK_PATH}", "a+") { |blind_check| blind_check.puts("#{urls_to_log}#{blind}") }
             }
           end
@@ -85,19 +85,19 @@ module Whitewidow
                   File.open("#{TEMP_VULN_LOG}", "a+") { |vulnerable| vulnerable.puts(vuln) }
                   sleep(0.5)
                 else
-                  FORMAT.warning("URL: #{vuln.chomp} is not vulnerable, dumped to non_exploitable.txt")
+                  FORMAT.warning("#{vuln.chomp} is not vulnerable, dumped to non_exploitable.txt")
                   File.open("#{NON_EXPLOITABLE_PATH}", "a+") { |non_exploit| non_exploit.puts(vuln) }
                   sleep(0.5)
                 end
               rescue Timeout::Error, OpenSSL::SSL::SSLError  # Timeout or SSL errors
-                FORMAT.warning("URL: #{vuln.chomp} failed to load, dumped to non_exploitable.txt")
+                FORMAT.warning("Site: #{vuln.chomp} failed to load, dumped to non_exploitable.txt")
                 File.open("#{NON_EXPLOITABLE_PATH}", "a+") { |timeout| timeout.puts(vuln) }
                 sleep(0.5)
                 next
               end
             end
           rescue *LOADING_ERRORS
-            FORMAT.err("URL: #{vuln.chomp} failed due to an error while connecting, URL dumped to non_exploitable.txt")
+            FORMAT.err("#{vuln.chomp} failed due to an error while connecting, URL dumped to non_exploitable.txt")
             File.open("#{NON_EXPLOITABLE_PATH}", "a+") { |error| error.puts(vuln) }
             next
           end

@@ -47,7 +47,7 @@ module Format
 
     [ X ]    Injection Point       :: #{input.cyan}
     [ X ]    Server Specifications :: #{SiteInfo.capture_host(input).cyan}
-    [ X ]    Possible IP Address   :: #{SiteInfo.capture_ip(input)}
+    [ X ]    Possible IP Address   :: #{SiteInfo.capture_ip(input, IPV6_REGEX)}
 
       _END_
     end

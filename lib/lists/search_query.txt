@@ -4,12 +4,12 @@ inurl:/content.php?inc=
 sw_comment.php?id=
 pagina.php?tipo=
 index.php?fase= index.php?fase="
-inurl:/all.php?base=
 news_content.php?CategoryID=
 "cart.asp?cart_id="
 whereami.cgi?g=id
 index2.php?sub=
 inurl:/index.php?lang=en&cat= index.php?lang="
+inurl:/index.php?lang=en&cc= index.php?lang="
 pagina.php?link=
 gery.php?phpbb_root_path=
 inurl:/yabbse:/Sources:/Packages.php?sourcedir=
@@ -26,8 +26,6 @@ rss.php?cat=
 index.php?pageN= .php?pageN="
 magazines/adult_magazine_single_page.php?magid=
 club.php?cid=
-inurl:/login.php?dir= login.php?dir=
-inurl:/allstart_lobby.php?CONFIG[MWCHAT_Libs]=
 .php?urlFrom="
 info.php?loader=
 inurl:/directions.php?loc=
@@ -1392,20 +1390,18 @@ tran******.php?id=
 gery.php?corpo=
 path.php?goto=
 itemdetails.php?catalogid=
-magazine-details.php?magid=
 pagina.php?in=
 standard.php?xlink=
-englishinurl:/boardinurl:/view****.php?code=
 blank.php?abre=
 sub*.php?content=
 inurl:/base.php?itemnav=
 index.php?include=
 head.php?middle=
 loc.php?l= .php?loc="
-iteminurl:/detail.php?num=
+inurl:item/detail.php?num=
 display_item.asp?id=
 index.php?meio= .php?meio="
-shopinurl:/home.php?cat=
+inurl:shop/home.php?cat=
 inurl:/allindex2.php?directfile=
 "price.asp"
 trans.php?trans= .php?trans="
@@ -1414,7 +1410,7 @@ index.php4?lang= index.php4?lang="
 sub*.php?sp=
 inurl:/application.php?base_path=
 "order.asp?BookID="
-inurl:/includesinurl:/dbal.php?eqdkp_root_path= "powered by EQdkp"
+inurl:/includes/dbal.php?eqdkp_root_path= "powered by EQdkp"
 index2.php?d=
 template.php?where=
 inurl:/allindex2.php?path=
@@ -1423,7 +1419,7 @@ displayArticleB.php?id=
 inurl:/all.php?menuID=
 intitle:"grooming".php?id= title:login
 index2.php?itemnav=
-cgi-bininurl:/hinsts.pl?
+inurl:cgi-bin/hinsts.pl?
 print.php?my=
 index.php?var= "index.php?var2="
 index2.php?open=
@@ -1438,9 +1434,7 @@ start.php?page= start.php?page=
 blank.php?loader=
 include.php?header=
 main1.php?ln= .php?ln=
-inurl:/componentsinurl:/com_facileformsinurl:/facileforms.frame.php?ff_compath= com_facileforms
 default.php?chapter=
-inurl:/componentsinurl:/com_smfinurl:/smf.php?mosConfig_absolute_path=
 inurl:/all.php?meio=
 inurl:/tags.php?BBCodeFile= tags.php
 print.php?chapter=
@@ -1449,18 +1443,15 @@ display.php?p= display.php?p=
 order.php?pag= order.php?pag=
 default.php?rub=
 shopremoveitem.php?cartid=
-inurl:/all.php?_REQUEST=&_REQUEST[option]=com_content&_REQUEST[Itemid]=1&GLOBALS=&mosConfig_absolute_path=
-redaktioninurl:/whiteteethinurl:/detail.php?nr=
 inurl:/display.php?lang=
 intitle:"membership".php?id= title:info
 inurl:/allinclude.php?gorumDir=
 inurl:/calendar.php?l= calendar.php?l="
 comersus_viewItem.asp?idProduct=
 show.php?oldal=
-componentsinurl:/com_phpshopinurl:/toolbar.phpshop.html.php?mosConfig_absolute_path=
+components/com_phpshopinurl:/toolbar.phpshop.html.php?mosConfig_absolute_path=
 default.php?ir=
 view_author.php?id=
-inurl:/sourcesinurl:/functions.php?CONFIG[main_path]= "Powered By ScozNews"
 .asp?product_id=
 main.php?e=
 "productDetails.asp?idProduct="
@@ -1481,7 +1472,7 @@ show.php?pagina=
 layout.php?disp=
 "id=" & intext:"Warning: mysql_query()
 cart_additem.php?id=
-inurl:/includesinurl:/dbal.php?eqdkp_root_path=
+inurl:/includes/dbal.php?eqdkp_root_path=
 tek9.php?id=
 index3.php?inc=
 inurl:/all.php?cod=
@@ -2961,13 +2952,11 @@ inurl:/derniers_commentaires.php?rep=
 file.php?oldal=
 more_details.php?id=
 principal.php?s=
-inurl:/addpost_newpoll.php?addpoll=preview&thispath= "inurl:/ubbthreadsinurl:/"
+inurl:/addpost_newpoll.php?addpoll=preview&thispath= "/ubbthreads/"
 view.php?pag=
 .gov.brinurl:/index.php?arquivo=
 display.php?page=&lang= .php?page="
-inurl:/allindex2.php?theme=
 inurl:/default.php?sp=
-rfi to this dork: inurl:/sourcesinurl:/template.php?CONFIG[main_path]=
 catalog.php?CatalogID=
 rss.php?phpraid_dir= php raid
 file.php?channel=
@@ -2989,13 +2978,13 @@ inurl:/allindex.php?t=
 file.php?to=
 standard.php?seccion=
 inurl:/all.php?S=
-inurl:/componentsinurl:/com_artlinksinurl:/artlinks.dispnew.php?mosConfig_absolute_path=
+inurl:/components/com_artlinks/artlinks.dispnew.php?mosConfig_absolute_path=
 .php?cod="
 ocp-103inurl:/index.php?req_path= ocPortal
 base.php?category=
 index2.php?t=
 down*.php?pag=
-admininurl:/doeditconfig.php?thispath=..inurl:/includes&config[path]=
+inurl:admin/doeditconfig.php?thispath=./includes&config[path]=
 press.php?category=
 enter.php?cmd=
 head.php?str=
@@ -3019,7 +3008,7 @@ recruit_details.php?id=
 inurl:/main_site.php?page=
 index.php?var1= index.php?var1=
 pagina.php?sekce=
-aktuellesinurl:/veranstaltungeninurl:/detail.php?id=
+aktuelles/veranstaltungen/detail.php?id=
 include.php?sivu=
 productlist.php?id=
 mod*.php?chapter=
@@ -3030,10 +3019,10 @@ publications.php?Id=
 .php?wPage="
 frag.php?exec= .php?exec="
 inurl:/all.php?sid=
-inurl:/embedinurl:/day.php?path= "Login to Calendar"
+inurl:/embed/day.php?path= "Login to Calendar"
 down*.php?to=
 press.php?nivel=
-inurl:/modulesinurl:/TotalCalendarinurl:/about.php?inc_dir=
+inurl:/modules/TotalCalendar/about.php?inc_dir=
 index.php?directfile=
 print.php?s=
 base.php?filepath=
@@ -3042,9 +3031,9 @@ padrao.php?qry=
 index5.php?visualizar=
 index.php?select= index.php?select=
 cart_validate.php?id=
-inurl:/beaconinurl:/********inurl:/1inurl:/splash.lang.php?********Path=
+inurl:/beacon/********/1/splash.lang.php?********Path=
 order.asp?lotid=
-inurl:/libinurl:/dbinurl:/ez_sql.php?lib_path= ttCMS <= v4
+inurl:/libi/db/ez_sql.php?lib_path= ttCMS <= v4
 index.php?table= .php?table=
 inurl:/blank.php?pr=
 index.php?var=
@@ -3064,13 +3053,13 @@ default.php?vis= .php?vis="
 store.php?id=
 inurl:/allindex2.php?b=
 "comersus_optReviewReadExec.asp?idProduct="
-inurl:/includeinurl:/new-visitor.inc.php?lvc_include_dir=
+inurl:/include/new-visitor.inc.php?lvc_include_dir=
 index.php?page=&lang= .php?pg=
 press.php?OpenPage=
 index.php5?lang= index.php5?lang=
 main1.php?arg= .php?arg=
-inurl:/admininurl:/auth.php?xcart_dir=
-encinurl:/content.php?Home_Path= "doodle"
+inurl:/admin/auth.php?xcart_dir=
+enc/content.php?Home_Path= "doodle"
 blank.php?base_dir=
 productDetails.asp?idProduct=
 print.php?pag=
@@ -3084,7 +3073,7 @@ include.php?redirect=
 index2.php?l= .php?l="
 index3.php?redirect=
 global_projects.php?cid=
-incinurl:/cmsesinurl:/aedatingCMS.php?dir[inc]=
+inurl:inc/cmses/aedatingCMS.php?dir[inc]=
 padrao.php?middle=
 head.php?ref=
 show.php?get=
@@ -3098,7 +3087,7 @@ principal.php?conteudo=
 main.php?a= .php?a="
 inurl:/allindex.php?l=
 include.php?content=
-inurl:/modulesinurl:/postguestbookinurl:/stylesinurl:/internalinurl:/header.php?tpl_pgb_moddir= "PostGuestbook"
+inurl:/modules/postguestbook/styles/internal:/header.php?tpl_pgb_moddir= "PostGuestbook"
 head.php?filepath=
 enter.php?qry=
 inurl:/allindex.php?visualizar=
@@ -3109,9 +3098,8 @@ index2.php?include=
 index2.php?corpo=
 index.php?mod= index.php?mod="
 inurl:/allindex.php?d=
-rfi to this dork: inurl:/classesinurl:/adodbtinurl:/sql.php?classes_dir=
 "template.asp?Action=Item&pid="
-modulesinurl:/foruminurl:/index.php?topic_id=
+inurl:modules/forum/index.php?topic_id=
 storefronts.asp?title=
 product.php?prodid=
 "item_show.asp?code_no="
@@ -3125,15 +3113,14 @@ modline.php?id=
 .php?open="
 down*.php?pre=
 .php?g="
-inurl:/sourcesinurl:/template.php?CONFIG[main_path]= Powered By ScozNews
-portafolioinurl:/portafolio.php?id=
+inurl:/sources/template.php?CONFIG[main_path]= Powered By ScozNews
+portafolio/portafolio.php?id=
 sub*.php?qry=
 index.php?index=
-*incinurl:/pipe.php?HCL_path=
+*inc/pipe.php?HCL_path=
 viewevent.asp?EventID=
 stockists_list.php?area_id=
 product_details.php?id=
-inurl:/modulesinurl:/kernelinurl:/systeminurl:/startup.php?CFG_PHPGIGGLE_ROOT= CFG_PHPGIGGLE_ROOT
 searchcat.php?search_id=
 info.php?texto=
 blank.php?o=
@@ -3213,7 +3200,6 @@ newsupdate.cgi?a=latest&t=
 inurl:".php?id=" intext:"toys"
 main.php?inc= .php?inc="
 page.php?pref=
-inurl:/administratorinurl:/componentsinurl:/com_serverstatinurl:/inst.serverstat.php?mosConfig_absolute_path= com_serverstat
 index5.php?language=
 inurl:/allinurl:/includeinurl:/init.inc.php?CPG_M_DIR=
 index1.php?v=
@@ -3238,8 +3224,8 @@ show.php?page1= .php?page1="
 .php?load="
 glossary.php?term= .php?term="
 inurl:/book.php5?page=
-inurl:/myPHPCalendarinurl:/admin.php?cal_dir=
-inurl:/componentsinurl:/com_foruminurl:/download.php?phpbb_root_path=
+inurl:/myPHPCalendar/admin.php?cal_dir=
+inurl:/components/com_forum/download.php?phpbb_root_path=
 category_list.php?id=
 inurl:/all.php?mep=
 storefront.asp?id=
@@ -3259,7 +3245,6 @@ default.php?basepath=
 index2.php?y=
 prodView.asp?idProduct=
 include.php?path=
-inurl:/componentsinurl:/com_extended_registrationinurl:/registration_detailed.inc.php?mosConfig_absolute_p ath=
 page.php?ev=
 start.php?lang= start.php?lang="
 main.php?s= main.php?s="

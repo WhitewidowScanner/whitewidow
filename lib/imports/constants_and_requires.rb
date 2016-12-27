@@ -26,8 +26,8 @@ require_relative '../../lib/modules/core/detection'
 require_relative '../../lib/modules/core/check_platform'
 require_relative '../../lib/modules/core/tools/spider/blackwidow'
 require_relative '../../lib/modules/core/settings'
-require_relative '../../lib/whitewidow/scanner'
 require_relative '../../lib/modules/core/template/issue_template'
+require_relative '../../lib/whitewidow/scanner'
 
 # Modules that need to be included for whitewidow
 include MultipleParameters
@@ -123,6 +123,14 @@ ISSUE_TEMPLATE_PATH = FileHelper.open_or_create("#{PATH}/tmp/issues/#{SETTINGS.r
 # Basic legal disclaimer of the program, for full legal and TOS run --legal
 BASIC_LEGAL_DISCLAIMER = "[ ! ] Use of this program for malicious intent is illegal. For more information run the --legal flag".red
 
+=begin
+SEARCH_ENGINES = {
+    "http://google.com": "q",
+    "http://www.bing.com/": "q",
+    "http://www.dogpile.com/": "q"
+}
+=end
+
 # Skip these sites because chances are they will never be vulnerable
 SKIP = %w(stackoverflow.com www.stackoverflow.com github.com www.github.com www.sa-k.net yoursearch.me search1.speedbit.com
           duckfm.net search.clearch.org webcache.googleusercontent.com m.facebook.com youtube.com facebook.com
@@ -138,8 +146,8 @@ LOADING_ERRORS = [RestClient::ResourceNotFound, RestClient::InternalServerError,
                   Errno::ECONNABORTED, Zlib::BufError, RestClient::ServiceUnavailable, ArgumentError]
 
 # Fatal program errors, errors that will force the program to close
-FATAL_ERRORS = [Mechanize::ResponseCodeError, RestClient::BadGateway, Errno::ENETUNREACH,
-                Net::HTTP::Persistent::Error]
+FATAL_ERRORS = [RestClient::BadGateway, Errno::ENETUNREACH, Net::HTTP::Persistent::Error,
+                Mechanize::ResponseCodeError]
 
 # Spider bot errors, still a work in progress
 SPIDER_ERRORS = [RestClient::NotFound, URI::InvalidURIError, RestClient::SSLCertificateNotVerified,
@@ -159,3 +167,12 @@ WINDOWS_PLATFORM_REGEX = [/cygwin|mswin|mingw|bccwin|wince|emx/]
 
 # Mac platform regex
 DARWIN_PLATFORM_REGEX = [/darwin/]
+
+# Regex for IPv6 tp recognize that it's v6 and not v4
+IPV6_REGEX = /(([0-9a-fA-F]{1,4}:){7,7}[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,7}:|([0-9a-fA-F]{1,4}:){1,6}:
+               [0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,5}(:[0-9a-fA-F]{1,4}){1,2}|([0-9a-fA-F]{1,4}:){1,4}
+               (:[0-9a-fA-F]{1,4}){1,3}|([0-9a-fA-F]{1,4}:){1,3}(:[0-9a-fA-F]{1,4}){1,4}|([0-9a-fA-F]{1,4}:){1,2}
+               (:[0-9a-fA-F]{1,4}){1,5}|[0-9a-fA-F]{1,4}:((:[0-9a-fA-F]{1,4}){1,6})|:((:[0-9a-fA-F]{1,4}){1,7}|:)
+               |fe80:(:[0-9a-fA-F]{0,4}){0,4}%[0-9a-zA-Z]{1,}|::(ffff(:0{1,4}){0,1}:){0,1}((25[0-5]|(2[0-4]|1{0,1}[0-9])
+               {0,1}[0-9])\.){3,3}(25[0-5]|(2[0-4]|1{0,1}[0-9]){0,1}[0-9])|([0-9a-fA-F]{1,4}:){1,4}:((25[0-5]|(2[0-4]|
+               1{0,1}[0-9]){0,1}[0-9])\.){3,3}(25[0-5]|(2[0-4]|1{0,1}[0-9]){0,1}[0-9]))/
