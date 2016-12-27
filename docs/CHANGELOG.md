@@ -1,3 +1,7 @@
+# Version 1.9.7.15
+- Minor fixes to site_info no longer bold IP addresses
+- Bumped version number
+
 # Version 1.9.7.14
 - Patched a lot of the failing user agents, still working on them but a lot of them are fixed
 - Removed some failing search queries

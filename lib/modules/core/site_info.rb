@@ -12,12 +12,12 @@ module SiteInfo
     true_url = uri.hostname
     ip = IPSocket::getaddress(true_url)
     if !(ip =~ /#{regex}/)  # IPv6 regex
-      return ip.to_s.cyan.bold
+      return ip.to_s.cyan
     else
       if ip.ipv4_mapped
-        return ip.native.to_s.cyan.bold
+        return ip.native.to_s.cyan
       else
-        return ip.to_s.cyan.bold
+        return ip.to_s.cyan
       end
     end
   end
