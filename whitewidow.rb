@@ -6,11 +6,13 @@ require_relative 'lib/imports/constants_and_requires'
 #
 def banner_message
   [
+    "USAGE: ruby whitewidow.rb -[SHORT-OPTS] [ARGS] --[LONG-OPTS] [ARGS]",
     "Mandatory options  : -[d|f|s] FILE|URL --[default|file|spider] FILE|URL",
     "Enumeration options: -[x] NUM --[dry-run|batch|run-x] NUM",
     "Anomity options    : -[p] IP:PORT --[rand-agent|proxy] IP:PORT",
     "Processing options : -[D] DORK --[sqlmap|dork] DORK",
     "Misc options       : -[l|b|u] --[legal|banner|beep|update]",
+    "Dev options        : --[test]",
     " " # Blank line for nice formatting
   ].join("\n")
 end
@@ -19,8 +21,7 @@ end
 # Usage page, basic help page for commands
 #
 def usage_page
-  FORMAT.info("ruby whitewidow.rb -[SHORT-OPTS] [ARGS] --[LONG-OPTS] [ARGS]")
-  FORMAT.info("Check the README.md file for a list of flags and further information\n")
+  FORMAT.info("Check the README.md file for a list of flags and further information or go here: #{FUNCTION_PAGE_LINK}\n")
 end
 
 #
@@ -31,12 +32,12 @@ OptionParser.new do |opt|
   opt.banner = banner_message
   opt.on('-f FILE', '--file FILE', 'Pass a filename to scan for vulnerabilities')         { |o| OPTIONS[:file]    = o }
   opt.on('-s URL', '--spider URL', 'Spider a web page and save all the URLS')             { |o| OPTIONS[:spider]  = o }
-  opt.on('-d', '--default', 'Run in default mode, scrape Google')                         { |o| OPTIONS[:default] = o }
-  opt.on('-l', '--legal', 'Show the legal information and the TOS')                       { |o| OPTIONS[:legal]   = o }
   opt.on('-p IP:PORT', '--proxy IP:PORT', 'Configure to run with a proxy, must use ":"')  { |o| OPTIONS[:proxy]   = o }
   opt.on('-x NUM', '--run-x NUM', 'Run the specified amount of dry runs')                 { |o| OPTIONS[:run]     = o }
-  opt.on('-b', '--banner', 'Hide the banner')                                             { |o| OPTIONS[:banner]  = o }
   opt.on('-D DORK', '--dork DORK', 'Use your own dork to do the searching')               { |o| OPTIONS[:dork]    = o } # Issue #32 https://github.com/Ekultek/whitewidow/issues/32
+  opt.on('-d', '--default', 'Run in default mode, scrape Google')                         { |o| OPTIONS[:default] = o }
+  opt.on('-l', '--legal', 'Show the legal information and the TOS')                       { |o| OPTIONS[:legal]   = o }
+  opt.on('-b', '--banner', 'Hide the banner')                                             { |o| OPTIONS[:banner]  = o }
   opt.on('-v', '--version', 'Display the version number and exit')                        { |o| OPTIONS[:version] = o }
   opt.on('-u', '--update', 'Update whitewidow with the newest version')                   { |o| OPTIONS[:update]  = o }
   opt.on('--dry-run', 'Run a dry run (no checking for vulnerability with prompt)')        { |o| OPTIONS[:dry]     = o }
