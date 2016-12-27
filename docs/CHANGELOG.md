@@ -1,3 +1,15 @@
+# Version 1.9.6.12
+- Patched the random user agent issue where it will display 'true' instead of the path to the agents
+- Implemented union based sql injection tests, will be moving to settings eventually. How it works
+  it will grab a random common column from the common_columns file, and use it in an attempt for exploitation.
+  There will be an update where you will be able to use your own column names or your own file
+- Added common columns for union based sql injection tests how it works
+- Updated the legal info a little bit
+- Added a few new constants to allow more accurate interpretation
+- Removed deprecated code
+- Added a '--test' f;ag, mostly used for developmental purposes so you don't really need to worry about it
+- Bumped version number
+
 # Version 1.9.5.11
 - Minor refractors and tweaks
 - Deleted some failing queries
