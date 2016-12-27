@@ -104,7 +104,11 @@ module Settings
     # Extract a random user agent if the user agent flag is used
     #
     def random_agent?
-      OPTIONS[:agent] || DEFAULT_USER_AGENT
+      if OPTIONS[:agent]
+        USER_AGENTS['rand_agents'][rand(1..110)]
+      else
+        DEFAULT_USER_AGENT
+      end
     end
 
     #
