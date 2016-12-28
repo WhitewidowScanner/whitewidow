@@ -38,7 +38,7 @@ module Format
 
     # Throws the valuable information that you will need, this is very good. Provides the IP and server info of the site
     def site_found(input)
-      BEEP.check_platform if OPTIONS[:beep]
+      BEEP.check_platform_beep if OPTIONS[:beep]
       success = 'Possible Vulnerability'.white.bold
       puts <<-_END_
     [ x ] -----------------------------------------------
