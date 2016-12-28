@@ -85,6 +85,9 @@ VERSION_STRING = "v".green + VERSION.green.bold + '('.cyan.bold + VERSION_TYPE +
 # Ruby downloads link
 RUBY_DOWNLOAD_LINK = "https://www.ruby-lang.org/en/"
 
+# Python download link
+PYTHON_DOWNLOAD_LINK = "https://www.python.org/downloads/"
+
 # Default user agent used by whitewidow
 DEFAULT_USER_AGENT = "Whitewidow #{VERSION} SQL Vuln Scanner/Ruby:#{RUBY_VERSION}->Platform:#{RUBY_PLATFORM}"
 
