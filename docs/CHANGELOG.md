@@ -1,3 +1,7 @@
+# Version 1.9.8.18
+- Added a hidden switch that is currently being worked on and commented out the code for it.
+- Bumped version number
+
 # Version 1.9.8.17
 - Added a python download link constant
 - Minor comment fixes and tweaks to SqlmapConfigHelper
