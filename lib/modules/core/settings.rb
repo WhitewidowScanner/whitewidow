@@ -125,6 +125,17 @@ module Settings
     end
 
     #
+    # Decide whether to use random column names, or a specific one
+    #
+    def random_col_name?
+      if OPTIONS[:cols]
+        OPTIONS[:cols]
+      else
+        File.readlines("#{PATH}/lib/lists/common_columns.txt").sample
+      end
+    end
+
+    #
     # Update the program to the newest version
     #
     def update!

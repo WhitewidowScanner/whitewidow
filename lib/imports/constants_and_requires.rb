@@ -52,6 +52,9 @@ FORMAT = Format::StringFormat.new
 # The directory you're running in
 PATH = Dir.pwd
 
+# Program settings
+SETTINGS = Settings::ProgramSettings.new
+
 # Verify the python environment variables
 PYTHON_ENV_VAR = SqlmapConfigHelper.find_python_env_var
 
@@ -59,7 +62,7 @@ PYTHON_ENV_VAR = SqlmapConfigHelper.find_python_env_var
 DEFAULT_SEARCH_QUERY = File.readlines("#{PATH}/lib/lists/search_query.txt").sample
 
 # Grab a random common column from the file and attempt to use it for an exploit
-RAND_COMMON_COL = File.readlines("#{PATH}/lib/lists/common_columns.txt").sample
+COLUMN_NAME = File.readlines("#{PATH}/lib/lists/common_columns.txt").sample
 
 # YAML file of random user agents
 USER_AGENTS = YAML.load_file("#{PATH}/lib/lists/rand-age.yml")
@@ -96,9 +99,6 @@ FUNCTION_PAGE_LINK = "https://github.com/WhitewidowScanner/whitewidow/wiki/Funct
 
 # Spider a webpage with the blackwidow spider bot (work in progress)
 SPIDER_BOT = BlackWidow::RecursiveSpider.new
-
-# Program settings
-SETTINGS = Settings::ProgramSettings.new
 
 # Create an issue
 CREATE_ISSUE = Template::Templates.new
@@ -146,8 +146,8 @@ BLIND_BASED_SQL_INJECTION_TEST = ['AND 1=1', 'OR 13=13', 'AND 13=13']
 ERROR_BASED_SQL_INJECTION_TEST = %w(' -- ; " /* '/* '-- "-- '; "; `)
 
 # Union based sql injection test parameters
-UNION_BASED_SQL_INJECTION_TEST = [" SELECT #{RAND_COMMON_COL.chomp}", " union select #{RAND_COMMON_COL.chomp}",
-                                  " false union select #{RAND_COMMON_COL.chomp}"]
+UNION_BASED_SQL_INJECTION_TEST = [" SELECT #{COLUMN_NAME}", " union select #{COLUMN_NAME}",
+                                  " false union select #{COLUMN_NAME}"]
 
 # Basic legal disclaimer of the program, for full legal and TOS run --legal
 BASIC_LEGAL_DISCLAIMER = "[ ! ] Use of this program for malicious intent is illegal. For more information run the --legal flag".red
