@@ -1,3 +1,10 @@
+# Version 1.9.8.16
+- Created a sqlmap helper that will extract whether you have python 2.7.x installed or not (I think it works like 75% sure it will do what I want it to do need testers to find the problems with it)
+- Created a few new constants
+- Edited the launch for sqlmap
+- Changed the CheckBeep to CheckOS
+- Bumped the version number
+
 # Version 1.9.7.15
 - Minor fixes to site_info no longer bold IP addresses
 - Bumped version number
@@ -22,7 +29,7 @@
 - Updated the legal info a little bit
 - Added a few new constants to allow more accurate interpretation
 - Removed deprecated code
-- Added a '--test' f;ag, mostly used for developmental purposes so you don't really need to worry about it
+- Added a '--test' flag, mostly used for developmental purposes so you don't really need to worry about it
 - Bumped version number
 
 # Version 1.9.5.11
