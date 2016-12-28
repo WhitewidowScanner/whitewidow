@@ -3,7 +3,7 @@
 #
 module Platform
 
-  class CheckBeep
+  class CheckOS
 
     #
     # Check if you're running Windows
@@ -33,7 +33,7 @@ module Platform
       OS.unix? and not OS.mac?
     end
 
-    def check_platform
+    def check_platform_beep
       if Platform.windows?
         print "\a"  # Windows beep command
       elsif Platform.mac?
