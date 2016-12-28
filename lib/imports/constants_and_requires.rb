@@ -28,6 +28,7 @@ require_relative '../../lib/modules/core/tools/spider/blackwidow'
 require_relative '../../lib/modules/core/settings'
 require_relative '../../lib/modules/core/template/issue_template'
 require_relative '../../lib/whitewidow/scanner'
+require_relative '../../lib/helpers/sqlmap_config_helper'
 
 # Modules that need to be included for whitewidow
 include MultipleParameters
@@ -40,7 +41,7 @@ include Settings
 include Template
 
 # Runs a beep depending on the platform you have
-BEEP = Platform::CheckBeep.new
+BEEP = Platform::CheckOS.new
 
 # Check for multiple parameters within a URL
 MULTIPARAMS = MultipleParameters::TestAllParameters.new
@@ -50,6 +51,9 @@ FORMAT = Format::StringFormat.new
 
 # The directory you're running in
 PATH = Dir.pwd
+
+# Verify the python environment variables
+PYTHON_ENV_VAR = SqlmapConfigHelper.find_python_env_var
 
 # Grab a random search query from the lib/lists/search_query.txt file
 DEFAULT_SEARCH_QUERY = File.readlines("#{PATH}/lib/lists/search_query.txt").sample
@@ -101,6 +105,9 @@ SQLMAP_PATH = "#{PATH}/lib/modules/core/tools/sqlmap/sqlmap.py"
 
 # Path to the error log for fatal errors
 ERROR_LOG_PATH = FileHelper.open_or_create("#{PATH}/log/error_log.LOG")
+
+# Configuration file for sqlmap
+SQLMAP_CONFIG_PATH = FileHelper.open_or_create("#{PATH}/lib/lists/default_sqlmap_config.txt")
 
 # Path to the SQL_VULN.LOG file
 SQL_VULN_SITES_LOG = FileHelper.open_or_create("#{PATH}/log/SQL_VULN.LOG")

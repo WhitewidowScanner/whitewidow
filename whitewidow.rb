@@ -123,9 +123,10 @@ begin
     end
     FORMAT.info("#{OPTIONS[:run]} runs completed successfully.")
   when OPTIONS[:sqlmap]
-    commands = SETTINGS.sqlmap_config
+    SETTINGS.sqlmap_config
     FORMAT.info("Launching sqlmap..")
-    system("python #{SQLMAP_PATH} -m #{SQL_VULN_SITES_LOG} #{commands}")
+    commands = IO.read(SQLMAP_CONFIG_PATH)
+    system(commands.chomp)
   when OPTIONS[:spider]
     begin
       arr = SPIDER_BOT.pull_links(OPTIONS[:spider])

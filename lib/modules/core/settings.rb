@@ -20,21 +20,34 @@ module Settings
     end
 
     #
+    # Verify that python is installed on the computer
+    #
+    def extract_python_env_type
+      if PYTHON_ENV_VAR
+        return "python"
+      elsif !(PYTHON_ENV_VAR)
+        raise "You need python 2.7.x to run sqlmap, you have #{system("python --version")}".red
+      else
+        return "python27"
+      end
+    end
+
+    #
     # sqlmap configuration, will prompt you if you want to save the commands
     #
     def sqlmap_config
-      data = File.open("#{PATH}/lib/lists/default_sqlmap_config.txt", "a+")
-      if data.read == "false"
-        commands = FORMAT.prompt("Enter sqlmap commands, bulkfile is already default")
-        answer = FORMAT.prompt("Would you like to make these commands your default?[y/N]")
-        if answer.downcase.start_with?("y")
-          File.open("#{PATH}/lib/lists/default_sqlmap_config.txt", "w") { |config| config.write("#{commands}") }
-        else
-          File.open("#{PATH}/lib/lists/default_sqlmap_config.txt", "w") { |config| config.write("false") }
+      command_file = File.open(SQLMAP_CONFIG_PATH, "a+")
+      if command_file.read == "false"
+        commands = FORMAT.prompt("Enter sqlmap commands, #{extract_python_env_type} sqlmap.py -m SQL_VULN.LOG")
+        default = FORMAT.prompt("Make commands default [y/N]")
+        if default.downcase.start_with?("y")
+          command_file.truncate(0)
+          command_file.puts("#{extract_python_env_type} #{SQLMAP_PATH} -m #{SQL_VULN_SITES_LOG} #{commands}")
+          FORMAT.info("Commands saved, you need to rerun --sqlmap in order for the changes to take effect")
+          exit(0)
         end
       else
-        config = File.read("#{PATH}/lib/lists/default_sqlmap_config.txt").strip!
-        return "#{config}"
+        FORMAT.info("Running default sqlmap commands: #{File.read(SQLMAP_CONFIG_PATH)}")
       end
     end
 
