@@ -34,7 +34,7 @@ OptionParser.new do |opt|
   opt.on('-s URL', '--spider URL', 'Spider a web page and save all the URLS')             { |o| OPTIONS[:spider]  = o }
   opt.on('-p IP:PORT', '--proxy IP:PORT', 'Configure to run with a proxy, must use ":"')  { |o| OPTIONS[:proxy]   = o }
   opt.on('-x NUM', '--run-x NUM', 'Run the specified amount of dry runs')                 { |o| OPTIONS[:run]     = o }
-  opt.on('-D DORK', '--dork DORK', 'Use your own dork to do the searching')               { |o| OPTIONS[:dork]    = o } # Issue #32 https://github.com/Ekultek/whitewidow/issues/32
+  opt.on('-D DORK', '--dork DORK', 'Use your own dork to do the searching')               { |o| OPTIONS[:dork]    = o } # Issue #32 https://github.com/WhitewidowScanner/whitewidow/issues/32
   opt.on('-c NAME', '--column NAME', 'Specify a column name to be run for union SQLi')    { |o| OPTIONS[:cols]    = o }
   opt.on('-d', '--default', 'Run in default mode, scrape Google')                         { |o| OPTIONS[:default] = o }
   opt.on('-l', '--legal', 'Show the legal information and the TOS')                       { |o| OPTIONS[:legal]   = o }
@@ -48,8 +48,9 @@ OptionParser.new do |opt|
   opt.on('--sqlmap', 'Run sqlmap through the SQL_VULN.LOG file as a bulk file')           { |o| OPTIONS[:sqlmap]  = o }
   opt.on('--test', 'Used mostly for development use')                                     { |o| OPTIONS[:test]    = o }
   opt.on('-h', '--help', 'Display this help dialog and exit') do
+    hidden = "--column"
     usage_page
-    puts opt
+    puts opt.to_s.split("\n").delete_if { |line| line =~ /#{hidden}/ }.join("\n")
   end
 end.parse!
 
@@ -158,7 +159,7 @@ rescue => e
     begin
       system("ruby whitewidow.rb -d --banner --rand-agent")
     rescue OpenSSL::SSL::SSLError
-      FORMAT.fatal("User agent failed to load, running as default..")
+      FORMAT.fatal("User agent failed to load for the second time, running as default..")
       system("ruby whitewidow.rb -d --banner")
     end
   elsif e.inspect =~ /tIDENTIFIER/
@@ -169,10 +170,10 @@ rescue => e
   else
     FORMAT.fatal("Program failed with error code: #{e}, error saved to error_log.txt")
     File.open(ERROR_LOG_PATH, 'a+') { |error| error.puts("#{Date.today}\n#{e.backtrace}\n---") }
-    FORMAT.fatal("Issue template has been generated for this error, create a new issue named: #{SETTINGS.random_issue_name} #{e}")
-    FORMAT.info("An issue template has been generated for you and is located in #{ISSUE_TEMPLATE_PATH}")
+    FORMAT.fatal("Issue template is being generated for this error, create a new issue named: #{SETTINGS.random_issue_name} #{e}")
     SETTINGS.create_issue_page("Getting error: #{e}", e, "Run with #{OPTIONS}",
                                OPTIONS[:dork] == nil ? DEFAULT_SEARCH_QUERY : OPTIONS[:dork])
+    FORMAT.info("An issue template has been generated for you and is located in #{ISSUE_TEMPLATE_PATH}")
   end
 rescue Interrupt
   FORMAT.err("User aborted scanning.")
