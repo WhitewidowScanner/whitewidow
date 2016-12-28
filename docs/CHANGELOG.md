@@ -1,3 +1,8 @@
+# Version 1.9.8.17
+- Added a python download link constant
+- Minor comment fixes and tweaks to SqlmapConfigHelper
+- Bumped version number
+
 # Version 1.9.8.16
 - Created a sqlmap helper that will extract whether you have python 2.7.x installed or not (I think it works like 75% sure it will do what I want it to do need testers to find the problems with it)
 - Created a few new constants
