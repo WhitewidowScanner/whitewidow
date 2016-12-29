@@ -78,6 +78,7 @@ module Whitewidow
             Timeout::timeout(10) do
               begin
                 if SETTINGS.parse("#{vuln.chomp}'", 'html', 0) =~ SQL_VULN_REGEX  # If it has the vuln regex error
+                  SQL_ERROR[vuln.chomp] = SETTINGS.parse("#{vuln.chomp}'", 'html', 0).to_s
                   FORMAT.site_found(vuln.chomp)
                   File.open("#{TEMP_VULN_LOG}", "a+") { |vulnerable| vulnerable.puts(vuln) }
                   sleep(0.5)
