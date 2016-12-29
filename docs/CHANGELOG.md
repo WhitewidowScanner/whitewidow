@@ -1,3 +1,12 @@
+# Version 1.9.8.19
+- Added the database type when a site is found to be vulnerable from an array of commonly used databases, if the DB is not in the array it will resolved ot 'Database is unable to be resolved', meaning that it's not implemented yet
+- Added a new constant to catch the site name and the error message
+- Created a new method in SiteInfo that will extract the DB name out of the error message
+- Edited scanner to create the SQL_ERROR constant
+- Minor fix to recursive spider, will need a query parameter (GET) in order to process the URL, and gives and example of acceptable URL. Also will not say "running sites found" if no sites where found
+- Minor change to the usage banner
+- Bumped version number
+
 # Version 1.9.8.18
 - Added a hidden switch that is currently being worked on and commented out the code for it.
 - Bumped version number
