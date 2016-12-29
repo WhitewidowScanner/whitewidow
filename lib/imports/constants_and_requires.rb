@@ -70,6 +70,9 @@ USER_AGENTS = YAML.load_file("#{PATH}/lib/lists/rand-age.yml")
 # Empty hash to append the flags into
 OPTIONS = {}
 
+# Empty hash for the SQL error, used to catch the database type
+SQL_ERROR = {}
+
 # The version that whitewidow is currently in
 VERSION = Whitewidow::Misc.new.version
 

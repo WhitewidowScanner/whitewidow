@@ -1,3 +1,4 @@
+require_relative '../../../lib/imports/constants_and_requires'
 #
 # Pull the information of the site that is available. Pulls the server (apache, redhat, etc) and the IP address
 # that the site resolves to
@@ -29,6 +30,22 @@ module SiteInfo
     uri = URI.parse(site)
     res = Net::HTTP.get_response(uri)
     return res['server'] # Pull it from the hash that is created
+  end
+
+  #
+  # Get the database type from the error thrown, if it exists
+  #
+  def self.capture_db_type(site)
+    data = SQL_ERROR[site]
+    db_types = ["MySQL", "Microsoft Access", "Microsoft SQL Server",
+                "Oracle", "DB2 Express-C"]  # Most commonly used DB types for web apps
+    db_types.each { |db|
+      if data.include?(db)
+        return db.cyan
+      else
+        return 'Database cannot be resolved'.red
+      end
+    }
   end
 
 end

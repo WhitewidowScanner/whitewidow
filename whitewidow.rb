@@ -6,7 +6,7 @@ require_relative 'lib/imports/constants_and_requires'
 #
 def banner_message
   [
-    "USAGE: ruby whitewidow.rb -[SHORT-OPTS] [ARGS] --[LONG-OPTS] [ARGS]".cyan.bold,
+    "USAGE: ruby #{$0} -[SHORT-OPTS] [ARGS] --[LONG-OPTS] [ARGS]".cyan.bold,
     "Mandatory options  : -[d|f|s] FILE|URL --[default|file|spider] FILE|URL".cyan.bold,
     "Enumeration options: -[x] NUM --[dry-run|batch|run-x] NUM".cyan.bold,
     "Anomity options    : -[p] IP:PORT --[rand-agent|proxy] IP:PORT".cyan.bold,
@@ -131,14 +131,20 @@ begin
     system(commands.chomp)
   when OPTIONS[:spider]
     begin
-      arr = SPIDER_BOT.pull_links(OPTIONS[:spider])
-      SPIDER_BOT.follow_links(arr)
-      FORMAT.info("Found a total of #{File.open(BLACKWIDOW_LOG).readlines.size} links. Running them as file..")
-      system("ruby whitewidow.rb --banner -f #{BLACKWIDOW_LOG}")
-      File.truncate("tmp/blackwidow_log.txt", 0)
-    rescue *SPIDER_ERRORS
-      FORMAT.err("#{OPTIONS[:spider]} encountered an error and cannot continue. Running site obtained so far")
-      system("ruby whitewidow.rb --banner -f #{BLACKWIDOW_LOG}")
+      if URI(OPTIONS[:spider]).query
+        arr = SPIDER_BOT.pull_links(OPTIONS[:spider])
+        SPIDER_BOT.follow_links(arr)
+        FORMAT.info("Found a total of #{File.open(BLACKWIDOW_LOG).readlines.size} links. Running them as file..")
+        system("ruby whitewidow.rb --banner -f #{BLACKWIDOW_LOG}")
+        File.truncate("tmp/blackwidow_log.txt", 0)
+      else
+        FORMAT.err("No valid query parameter found for: #{OPTIONS[:spider]}.")
+        FORMAT.err("URL should contain a query parameter. I.E. http://fakesite.com/php?id=2")
+      end
+    rescue *SPIDER_ERRORS => e
+      File.size(BLACKWIDOW_LOG) == 0 ? FORMAT.fatal("No sites obtained for #{OPTIONS[:spider]}, failed with #{e}") :
+          FORMAT.err("#{OPTIONS[:spider]} encountered an error and cannot continue. Running sites obtained so far")
+      system("ruby whitewidow.rb --banner -f #{BLACKWIDOW_LOG}") if File.size(BLACKWIDOW_LOG) != 0
     end
   when OPTIONS[:version]
     FORMAT.info("Currently version: #{VERSION}")

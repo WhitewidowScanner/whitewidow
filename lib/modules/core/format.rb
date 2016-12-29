@@ -46,6 +46,7 @@ module Format
     [#{Time.now.strftime("%T")} #{success}]
 
     [ X ]    Injection Point       :: #{input.cyan}
+    [ X ]    Backend DB type       :: #{SiteInfo.capture_db_type(input)}
     [ X ]    Server Specifications :: #{SiteInfo.capture_host(input).cyan}
     [ X ]    Possible IP Address   :: #{SiteInfo.capture_ip(input, IPV6_REGEX)}
 
