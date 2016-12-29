@@ -4638,7 +4638,6 @@ constructiesinurl:/product.php?id=
 index.php?plugin=
 myaccount.php?catid=
 inurl:buy.asp?bookid= title:login
-inurl:/componentsinurl:/com_simpleboardinurl:/image_upload.php?sbp=
 inurl:".php?categoryid=" intext:"Toys"
 mod*.php?tipo=
 "order.asp?id="
