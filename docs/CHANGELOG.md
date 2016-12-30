@@ -1,3 +1,7 @@
+# Version 1.9.10.23
+- Moved some files into different directories to make the program much more organized
+- Bumped version number
+
 # Version 1.9.10.22
 - Patched sqlmap configuration where it wouldn't launch successfully.
 - Added a tmp sqlmap configuration that will allow you to now say 'n' to saving as default
