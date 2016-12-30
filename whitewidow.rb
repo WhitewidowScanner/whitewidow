@@ -62,7 +62,7 @@ begin
       SETTINGS.hide_banner?
       SETTINGS.show_legal?
       Whitewidow::Scanner.get_urls(OPTIONS[:proxy])
-      if File.size("#{SITES_TO_CHECK_PATH}") == 0  # Saving just in case
+      if File.size("#{SITES_TO_CHECK_PATH}") == 0
         FORMAT.warning("No sites found for search query: #{SEARCH_QUERY}. Adding query to blacklist so it won't be run again.")  # Add the query to the blacklist #  File.open("#{QUERY_BLACKLIST_PATH}", "a+") { |query| query.puts(SEARCH_QUERY) }
         FORMAT.info("Query added to blacklist and will not be run again, exiting..")
         exit(1)
@@ -176,7 +176,7 @@ rescue => e
     exit(1)
   else
     FORMAT.fatal("Program failed with error code: #{e}, error saved to error_log.txt")
-    File.open(ERROR_LOG_PATH, 'a+') { |error| error.puts("#{Date.today}\n#{e.backtrace}\n---") }
+    File.open(ERROR_LOG_PATH, 'a+') { |error| error.puts("#{Date.today}\n---\n#{e.backtrace}\n#{e.backtrace_locations}\n---\n") }
     FORMAT.fatal("Issue template is being generated for this error, create a new issue named: #{SETTINGS.random_issue_name} #{e}")
     SETTINGS.create_issue_page("Getting error: #{e}", e, "Run with #{OPTIONS}",
                                OPTIONS[:dork] == nil ? DEFAULT_SEARCH_QUERY : OPTIONS[:dork])
