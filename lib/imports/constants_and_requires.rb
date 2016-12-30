@@ -21,14 +21,15 @@ require_relative '../../lib/helpers/file_helper'
 require_relative '../../lib/modules/core/format'
 require_relative '../../lib/misc/legal'
 require_relative '../../lib/misc/banner'
-require_relative '../../lib/modules/core/site_info'
+require_relative '../../lib/modules/core/tools/site_info'
 require_relative '../../lib/modules/expansion/string_expan'
 require_relative '../../lib/modules/core/detection'
-require_relative '../../lib/modules/core/check_platform'
+require_relative '../../lib/modules/core/tools/check_platform'
 require_relative '../../lib/modules/core/tools/spider/blackwidow'
 require_relative '../../lib/modules/core/settings'
 require_relative '../../lib/modules/core/template/issue_template'
 require_relative '../../lib/whitewidow/scanner'
+# require_relative '../../lib/modules/core/tools/country_specs'
 # require_relative '../../lib/helpers/sqlmap_config_helper'
 
 # Modules that need to be included for whitewidow
@@ -60,10 +61,10 @@ SETTINGS = Settings::ProgramSettings.new
 PYTHON_ENV_VAR = ''#SqlmapConfigHelper.find_python_env_var
 
 # Grab a random search query from the lib/lists/search_query.txt file
-DEFAULT_SEARCH_QUERY = File.readlines("#{PATH}/lib/lists/search_query.txt").sample
+DEFAULT_SEARCH_QUERY = File.readlines("#{PATH}/lib/lists/text_files/search_query.txt").sample
 
 # Grab a random common column from the file and attempt to use it for an exploit
-COLUMN_NAME = File.readlines("#{PATH}/lib/lists/common_columns.txt").sample
+COLUMN_NAME = File.readlines("#{PATH}/lib/lists/text_files/common_columns.txt").sample
 
 # YAML file of random user agents
 USER_AGENTS = YAML.load_file("#{PATH}/lib/lists/rand-age.yml")
@@ -108,25 +109,25 @@ SPIDER_BOT = BlackWidow::RecursiveSpider.new
 CREATE_ISSUE = Template::Templates.new
 
 # Path to sqlmap
-SQLMAP_PATH = "#{PATH}/lib/modules/core/tools/sqlmap/sqlmap.py"
+SQLMAP_PATH = "#{PATH}/lib/modules/core/tools/thirdparty/sqlmap/sqlmap.py"
 
 # Path to the error log for fatal errors
-ERROR_LOG_PATH = FileHelper.open_or_create("#{PATH}/log/error_log.LOG")
+ERROR_LOG_PATH = FileHelper.open_or_create("#{PATH}/log/log_files/error_log.LOG")
 
 # Configuration file for sqlmap
-SQLMAP_CONFIG_PATH = FileHelper.open_or_create("#{PATH}/lib/lists/default_sqlmap_config.txt")
+SQLMAP_CONFIG_PATH = FileHelper.open_or_create("#{PATH}/log/default_sqlmap_config.txt")
 
 # Commands for sqlmap, if you don't save them as default
 SQLMAP_LAST_REQUEST_FILE = FileHelper.open_or_create("#{PATH}/tmp/last_sqlmap_request")
 
 # Path to the SQL_VULN.LOG file
-SQL_VULN_SITES_LOG = FileHelper.open_or_create("#{PATH}/log/SQL_VULN.LOG")
+SQL_VULN_SITES_LOG = FileHelper.open_or_create("#{PATH}/log/log_files/SQL_VULN.LOG")
 
 # Path to temp vuln log
-TEMP_VULN_LOG = FileHelper.open_or_create("#{PATH}/tmp/SQL_VULN.txt")
+TEMP_VULN_LOG = FileHelper.open_or_create("#{PATH}/tmp/tmp_logs/SQL_VULN.txt")
 
 # Path to the sql_sites_to_check file
-SITES_TO_CHECK_PATH = FileHelper.open_or_create("#{PATH}/tmp/SQL_sites_to_check.txt")
+SITES_TO_CHECK_PATH = FileHelper.open_or_create("#{PATH}/tmp/tmp_logs/SQL_sites_to_check.txt")
 
 # Path to the search query blacklist
 QUERY_BLACKLIST_PATH = FileHelper.open_or_create("#{PATH}/log/blacklists/query_blacklist")
@@ -138,7 +139,7 @@ NON_EXPLOITABLE_PATH = FileHelper.open_or_create("#{PATH}/log/non_exploitable.tx
 FILE_FLAG_FILE_PATH = FileHelper.open_or_create("#{PATH}/tmp/#sites.txt")
 
 # Blackwidow log file path
-BLACKWIDOW_LOG = FileHelper.open_or_create("#{PATH}/tmp/blackwidow_log.txt")
+BLACKWIDOW_LOG = FileHelper.open_or_create("#{PATH}/tmp/tmp_logs/blackwidow_log.txt")
 
 # Issue path
 ISSUE_TEMPLATE_PATH = FileHelper.open_or_create("#{PATH}/tmp/issues/#{SETTINGS.random_issue_name}.txt")
