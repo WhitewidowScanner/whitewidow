@@ -18,7 +18,7 @@ module Settings
       parsing = page(site)
       parsing.css(tag)[i].to_s
     end
-
+=begin
     #
     # Verify that python is installed on the computer
     #
@@ -31,7 +31,7 @@ module Settings
         return "python27"
       end
     end
-
+=end
     #
     # sqlmap configuration, will prompt you if you want to save the commands
     #

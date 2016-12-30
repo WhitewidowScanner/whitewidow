@@ -57,7 +57,7 @@ PATH = Dir.pwd
 SETTINGS = Settings::ProgramSettings.new
 
 # Verify the python environment variables
-# PYTHON_ENV_VAR = SqlmapConfigHelper.find_python_env_var
+PYTHON_ENV_VAR = ''#SqlmapConfigHelper.find_python_env_var
 
 # Grab a random search query from the lib/lists/search_query.txt file
 DEFAULT_SEARCH_QUERY = File.readlines("#{PATH}/lib/lists/search_query.txt").sample

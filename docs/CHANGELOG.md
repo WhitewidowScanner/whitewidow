@@ -1,3 +1,7 @@
+# Version 1.9.9.21
+- Minor edits
+- Bumped version number
+
 # Version 1.9.9.20
 - Temp fix for issue number 46 https://github.com/WhitewidowScanner/whitewidow/issues/46 just commented out the code and added a work around
 - Created "not implemented yet" folder, this way you guys can see what I'm working on
