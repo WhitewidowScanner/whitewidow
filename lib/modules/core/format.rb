@@ -1,3 +1,4 @@
+require_relative '../../../lib/imports/constants_and_requires'
 #
 # Color code the output by serverity of issue
 #
@@ -39,16 +40,17 @@ module Format
     # Throws the valuable information that you will need, this is very good. Provides the IP and server info of the site
     def site_found(input)
       BEEP.check_platform_beep if OPTIONS[:beep]
+      ip_address = SiteInfo.capture_ip(input, IPV6_REGEX)
       success = 'Possible Vulnerability'.white.bold
       puts <<-_END_
     [ x ] -----------------------------------------------
 
     [#{Time.now.strftime("%T")} #{success}]
 
-    [ X ]    Injection Point       :: #{input.cyan}
-    [ X ]    Backend DB type       :: #{SiteInfo.capture_db_type(input)}
-    [ X ]    Server Specifications :: #{SiteInfo.capture_host(input).cyan}
-    [ X ]    Possible IP Address   :: #{SiteInfo.capture_ip(input, IPV6_REGEX)}
+    [ X ]    Injection Point         :: #{input.cyan}
+    [ X ]    Backend DB type         :: #{SiteInfo.capture_db_type(input)}
+    [ X ]    Server Specifications   :: #{SiteInfo.capture_host(input).cyan}
+    [ X ]    Possible IP Address     :: #{ip_address.cyan}
 
       _END_
     end

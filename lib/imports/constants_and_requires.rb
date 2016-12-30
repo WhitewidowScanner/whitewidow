@@ -14,6 +14,7 @@ require 'tempfile'
 require 'socket'
 require 'net/http'
 require 'ipaddr'
+require 'csv'
 
 # Created libraries that are relied on for the program to run
 require_relative '../../lib/helpers/file_helper'
@@ -28,7 +29,7 @@ require_relative '../../lib/modules/core/tools/spider/blackwidow'
 require_relative '../../lib/modules/core/settings'
 require_relative '../../lib/modules/core/template/issue_template'
 require_relative '../../lib/whitewidow/scanner'
-require_relative '../../lib/helpers/sqlmap_config_helper'
+# require_relative '../../lib/helpers/sqlmap_config_helper'
 
 # Modules that need to be included for whitewidow
 include MultipleParameters
@@ -56,7 +57,7 @@ PATH = Dir.pwd
 SETTINGS = Settings::ProgramSettings.new
 
 # Verify the python environment variables
-PYTHON_ENV_VAR = SqlmapConfigHelper.find_python_env_var
+# PYTHON_ENV_VAR = SqlmapConfigHelper.find_python_env_var
 
 # Grab a random search query from the lib/lists/search_query.txt file
 DEFAULT_SEARCH_QUERY = File.readlines("#{PATH}/lib/lists/search_query.txt").sample

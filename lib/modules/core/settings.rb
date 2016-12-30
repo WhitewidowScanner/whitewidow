@@ -38,7 +38,8 @@ module Settings
     def sqlmap_config
       command_file = File.open(SQLMAP_CONFIG_PATH, "a+")
       if command_file.read == "false"
-        commands = FORMAT.prompt("Enter sqlmap commands, #{extract_python_env_type} sqlmap.py -m SQL_VULN.LOG")
+        commands = FORMAT.prompt('Enter sqlmap commands, python sqlmap.py -m SQL_VULN.LOG')  # Temp fix for issue #46, I'm working on a permanent fix https://github.com/WhitewidowScanner/whitewidow/issues/46
+        # commands = FORMAT.prompt("Enter sqlmap commands, #{extract_python_env_type} sqlmap.py -m SQL_VULN.LOG")
         default = FORMAT.prompt("Make commands default [y/N]")
         if default.downcase.start_with?("y")
           command_file.truncate(0)

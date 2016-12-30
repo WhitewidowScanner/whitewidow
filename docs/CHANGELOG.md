@@ -1,3 +1,9 @@
+# Version 1.9.9.20
+- Temp fix for issue number 46 https://github.com/WhitewidowScanner/whitewidow/issues/46 just commented out the code and added a work around
+- Created "not implemented yet" folder, this way you guys can see what I'm working on
+- Some minor edits to other stuff that isn't important right now
+- Bumped version number
+
 # Version 1.9.8.19
 - Added the database type when a site is found to be vulnerable from an array of commonly used databases, if the DB is not in the array it will resolved ot 'Database is unable to be resolved', meaning that it's not implemented yet
 - Added a new constant to catch the site name and the error message
