@@ -7,6 +7,9 @@ Before you create an issue please make sure that there are no issues that relate
 ## Exact error message/Enhancement information
 
 
+## Backtrace from error_log file located in log/log_files/error_log.LOG
+
+
 ## Steps to reproduce if applicable or steps on what should be done
 
 
