@@ -62,8 +62,6 @@ begin
       SETTINGS.hide_banner?
       SETTINGS.show_legal?
       Whitewidow::Scanner.get_urls(OPTIONS[:proxy])
-      #SETTINGS.black_list_query(OPTIONS[:dork] == nil ? DEFAULT_SEARCH_QUERY : OPTIONS[:dork],
-                                #IO.read(SITES_TO_CHECK_PATH).size)
       if File.size("#{SITES_TO_CHECK_PATH}") == 0  # Saving just in case
         FORMAT.warning("No sites found for search query: #{SEARCH_QUERY}. Adding query to blacklist so it won't be run again.")  # Add the query to the blacklist #  File.open("#{QUERY_BLACKLIST_PATH}", "a+") { |query| query.puts(SEARCH_QUERY) }
         FORMAT.info("Query added to blacklist and will not be run again, exiting..")
@@ -125,10 +123,13 @@ begin
     end
     FORMAT.info("#{OPTIONS[:run]} runs completed successfully.")
   when OPTIONS[:sqlmap]
-    SETTINGS.sqlmap_config
     FORMAT.info("Launching sqlmap..")
-    commands = IO.read(SQLMAP_CONFIG_PATH)
-    system(commands.chomp)
+    if SETTINGS.sqlmap_config
+      system("#{File.read(SQLMAP_CONFIG_PATH)}")
+    else
+      system("#{File.read(SQLMAP_LAST_REQUEST_FILE)}")
+      File.open(SQLMAP_LAST_REQUEST_FILE, "a+").truncate(0)
+    end
   when OPTIONS[:spider]
     begin
       if URI(OPTIONS[:spider]).query

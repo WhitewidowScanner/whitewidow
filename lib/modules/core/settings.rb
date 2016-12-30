@@ -36,19 +36,24 @@ module Settings
     # sqlmap configuration, will prompt you if you want to save the commands
     #
     def sqlmap_config
+      last_request_file = File.open(SQLMAP_LAST_REQUEST_FILE, "a+")
       command_file = File.open(SQLMAP_CONFIG_PATH, "a+")
       if command_file.read == "false"
         commands = FORMAT.prompt('Enter sqlmap commands, python sqlmap.py -m SQL_VULN.LOG')  # Temp fix for issue #46, I'm working on a permanent fix https://github.com/WhitewidowScanner/whitewidow/issues/46
-        # commands = FORMAT.prompt("Enter sqlmap commands, #{extract_python_env_type} sqlmap.py -m SQL_VULN.LOG")
-        default = FORMAT.prompt("Make commands default [y/N]")
-        if default.downcase.start_with?("y")
+        default = FORMAT.prompt('Save as default?[y/N]')
+        if default.downcase.start_with?('y')
           command_file.truncate(0)
-          command_file.puts("#{extract_python_env_type} #{SQLMAP_PATH} -m #{SQL_VULN_SITES_LOG} #{commands}")
-          FORMAT.info("Commands saved, you need to rerun --sqlmap in order for the changes to take effect")
-          exit(0)
+          command_file.puts("python #{SQLMAP_PATH} -m #{SQL_VULN_SITES_LOG} #{commands}")
+          FORMAT.info('Commands saved, re-run --sqlmap for changes to replicate.')
+          return true
+          # FORMAT.info("Commands saved, you need to rerun --sqlmap in order for the changes to take effect")
+        else
+          last_request_file.puts("python #{SQLMAP_PATH} -m #{SQL_VULN_SITES_LOG} #{commands}")
+          return false
         end
       else
         FORMAT.info("Running default sqlmap commands: #{File.read(SQLMAP_CONFIG_PATH)}")
+        return File.read(command_file).chomp
       end
     end
 

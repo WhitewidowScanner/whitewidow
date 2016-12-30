@@ -116,6 +116,9 @@ ERROR_LOG_PATH = FileHelper.open_or_create("#{PATH}/log/error_log.LOG")
 # Configuration file for sqlmap
 SQLMAP_CONFIG_PATH = FileHelper.open_or_create("#{PATH}/lib/lists/default_sqlmap_config.txt")
 
+# Commands for sqlmap, if you don't save them as default
+SQLMAP_LAST_REQUEST_FILE = FileHelper.open_or_create("#{PATH}/tmp/last_sqlmap_request")
+
 # Path to the SQL_VULN.LOG file
 SQL_VULN_SITES_LOG = FileHelper.open_or_create("#{PATH}/log/SQL_VULN.LOG")
 
