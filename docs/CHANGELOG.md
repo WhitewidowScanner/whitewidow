@@ -1,3 +1,10 @@
+# Version 1.9.10.22
+- Patched sqlmap configuration where it wouldn't launch successfully.
+- Added a tmp sqlmap configuration that will allow you to now say 'n' to saving as default
+- Still playing with country_specs
+- Removed deprecated code
+- Bumped version number
+
 # Version 1.9.9.21
 - Minor edits
 - Bumped version number
