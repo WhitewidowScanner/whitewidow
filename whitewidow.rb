@@ -30,25 +30,25 @@ end
 ARGV << '-h' if ARGV.empty? # Display help dialog if no flags are passed
 OptionParser.new do |opt|
   opt.banner = banner_message
-  opt.on('-f FILE', '--file FILE', 'Pass a filename to scan for vulnerabilities')         { |o| OPTIONS[:file]    = o }
-  opt.on('-s URL', '--spider URL', 'Spider a web page and save all the URLS')             { |o| OPTIONS[:spider]  = o }
-  opt.on('-p IP:PORT', '--proxy IP:PORT', 'Configure to run with a proxy, must use ":"')  { |o| OPTIONS[:proxy]   = o }
-  opt.on('-x NUM', '--run-x NUM', 'Run the specified amount of dry runs')                 { |o| OPTIONS[:run]     = o }
-  opt.on('-D DORK', '--dork DORK', 'Use your own dork to do the searching')               { |o| OPTIONS[:dork]    = o } # Issue #32 https://github.com/WhitewidowScanner/whitewidow/issues/32
-  opt.on('-c NAME', '--column NAME', 'Specify a column name to be run for union SQLi')    { |o| OPTIONS[:cols]    = o }
-  opt.on('-d', '--default', 'Run in default mode, scrape Google')                         { |o| OPTIONS[:default] = o }
-  opt.on('-l', '--legal', 'Show the legal information and the TOS')                       { |o| OPTIONS[:legal]   = o }
-  opt.on('-b', '--banner', 'Hide the banner')                                             { |o| OPTIONS[:banner]  = o }
-  opt.on('-v', '--version', 'Display the version number and exit')                        { |o| OPTIONS[:version] = o }
-  opt.on('-u', '--update', 'Update whitewidow with the newest version')                   { |o| OPTIONS[:update]  = o }
-  opt.on('--dry-run', 'Run a dry run (no checking for vulnerability with prompt)')        { |o| OPTIONS[:dry]     = o }
-  opt.on('--batch', 'No prompts, used in conjunction with the dry run')                   { |o| OPTIONS[:batch]   = o }
-  opt.on('--beep', 'Make a beep when the program finds a vulnerability')                  { |o| OPTIONS[:beep]    = o }
-  opt.on('--rand-agent', 'Use a random user agent')                                       { |o| OPTIONS[:agent]   = o }
-  opt.on('--sqlmap', 'Run sqlmap through the SQL_VULN.LOG file as a bulk file')           { |o| OPTIONS[:sqlmap]  = o }
-  opt.on('--test', 'Used mostly for development use')                                     { |o| OPTIONS[:test]    = o }
+  opt.on('-f FILE', '--file FILE', 'Pass a filename to scan for vulnerabilities')         { |o| OPTIONS[:file]         = o }
+  opt.on('-s URL', '--spider URL', 'Spider a web page and save all the URLS')             { |o| OPTIONS[:spider]       = o }
+  opt.on('-p IP:PORT', '--proxy IP:PORT', 'Configure to run with a proxy, must use ":"')  { |o| OPTIONS[:proxy]        = o }
+  opt.on('-x NUM', '--run-x NUM', 'Run the specified amount of dry runs')                 { |o| OPTIONS[:run]          = o }
+  opt.on('-D DORK', '--dork DORK', 'Use your own dork to do the searching')               { |o| OPTIONS[:dork]         = o } # Issue #32 https://github.com/WhitewidowScanner/whitewidow/issues/32
+  opt.on('-d', '--default', 'Run in default mode, scrape Google')                         { |o| OPTIONS[:default]      = o }
+  opt.on('-l', '--legal', 'Show the legal information and the TOS')                       { |o| OPTIONS[:legal]        = o }
+  opt.on('-b', '--banner', 'Hide the banner')                                             { |o| OPTIONS[:banner]       = o }
+  opt.on('-v', '--version', 'Display the version number and exit')                        { |o| OPTIONS[:version]      = o }
+  opt.on('-u', '--update', 'Update whitewidow with the newest version')                   { |o| OPTIONS[:update]       = o }
+  opt.on('-S', '--search-engine', 'Configure whitewidow to use a random search engine')   { |o| OPTIONS[:searchengine] = o }
+  opt.on('--dry-run', 'Run a dry run (no checking for vulnerability with prompt)')        { |o| OPTIONS[:dry]          = o }
+  opt.on('--batch', 'No prompts, used in conjunction with the dry run')                   { |o| OPTIONS[:batch]        = o }
+  opt.on('--beep', 'Make a beep when the program finds a vulnerability')                  { |o| OPTIONS[:beep]         = o }
+  opt.on('--rand-agent', 'Use a random user agent')                                       { |o| OPTIONS[:agent]        = o }
+  opt.on('--sqlmap', 'Run sqlmap through the SQL_VULN.LOG file as a bulk file')           { |o| OPTIONS[:sqlmap]       = o }
+  opt.on('--test', 'Used mostly for development use')                                     { |o| OPTIONS[:test]         = o }
   opt.on('-h', '--help', 'Display this help dialog and exit') do
-    hidden = "--column"
+    hidden = "--search-engine"
     usage_page
     puts opt.to_s.split("\n").delete_if { |line| line =~ /#{hidden}/ }.join("\n")
   end

@@ -1,17 +1,16 @@
 #!/usr/bin/env python
 
 """
-Copyright (c) 2006-2016 sqlmap developers (http://sqlmap.org/)
+Copyright (c) 2006-2017 sqlmap developers (http://sqlmap.org/)
 See the file 'doc/COPYING' for copying permission
 """
 
 import difflib
 import random
+import thread
 import threading
 import time
 import traceback
-
-from thread import error as ThreadError
 
 from lib.core.data import conf
 from lib.core.data import kb
@@ -151,7 +150,7 @@ def runThreads(numThreads, threadFunction, cleanupFunction=None, forwardExceptio
 
             try:
                 thread.start()
-            except ThreadError, ex:
+            except thread.error, ex:
                 errMsg = "error occurred while starting new thread ('%s')" % ex.message
                 logger.critical(errMsg)
                 break

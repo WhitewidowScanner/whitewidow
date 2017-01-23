@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 
 """
-Copyright (c) 2006-2016 sqlmap developers (http://sqlmap.org/)
+Copyright (c) 2006-2017 sqlmap developers (http://sqlmap.org/)
 See the file 'doc/COPYING' for copying permission
 """
 
@@ -77,7 +77,8 @@ optDict = {
                                "testParameter":     "string",
                                "skip":              "string",
                                "skipStatic":        "boolean",
-                               "dbms":              "string",
+                               "skip":              "string",
+                               "paramExclude":      "string",
                                "dbmsCred":          "string",
                                "os":                "string",
                                "invalidBignum":     "boolean",

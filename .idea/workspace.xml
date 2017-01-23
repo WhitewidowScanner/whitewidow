@@ -3,6 +3,337 @@
   <component name="ChangeListManager">
     <list default="true" id="fae855c0-4fb5-443d-971b-661d3547b6f5" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docs/CHANGELOG.md" afterPath="$PROJECT_DIR$/docs/CHANGELOG.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/misc/banner.rb" afterPath="$PROJECT_DIR$/lib/misc/banner.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/doc/COPYING" afterPath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/doc/COPYING" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/extra/__init__.py" afterPath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/extra/__init__.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/extra/beep/__init__.py" afterPath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/extra/beep/__init__.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/extra/beep/beep.py" afterPath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/extra/beep/beep.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/extra/cloak/__init__.py" afterPath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/extra/cloak/__init__.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/extra/cloak/cloak.py" afterPath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/extra/cloak/cloak.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/extra/dbgtool/__init__.py" afterPath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/extra/dbgtool/__init__.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/extra/dbgtool/dbgtool.py" afterPath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/extra/dbgtool/dbgtool.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/extra/mssqlsig/update.py" afterPath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/extra/mssqlsig/update.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/extra/safe2bin/__init__.py" afterPath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/extra/safe2bin/__init__.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/extra/safe2bin/safe2bin.py" afterPath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/extra/safe2bin/safe2bin.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/extra/shutils/duplicates.py" afterPath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/extra/shutils/duplicates.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/extra/shutils/postcommit-hook.sh" afterPath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/extra/shutils/postcommit-hook.sh" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/extra/shutils/precommit-hook.sh" afterPath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/extra/shutils/precommit-hook.sh" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/extra/shutils/pypi.sh" afterPath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/extra/shutils/pypi.sh" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/extra/shutils/regressiontest.py" afterPath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/extra/shutils/regressiontest.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/extra/sqlharvest/__init__.py" afterPath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/extra/sqlharvest/__init__.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/extra/sqlharvest/sqlharvest.py" afterPath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/extra/sqlharvest/sqlharvest.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/lib/__init__.py" afterPath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/lib/__init__.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/lib/controller/__init__.py" afterPath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/lib/controller/__init__.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/lib/controller/action.py" afterPath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/lib/controller/action.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/lib/controller/checks.py" afterPath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/lib/controller/checks.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/lib/controller/controller.py" afterPath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/lib/controller/controller.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/lib/controller/handler.py" afterPath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/lib/controller/handler.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/lib/core/__init__.py" afterPath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/lib/core/__init__.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/lib/core/agent.py" afterPath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/lib/core/agent.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/lib/core/bigarray.py" afterPath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/lib/core/bigarray.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/lib/core/common.py" afterPath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/lib/core/common.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/lib/core/convert.py" afterPath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/lib/core/convert.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/lib/core/data.py" afterPath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/lib/core/data.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/lib/core/datatype.py" afterPath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/lib/core/datatype.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/lib/core/decorators.py" afterPath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/lib/core/decorators.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/lib/core/defaults.py" afterPath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/lib/core/defaults.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/lib/core/dicts.py" afterPath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/lib/core/dicts.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/lib/core/dump.py" afterPath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/lib/core/dump.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/lib/core/enums.py" afterPath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/lib/core/enums.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/lib/core/exception.py" afterPath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/lib/core/exception.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/lib/core/log.py" afterPath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/lib/core/log.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/lib/core/option.py" afterPath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/lib/core/option.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/lib/core/optiondict.py" afterPath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/lib/core/optiondict.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/lib/core/profiling.py" afterPath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/lib/core/profiling.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/lib/core/readlineng.py" afterPath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/lib/core/readlineng.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/lib/core/replication.py" afterPath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/lib/core/replication.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/lib/core/revision.py" afterPath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/lib/core/revision.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/lib/core/session.py" afterPath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/lib/core/session.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/lib/core/settings.py" afterPath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/lib/core/settings.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/lib/core/shell.py" afterPath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/lib/core/shell.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/lib/core/subprocessng.py" afterPath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/lib/core/subprocessng.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/lib/core/target.py" afterPath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/lib/core/target.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/lib/core/testing.py" afterPath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/lib/core/testing.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/lib/core/threads.py" afterPath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/lib/core/threads.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/lib/core/unescaper.py" afterPath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/lib/core/unescaper.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/lib/core/update.py" afterPath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/lib/core/update.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/lib/core/wordlist.py" afterPath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/lib/core/wordlist.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/lib/parse/__init__.py" afterPath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/lib/parse/__init__.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/lib/parse/banner.py" afterPath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/lib/parse/banner.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/lib/parse/cmdline.py" afterPath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/lib/parse/cmdline.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/lib/parse/configfile.py" afterPath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/lib/parse/configfile.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/lib/parse/handler.py" afterPath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/lib/parse/handler.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/lib/parse/headers.py" afterPath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/lib/parse/headers.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/lib/parse/html.py" afterPath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/lib/parse/html.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/lib/parse/payloads.py" afterPath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/lib/parse/payloads.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/lib/parse/sitemap.py" afterPath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/lib/parse/sitemap.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/lib/request/__init__.py" afterPath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/lib/request/__init__.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/lib/request/basic.py" afterPath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/lib/request/basic.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/lib/request/basicauthhandler.py" afterPath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/lib/request/basicauthhandler.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/lib/request/comparison.py" afterPath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/lib/request/comparison.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/lib/request/connect.py" afterPath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/lib/request/connect.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/lib/request/direct.py" afterPath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/lib/request/direct.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/lib/request/dns.py" afterPath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/lib/request/dns.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/lib/request/httpshandler.py" afterPath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/lib/request/httpshandler.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/lib/request/inject.py" afterPath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/lib/request/inject.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/lib/request/methodrequest.py" afterPath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/lib/request/methodrequest.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/lib/request/pkihandler.py" afterPath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/lib/request/pkihandler.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/lib/request/rangehandler.py" afterPath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/lib/request/rangehandler.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/lib/request/redirecthandler.py" afterPath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/lib/request/redirecthandler.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/lib/request/templates.py" afterPath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/lib/request/templates.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/lib/takeover/__init__.py" afterPath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/lib/takeover/__init__.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/lib/takeover/abstraction.py" afterPath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/lib/takeover/abstraction.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/lib/takeover/icmpsh.py" afterPath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/lib/takeover/icmpsh.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/lib/takeover/metasploit.py" afterPath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/lib/takeover/metasploit.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/lib/takeover/registry.py" afterPath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/lib/takeover/registry.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/lib/takeover/udf.py" afterPath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/lib/takeover/udf.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/lib/takeover/web.py" afterPath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/lib/takeover/web.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/lib/takeover/xp_cmdshell.py" afterPath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/lib/takeover/xp_cmdshell.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/lib/techniques/__init__.py" afterPath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/lib/techniques/__init__.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/lib/techniques/blind/__init__.py" afterPath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/lib/techniques/blind/__init__.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/lib/techniques/blind/inference.py" afterPath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/lib/techniques/blind/inference.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/lib/techniques/brute/__init__.py" afterPath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/lib/techniques/brute/__init__.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/lib/techniques/brute/use.py" afterPath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/lib/techniques/brute/use.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/lib/techniques/dns/__init__.py" afterPath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/lib/techniques/dns/__init__.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/lib/techniques/dns/test.py" afterPath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/lib/techniques/dns/test.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/lib/techniques/dns/use.py" afterPath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/lib/techniques/dns/use.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/lib/techniques/error/__init__.py" afterPath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/lib/techniques/error/__init__.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/lib/techniques/error/use.py" afterPath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/lib/techniques/error/use.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/lib/techniques/union/__init__.py" afterPath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/lib/techniques/union/__init__.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/lib/techniques/union/test.py" afterPath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/lib/techniques/union/test.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/lib/techniques/union/use.py" afterPath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/lib/techniques/union/use.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/lib/utils/__init__.py" afterPath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/lib/utils/__init__.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/lib/utils/api.py" afterPath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/lib/utils/api.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/lib/utils/crawler.py" afterPath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/lib/utils/crawler.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/lib/utils/deps.py" afterPath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/lib/utils/deps.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/lib/utils/getch.py" afterPath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/lib/utils/getch.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/lib/utils/hash.py" afterPath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/lib/utils/hash.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/lib/utils/hashdb.py" afterPath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/lib/utils/hashdb.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/lib/utils/htmlentities.py" afterPath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/lib/utils/htmlentities.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/lib/utils/pivotdumptable.py" afterPath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/lib/utils/pivotdumptable.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/lib/utils/progress.py" afterPath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/lib/utils/progress.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/lib/utils/purge.py" afterPath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/lib/utils/purge.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/lib/utils/search.py" afterPath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/lib/utils/search.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/lib/utils/sqlalchemy.py" afterPath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/lib/utils/sqlalchemy.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/lib/utils/timeout.py" afterPath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/lib/utils/timeout.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/lib/utils/versioncheck.py" afterPath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/lib/utils/versioncheck.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/lib/utils/xrange.py" afterPath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/lib/utils/xrange.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/plugins/__init__.py" afterPath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/plugins/__init__.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/plugins/dbms/__init__.py" afterPath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/plugins/dbms/__init__.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/plugins/dbms/access/__init__.py" afterPath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/plugins/dbms/access/__init__.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/plugins/dbms/access/connector.py" afterPath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/plugins/dbms/access/connector.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/plugins/dbms/access/enumeration.py" afterPath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/plugins/dbms/access/enumeration.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/plugins/dbms/access/filesystem.py" afterPath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/plugins/dbms/access/filesystem.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/plugins/dbms/access/fingerprint.py" afterPath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/plugins/dbms/access/fingerprint.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/plugins/dbms/access/syntax.py" afterPath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/plugins/dbms/access/syntax.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/plugins/dbms/access/takeover.py" afterPath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/plugins/dbms/access/takeover.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/plugins/dbms/db2/__init__.py" afterPath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/plugins/dbms/db2/__init__.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/plugins/dbms/db2/connector.py" afterPath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/plugins/dbms/db2/connector.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/plugins/dbms/db2/enumeration.py" afterPath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/plugins/dbms/db2/enumeration.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/plugins/dbms/db2/filesystem.py" afterPath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/plugins/dbms/db2/filesystem.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/plugins/dbms/db2/fingerprint.py" afterPath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/plugins/dbms/db2/fingerprint.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/plugins/dbms/db2/syntax.py" afterPath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/plugins/dbms/db2/syntax.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/plugins/dbms/db2/takeover.py" afterPath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/plugins/dbms/db2/takeover.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/plugins/dbms/firebird/__init__.py" afterPath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/plugins/dbms/firebird/__init__.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/plugins/dbms/firebird/connector.py" afterPath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/plugins/dbms/firebird/connector.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/plugins/dbms/firebird/enumeration.py" afterPath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/plugins/dbms/firebird/enumeration.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/plugins/dbms/firebird/filesystem.py" afterPath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/plugins/dbms/firebird/filesystem.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/plugins/dbms/firebird/fingerprint.py" afterPath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/plugins/dbms/firebird/fingerprint.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/plugins/dbms/firebird/syntax.py" afterPath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/plugins/dbms/firebird/syntax.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/plugins/dbms/firebird/takeover.py" afterPath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/plugins/dbms/firebird/takeover.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/plugins/dbms/hsqldb/__init__.py" afterPath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/plugins/dbms/hsqldb/__init__.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/plugins/dbms/hsqldb/connector.py" afterPath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/plugins/dbms/hsqldb/connector.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/plugins/dbms/hsqldb/enumeration.py" afterPath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/plugins/dbms/hsqldb/enumeration.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/plugins/dbms/hsqldb/filesystem.py" afterPath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/plugins/dbms/hsqldb/filesystem.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/plugins/dbms/hsqldb/fingerprint.py" afterPath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/plugins/dbms/hsqldb/fingerprint.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/plugins/dbms/hsqldb/syntax.py" afterPath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/plugins/dbms/hsqldb/syntax.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/plugins/dbms/hsqldb/takeover.py" afterPath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/plugins/dbms/hsqldb/takeover.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/plugins/dbms/informix/__init__.py" afterPath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/plugins/dbms/informix/__init__.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/plugins/dbms/informix/connector.py" afterPath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/plugins/dbms/informix/connector.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/plugins/dbms/informix/enumeration.py" afterPath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/plugins/dbms/informix/enumeration.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/plugins/dbms/informix/filesystem.py" afterPath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/plugins/dbms/informix/filesystem.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/plugins/dbms/informix/fingerprint.py" afterPath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/plugins/dbms/informix/fingerprint.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/plugins/dbms/informix/syntax.py" afterPath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/plugins/dbms/informix/syntax.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/plugins/dbms/informix/takeover.py" afterPath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/plugins/dbms/informix/takeover.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/plugins/dbms/maxdb/__init__.py" afterPath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/plugins/dbms/maxdb/__init__.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/plugins/dbms/maxdb/connector.py" afterPath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/plugins/dbms/maxdb/connector.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/plugins/dbms/maxdb/enumeration.py" afterPath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/plugins/dbms/maxdb/enumeration.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/plugins/dbms/maxdb/filesystem.py" afterPath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/plugins/dbms/maxdb/filesystem.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/plugins/dbms/maxdb/fingerprint.py" afterPath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/plugins/dbms/maxdb/fingerprint.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/plugins/dbms/maxdb/syntax.py" afterPath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/plugins/dbms/maxdb/syntax.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/plugins/dbms/maxdb/takeover.py" afterPath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/plugins/dbms/maxdb/takeover.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/plugins/dbms/mssqlserver/__init__.py" afterPath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/plugins/dbms/mssqlserver/__init__.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/plugins/dbms/mssqlserver/connector.py" afterPath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/plugins/dbms/mssqlserver/connector.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/plugins/dbms/mssqlserver/enumeration.py" afterPath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/plugins/dbms/mssqlserver/enumeration.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/plugins/dbms/mssqlserver/filesystem.py" afterPath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/plugins/dbms/mssqlserver/filesystem.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/plugins/dbms/mssqlserver/fingerprint.py" afterPath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/plugins/dbms/mssqlserver/fingerprint.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/plugins/dbms/mssqlserver/syntax.py" afterPath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/plugins/dbms/mssqlserver/syntax.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/plugins/dbms/mssqlserver/takeover.py" afterPath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/plugins/dbms/mssqlserver/takeover.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/plugins/dbms/mysql/__init__.py" afterPath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/plugins/dbms/mysql/__init__.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/plugins/dbms/mysql/connector.py" afterPath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/plugins/dbms/mysql/connector.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/plugins/dbms/mysql/enumeration.py" afterPath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/plugins/dbms/mysql/enumeration.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/plugins/dbms/mysql/filesystem.py" afterPath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/plugins/dbms/mysql/filesystem.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/plugins/dbms/mysql/fingerprint.py" afterPath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/plugins/dbms/mysql/fingerprint.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/plugins/dbms/mysql/syntax.py" afterPath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/plugins/dbms/mysql/syntax.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/plugins/dbms/mysql/takeover.py" afterPath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/plugins/dbms/mysql/takeover.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/plugins/dbms/oracle/__init__.py" afterPath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/plugins/dbms/oracle/__init__.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/plugins/dbms/oracle/connector.py" afterPath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/plugins/dbms/oracle/connector.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/plugins/dbms/oracle/enumeration.py" afterPath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/plugins/dbms/oracle/enumeration.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/plugins/dbms/oracle/filesystem.py" afterPath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/plugins/dbms/oracle/filesystem.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/plugins/dbms/oracle/fingerprint.py" afterPath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/plugins/dbms/oracle/fingerprint.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/plugins/dbms/oracle/syntax.py" afterPath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/plugins/dbms/oracle/syntax.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/plugins/dbms/oracle/takeover.py" afterPath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/plugins/dbms/oracle/takeover.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/plugins/dbms/postgresql/__init__.py" afterPath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/plugins/dbms/postgresql/__init__.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/plugins/dbms/postgresql/connector.py" afterPath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/plugins/dbms/postgresql/connector.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/plugins/dbms/postgresql/enumeration.py" afterPath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/plugins/dbms/postgresql/enumeration.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/plugins/dbms/postgresql/filesystem.py" afterPath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/plugins/dbms/postgresql/filesystem.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/plugins/dbms/postgresql/fingerprint.py" afterPath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/plugins/dbms/postgresql/fingerprint.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/plugins/dbms/postgresql/syntax.py" afterPath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/plugins/dbms/postgresql/syntax.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/plugins/dbms/postgresql/takeover.py" afterPath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/plugins/dbms/postgresql/takeover.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/plugins/dbms/sqlite/__init__.py" afterPath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/plugins/dbms/sqlite/__init__.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/plugins/dbms/sqlite/connector.py" afterPath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/plugins/dbms/sqlite/connector.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/plugins/dbms/sqlite/enumeration.py" afterPath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/plugins/dbms/sqlite/enumeration.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/plugins/dbms/sqlite/filesystem.py" afterPath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/plugins/dbms/sqlite/filesystem.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/plugins/dbms/sqlite/fingerprint.py" afterPath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/plugins/dbms/sqlite/fingerprint.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/plugins/dbms/sqlite/syntax.py" afterPath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/plugins/dbms/sqlite/syntax.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/plugins/dbms/sqlite/takeover.py" afterPath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/plugins/dbms/sqlite/takeover.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/plugins/dbms/sybase/__init__.py" afterPath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/plugins/dbms/sybase/__init__.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/plugins/dbms/sybase/connector.py" afterPath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/plugins/dbms/sybase/connector.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/plugins/dbms/sybase/enumeration.py" afterPath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/plugins/dbms/sybase/enumeration.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/plugins/dbms/sybase/filesystem.py" afterPath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/plugins/dbms/sybase/filesystem.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/plugins/dbms/sybase/fingerprint.py" afterPath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/plugins/dbms/sybase/fingerprint.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/plugins/dbms/sybase/syntax.py" afterPath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/plugins/dbms/sybase/syntax.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/plugins/dbms/sybase/takeover.py" afterPath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/plugins/dbms/sybase/takeover.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/plugins/generic/__init__.py" afterPath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/plugins/generic/__init__.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/plugins/generic/connector.py" afterPath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/plugins/generic/connector.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/plugins/generic/custom.py" afterPath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/plugins/generic/custom.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/plugins/generic/databases.py" afterPath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/plugins/generic/databases.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/plugins/generic/entries.py" afterPath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/plugins/generic/entries.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/plugins/generic/enumeration.py" afterPath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/plugins/generic/enumeration.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/plugins/generic/filesystem.py" afterPath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/plugins/generic/filesystem.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/plugins/generic/fingerprint.py" afterPath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/plugins/generic/fingerprint.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/plugins/generic/misc.py" afterPath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/plugins/generic/misc.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/plugins/generic/search.py" afterPath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/plugins/generic/search.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/plugins/generic/syntax.py" afterPath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/plugins/generic/syntax.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/plugins/generic/takeover.py" afterPath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/plugins/generic/takeover.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/plugins/generic/users.py" afterPath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/plugins/generic/users.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/sqlmap.conf" afterPath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/sqlmap.conf" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/sqlmap.py" afterPath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/sqlmap.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/sqlmapapi.py" afterPath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/sqlmapapi.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/tamper/__init__.py" afterPath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/tamper/__init__.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/tamper/apostrophemask.py" afterPath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/tamper/apostrophemask.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/tamper/apostrophenullencode.py" afterPath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/tamper/apostrophenullencode.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/tamper/appendnullbyte.py" afterPath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/tamper/appendnullbyte.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/tamper/base64encode.py" afterPath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/tamper/base64encode.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/tamper/between.py" afterPath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/tamper/between.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/tamper/bluecoat.py" afterPath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/tamper/bluecoat.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/tamper/chardoubleencode.py" afterPath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/tamper/chardoubleencode.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/tamper/charencode.py" afterPath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/tamper/charencode.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/tamper/charunicodeencode.py" afterPath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/tamper/charunicodeencode.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/tamper/commalesslimit.py" afterPath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/tamper/commalesslimit.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/tamper/commalessmid.py" afterPath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/tamper/commalessmid.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/tamper/concat2concatws.py" afterPath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/tamper/concat2concatws.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/tamper/equaltolike.py" afterPath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/tamper/equaltolike.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/tamper/escapequotes.py" afterPath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/tamper/escapequotes.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/tamper/greatest.py" afterPath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/tamper/greatest.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/tamper/halfversionedmorekeywords.py" afterPath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/tamper/halfversionedmorekeywords.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/tamper/htmlencode.py" afterPath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/tamper/htmlencode.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/tamper/ifnull2ifisnull.py" afterPath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/tamper/ifnull2ifisnull.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/tamper/informationschemacomment.py" afterPath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/tamper/informationschemacomment.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/tamper/lowercase.py" afterPath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/tamper/lowercase.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/tamper/modsecurityversioned.py" afterPath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/tamper/modsecurityversioned.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/tamper/modsecurityzeroversioned.py" afterPath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/tamper/modsecurityzeroversioned.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/tamper/multiplespaces.py" afterPath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/tamper/multiplespaces.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/tamper/nonrecursivereplacement.py" afterPath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/tamper/nonrecursivereplacement.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/tamper/overlongutf8.py" afterPath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/tamper/overlongutf8.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/tamper/percentage.py" afterPath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/tamper/percentage.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/tamper/plus2concat.py" afterPath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/tamper/plus2concat.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/tamper/randomcase.py" afterPath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/tamper/randomcase.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/tamper/randomcomments.py" afterPath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/tamper/randomcomments.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/tamper/securesphere.py" afterPath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/tamper/securesphere.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/tamper/sp_password.py" afterPath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/tamper/sp_password.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/tamper/space2comment.py" afterPath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/tamper/space2comment.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/tamper/space2dash.py" afterPath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/tamper/space2dash.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/tamper/space2hash.py" afterPath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/tamper/space2hash.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/tamper/space2morehash.py" afterPath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/tamper/space2morehash.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/tamper/space2mssqlblank.py" afterPath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/tamper/space2mssqlblank.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/tamper/space2mssqlhash.py" afterPath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/tamper/space2mssqlhash.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/tamper/space2mysqlblank.py" afterPath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/tamper/space2mysqlblank.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/tamper/space2mysqldash.py" afterPath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/tamper/space2mysqldash.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/tamper/space2plus.py" afterPath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/tamper/space2plus.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/tamper/space2randomblank.py" afterPath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/tamper/space2randomblank.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/tamper/symboliclogical.py" afterPath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/tamper/symboliclogical.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/tamper/unionalltounion.py" afterPath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/tamper/unionalltounion.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/tamper/unmagicquotes.py" afterPath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/tamper/unmagicquotes.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/tamper/uppercase.py" afterPath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/tamper/uppercase.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/tamper/varnish.py" afterPath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/tamper/varnish.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/tamper/versionedkeywords.py" afterPath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/tamper/versionedkeywords.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/tamper/versionedmorekeywords.py" afterPath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/tamper/versionedmorekeywords.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/tamper/xforwardedfor.py" afterPath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/tamper/xforwardedfor.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/txt/checksum.md5" afterPath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/txt/checksum.md5" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/txt/common-columns.txt" afterPath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/txt/common-columns.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/txt/common-outputs.txt" afterPath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/txt/common-outputs.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/txt/common-tables.txt" afterPath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/txt/common-tables.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/txt/keywords.txt" afterPath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/txt/keywords.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/txt/user-agents.txt" afterPath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/txt/user-agents.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/waf/360.py" afterPath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/waf/360.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/waf/__init__.py" afterPath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/waf/__init__.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/waf/airlock.py" afterPath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/waf/airlock.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/waf/anquanbao.py" afterPath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/waf/anquanbao.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/waf/armor.py" afterPath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/waf/armor.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/waf/aws.py" afterPath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/waf/aws.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/waf/baidu.py" afterPath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/waf/baidu.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/waf/barracuda.py" afterPath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/waf/barracuda.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/waf/bigip.py" afterPath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/waf/bigip.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/waf/binarysec.py" afterPath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/waf/binarysec.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/waf/blockdos.py" afterPath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/waf/blockdos.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/waf/ciscoacexml.py" afterPath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/waf/ciscoacexml.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/waf/cloudflare.py" afterPath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/waf/cloudflare.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/waf/cloudfront.py" afterPath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/waf/cloudfront.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/waf/comodo.py" afterPath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/waf/comodo.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/waf/datapower.py" afterPath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/waf/datapower.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/waf/denyall.py" afterPath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/waf/denyall.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/waf/dotdefender.py" afterPath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/waf/dotdefender.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/waf/edgecast.py" afterPath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/waf/edgecast.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/waf/expressionengine.py" afterPath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/waf/expressionengine.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/waf/fortiweb.py" afterPath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/waf/fortiweb.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/waf/generic.py" afterPath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/waf/generic.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/waf/hyperguard.py" afterPath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/waf/hyperguard.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/waf/incapsula.py" afterPath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/waf/incapsula.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/waf/isaserver.py" afterPath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/waf/isaserver.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/waf/jiasule.py" afterPath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/waf/jiasule.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/waf/knownsec.py" afterPath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/waf/knownsec.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/waf/kona.py" afterPath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/waf/kona.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/waf/modsecurity.py" afterPath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/waf/modsecurity.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/waf/netcontinuum.py" afterPath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/waf/netcontinuum.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/waf/netscaler.py" afterPath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/waf/netscaler.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/waf/newdefend.py" afterPath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/waf/newdefend.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/waf/nsfocus.py" afterPath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/waf/nsfocus.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/waf/paloalto.py" afterPath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/waf/paloalto.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/waf/profense.py" afterPath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/waf/profense.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/waf/proventia.py" afterPath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/waf/proventia.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/waf/radware.py" afterPath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/waf/radware.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/waf/requestvalidationmode.py" afterPath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/waf/requestvalidationmode.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/waf/safe3.py" afterPath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/waf/safe3.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/waf/safedog.py" afterPath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/waf/safedog.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/waf/secureiis.py" afterPath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/waf/secureiis.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/waf/senginx.py" afterPath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/waf/senginx.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/waf/sitelock.py" afterPath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/waf/sitelock.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/waf/sonicwall.py" afterPath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/waf/sonicwall.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/waf/sophos.py" afterPath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/waf/sophos.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/waf/stingray.py" afterPath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/waf/stingray.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/waf/sucuri.py" afterPath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/waf/sucuri.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/waf/teros.py" afterPath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/waf/teros.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/waf/trafficshield.py" afterPath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/waf/trafficshield.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/waf/urlscan.py" afterPath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/waf/urlscan.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/waf/uspses.py" afterPath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/waf/uspses.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/waf/varnish.py" afterPath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/waf/varnish.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/waf/wallarm.py" afterPath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/waf/wallarm.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/waf/webappsecure.py" afterPath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/waf/webappsecure.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/waf/webknight.py" afterPath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/waf/webknight.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/waf/yundun.py" afterPath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/waf/yundun.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/waf/yunsuo.py" afterPath="$PROJECT_DIR$/lib/modules/core/tools/thirdparty/sqlmap/waf/yunsuo.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/whitewidow.rb" afterPath="$PROJECT_DIR$/whitewidow.rb" />
     </list>
     <ignored path="whitewidow.iws" />
@@ -36,75 +367,12 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name="whitewidow.rb" pinned="false" current-in-tab="true">
+      <file leaf-file-name="whitewidow.rb" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/whitewidow.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="150" column="48" lean-forward="false" selection-start-line="150" selection-start-column="48" selection-end-line="150" selection-end-column="48" />
+            <state relative-caret-position="3196">
+              <caret line="188" column="0" lean-forward="false" selection-start-line="188" selection-start-column="0" selection-end-line="188" selection-end-column="0" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="scanner.rb" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/lib/whitewidow/scanner.rb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="221">
-              <caret line="94" column="17" lean-forward="false" selection-start-line="94" selection-start-column="17" selection-end-line="94" selection-end-column="17" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="spec_helper.rb" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/spec/spec_helper.rb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="221">
-              <caret line="19" column="0" lean-forward="false" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="file_helper_spec.rb" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/spec/helpers/file_helper_spec.rb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-102">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="format.rb" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/lib/modules/core/format.rb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="85">
-              <caret line="20" column="20" lean-forward="false" selection-start-line="20" selection-start-column="20" selection-end-line="20" selection-end-column="20" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="error_log.LOG" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/log/log_files/error_log.LOG">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ISSUE_TEMPLATE.md" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/.github/ISSUE_TEMPLATE.md">
-          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-            <state split_layout="SPLIT">
-              <first_editor relative-caret-position="136">
-                <caret line="8" column="0" lean-forward="true" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
-                <folding />
-              </first_editor>
-              <second_editor />
             </state>
           </provider>
         </entry>
@@ -112,19 +380,19 @@
       <file leaf-file-name="banner.rb" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/lib/misc/banner.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="323">
-              <caret line="28" column="16" lean-forward="false" selection-start-line="28" selection-start-column="16" selection-end-line="28" selection-end-column="16" />
+            <state relative-caret-position="272">
+              <caret line="28" column="13" lean-forward="false" selection-start-line="28" selection-start-column="13" selection-end-line="28" selection-end-column="13" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CHANGELOG.md" pinned="false" current-in-tab="false">
+      <file leaf-file-name="CHANGELOG.md" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/docs/CHANGELOG.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
-              <first_editor relative-caret-position="221">
-                <caret line="13" column="23" lean-forward="false" selection-start-line="13" selection-start-column="23" selection-end-line="13" selection-end-column="23" />
+              <first_editor relative-caret-position="34">
+                <caret line="2" column="23" lean-forward="false" selection-start-line="2" selection-start-column="23" selection-end-line="2" selection-end-column="23" />
                 <folding />
               </first_editor>
               <second_editor />
@@ -132,11 +400,41 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="non_exploitable.txt" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/log/non_exploitable.txt">
+      <file leaf-file-name="settings.rb" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/lib/modules/core/settings.rb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="2278">
+              <caret line="134" column="5" lean-forward="false" selection-start-line="134" selection-start-column="5" selection-end-line="134" selection-end-column="5" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SQL_sites_to_check.txt" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/tmp/tmp_logs/SQL_sites_to_check.txt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="357">
+              <caret line="21" column="0" lean-forward="false" selection-start-line="21" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="blackwidow_log.txt" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/tmp/tmp_logs/blackwidow_log.txt">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="0">
               <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="constants_and_requires.rb" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/lib/imports/constants_and_requires.rb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="2720">
+              <caret line="160" column="18" lean-forward="false" selection-start-line="160" selection-start-column="18" selection-end-line="160" selection-end-column="18" />
               <folding />
             </state>
           </provider>
@@ -146,9 +444,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>/</find>
-      <find>inurl:inurl</find>
-      <find>“</find>
       <find>”</find>
       <find>CREATE_ISSUE</find>
       <find>http://www.enidblytonsociety.co.uk/magazine-details.php?magid=445</find>
@@ -176,6 +471,9 @@
       <find>HELPER</find>
       <find>SQL_VULN</find>
       <find>Platfo</find>
+      <find>log</find>
+      <find>COLUMN_NAME</find>
+      <find>SETTINGS</find>
     </findStrings>
     <replaceStrings>
       <replace>inurl:/</replace>
@@ -195,8 +493,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/tmp/blackwidow_log.txt" />
-        <option value="$PROJECT_DIR$/spec/spec_helper.rb" />
         <option value="$PROJECT_DIR$/spec/fixtures/vcr_cassettes/google_search.yml" />
         <option value="$PROJECT_DIR$/lib/modules/expansion/string_expan.rb" />
         <option value="$PROJECT_DIR$/lib/lists/fixed.txt" />
@@ -230,22 +526,24 @@
         <option value="$PROJECT_DIR$/lib/modules/not_implemented_yet/country_specs.rb" />
         <option value="$PROJECT_DIR$/log/non_exploitable.txt" />
         <option value="$PROJECT_DIR$/log/error_log.LOG" />
-        <option value="$PROJECT_DIR$/lib/modules/core/settings.rb" />
         <option value="$PROJECT_DIR$/log/SQL_VULN.LOG" />
         <option value="$PROJECT_DIR$/lib/lists/default_sqlmap_config.txt" />
         <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/lib/modules/core/tools/site_info.rb" />
         <option value="$PROJECT_DIR$/lib/modules/core/tools/country_specs.rb" />
-        <option value="$PROJECT_DIR$/lib/imports/constants_and_requires.rb" />
         <option value="$PROJECT_DIR$/tmp/last_sqlmap_request" />
         <option value="$PROJECT_DIR$/spec/whitewidow/scanner_spec.rb" />
-        <option value="$PROJECT_DIR$/lib/misc/banner.rb" />
-        <option value="$PROJECT_DIR$/docs/CHANGELOG.md" />
         <option value="$PROJECT_DIR$/lib/modules/core/format.rb" />
         <option value="$PROJECT_DIR$/lib/whitewidow/scanner.rb" />
         <option value="$PROJECT_DIR$/log/log_files/error_log.LOG" />
         <option value="$PROJECT_DIR$/.github/ISSUE_TEMPLATE.md" />
+        <option value="$PROJECT_DIR$/tmp/tmp_logs/SQL_sites_to_check.txt" />
+        <option value="$PROJECT_DIR$/lib/modules/core/term.rb" />
         <option value="$PROJECT_DIR$/whitewidow.rb" />
+        <option value="$PROJECT_DIR$/lib/imports/constants_and_requires.rb" />
+        <option value="$PROJECT_DIR$/lib/modules/core/settings.rb" />
+        <option value="$PROJECT_DIR$/lib/misc/banner.rb" />
+        <option value="$PROJECT_DIR$/docs/CHANGELOG.md" />
       </list>
     </option>
   </component>
@@ -256,10 +554,10 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-4" />
-    <option name="y" value="-4" />
-    <option name="width" value="1448" />
-    <option name="height" value="864" />
+    <option name="x" value="1436" />
+    <option name="y" value="-198" />
+    <option name="width" value="908" />
+    <option name="height" value="1448" />
   </component>
   <component name="ProjectView">
     <navigator currentView="ProjectPane" proportions="" version="1">
@@ -276,6 +574,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -298,7 +597,25 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="log" />
+              <option name="myItemId" value="tmp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="whitewidow" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="whitewidow" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tmp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tmp_logs" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -315,8 +632,18 @@
               <option name="myItemId" value="log" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
+          </PATH>
+          <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="log_files" />
+              <option name="myItemId" value="whitewidow" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="whitewidow" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="lib" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -330,14 +657,49 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value=".github" />
+              <option name="myItemId" value="lib" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="misc" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="whitewidow" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="whitewidow" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="lib" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="imports" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="whitewidow" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="whitewidow" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="docs" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
       <pane id="Scope" />
-      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -347,6 +709,7 @@
     <property name="js-jscs-nodeInterpreter" value="C:\Program Files\nodejs\node.exe" />
     <property name="prop_add_unversioned_files" value="true" />
     <property name="js.eslint.eslintPackage" value="" />
+    <property name="com.intellij.database.dataSource.DataSourceTemplate" value="MySQL" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -545,12 +908,15 @@
       <workItem from="1482845064211" duration="3196000" />
       <workItem from="1482851539495" duration="53275000" />
       <workItem from="1483032543217" duration="260000" />
-      <workItem from="1483032823651" duration="30727000" />
+      <workItem from="1483032823651" duration="34390000" />
+      <workItem from="1483621110589" duration="14000" />
+      <workItem from="1485182963990" duration="713000" />
+      <workItem from="1485185169828" duration="118000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="281278000" />
+    <option name="totallyTimeSpent" value="285786000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -562,27 +928,27 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-4" y="-4" width="1448" height="864" extended-state="6" />
+    <frame x="1436" y="-198" width="908" height="1448" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1991404" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19859813" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.22438392" sideWeight="0.5078684" order="4" side_tool="true" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3296875" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32729626" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295129" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32988358" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32858992" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.38680467" sideWeight="0.49213162" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20560059" sideWeight="0.49213162" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39915523" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32858992" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Thumbnails" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3294423" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32729626" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39915523" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -627,8 +993,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/tmp/issues/5iUt312.txt" />
-    <entry file="file://$PROJECT_DIR$/tmp/issues/6FGKn8V.txt" />
     <entry file="file://$PROJECT_DIR$/tmp/issues/GbWfBza.txt" />
     <entry file="file://$PROJECT_DIR$/tmp/issues/HYAuEPa.txt" />
     <entry file="file://$PROJECT_DIR$/tmp/issues/TRZFZhy.txt" />
@@ -645,18 +1009,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="527">
           <caret line="31" column="9" lean-forward="false" selection-start-line="31" selection-start-column="9" selection-end-line="31" selection-end-column="9" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lib/modules/core/GeoIPCountry.csv">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="80">
-          <caret line="131661" column="0" lean-forward="false" selection-start-line="131661" selection-start-column="0" selection-end-line="131667" selection-end-column="78" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/modules/core/GeoIPCountry.csv" />
     <entry file="file://$PROJECT_DIR$/Gemfile">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
@@ -669,87 +1025,27 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="425">
           <caret line="76" column="0" lean-forward="false" selection-start-line="76" selection-start-column="0" selection-end-line="76" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lib/lists/info/user_data.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="1" column="0" lean-forward="false" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/modules/core/init.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/modules/not_implemented_yet/sqlmap_config_helper.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="12" column="0" lean-forward="false" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/lists/info/user_data.yml" />
+    <entry file="file://$PROJECT_DIR$/lib/modules/core/init.rb" />
     <entry file="file://$PROJECT_DIR$/lib/lists/GeoIPCountry.csv">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="357">
           <caret line="21" column="11" lean-forward="false" selection-start-line="21" selection-start-column="11" selection-end-line="21" selection-end-column="22" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tmp/issues/ZIgrmRu.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tmp/issues/ZjupfjS.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tmp/issues/zBxzvuH.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tmp/issues/wPk7HgG.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tmp/issues/htgMm5f.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/tmp/issues/ZIgrmRu.txt" />
+    <entry file="file://$PROJECT_DIR$/tmp/issues/ZjupfjS.txt" />
+    <entry file="file://$PROJECT_DIR$/tmp/issues/zBxzvuH.txt" />
+    <entry file="file://$PROJECT_DIR$/tmp/issues/wPk7HgG.txt" />
+    <entry file="file://$PROJECT_DIR$/tmp/issues/htgMm5f.txt" />
     <entry file="file://$PROJECT_DIR$/log/default_sqlmap_config.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="5" lean-forward="false" selection-start-line="0" selection-start-column="5" selection-end-line="0" selection-end-column="5" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -757,15 +1053,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/modules/core/settings.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="782">
-          <caret line="46" column="80" lean-forward="false" selection-start-line="46" selection-start-column="80" selection-end-line="46" selection-end-column="80" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -774,7 +1061,6 @@
         <state split_layout="SPLIT">
           <first_editor relative-caret-position="340">
             <caret line="20" column="70" lean-forward="false" selection-start-line="20" selection-start-column="70" selection-end-line="20" selection-end-column="70" />
-            <folding />
           </first_editor>
           <second_editor />
         </state>
@@ -784,23 +1070,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tmp/issues/38EzfSl.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/tmp/issues/38EzfSl.txt" />
     <entry file="file://$PROJECT_DIR$/lib/modules/core/detection.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -808,7 +1085,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="340">
           <caret line="20" column="0" lean-forward="false" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -816,7 +1092,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="21" lean-forward="false" selection-start-line="0" selection-start-column="21" selection-end-line="0" selection-end-column="21" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -824,15 +1099,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="204">
           <caret line="12" column="8" lean-forward="false" selection-start-line="12" selection-start-column="8" selection-end-line="12" selection-end-column="8" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/imports/constants_and_requires.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="46" column="0" lean-forward="false" selection-start-line="46" selection-start-column="0" selection-end-line="46" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -840,7 +1106,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -848,7 +1113,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -856,15 +1120,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tmp/tmp_logs/SQL_sites_to_check.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -872,7 +1127,75 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/spec/spec_helper.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="19" column="0" lean-forward="false" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/spec/fixtures/vcr_cassettes/google_search.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/spec/helpers/file_helper_spec.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-102">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/spec/whitewidow/scanner_spec.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1411">
+          <caret line="83" column="0" lean-forward="true" selection-start-line="83" selection-start-column="0" selection-end-line="83" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/whitewidow/scanner.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="94" column="17" lean-forward="false" selection-start-line="94" selection-start-column="17" selection-end-line="94" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tmp/issues/I8kfRr6.txt" />
+    <entry file="file://$PROJECT_DIR$/tmp/issues/AdZL133.txt" />
+    <entry file="file://$PROJECT_DIR$/log/log_files/error_log.LOG">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.github/ISSUE_TEMPLATE.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="136">
+            <caret line="8" column="0" lean-forward="false" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/modules/not_implemented_yet/sqlmap_config_helper.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="12" column="0" lean-forward="true" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tmp/issues/Ct72YVg.txt" />
+    <entry file="file://$PROJECT_DIR$/lib/modules/core/format.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="20" column="20" lean-forward="false" selection-start-line="20" selection-start-column="20" selection-end-line="20" selection-end-column="20" />
         </state>
       </provider>
     </entry>
@@ -884,42 +1207,43 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/spec/spec_helper.rb">
+    <entry file="file://$PROJECT_DIR$/tmp/tmp_logs/SQL_sites_to_check.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="19" column="0" lean-forward="false" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
+        <state relative-caret-position="357">
+          <caret line="21" column="0" lean-forward="false" selection-start-line="21" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/spec/fixtures/vcr_cassettes/google_search.yml">
+    <entry file="file://$PROJECT_DIR$/lib/modules/core/term.rb" />
+    <entry file="file://$PROJECT_DIR$/lib/imports/constants_and_requires.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state relative-caret-position="2720">
+          <caret line="160" column="18" lean-forward="false" selection-start-line="160" selection-start-column="18" selection-end-line="160" selection-end-column="18" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/spec/helpers/file_helper_spec.rb">
+    <entry file="file://$PROJECT_DIR$/lib/modules/core/settings.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-102">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state relative-caret-position="2278">
+          <caret line="134" column="5" lean-forward="false" selection-start-line="134" selection-start-column="5" selection-end-line="134" selection-end-column="5" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/spec/whitewidow/scanner_spec.rb">
+    <entry file="file://$PROJECT_DIR$/whitewidow.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1411">
-          <caret line="83" column="0" lean-forward="true" selection-start-line="83" selection-start-column="0" selection-end-line="83" selection-end-column="0" />
+        <state relative-caret-position="3196">
+          <caret line="188" column="0" lean-forward="false" selection-start-line="188" selection-start-column="0" selection-end-line="188" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/lib/misc/banner.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="28" column="16" lean-forward="false" selection-start-line="28" selection-start-column="16" selection-end-line="28" selection-end-column="16" />
+        <state relative-caret-position="272">
+          <caret line="28" column="13" lean-forward="false" selection-start-line="28" selection-start-column="13" selection-end-line="28" selection-end-column="13" />
           <folding />
         </state>
       </provider>
@@ -927,70 +1251,11 @@
     <entry file="file://$PROJECT_DIR$/docs/CHANGELOG.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="221">
-            <caret line="13" column="23" lean-forward="false" selection-start-line="13" selection-start-column="23" selection-end-line="13" selection-end-column="23" />
+          <first_editor relative-caret-position="34">
+            <caret line="2" column="23" lean-forward="false" selection-start-line="2" selection-start-column="23" selection-end-line="2" selection-end-column="23" />
             <folding />
           </first_editor>
           <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/modules/core/format.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="20" column="20" lean-forward="false" selection-start-line="20" selection-start-column="20" selection-end-line="20" selection-end-column="20" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/whitewidow/scanner.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="94" column="17" lean-forward="false" selection-start-line="94" selection-start-column="17" selection-end-line="94" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tmp/issues/I8kfRr6.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tmp/issues/AdZL133.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/log/log_files/error_log.LOG">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.github/ISSUE_TEMPLATE.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="136">
-            <caret line="8" column="0" lean-forward="true" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
-            <folding />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/whitewidow.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="150" column="48" lean-forward="false" selection-start-line="150" selection-start-column="48" selection-end-line="150" selection-end-column="48" />
-          <folding />
         </state>
       </provider>
     </entry>

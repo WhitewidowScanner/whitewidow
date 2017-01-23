@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 
 """
-Copyright (c) 2006-2016 sqlmap developers (http://sqlmap.org/)
+Copyright (c) 2006-2017 sqlmap developers (http://sqlmap.org/)
 See the file 'doc/COPYING' for copying permission
 """
 
@@ -899,18 +899,22 @@ def _setTamperingFunctions():
 
             script = script.strip().encode(sys.getfilesystemencoding() or UNICODE_ENCODING)
 
-            if not script:
-                continue
+            try:
+                if not script:
+                    continue
 
-            elif os.path.exists(os.path.join(paths.SQLMAP_TAMPER_PATH, script if script.endswith(".py") else "%s.py" % script)):
-                script = os.path.join(paths.SQLMAP_TAMPER_PATH, script if script.endswith(".py") else "%s.py" % script)
+                elif os.path.exists(os.path.join(paths.SQLMAP_TAMPER_PATH, script if script.endswith(".py") else "%s.py" % script)):
+                    script = os.path.join(paths.SQLMAP_TAMPER_PATH, script if script.endswith(".py") else "%s.py" % script)
 
-            elif not os.path.exists(script):
-                errMsg = "tamper script '%s' does not exist" % script
-                raise SqlmapFilePathException(errMsg)
+                elif not os.path.exists(script):
+                    errMsg = "tamper script '%s' does not exist" % script
+                    raise SqlmapFilePathException(errMsg)
 
-            elif not script.endswith(".py"):
-                errMsg = "tamper script '%s' should have an extension '.py'" % script
+                elif not script.endswith(".py"):
+                    errMsg = "tamper script '%s' should have an extension '.py'" % script
+                    raise SqlmapSyntaxException(errMsg)
+            except UnicodeDecodeError:
+                errMsg = "invalid character provided in option '--tamper'"
                 raise SqlmapSyntaxException(errMsg)
 
             dirname, filename = os.path.split(script)
@@ -2226,10 +2230,19 @@ def _mergeOptions(inputOptions, overrideOptions):
 
     if inputOptions.pickledOptions:
         try:
-            inputOptions = base64unpickle(inputOptions.pickledOptions, unsafe=True)
-            if type(inputOptions) == dict:
-                inputOptions = AttribDict(inputOptions)
-            _normalizeOptions(inputOptions)
+            unpickledOptions = base64unpickle(inputOptions.pickledOptions, unsafe=True)
+
+            if type(unpickledOptions) == dict:
+                unpickledOptions = AttribDict(unpickledOptions)
+
+            _normalizeOptions(unpickledOptions)
+
+            unpickledOptions["pickledOptions"] = None
+            for key in inputOptions:
+                if key not in unpickledOptions:
+                    unpickledOptions[key] = inputOptions[key]
+
+            inputOptions = unpickledOptions
         except Exception, ex:
             errMsg = "provided invalid value '%s' for option '--pickled-options'" % inputOptions.pickledOptions
             errMsg += " (%s)" % repr(ex)
@@ -2473,14 +2486,14 @@ def _basicOptionValidation():
     if conf.regexp:
         try:
             re.compile(conf.regexp)
-        except re.error, ex:
+        except Exception, ex:
             errMsg = "invalid regular expression '%s' ('%s')" % (conf.regexp, getSafeExString(ex))
             raise SqlmapSyntaxException(errMsg)
 
     if conf.crawlExclude:
         try:
             re.compile(conf.crawlExclude)
-        except re.error, ex:
+        except Exception, ex:
             errMsg = "invalid regular expression '%s' ('%s')" % (conf.crawlExclude, getSafeExString(ex))
             raise SqlmapSyntaxException(errMsg)
 

@@ -1,3 +1,7 @@
+# Version 1.9.11.24
+- Updated sqlpmap
+- Bumped version number
+
 # Version 1.9.10.23
 - Moved some files into different directories to make the program much more organized
 - Bumped version number
