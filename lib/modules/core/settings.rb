@@ -154,7 +154,7 @@ module Settings
         FORMAT.info("Successfully updated to #{VERSION_STRING}")
         question = FORMAT.prompt('Update sqlmap?[y/N]')
         if question.downcase.start_with?('y')
-          Dir.chdir("#{PATH}/lib/modules/core/tools/sqlmap")  # Change to sqlmap
+          Dir.chdir("#{PATH}/lib/modules/core/tools/thirdparty/sqlmap")  # Change to sqlmap
           system('python sqlmap.py --update')
           Dir.chdir("#{PATH}")  # Change back to whitewidow
         end

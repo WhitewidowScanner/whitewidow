@@ -1,5 +1,6 @@
 # Version 1.9.11.24
 - Updated sqlpmap
+- Patched sqlmap update feature
 - Bumped version number
 
 # Version 1.9.10.23
