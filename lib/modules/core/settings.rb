@@ -82,8 +82,8 @@ module Settings
     #
     # Create the issue
     #
-    def create_issue_page(issue, error, steps, query)
-      CREATE_ISSUE.issue_template(issue, error, steps, query)
+    def create_issue_page(issue, error, steps, query, error_log=IO.read(ERROR_LOG_PATH))
+      CREATE_ISSUE.issue_template(issue, error, steps, query, error_log)
     end
 
     #
