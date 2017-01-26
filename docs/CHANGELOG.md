@@ -1,3 +1,9 @@
+# Version 1.9.13.26
+- Removed failing queries, if you find more, you need to tell me idk wtf is wrong with these fucking things so just find them and annoy me. Thanks
+- https://github.com/WhitewidowScanner/whitewidow/issues/50
+- Edited the issue template to have error log information as well
+- Bumped version number
+
 # Version 1.9.12.25
 - Fixed conversion error https://github.com/WhitewidowScanner/whitewidow/issues/49
 - Bumped version number
