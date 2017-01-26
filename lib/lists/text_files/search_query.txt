@@ -2507,7 +2507,7 @@ base.php?lang=
 show.php?channel=
 padrao.php?subject=
 shopbasket.asp?bookid=
-dork: "powered by EQdkp"
+dork:"powered by EQdkp"
 index.php?c= .php?c=
 path.php?destino=
 .php?east="
