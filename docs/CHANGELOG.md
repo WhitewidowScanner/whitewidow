@@ -1,3 +1,7 @@
+# Version 1.9.12.25
+- Fixed conversion error https://github.com/WhitewidowScanner/whitewidow/issues/49
+- Bumped version number
+
 # Version 1.9.11.24
 - Updated sqlpmap
 - Patched sqlmap update feature

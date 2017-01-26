@@ -1,4 +1,4 @@
-inurl:play.php?id= title:paypal
+﻿inurl:play.php?id= title:paypal
 .php?secao="
 inurl:/content.php?inc=
 sw_comment.php?id=
@@ -399,7 +399,6 @@ enter.php?pr=
 index2.php?arg= .php?arg=
 gery.php?mid=
 nav.php?loc= nav.php?loc=
-inurl:/index2.php?content=
 gery.php?*[*]*=
 file.php?index=
 id=&intextWarningpg_exec()
@@ -1863,7 +1862,6 @@ comersus_optEmailToFriendForm.asp?idProduct=
 index1.php?home=
 cartadd.asp?id=
 nota.php?v=
-inurl:/index2.php?menu=
 messageinurl:/comment_threads.php?postID=
 padrao.php?u=
 shopwelcome.php?title=
@@ -3388,7 +3386,6 @@ intitle:"guitar".php?id= title:login
 default.php?module=
 page.php?*[*]*=
 index.php3?file= .php3?f="
-inurl:/index2.php?page=
 template.php?Action=Item&pid=
 .asp?showtopic=
 index3.php?sp=
@@ -4526,7 +4523,6 @@ index2.php?inc= .php?inc="
 27. inurl:/foruminurl:/
 inurl:"php?PID=" intext:"product" site:us 2015
 magazin.php?cid=
-inurl:/index2.php?x=
 publications.php?ID=
 inurl:/base.php?play=
 index.php?pagina1= "index.php?pagina1="
