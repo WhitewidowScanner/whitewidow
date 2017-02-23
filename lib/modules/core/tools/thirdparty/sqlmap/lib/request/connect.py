@@ -374,9 +374,7 @@ class Connect(object):
 
             # Reset header values to original in case of provided request file
             if target and conf.requestFile:
-                headers = OrderedDict(conf.httpHeaders)
-                if cookie:
-                    headers[HTTP_HEADER.COOKIE] = cookie
+                headers = forgeHeaders({HTTP_HEADER.COOKIE: cookie})
 
             if auxHeaders:
                 for key, value in auxHeaders.items():
@@ -1042,6 +1040,11 @@ class Connect(object):
                         found = False
                         value = getUnicode(value)
 
+                        regex = r"\b(%s)\b([^\w]+)(\w+)" % re.escape(name)
+                        if kb.postHint and re.search(regex, (post or "")):
+                            found = True
+                            post = re.sub(regex, "\g<1>\g<2>%s" % value, post)
+
                         regex = r"((\A|%s)%s=).+?(%s|\Z)" % (re.escape(delimiter), re.escape(name), re.escape(delimiter))
                         if re.search(regex, (get or "")):
                             found = True
@@ -1077,7 +1080,7 @@ class Connect(object):
             elif kb.postUrlEncode:
                 post = urlencode(post, spaceplus=kb.postSpaceToPlus)
 
-        if timeBasedCompare:
+        if timeBasedCompare and not conf.disableStats:
             if len(kb.responseTimes.get(kb.responseTimeMode, [])) < MIN_TIME_RESPONSES:
                 clearConsoleLine()
 

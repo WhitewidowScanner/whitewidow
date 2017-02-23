@@ -65,7 +65,6 @@ from lib.core.settings import REFERER_ALIASES
 from lib.core.settings import USER_AGENT_ALIASES
 from lib.core.target import initTargetEnv
 from lib.core.target import setupTargetEnv
-from thirdparty.pagerank.pagerank import get_pagerank
 
 def _selectInjection():
     """
@@ -163,6 +162,7 @@ def _showInjections():
         header = "sqlmap resumed the following injection point(s) from stored session"
 
     if hasattr(conf, "api"):
+        conf.dumper.string("", {"url": conf.url, "query": conf.parameters.get(PLACE.GET), "data": conf.parameters.get(PLACE.POST)}, content_type=CONTENT_TYPE.TARGET)
         conf.dumper.string("", kb.injections, content_type=CONTENT_TYPE.TECHNIQUES)
     else:
         data = "".join(set(_formatInjection(_) for _ in kb.injections)).rstrip("\n")
@@ -319,7 +319,7 @@ def start():
                 if conf.forms and conf.method:
                     message = "[#%d] form:\n%s %s" % (hostCount, conf.method, targetUrl)
                 else:
-                    message = "URL %d:\n%s %s%s" % (hostCount, HTTPMETHOD.GET, targetUrl, " (PageRank: %s)" % get_pagerank(targetUrl) if conf.googleDork and conf.pageRank else "")
+                    message = "URL %d:\n%s %s" % (hostCount, HTTPMETHOD.GET, targetUrl)
 
                 if conf.cookie:
                     message += "\nCookie: %s" % conf.cookie

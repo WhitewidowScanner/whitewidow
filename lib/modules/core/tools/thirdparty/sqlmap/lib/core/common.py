@@ -1755,7 +1755,7 @@ def safeStringFormat(format_, params):
                     break
     return retVal
 
-def getFilteredPageContent(page, onlyText=True):
+def getFilteredPageContent(page, onlyText=True, split=" "):
     """
     Returns filtered page content without script, style and/or comments
     or all HTML tags
@@ -1768,10 +1768,10 @@ def getFilteredPageContent(page, onlyText=True):
 
     # only if the page's charset has been successfully identified
     if isinstance(page, unicode):
-        retVal = re.sub(r"(?si)<script.+?</script>|<!--.+?-->|<style.+?</style>%s" % (r"|<[^>]+>|\t|\n|\r" if onlyText else ""), " ", page)
-        while retVal.find("  ") != -1:
-            retVal = retVal.replace("  ", " ")
-        retVal = htmlunescape(retVal.strip())
+        retVal = re.sub(r"(?si)<script.+?</script>|<!--.+?-->|<style.+?</style>%s" % (r"|<[^>]+>|\t|\n|\r" if onlyText else ""), split, page)
+        while retVal.find(2 * split) != -1:
+            retVal = retVal.replace(2 * split, split)
+        retVal = htmlunescape(retVal.strip().strip(split))
 
     return retVal
 
@@ -2345,7 +2345,7 @@ def wasLastResponseDelayed():
     deviation = stdev(kb.responseTimes.get(kb.responseTimeMode, []))
     threadData = getCurrentThreadData()
 
-    if deviation and not conf.direct:
+    if deviation and not conf.direct and not conf.disableStats:
         if len(kb.responseTimes[kb.responseTimeMode]) < MIN_TIME_RESPONSES:
             warnMsg = "time-based standard deviation method used on a model "
             warnMsg += "with less than %d response times" % MIN_TIME_RESPONSES
@@ -2365,7 +2365,10 @@ def wasLastResponseDelayed():
 
         return retVal
     else:
-        return (threadData.lastQueryDuration - conf.timeSec) >= 0
+        delta = threadData.lastQueryDuration - conf.timeSec
+        if Backend.getIdentifiedDbms() in (DBMS.MYSQL,):  # MySQL's SLEEP(X) lasts 0.05 seconds shorter on average
+            delta += 0.05
+        return delta >= 0
 
 def adjustTimeDelay(lastQueryDuration, lowerStdLimit):
     """
