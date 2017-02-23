@@ -1,3 +1,7 @@
+# Version 1.9.14.27
+- Updated sqlmap
+- Bumped version number
+
 # Version 1.9.13.26
 - Removed failing queries, if you find more, you need to tell me idk wtf is wrong with these fucking things so just find them and annoy me. Thanks
 - https://github.com/WhitewidowScanner/whitewidow/issues/50
