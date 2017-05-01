@@ -146,9 +146,9 @@ class Connect(object):
         if kb.testMode and kb.previousMethod == PAYLOAD.METHOD.TIME:
             # timed based payloads can cause web server unresponsiveness
             # if the injectable piece of code is some kind of JOIN-like query
-            warnMsg = "most probably web server instance hasn't recovered yet "
+            warnMsg = "most likely web server instance hasn't recovered yet "
             warnMsg += "from previous timed based payload. If the problem "
-            warnMsg += "persists please wait for few minutes and rerun "
+            warnMsg += "persists please wait for a few minutes and rerun "
             warnMsg += "without flag 'T' in option '--technique' "
             warnMsg += "(e.g. '--flush-session --technique=BEUS') or try to "
             warnMsg += "lower the value of option '--time-sec' (e.g. '--time-sec=2')"
@@ -310,8 +310,8 @@ class Connect(object):
 
             elif target:
                 if conf.forceSSL and urlparse.urlparse(url).scheme != "https":
-                    url = re.sub("\Ahttp:", "https:", url, re.I)
-                    url = re.sub(":80/", ":443/", url, re.I)
+                    url = re.sub("(?i)\Ahttp:", "https:", url)
+                    url = re.sub("(?i):80/", ":443/", url)
 
                 if PLACE.GET in conf.parameters and not get:
                     get = conf.parameters[PLACE.GET]
@@ -481,11 +481,16 @@ class Connect(object):
                 else:
                     page = Connect._connReadProxy(conn) if not skipRead else None
 
-                code = code or (conn.code if conn else None)
-                responseHeaders = conn.info()
-                responseHeaders[URI_HTTP_HEADER] = conn.geturl()
+                if conn:
+                    code = conn.code
+                    responseHeaders = conn.info()
+                    responseHeaders[URI_HTTP_HEADER] = conn.geturl()
+                else:
+                    code = None
+                    responseHeaders = {}
+
                 page = decodePage(page, responseHeaders.get(HTTP_HEADER.CONTENT_ENCODING), responseHeaders.get(HTTP_HEADER.CONTENT_TYPE))
-                status = getUnicode(conn.msg)
+                status = getUnicode(conn.msg) if conn else None
 
             kb.connErrorCounter = 0
 
@@ -504,9 +509,8 @@ class Connect(object):
                         msg += "(redirect like response common to login pages). "
                         msg += "Do you want to apply the refresh "
                         msg += "from now on (or stay on the original page)? [Y/n]"
-                        choice = readInput(msg, default="Y")
 
-                        kb.alwaysRefresh = choice not in ("n", "N")
+                        kb.alwaysRefresh = readInput(msg, default='Y', boolean=True)
 
                     if kb.alwaysRefresh:
                         if re.search(r"\Ahttps?://", refresh, re.I):
@@ -629,6 +633,14 @@ class Connect(object):
                 if kb.testMode and kb.testType not in (None, PAYLOAD.TECHNIQUE.TIME, PAYLOAD.TECHNIQUE.STACKED):
                     singleTimeWarnMessage("there is a possibility that the target (or WAF/IPS/IDS) is dropping 'suspicious' requests")
                 warnMsg = "connection timed out to the target URL"
+            elif "Connection reset" in tbMsg:
+                if not conf.disablePrecon:
+                    singleTimeWarnMessage("turning off pre-connect mechanism because of connection reset(s)")
+                    conf.disablePrecon = True
+
+                if kb.testMode:
+                    singleTimeWarnMessage("there is a possibility that the target (or WAF/IPS/IDS) is resetting 'suspicious' requests")
+                warnMsg = "connection reset to the target URL"
             elif "URLError" in tbMsg or "error" in tbMsg:
                 warnMsg = "unable to connect to the target URL"
                 match = re.search(r"Errno \d+\] ([^>]+)", tbMsg)
@@ -662,7 +674,8 @@ class Connect(object):
                     message = "there seems to be a continuous problem with connection to the target. "
                     message += "Are you sure that you want to continue "
                     message += "with further target testing? [y/N] "
-                    kb.connErrorChoice = readInput(message, default="N") in ("Y", "y")
+
+                    kb.connErrorChoice = readInput(message, default='N', boolean=True)
 
                 if kb.connErrorChoice is False:
                     raise SqlmapConnectionException(warnMsg)
@@ -819,7 +832,7 @@ class Connect(object):
                         if kb.cookieEncodeChoice is None:
                             msg = "do you want to URL encode cookie values (implementation specific)? %s" % ("[Y/n]" if not conf.url.endswith(".aspx") else "[y/N]")  # Reference: https://support.microsoft.com/en-us/kb/313282
                             choice = readInput(msg, default='Y' if not conf.url.endswith(".aspx") else 'N')
-                            kb.cookieEncodeChoice = choice.upper().strip() == "Y"
+                            kb.cookieEncodeChoice = choice.upper().strip() == 'Y'
                         if not kb.cookieEncodeChoice:
                             skip = True
 
@@ -1040,19 +1053,28 @@ class Connect(object):
                         found = False
                         value = getUnicode(value)
 
-                        regex = r"\b(%s)\b([^\w]+)(\w+)" % re.escape(name)
-                        if kb.postHint and re.search(regex, (post or "")):
-                            found = True
-                            post = re.sub(regex, "\g<1>\g<2>%s" % value, post)
+                        if kb.postHint and re.search(r"\b%s\b" % re.escape(name), post or ""):
+                            if kb.postHint in (POST_HINT.XML, POST_HINT.SOAP):
+                                if re.search(r"<%s\b" % re.escape(name), post):
+                                    found = True
+                                    post = re.sub(r"(?s)(<%s\b[^>]*>)(.*?)(</%s)" % (re.escape(name), re.escape(name)), "\g<1>%s\g<3>" % value, post)
+                                elif re.search(r"\b%s>" % re.escape(name), post):
+                                    found = True
+                                    post = re.sub(r"(?s)(\b%s>)(.*?)(</[^<]*\b%s>)" % (re.escape(name), re.escape(name)), "\g<1>%s\g<3>" % value, post)
+
+                            regex = r"\b(%s)\b([^\w]+)(\w+)" % re.escape(name)
+                            if not found and re.search(regex, (post or "")):
+                                found = True
+                                post = re.sub(regex, "\g<1>\g<2>%s" % value, post)
 
                         regex = r"((\A|%s)%s=).+?(%s|\Z)" % (re.escape(delimiter), re.escape(name), re.escape(delimiter))
+                        if not found and re.search(regex, (post or "")):
+                            found = True
+                            post = re.sub(regex, "\g<1>%s\g<3>" % value, post)
+
                         if re.search(regex, (get or "")):
                             found = True
                             get = re.sub(regex, "\g<1>%s\g<3>" % value, get)
-
-                        if re.search(regex, (post or "")):
-                            found = True
-                            post = re.sub(regex, "\g<1>%s\g<3>" % value, post)
 
                         if re.search(regex, (query or "")):
                             found = True

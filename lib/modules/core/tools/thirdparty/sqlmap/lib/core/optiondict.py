@@ -229,6 +229,7 @@ optDict = {
                                "skipWaf":           "boolean",
                                "smart":             "boolean",
                                "tmpDir":            "string",
+                               "webRoot":           "string",
                                "wizard":            "boolean",
                                "verbose":           "integer",
                              },
@@ -242,5 +243,10 @@ optDict = {
                                "liveTest":          "boolean",
                                "stopFail":          "boolean",
                                "runCase":           "string",
+                      },
+            "API": {
+                               "api":               "boolean",
+                               "taskid":            "string",
+                               "database":          "string",
                       }
           }

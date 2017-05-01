@@ -63,7 +63,7 @@ class Agent(object):
 
         if Backend.getIdentifiedDbms() in (DBMS.ORACLE,):  # non-standard object(s) make problems to a database connector while returned (e.g. XMLTYPE)
             _, _, _, _, _, _, fieldsToCastStr, _ = self.getFields(query)
-            for field in fieldsToCastStr.split(","):
+            for field in fieldsToCastStr.split(','):
                 query = query.replace(field, self.nullAndCastField(field))
 
         if kb.tamperFunctions:
@@ -296,7 +296,7 @@ class Agent(object):
         elif suffix and not comment:
             expression += suffix.replace('\\', BOUNDARY_BACKSLASH_MARKER)
 
-        return re.sub(r"(?s);\W*;", ";", expression)
+        return re.sub(r";\W*;", ";", expression)
 
     def cleanupPayload(self, payload, origValue=None):
         if payload is None:
@@ -452,7 +452,7 @@ class Agent(object):
         @rtype: C{str}
         """
 
-        if not Backend.getDbms():
+        if not Backend.getIdentifiedDbms():
             return fields
 
         if fields.startswith("(CASE") or fields.startswith("(IIF") or fields.startswith("SUBSTR") or fields.startswith("MID(") or re.search(r"\A'[^']+'\Z", fields):

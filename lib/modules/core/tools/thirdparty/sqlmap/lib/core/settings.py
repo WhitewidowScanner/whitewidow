@@ -19,7 +19,7 @@ from lib.core.enums import DBMS_DIRECTORY_NAME
 from lib.core.enums import OS
 
 # sqlmap version (<major>.<minor>.<month>.<monthly commit>)
-VERSION = "1.1.2.14"
+VERSION = "1.1.4.49"
 TYPE = "dev" if VERSION.count('.') > 2 and VERSION.split('.')[-1] != '0' else "stable"
 TYPE_COLORS = {"dev": 33, "stable": 90, "pip": 34}
 VERSION_STRING = "sqlmap/%s#%s" % ('.'.join(VERSION.split('.')[:-1]) if VERSION.count('.') > 2 and VERSION.split('.')[-1] == '0' else VERSION, TYPE)
@@ -109,7 +109,7 @@ DUMMY_SEARCH_USER_AGENT = "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:49.0) Geck
 TEXT_TAG_REGEX = r"(?si)<(abbr|acronym|b|blockquote|br|center|cite|code|dt|em|font|h\d|i|li|p|pre|q|strong|sub|sup|td|th|title|tt|u)(?!\w).*?>(?P<result>[^<]+)"
 
 # Regular expression used for recognition of IP addresses
-IP_ADDRESS_REGEX = r"\b\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}\b"
+IP_ADDRESS_REGEX = r"\b(([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\b"
 
 # Regular expression used for recognition of generic "your ip has been blocked" messages
 BLOCKED_IP_REGEX = r"(?i)(\A|\b)ip\b.*\b(banned|blocked|block list|firewall)"
@@ -385,6 +385,9 @@ REFLECTED_BORDER_REGEX = r"[^A-Za-z]+"
 
 # Regular expression used for replacing non-alphanum characters
 REFLECTED_REPLACEMENT_REGEX = r".+"
+
+# Maximum time (in seconds) spent per reflective value(s) replacement
+REFLECTED_REPLACEMENT_TIMEOUT = 3
 
 # Maximum number of alpha-numerical parts in reflected regex (for speed purposes)
 REFLECTED_MAX_REGEX_PARTS = 10
@@ -696,7 +699,7 @@ MAX_HISTORY_LENGTH = 1000
 MIN_ENCODED_LEN_CHECK = 5
 
 # Timeout in seconds in which Metasploit remote session has to be initialized
-METASPLOIT_SESSION_TIMEOUT = 300
+METASPLOIT_SESSION_TIMEOUT = 120
 
 # Reference: http://www.postgresql.org/docs/9.0/static/catalog-pg-largeobject.html
 LOBLKSIZE = 2048
