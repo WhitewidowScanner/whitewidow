@@ -18,6 +18,9 @@ module Whitewidow
       #
       def get_urls(proxy = nil)
         query = SETTINGS.extract_query!
+        FORMAT.info("Creating payloads..")
+        payloads = SETTINGS.create_payloads(PAYLOAD_TEMPLATE_PATH)
+        FORMAT.info("Payloads created, continuing process..")
 
         File.read("#{QUERY_BLACKLIST_PATH}").each_line do |black|  # check if the search query is black listed
           if query == black
@@ -50,7 +53,12 @@ module Whitewidow
             urls_to_log = URI.decode(urls)
             FORMAT.success("Site found: #{urls_to_log}")
             sleep(0.3)
-            ERROR_BASED_SQL_INJECTION_TEST.each { |sql|
+            payloads.each { |payload|
+              File.open("#{SITES_TO_CHECK_PATH}", "a+") { |to_check| to_check.puts("#{urls_to_log}#{payload}")}
+            }
+
+            # DEPRECATED
+=begin           ERROR_BASED_SQL_INJECTION_TEST.each { |sql|
               File.open("#{SITES_TO_CHECK_PATH}", 'a+') { |to_check| to_check.puts("#{urls_to_log}#{sql}") }  # Error based
               MULTIPARAMS.check_for_multiple_parameters(urls_to_log, sql) # Add sql syntax to all "="
             }
@@ -60,6 +68,8 @@ module Whitewidow
             UNION_BASED_SQL_INJECTION_TEST.each { |union|
               File.open("#{SITES_TO_CHECK_PATH}", "a+") { |union_check| union_check.puts("#{urls_to_log}#{union}") }  # Union test
             }
+=end
+
           end
         end
         FORMAT.info("I've dumped possible vulnerable sites into #{SITES_TO_CHECK_PATH}")
