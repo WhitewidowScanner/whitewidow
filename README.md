@@ -25,11 +25,7 @@ And when all is said and done, and you're sure that you've found some vulnerable
 
 ![sqlmap](https://s17.postimg.org/is53u576n/11_20_sqlmap.png)
 
-<<<<<<< HEAD
 # Download
-=======
-#Download
->>>>>>> 2.0
 Preferably clone repository, alternatively you can download zip and tarball [here](https://github.com/Ekultek/whitewidow/releases/tag/2.0)
 
 # Basic Usage
