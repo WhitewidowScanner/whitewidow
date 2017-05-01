@@ -1,5 +1,5 @@
 # IntelliJ project files
-.idea
+.idea/
 *.iml
 /tmp/
 /log/
