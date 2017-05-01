@@ -1,5 +1,9 @@
 # IntelliJ project files
+<<<<<<< HEAD
 .idea/*
+=======
+.idea/
+>>>>>>> 2.0
 *.iml
 /tmp/
 /log/
