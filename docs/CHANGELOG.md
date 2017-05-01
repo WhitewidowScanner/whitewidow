@@ -1,3 +1,10 @@
+# Version 2.0
+- Deprecated the old payloads
+- Created a new payload file for payload extraction
+- Added compatibility for multiple different DB types
+- Complete refactor of the searching and how it works
+- Bumped version number
+
 # Version 1.9.14.27
 - Updated sqlmap
 - Bumped version number
