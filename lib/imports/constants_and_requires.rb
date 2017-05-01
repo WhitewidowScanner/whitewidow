@@ -147,15 +147,20 @@ ISSUE_TEMPLATE_PATH = FileHelper.open_or_create("#{PATH}/tmp/issues/#{SETTINGS.r
 # Path to random user agents
 RAND_AGENT_PATH = "#{PATH}/lib/lists/rand-age.yml"
 
+# Path to the payload templates
+PAYLOAD_TEMPLATE_PATH = "#{PATH}/lib/lists/inject.yml"
+
 # Blind based sql injection test parameters
-BLIND_BASED_SQL_INJECTION_TEST = ['AND 1=1', 'OR 13=13', 'AND 13=13']
+# DEPRECATED
+#BLIND_BASED_SQL_INJECTION_TEST = ['AND 1=1', 'OR 13=13', 'AND 13=13']
 
 # Error based sql injection test parameters
 ERROR_BASED_SQL_INJECTION_TEST = %w(' -- ; " /* '/* '-- "-- '; "; `)
 
 # Union based sql injection test parameters
-UNION_BASED_SQL_INJECTION_TEST = [" SELECT #{COLUMN_NAME}", " union select #{COLUMN_NAME}",
-                                  " false union select #{COLUMN_NAME}"]
+# DEPRECATED
+#UNION_BASED_SQL_INJECTION_TEST = [" SELECT #{COLUMN_NAME}", " union select #{COLUMN_NAME}",
+#                                  " false union select #{COLUMN_NAME}"]
 
 # Basic legal disclaimer of the program, for full legal and TOS run --legal
 BASIC_LEGAL_DISCLAIMER = "[ ! ] Use of this program for malicious intent is illegal. For more information run the --legal flag".red
@@ -179,8 +184,8 @@ LOADING_ERRORS = [RestClient::ResourceNotFound, RestClient::InternalServerError,
                   RestClient::Gone, RestClient::SSLCertificateNotVerified, RestClient::Forbidden,
                   OpenSSL::SSL::SSLError, Errno::ECONNREFUSED, URI::InvalidURIError, Errno::ECONNRESET,
                   Timeout::Error, OpenSSL::SSL::SSLError, Zlib::GzipFile::Error, RestClient::MultipleChoices,
-                  RestClient::Unauthorized, SocketError, RestClient::BadRequest, RestClient::ServerBrokeConnection,
-                  Errno::ECONNABORTED, Zlib::BufError, RestClient::ServiceUnavailable, ArgumentError]
+                  SocketError, RestClient::BadRequest, RestClient::ServerBrokeConnection,
+                  Errno::ECONNABORTED, Zlib::BufError, ArgumentError]
 
 # Fatal program errors, errors that will force the program to close
 FATAL_ERRORS = [RestClient::BadGateway, Errno::ENETUNREACH, Net::HTTP::Persistent::Error,
@@ -191,9 +196,32 @@ SPIDER_ERRORS = [RestClient::NotFound, URI::InvalidURIError, RestClient::SSLCert
                  RestClient::MethodNotAllowed]
 
 # Errors thrown when a webpage has unclosed SQL syntax
-vuln_specs = [/SQL query error/, /MySQL Query Error/,
-              /expects parameter/, /You have an error in your SQL syntax/,
-              /Syntax error:/]
+vuln_specs = [
+    # MySQL
+    /SQL syntax.*MySQL/, /Warning.*mysql_.*/, /valid mySQL result/, /MySqlClient\./,
+
+    # PostgreSQL
+    /PostgreSQL.*ERROR/, /Warning.*\Wpg_.*/, /valid PostgreSQL result/, /Npsql\./,
+
+    # MSSQL
+    /Driver.* SQL[\-\_\ ]*Server/, /OLE DB.* SQL server/, /(\W|\A)SQL Server.*Driver/, /Warnings.*mssql_.*/,
+
+    #MSAccess
+    /Microsoft Access Driver/, /Jet Database Engine/, /Access Database Engine/,
+
+    # Oracle
+    /\bORA[0-9][0-9][0-9]/, /Oracle error/, /Oracle.*Driver/, /Warning.*\Woci_.*/, /Warning.*\Wora_.*/,
+
+    #IBM DB2
+    /CLIR Driver.*DB2/, /DB2 SQL error/, /\bdb2_\w+\(/,
+
+    #SQLite
+    /SQLite\/JDBCDriver/, /SQLite.Exception/, /System.Data.SQLiteException/, /Warning.*sqlite_,*/, /Warning.*SQLite3::/,
+    /[SQLITE_ERROR]/,
+
+    # Sysbase
+    /(?i)Warning.*sysbase/, /Sysbase message/, /Sysbase.*Server message.*/
+]
 
 # Regex created from the above specifications looks something along the lines of:
 # /(?-mix:SQL query error)|(?-mix:MySQL Query Error)|(?-mix:expects parameter)|(?-mix:You have an error in your SQL syntax)/
