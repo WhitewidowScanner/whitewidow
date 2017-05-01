@@ -1,5 +1,4 @@
-﻿inurl:play.php?id= title:paypal
-.php?secao="
+﻿.php?secao="
 inurl:/content.php?inc=
 sw_comment.php?id=
 pagina.php?tipo=
