@@ -26,7 +26,7 @@ And when all is said and done, and you're sure that you've found some vulnerable
 ![sqlmap](https://s17.postimg.org/is53u576n/11_20_sqlmap.png)
 
 #Download
-Preferably clone repository, alternatively you can download zip and tarball [here](https://github.com/Ekultek/whitewidow/releases/tag/1.9.0)
+Preferably clone repository, alternatively you can download zip and tarball [here](https://github.com/Ekultek/whitewidow/releases/tag/2.0)
 
 #Basic Usage
 `ruby whitewidow.rb -d` This will run whitewidow in default mode and scrape Google for possible sites using a random search query.
