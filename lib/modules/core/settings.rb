@@ -141,6 +141,42 @@ module Settings
       end
     end
 
+    def create_payloads(payload_file, root_key="payloads")
+      # Create the payloads to use while searching for SQL injection
+      # vulnerable sites
+      # @param [Object] payload_file
+      # @param [Object] root_key
+      # Example:
+      # >>> ;SELECT IF((LCwooh3),BENCHMARK(7000000,MD5(LCwooh3)),158002)
+      rand_nums = rand(1000000)
+      low_level_rand_nums = rand(10)
+      fixed_num = rand(13)
+      rand_strings = SETTINGS.random_issue_name
+      random_comment = ERROR_BASED_SQL_INJECTION_TEST.sample
+
+      payloads = []
+
+      replacements = {
+          "'[rand_num]'" => rand_nums,
+          "'[fix_num]'" => fixed_num,
+          "'[str]'" => rand_strings,
+          "'[del_start]'" => "'#{rand_strings}'",
+          "'[del_stop]'" => "'#{rand_strings}'",
+          "'[low_level_rand_num]'" => low_level_rand_nums,
+          "'[comment]'" => random_comment
+      }
+
+      payload_file = YAML.load_file(payload_file)
+
+      payload_file[root_key].keys.each { |payload_type|
+        current_payloads = payload_file[root_key][payload_type]
+        current_payloads.each { |payload|
+          (payloads ||= []) << payload.gsub(Regexp.union(replacements.keys), replacements)
+        }
+      }
+      return payloads
+    end
+
     #
     # Update the program to the newest version
     #
