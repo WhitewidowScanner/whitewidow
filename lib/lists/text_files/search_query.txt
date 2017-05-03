@@ -189,7 +189,6 @@ shopinurl:/eventshopinurl:/product_detail.php?itemid=
 add_cart.asp?num=
 index2.php?e=
 file.php?play=
-inurl:/components/com_colorlab/admin.color.php?mosConfig_live_site=
 principal.php?cont=
 reply.php?id=
 inurl:/contenido/classes/class.inuse.php
@@ -246,7 +245,6 @@ index2.php?cont= .php?cont="
 inurl:/skininurl:/zero_voteinurl:/error.php?dir=
 news_detail.php?file=
 index.php?file=
-index.php?_REQUEST=&_REQUEST%5boption%5d=com_content&_REQUEST%5bItemid%5d=1&GLOBALS=&mosConfig_absolute_path=
 default.php?ki=
 show.php?page=
 press.php?seite=
@@ -261,10 +259,7 @@ Computer Science.php?id=
 index.php?p= index.php?p="
 enter.php?y=
 shopreviewadd.asp?id=
-inurl:/ppainurl:/incinurl:/functions.inc.php?config[ppa_root_path]=
-inurl:/live-supportinurl:/incinurl:/pipe.php?HCL_path=
 inurl:/base.php?middle=
-phpwcmsinurl:/includeinurl:/inc_extinurl:/spawinurl:/dialogsinurl:/table.php?spaw_root= phpwcmsinurl:/index.php?id=
 .php?function="
 index.php?c= ".php?c="
 index.php3?act= .php3?act=
@@ -273,7 +268,6 @@ answerinurl:/default.php?pollID=
 enter.php?a=
 sitio.php?e=
 "shopexd.asp?catalogid="
-componentsinurl:/com_artlinksinurl:/artlinks.dispnew.php?mosConfig_absolute_path=
 products.php?cat=
 .php?item_id="
 artikelinfo.php?id=
@@ -302,14 +296,12 @@ page.php5?id= .php5?id=
 template.php?nivel=
 index.php?middle= index.php?middle=
 zboardinurl:/zboard.php
-inurl:/admincpinurl:/authinurl:/checklogin.php?cfgProgDir=
 include.php?x=
 inurl:/all.php?gorumDir=
 padrao.php?seccion=
 index3.php?sivu=
 age.php?id=
 sitio.php?pg=
-inurl:/sourcesinurl:/join.php?FORM[url]=owned&CONFIG[captcha]=1&CONFIG[path]= Powered By Aardvark Topsites PHP 4.2.2
 products.php?catid=
 display.php?pag= display.php?pag=
 inurl:/index.php?action=
@@ -366,21 +358,18 @@ inurl:/base.php?id=
 nota.php?home=
 base.php?phpbb_root_path=
 mod*.php?pag=
-inurl:/mylinksinurl:/includeinurl:/info.inc.php?_AMVconfig[cfg_serverpath]=
 index.php?var2= index.php?var2=
 inurl::/prodotti.php?id= title:login 2015
 contacts.php?cal_dir=
 view.php?cid=
 inurl:/html&highlight=%2527.include($_GET[a]),exit.%2527&a=
 blank.php?j=
-inurl:/includesinurl:/dbal.php?eqdkp_root_path= "EQdkp"
 enter.php?play=
 main.php?vis= .php?vis="
 default.php?str=
 inurl:/allindex.php?theme=
 default.php?t=
 index5.php?inc=
-inurl:/modulesinurl:/coppermineinurl:/themesinurl:/coppercopinurl:/theme.php?THEME_DIR= coppermine
 nav.php?pagina= nav.php?pagina=
 show.php?path=
 inurl:/surveysinurl:/survey.inc.php?path= surveys
@@ -414,7 +403,6 @@ default.php?mod=
 home.php?eval=
 .php?searchcode_id="
 inurl:"view_author".php?id= intext:login
-componentsinurl:/com_foruminurl:/download.php?phpbb_root_path= "com_forum"
 inurl:/allindex.php?v=
 print.php?option=
 print.php?table= .php?table=
@@ -428,7 +416,6 @@ inurl:/all.php?file=
 *index.php?url=
 cgi-bininurl:/telnet.cgi
 view.php?get=
-inurl:/cyberfolioinurl:/portfolioinurl:/msginurl:/view.php?av=
 head.php?lang=
 cataloginurl:/main.php?cat_id=
 29. shoutboxinurl:/expanded.php filetypep:hp
@@ -456,7 +443,6 @@ general.php?cmd=
 nota.php?option=
 inurl:".php?sub_id=" intext:"products" 2015
 inurl:/allindex5.php?site=
-inurl:/modulesinurl:/xoopsgeryinurl:/upgrade_album.php?GERY_BASEDIR=
 page.php?pname=
 layout.php?action=
 home.php?read=
@@ -468,7 +454,6 @@ proddetail.php?prod= .php?prod="
 products_detail.php?CategoryID=
 getbook.asp?bookid=
 sitio.php?read=
-phpwcmsinurl:/includeinurl:/inc_extinurl:/spawinurl:/dialogsinurl:/table.php?spaw_root= index.php?id=
 template.php?basepath=
 product-list.php?cid=
 gery.php?viewpage=
@@ -485,7 +470,6 @@ index.php3?l= index.php3?l=
 include.php?option=
 rfi of this dork: encinurl:/content.php?Home_Path=
 *zentrackinurl:/index.php?configFile=
-inurl:/afb-3-beta-2007-08-28inurl:/_includesinurl:/settings.inc.php?approot=
 shopremoveitem.asp?cartid=
 index3.php?p=
 index.php?hl=
@@ -511,7 +495,6 @@ kalender.php?vis= kalender.php?vis="
 default.php?to=
 "events.asp?ID="
 login.php?dir=
-inurl:/componentsinurl:/com_extended_registrationinurl:/registration_detailed.inc.php?mosConfig_absolute_path= "com_extended_registration"
 nota.php?OpenPage=
 view.php?seccion=
 page.php?section=
@@ -531,7 +514,6 @@ bp_ncom.php?bnrep=
 index3.php?type=
 index.php?page=&lang= index.php?pg=
 inurl:/all.php?vi=
-inurl:/bzinurl:/squitoinurl:/photolist.inc.php?photoroot=
 inurl:/canal.php?meio=
 inurl:/all.php?sg=
 index.php?var= "index.php?var1="
@@ -559,10 +541,9 @@ More_Details.php?id=
 start.php?rub=
 index.php?lg= "index.php?lg="
 "shopping_basket.asp?cartID="
-inurl:/administratorinurl:/componentsinurl:/com_serverstatinurl:/inst.serverstat.php?mosConfig_absolute_path=
 inurl:/allindex5.php?pg=
 index.php?lnk= "index.php?lnk="
-corporateinurl:/newsreleases_more.php?id=
+corporate/newsreleases_more.php?id=
 path_of_cpcommerceinurl:/_functions.php?prefix
 index.php?c=
 feedback.php?title=
@@ -574,7 +555,7 @@ show.php?product= .php?product=
 file.php?ev=
 sub*.php?panel=
 main.php?pname=
-inurl:".php?id=" intext"hoddies" title:login
+inurl:".php?id="intext"hoddies"title:login
 reports.php?sub= reports.php?sub=
 .php?include="
 inurl:/all.php?join=
@@ -592,7 +573,6 @@ head.php?*[*]*=
 inurl:/base.php?f1=
 inurl:/base.php?w=
 .php?debut="
-incinurl:/session.php?sessionerror=0&lang= inc
 inurl:/default.php?tipo=
 "products.asp?keyword="
 enter.php?home=
@@ -603,7 +583,12 @@ pagina.php?v=
 index.php?c= "index.php?c="
 nav.php?g= nav.php?g=
 mod*.php?home=
-sourcesinurl:/join.php?FORM[url]=owned&CONFIG[captcha]=1&CONFIG[path]=
+sources/join.php?FORM[*]=owned&CONFIG[*]=1&CONFIG[*]=
+sources/join.php?FORM[url]=owned&CONFIG[*]=1&CONFIG[*]=
+sources/join.php?FORM[url]=owned&CONFIG[captcha]=1&CONFIG[*]=
+sources/join.php?FORM[url]=owned&CONFIG[captcha]=1&CONFIG[path]=
+sources/join.php?FORM[url]=owned&CONFIG[*]=1&CONFIG[path]=
+sources/join.php?FORM[*]=owned&CONFIG[*]=1&CONFIG[path]=
 loc.php?lang= .php?loc="
 "products_category.asp?CategoryID="
 allinurl::/cart32.exeinurl:/
@@ -618,8 +603,8 @@ display.php?lang= display.php?lang=
 index2.php?lng= index.php?lng="
 inurl:/includesinurl:/kb_constants.php?module_root_path= "Base"
 inurl:/index.php?dn= .php?dn=
-classifiedsinurl:/showproduct.php?product=
-inurl:/convertinurl:/mvcw.php?vwar_root=
+classifieds/showproduct.php?product=
+inurl:/convert/mvcw.php?vwar_root=
 file.php?start=
 labels.php?id=
 emailToFriend.php?idProduct=
@@ -628,7 +613,7 @@ default.php?load=
 rss.php?phpraid_dir= ""$2-"
 standard.php?showpage=
 home.php?addr=
-inurl:/pollvoteinurl:/pollvote.php?pollname=
+inurl:/pollvote/pollvote.php?pollname=
 inurl:/archive.php?CONFIG[script_path]=
 default.php?l=
 sub*.php?u=
@@ -641,7 +626,6 @@ inurl:product_info.php?products_id= title:login
 nota.php?adresa=
 inurl:/includesinurl:/kb_constants.php?module_root_path= Knowledge
 layout.php?opcion=
-inurl:/componentsinurl:/com_cpginurl:/cpg.php?mosConfig_absolute_path= com_cpg"
 frame.php?loc= .php?loc="
 9. inurl:/Popperinurl:/index.php?
 nota.php?base_dir=
@@ -650,10 +634,10 @@ file.php?showpage=
 inurl:/blank.php?where=
 default.php?incl=
 info.php?xlink=
-inurl:/transinurl:/trans.php?trans=&page= .php?trans="
-inurl:/zipndownload.php?PP_PATH= "Powered by: PhotoPost PHP 4.6?
+inurl:/trans/trans.php?trans=&page=.php?trans="
+inurl:/zipndownload.php?PP_PATH="Powered by: PhotoPost PHP 4.6?
 sitio.php?destino=
-phpinurl:/fid985C124FBD9EF3A29BA8F40521F12D097B0E2016.aspx?s=
+php/fid985C124FBD9EF3A29BA8F40521F12D097B0E2016.aspx?s=
 pagina.php?category=
 start.php?s= start.php?s="
 principal.php?l=
@@ -673,23 +657,20 @@ general.php?b=
 gery.php?y=
 nota.php?tipo=
 gery.php?var=
-inurl:/modulesinurl:/postguestbookinurl:/stylesinurl:/internalinurl:/header.php?tpl_pgb_moddir= PostGuestbook
 inurl:/default.php?type=
 index2.php?strona=
 path.php?sp=
 home.php?sekce=
 gery.php?eval=
-inurl:/eyeosinurl:/desktop.php?baccio=eyeOptions.eyeapp&a=eyeOptions.eyeapp&_SESSION%5busr%5d=root&_SESSION%5bapps%5d%5beyeOptions.eyeapp%5d%5bwrapup%5d=system($cmd);&cmd=id
 storefront.php?id=
 inurl:".php?ID=" intext:"business" site:us 2015
-newsiteinurl:/pdf_show.php?id=
+newsite/pdf_show.php?id=
 rfi to this dork: inurl:/main.php?sayfa=
 announcements.php?phpraid_dir= "phpraid"
 include.php?panel=
 *inc*.php?incl=
 book.php?ID=7
 14. powered by AshNews", AshNews atau  inurl:/ashnews.php
-inurl:/agendaxinurl:/addevent.inc.php?agendax_path=
 knowledge_baseinurl:/detail.php?id=
 newsinurl:/latest_news.php?cat_id=
 inurl:/contenido.php?sec=
@@ -698,12 +679,11 @@ inurl:/contenido.php?sec=
 boardinurl:/view.php?no=
 index3.php?base_dir=
 file.php?var=
-rfi to rhis dork: inurl:/coin_includesinurl:/constants.php?_CCFG[_PKG_PATH_INCL]=
+/coin_includes/constants.php?_CCFG[_PKG_PATH_INCL]=
 index2.php?left=
-inurl:/componentsinurl:/com_zoominurl:/includesinurl:/database.php?mosConfig_absolute_path= "com_zoom"
+componentsinurl:/com_zoom/includes/database.php?mosConfig_absolute_path="com_zoom"
 nota.php?left=
 main.php?r=
-publicationsinurl:/book_reviewsinurl:/full_review.php?id=
 index.php?dsp=
 "view_cart.asp?title="
 .php?join="
@@ -732,7 +712,6 @@ index.php?exec= index.php?exec=
 sem.php3?id=
 inurl:/display.php?file=
 inurl:/all_functions.php?prefix=
-inurl:/componentsinurl:/com_simpleboardinurl:/image_upload.php?sbp= com_simpleboard"
 inurl:".php?categoryid=" intext:"add to cart"
 inurl:/allindex2.php?i=
 nav.php?pag= "nav.php?pag="
@@ -748,11 +727,10 @@ inurl:/allindex2.php?a=
 info.php?op=
 logininurl:/admin.asp
 inurl:/define.php?term=
-rfi of this dork: inurl:/includesinurl:/dbal.php?eqdkp_root_path=
+inurl:/includes/dbal.php?eqdkp_root_path=
 enter.php?mid=
 foruminurl:/showProfile.php?id=
 inurl:/allindex.php?path=
-componentsinurl:/com_cpginurl:/cpg.php?mosConfig_absolute_path=
 index.php?pg=
 enter.php?w=
 index.php?d1= .php?d1="
@@ -773,11 +751,10 @@ blank.php?goFile=
 contentinurl:/detail.php?id=
 powersearch.php?CartId=
 sitio.php?name=
-administratorinurl:/componentsinurl:/com_remositoryinurl:/admin.remository.php?mosConfig_absolute_path= com_remository
-inurl:/dfd_cartinurl:/app.libinurl:/product.controlinurl:/core.phpinurl:/customer.areainurl:/customer.browse.list.php?set_depth=
+administrator/components/com_remository/admin.remository.php?mosConfig_absolute_path=com_remository
 head.php?abre=
-zentrackinurl:/index.php?configFile=
-inurl:/skininurl:/zero_voteinurl:/error.php?dir= "skininurl:/zero_voteinurl:/error.php"
+inurl:/skin/zero_vote/error.php?dir=
+"skin/zero_vote/error.php"
 index1.php?texto=
 base.php?disp=
 shopdc.asp?bookid=
@@ -805,7 +782,6 @@ sub*.php?id=
 mai.php?loc= mai.php?loc="
 index.php?lv1=
 inurl:ancillary.asp?ID= title:shop
-inurl:/modulesinurl:/postguestbookinurl:/stylesinurl:/internalinurl:/header.php?tpl_pgb_moddir= "PostGuestbook 0.6.1?
 img.php?loc= .php?loc="
 inurl:"php?ID=" intext:"login" site:uk 2015
 press.php?option=
@@ -840,10 +816,9 @@ viewevent.php?EventID=
 template.php?cont=
 product.php?product_id=
 index.php?base_dir=
-inurl:/cgi-bininurl:/acartinurl:/acart.pl?&page=
 start.php?page= .php?page="
 home.php?in=
-bb_usage_statsinurl:/includeinurl:/bb_usage_stats.php?phpbb_root_path= forum
+bb_usage_stats/include/bb_usage_stats.php?phpbb_root_path= forum
 *.php?locate=
 print.php?link=
 faq.asp?cartID=
@@ -868,13 +843,11 @@ gery.php?my=
 sitio.php?param=
 inurl:".php?ID=" intext:"join" site:us 2015
 "display_item.asp?id="
-inurl:/coin_includesinurl:/constants.php?_CCFG[_PKG_PATH_INCL]= "powered by phpCOIN 1.2.3?
 shopquery.php?catalogid=
 index2.php?cont= index2.php?cont="
 .php?debug="
 pagina.php?choix=
 index.php?pg_ID=
-inurl:/administratorinurl:/componentsinurl:/com_joom12picinurl:/admin.joom12pic.php?mosConfig_live_site=
 index.php?file= index.php?file="
 cardinfo.asp?card=
 index.php?ln= "index.php?ln="
@@ -884,7 +857,6 @@ inurl:/base.php?adresa=
 index.php?way= .php?way=
 template.php?header=
 order.php?item_ID=
-inurl:/includesinurl:/kb_constants.php?module_root_path= "Knowledge"
 index.php?ltr= index.php?ltr="
 down*.php?where=
 layout.php?page=
@@ -903,7 +875,6 @@ rfi to this dork: inurl:/header.php?abspath=
 base.php?t=
 static.php?id=
 gery.php?page=
-pivotinurl:/modulesinurl:/module_db.php?pivot_path=
 comersus_listCategoriesAndProducts.asp?idCategory=
 info.php?t=
 down*.php?x=
@@ -951,7 +922,6 @@ base.php?opcion=
 inurl:/gnuinurl:/index.php?doc=
 path.php?eval=
 inurl:/account.php?action=
-inurl:/modulesinurl:/coppermineinurl:/includeinurl:/init.inc.php?CPG_M_DIR=
 index.php?body=
 template.php?ref=
 index1.php?filepath=
@@ -959,13 +929,10 @@ news_item.php?id=
 nota.php?url=
 main.php?body=
 home.php?include=
-inurl:/componentsinurl:/com_extended_registrationinurl:/registration_detailed.inc.php?mosConfig_absolute_path=
-inurl:/pollinurl:/admininurl:/common.inc.php?base_path=
 index.php?y=
-inurl:/includesinurl:/kb_constants.php?module_root_path= "Knowledge Base"
+inurl:/includes/kb_constants.php?module_root_path="Knowledge Base"
 order.asp?item_ID=
 "showbook.asp?bookid="
-inurl:/modulesinurl:/TotalCalendarinurl:/about.php?inc_dir= inurl:/TotalCalendar
 printcards.php?ID=
 index1.php?pg=
 freedownload.asp?bookid=
@@ -981,7 +948,6 @@ press.php?addr=
 intext:"clothing" .php?id= title:"login" 2015
 index1.php?p= .php?pag="
 principal.php?q=
-inurl:/surveysinurl:/survey.inc.php?path=
 "addtomylist.asp?ProdId="
 gery.php?open=
 down*.php?home=
@@ -992,9 +958,8 @@ inurl:/ashnews.php?pathtoashnews=
 template.php?e=
 press.php?subject=
 shopexd.asp?catalogid=
-Store********************************************* *******************.asp?ID=
+Store****************************************************************.asp?ID=
 home.php?chapter=
-inurl:/classesinurl:/adodbtinurl:/sql.php?classes_dir=
 inurl:/blank.php?p****=
 home.php?play=
 productsByCategory.asp?intCatalogID=
@@ -1007,7 +972,6 @@ storeinurl:/view_items.php?id=
 index2.php?r=
 head.php?index=
 inurl:/base.php?eval=
-inurl:/componentsinurl:/com_extcalendarinurl:/admin_events.php?CONFIG_EXT[LANGUAGES_DIR]= com_extcalendar
 default.php?v=
 nota.php?corpo=
 inurl:/db.php?path_local=
@@ -1036,7 +1000,6 @@ bookview.php?id=
 inurl:/all.php?b=
 main.php?include=
 index.php3?p= index.php3?pg="
-administratorinurl:/componentsinurl:/com_comprofilerinurl:/plugin.class.php?mosConfig_absolute_path=
 print.php?sekce=
 inurl:/article.php?sid=
 print.php?u=
@@ -1051,10 +1014,8 @@ print.php?where=
 inurl:/all.php?j=
 inurl:".php?pid=" intext:"shopping"
 productinfo.php?item=
-purelydiamondinurl:/productsinurl:/category.php?cat=
 index.php?subpage= index.php?subpage="
 FullStory.php?Id=
-inurl:/wsinurl:/get_events.php?includedir= inurl:/WebCalendarinurl:/
 inurl:/all.php?load=
 inurl:/default.php?*root*=
 inurl:/allindex5.php?cat=
@@ -1062,10 +1023,7 @@ index.php?mn= .php?mn="
 index1.php?ltr= .php?ltr="
 inurl:/default.php?ir=
 index.php?where=
-inurl:/modulesinurl:/My_eGeryinurl:/publicinurl:/displayCategory.php?basepath=
-inurl:/dotprojectinurl:/modulesinurl:/tasksinurl:/addedit.php?root_dir=
 inurl:/arg.php?arg=
-inurl:/dotprojectinurl:/modulesinurl:/projectsinurl:/view.php?root_dir=
 .asp?newsid=
 inurl:/down*.php?inc=
 inurl:/index.php?lang=en&page= .php?lang=
@@ -1105,14 +1063,12 @@ mod*.php?var=
 default.php?goto=
 inurl:/index.php?id=&page= .php?id="
 "order.asp?item_ID="
-cgi-bininurl:/ubbinurl:/ubb.cgi?g=
 25. key word : "powered by Fantastic News v2.1.2?
 index.php?pag= "index.php?pag="
 news.cgi?a=114&t=
 view_item.php?item=
 inurl:/index.php?vis= .php?vis=
 index.php?fPage= index.php?fPage="
-storemanagerinurl:/contentsinurl:/item.php?page_code=
 inurl:/ashheadlines.php?pathtoashnews=
 include.php?w=
 inurl:/base.php?page***=
@@ -1132,7 +1088,6 @@ gery.php?disp=
 index.php?rage=
 index2.php?OpenPage=
 "item_list.asp?maingroup"
-inurl:/coin_includesinurl:/constants.php?_CCFG[_PKG_PATH_INCL]= "phpCOIN 1.2.3?
 "browse.asp?catid="
 base.php?eval=
 addToCart.php?idProduct=
@@ -1182,7 +1137,6 @@ path.php?middlePart=
 rss.php?phpraid_dir= phpraid
 middle.php?page= "middle.php?page="
 store_bycat.php?id=
-inurl:/appinurl:/commoninurl:/libinurl:/codeBeautifierinurl:/Beautifierinurl:/Core.php?BEAUT_PATH=
 index.php?sub= ".php?sub="
 resellers.asp?idCategory=
 side.php?vis= .php?vis=
@@ -1203,7 +1157,7 @@ index.php?pname=
 show.php?type=
 news.asp?id=
 base.php?doshow=
-SQueryinurl:/libinurl:/gore.php?libpath= "inurl:/SQueryinurl:/"
+SQuery:/lib/gore.php?libpath= "/SQuery:/"
 inurl:/allheader.php?systempath=
 template.php?texto=
 padrao.php?tipo=
@@ -1212,7 +1166,6 @@ index2.php?a=
 start.php?load=
 htmltonuke.php?filnavn=
 inurl:/default.php?choix=
-componentsinurl:/com_rsgeryinurl:/rsgery.html.php?mosConfig_absolute_path=
 down*.php?goFile=
 index.php?offs=
 mod*.php?index=
@@ -1221,9 +1174,6 @@ middle.php?file= ".php?file="
 index.php?menu=deti&page=
 order.asp?id=
 inurl:/addpost_newpoll.php?addpoll=preview&thispath=
-skunkworksinurl:/content.php?id=
-inurl:/phpgwapiinurl:/setupinurl:/tables_update.inc.php?appdir=
-inurl:/libinurl:/staticinurl:/header.php?set_menu= iPhotoAlbum
 index2.php?content= index2.php?content="
 home.php?x=
 template.php?goto=
@@ -1249,7 +1199,6 @@ incinurl:/cmsesinurl:/aedatingCMS.php?dir[inc]= "flashchat"
 bayerinurl:/dtnews.php?id=
 default.php?nivel=
 inurl:/allgrademadeinurl:/index.php?page=
-inurl:/classesinurl:/adodbtinurl:/sql.php?classes_dir= inurl:/classesinurl:/adodbtinurl:/sql.php?classes_dir="
 inurl:/index.php?lang=en&page= .php?lang="
 index1.php?oldal=
 inurl:/index.php?loc=&lang= index.php?loc="
@@ -1269,7 +1218,6 @@ start.php?ir=
 inurl:/base.php?disp=
 home.php?func= .php?func="
 standard.php?sivu=
-inurl:/modulesinurl:/TotalCalendarinurl:/about.php?inc_dir= "TotalCalendar"
 sitio.php?go=
 main.php?page= "inurl:/main.php?page=*.php"
 nota.php?mod=
@@ -1291,7 +1239,6 @@ downloadTrial.asp?intProdID=
 info.php?ev=
 press.php?pageweb=
 index3.php?url=
-inurl:/sourcesinurl:/template.php?CONFIG[main_path]= "(Powered By ScozNews)"
 base.php?ki=
 sub*.php?load=
 inurl:/down*.php?lang=
@@ -1299,14 +1246,11 @@ inurl:product.php?item_id= intext:login 2015
 index1.php?body=
 info.php?incl=
 categorydisplay.php?catid=
-inurl:/modulesinurl:/Forumsinurl:/admininurl:/admin_styles.php?phpbb_root_path=
 index.php?a= .php?a="
 index.php?template=
 section.php?id=
 index1.php?redirect=
 index2.php?content= .php?content=
-administratorinurl:/componentsinurl:/com_mgminurl:/help.mgm.php?mosConfig_absolute_path=
-inurl:/surveysinurl:/survey.inc.php?path= "surveys"
 info.php?z=
 principal.php?my=
 category.php?cid=
@@ -1318,7 +1262,6 @@ veranstaltungeninurl:/detail.php?id=
 *.php?pg=
 index.php?side=
 "index1.php?menu="
-phpwcmsinurl:/includeinurl:/inc_extinurl:/spawinurl:/dialogsinurl:/table.php?spaw_root=
 padrao.php?path=
 index.php?incl=
 inurl:/index.php?slang= .php?slang=
@@ -1330,14 +1273,12 @@ index.php?basepath=
 *inc*.php?y=
 index1.php?menu=
 inurl:".php?pgID=" intext:"bathroom" 2015
-inurl:/photoalbinurl:/libinurl:/staticinurl:/header.php?set_menu=
 viewPrd.php?idcategory=
 inurl:/auktion.pl?menue=
 .php?f="
 promotion.asp?catid=
 padrao.php?OpenPage=
 sub*.php?mod=
-inurl:/sourcesinurl:/template.php?CONFIG[main_path]= "ScozNews"
 principal.php?menue=
 inurl:/base.php?include=
 *inc*.php?get=
@@ -1366,7 +1307,6 @@ inurl:/allindex5.php?pag=
 index2.php?content= .php?content="
 base.php?incl=
 press.php?itemnav=
-inurl:/cgi-bininurl:/jammail.pl?job=showoldmail&mail=
 side.php?vis= side.php?vis=
 inurl:/index.php?x=
 "shopaddtocart.asp?catalogid="
@@ -1377,7 +1317,7 @@ template.php?*
 index.php?book=
 inurl:/default.php?panel=
 prodbycat.php?intCatalogID=
-inurl:/zipndownload.php?PP_PATH= "PhotoPost PHP"
+inurl:/zipdownload.php?PP_PATH="PhotoPost PHP"
 path.php?*
 "item.asp?shopcd="
 inurl:/index.php?loc=&cat= index.php?loc="
@@ -1446,7 +1386,6 @@ inurl:/allinclude.php?gorumDir=
 inurl:/calendar.php?l= calendar.php?l="
 comersus_viewItem.asp?idProduct=
 show.php?oldal=
-components/com_phpshopinurl:/toolbar.phpshop.html.php?mosConfig_absolute_path=
 default.php?ir=
 view_author.php?id=
 .asp?product_id=
@@ -1482,7 +1421,6 @@ path.php?where=
 general.php?get=
 index.php?prod= .php?product="
 inurl:/index.php?babInstPath=
-componentsinurl:/com_rsgeryinurl:/rsgery.html.php?mosConfig_absolute_path= com_rsgery
 inurl:/all.php?release=
 buy.php?
 index.php?site= index.php?site=
@@ -1492,7 +1430,6 @@ sub*.php?viewpage=
 inurl:/allindex2.php?cont=
 events.cgi?t=
 .asp?style_id=
-internainurl:/tiny_mceinurl:/pluginsinurl:/ibrowserinurl:/ibrowser.php?tinyMCE_imglib_include=
 shopcart.asp?title=
 rofile_view.php?id=
 categorydisplay.asp?catid=
@@ -1561,13 +1498,13 @@ index.php?to=
 *.php?go=
 .asp?Sku=
 show.php?second=
-inurl:/toolsinurl:/send_reminders.php?includedir= "day.php?date="
+inurl:/tools/send_reminders.php?includedir="day.php?date="
 order.php?list= order.php?list=
 inurl:"info".php?product_info= intext:login
 home.php?a=
 "kb_constants.php?module_root_path="
 p.php?p= .php?p=
-inurl:/all*inurl:/newbbinurl:/print.php?forum=*topic_id=*
+inurl:/all*/newbb/print.php?forum=*topic_id=*
 inurl:/all.php?secao=
 pagina.php?panel=
 item.php?prodtype=
@@ -1595,7 +1532,7 @@ home.php?panel=
 inurl:/all_functions.php?prefix
 ihm.php?p=
 intext:business .php?id= 2015
-[Script Path]inurl:/admininurl:/index.php?o= admininurl:/index.php";
+[Script Path]/admin/index.php?o= admin/index.php";
 inurl:view.php?id= title:login
 sitio.php?sec=
 classesinurl:/adodbtinurl:/sql.php?classes_dir=
@@ -1605,11 +1542,10 @@ gery.php?base_dir=
 inurl:/allindex.php?directfile=
 "category.asp?catid="
 index.php?go= "index.php?go="
-34. keyworld: inurl:/phpGedviewinurl:/login.php site:
 "resellers.asp?idCategory="
 .php?article="
 inurl:/allexibir.php?p=
-includeinurl:/editfunc.inc.php?NWCONF_SYSTEM[server_path]=
+include/editfunc.inc.php?NWCONF_SYSTEM[server_path]=
 index3.php?pageweb=
 catalog_main.php?catid=
 inurl:/avatar.php?page=
@@ -1636,7 +1572,6 @@ padrao.php?xlink=
 principal.php?pref=
 intitle:"Publications".php?id= title:login
 page.php?s= page.php?s="
-componentsinurl:/com_extended_registrationinurl:/registration_detailed.inc.php?mosConfig_absolute_path= com_extended_registration
 inurl:/all.php?from=
 file.php?qry=
 inurl::/reservations.php?id= title:login 2015
@@ -1677,11 +1612,8 @@ inurl:/appsinurl:/apps.php?app=
 index3.php?q=
 shopreviewlist.php?id=
 index3.php?channel=
-componentsinurl:/com_foruminurl:/download.php?phpbb_root_path=
-impexinurl:/ImpExData.php?systempath= "vbulletin"
 inurl:".php?ID=" intext:"customer" site:us 2015
-inurl:/libinurl:/dbinurl:/ez_sql.php?lib_path= ttCMS
-index.php?lng=..inurl:/..inurl:/includeinurl:/main.inc&G_PATH=
+index.php?lng=../../include/main.inc&G_PATH=
 phpx?PageID
 Stray-Questions-View.php?num=
 general.php?to=
@@ -1690,7 +1622,6 @@ general.php?p=
 send_reminders.php?includedir=
 intitle:"project".php?id= title:join
 intext:"boot"up" .php?id= title:login
-inurl:/all*inurl:/newsinurl:/archive.php?op=*year=*month=*
 principal.php?nivel=
 page.php?mid=
 index.php?middle=
@@ -1707,14 +1638,11 @@ mod*.php?numero=
 base.php?l=
 cbmerinurl:/congresinurl:/page.php?LAN=
 .asp?intProdId=
-inurl:/phplivehelperinurl:/initiate.php?abs_path=
-inurl:/phpcoininurl:/config.php?_CCFG[_PKG_PATH_DBSE]=
 home.php?ev=
 galerie.php?cid=
 index.php?news=
 index.php?sec= index.php?sec=
 include.php?numero=
-siteinurl:/eninurl:/list_service.php?cat=
 page.php?url=
 productpage.php?ID=
 shopthanks.php
@@ -1758,14 +1686,12 @@ template.php?op=
 voteList.php?item_ID=
 .asp?code=
 inurl:/allmainfile.php?MAIN_PATH=
-administratorinurl:/componentsinurl:/com_peoplebookinurl:/param.peoplebook.php?mosConfig_absolute_path=
 include.php?*[*]*=
 bidinurl:/topic.php?TopicID=
 inurl:/blank.php?open=
 inurl:/biznews.cgi?a=33&t=
 pagina.php?k=
 sitio.php?abre=
-inurl:/convertinurl:/mvcw.php?step=1&vwar_root=
 index.php?b=
 print.php?pager= print.php?pager=
 inurl:/index.php?cat=
@@ -1797,13 +1723,11 @@ inurl:/base.php?v=
 file.php?q=
 main.php?my=
 index.php?r=
-inurl:/administratorinurl:/componentsinurl:/com_jcsinurl:/viewinurl:/register.php?mosConfig_absolute_path=
 .php?choice="
 press.php?pa=
 base.php?mid=
 emailproduct.php?itemid=
 show.php?nivel=
-inurl:/modulesinurl:/MyGuestsinurl:/signin.php?_AMGconfig[cfg_serverpath]="
 brand.php?id=
 inurl:/all.php?a=
 .php?l="
@@ -1850,9 +1774,8 @@ print.php?dir=
 main.php?section=
 page.php?s= page.php?s=
 i-minurl:/i-m.cgi?p=
-inurl:/modulesinurl:/vwarinurl:/admininurl:/admin.php?vwar_root= vwar
 canal.php?meio= .php?meio="
-inurl:/classesinurl:/coreinurl:/********.php?rootdir=
+inurl:/classes/core/********.php?rootdir=
 viewgantt.php?root_dir=
 nav.php?g= "nav.php?g="
 enter.php?go=
@@ -1874,7 +1797,6 @@ index2.php?my=
 general.php?pre=
 index.php?module=
 blank.php?panel=
-skinsinurl:/advancedinurl:/advanced1.php?pluginpath[0]= skinsinurl:/advancedinurl:/advanced1.php?pluginpath[0]= "CMS"
 page.php?mod=
 page.php?p= .php?p=
 file.php?chapter=
@@ -1893,7 +1815,6 @@ view.php?disp=
 offer.php?idf=
 general.php?ref=
 index1.php?inc= .php?inc="
-cyberfolioinurl:/portfolioinurl:/msginurl:/view.php?av= cyberfolio
 index1.php?tipo=
 inurl:/base.php?basepath=
 intext:"watches" .php?category= title:login 2015
@@ -1908,15 +1829,12 @@ index.php?cont=
 inurl:/modules.php?name=
 standard.php?lang=
 print.php?choix=
-appinurl:/webeditorinurl:/login.cgi?username=&command=simple&do=edit&password=&file=
-incinurl:/cmsesinurl:/aedating4CMS.php?dir[inc]=
 itemDesc.php?CartId=
 index.php?go1= "index.php?go1="
 down*.php?pr=
 inurl:/all.php?open=
 sitio.php?recipe=
 base.php?f1= .php?f1="
-inurl:/dotprojectinurl:/modulesinurl:/projectsinurl:/vw_files.php?root_dir=
 feature.php?id=
 print.php?page=
 principal.php?pag=
@@ -1948,7 +1866,6 @@ template.php?choix=
 info.php?ir=
 mod*.php?link=
 down*.php?incl=
-rfi to this dork: inurl:/sourcesinurl:/functions.php?CONFIG[main_path]=
 inurl:/allindex.php?sub=
 print.php?cont=
 inurl:/allindex2.php?h=
@@ -1971,8 +1888,7 @@ nota.php?ki=
 shippinginfo.php?CartId=
 mod.php?mod=
 "index.php?screen="
-inurl:/componentsinurl:/com_phpshopinurl:/toolbar.phpshop.html.php?mosConfig_absolute_path=
-inurl:/appinurl:/***editorinurl:/login.cgi?user****=&command=simple&do=edit&passwor d=&file=
+inurl:/appi/***editor/login.cgi?user****=&command=simple&do=edit&password=&file=
 "category_list.asp?id="
 index1.php?p= .php?pg="
 index.php?id=1&lang= ".php?id="
@@ -1999,7 +1915,6 @@ show.php?product= show.php?product=
 template.php?section=
 general.php?tipo=
 enter.php?subject=
-inurl:/administratorinurl:/componentsinurl:/com_peoplebookinurl:/param.peoplebook.php?mosConfig_absolute_path=
 template.php?path=
 sub*.php?oldal=
 nota.php?pollname=
@@ -2013,9 +1928,7 @@ accinfo.php?cartId=
 print.php?tipo=
 index.php?lk= .php?lk="
 down*.php?disp=
-inurl:/componentsinurl:/com_rsgalleryinurl:/rsgallery.html.php?mosConfig_absolute_path=
 index5.php?site=
-modulesinurl:/MyGuestsinurl:/signin.php?_AMGconfig[cfg_serverpath]=
 inurl:/display.php?f=
 index.php?pageid=
 path.php?my=
@@ -2043,7 +1956,6 @@ inurl:/tags.php?BBCodeFile= Tagger LE
 inurl:/convert-date.php?cal_dir=
 shopping_basket.asp?cartID=
 index1.php?incl=
-rfi to this dork: inurl:/surveysinurl:/survey.inc.php?path=
 storeinurl:/home.php?cat=
 displayrange.php?rangeid=
 intext:"product" .php?id= title:login 2015 site:uk
@@ -2072,7 +1984,6 @@ show.php?disp=
 index.php4?lang= .php4?lang="
 index2.php?loader=
 article.php?id=
-supportinurl:/maillinginurl:/maillistinurl:/incinurl:/initdb.php?absolute_path=
 inurl:/index1.php?ln= .php?ln=
 down*.php?corpo=
 index.php?goto=
@@ -2080,11 +1991,10 @@ product_details.php?prodid=
 show.php?n=
 press.php?type=
 path.php?cmd=
-filetypesqlinsertinto{pass|passwd|password}
 padrao.php?type=
 "browse_item_details.asp"
 "whatsnew.asp?idCategory="
-inurl:/embedinurl:/day.php?path= WebCalendar
+inurl:/embed/day.php?path= WebCalendar
 showbook.php?bookid=
 inurl:/index.php?loc=&cat= .php?loc="
 inurl:/base.php?k=
@@ -2113,7 +2023,6 @@ inurl:/all.php?ref=
 details.php?prodId=
 index.php?menu=deti&page= index.php?menu=deti&page"
 start.php?id= start.php?id="
-skinsinurl:/advancedinurl:/advanced1.php?pluginpath[0]= Sabdrimer
 fiche_spectacle.php?id=
 fullDisplay.asp?item=
 home.php?loc=
@@ -2134,7 +2043,6 @@ index.php?ll=
 nav.php?go= nav.php?go=
 "list.asp?bookid="
 home.php?redirect=
-inurl:/componentsinurl:/com_mp3_allopassinurl:/allopass.php?mosConfig_live_site=
 inurl:/all.php?abrir=
 order.php?l= order.php?l=
 index.php?sec= "index.php?sec="
@@ -2143,7 +2051,6 @@ index.php3?pg= index.php3?pg=
 index2.php?g=
 dork: mcf.php"
 template.php?t=
-inurl:/coin_includesinurl:/constants.php?_CCFG[_PKG_PATH_INCL]= powered by phpCOIN 1.2.3
 Book.php?bookID=
 "id=" & intext:"Warning: getimagesize()
 inurl:".php?pid=" intext:"boutique"intitle:"human".php?id= title:education
@@ -2153,10 +2060,8 @@ layout.php?cont=
 index.php?lnk= index.php?lnk=
 index2.php?o=
 view.php?body=
-inurl:/includesinurl:/include_once.php?include_file=
 padrao.php?index=
 inurl:showimg.php?cid= title:shop
-inurl:/phpopenchatinurl:/contribinurl:/yabbseinurl:/poc.php?sourcedir=
 principal.php?p=
 .php?site="
 press.php?path=
@@ -2168,7 +2073,6 @@ inurl:/allinit.php?HTTP_POST_VARS=
 include.php?ref=
 index2.php?get=
 naboardinurl:/memo.php?bd=
-inurl:/coppermineinurl:/themesinurl:/mazeinurl:/theme.php?THEME_DIR=
 gnuinurl:/?doc=
 productinurl:/product.php?product_no=
 index2.php?c= .php?c="
@@ -2194,7 +2098,6 @@ general.php?where=
 inurl:/all.php?prefix=
 main.php?addr=
 cart.php?cart_id=
-inurl:/clarolineinurl:/incinurl:/claro_init_header.inc.php?includePath=
 "WsAncillary.asp?ID"
 boardinurl:/kboard.php?board=
 start.php?where=
@@ -2251,7 +2154,6 @@ index.php?site1= "index.php?site1="
 pagina.php?start=
 index.php?ver=
 index2.php?sub2=
-administratorinurl:/componentsinurl:/com_remositoryinurl:/admin.remository.php?mosConfig_absolute_path= inurl:/tags.php?BBCodeFile=
 inurl:/base.php?doshow=
 inurl:/bb_libinurl:/checkdb.inc.php?libpach=
 .php?release="
@@ -2263,7 +2165,7 @@ rod_info.php?id=
 shopdc.php?bookid=
 inurl:/allexibir.php?page=
 principal.php?disp=
-inurl:/embedinurl:/day.php?path= intitle:"Login to Calendar"
+inurl:/embeded/day.php?path=intitle:"Login to Calendar"
 intitle:"company".php?id= title:sign in
 enter.php?start=
 prodotti.php?id_cat=
@@ -2272,7 +2174,6 @@ index1.php?recipe=
 info.php?redirect=
 template.php?corpo=
 index1.php?read=
-inurl:/cgi-sysinurl:/guestbook.cgi?user=cpanel&template=
 gery.php?tipo=
 pagina.php?read=
 blank.php?basepath=
@@ -2281,13 +2182,10 @@ intitle:"market" .php?id= intext:login 2015 site:sg
 inurlinfo.php?id=
 enter.php?open=
 referralinurl:/detail.php?siteid=
-inurl:/componentsinurl:/com_facileformsinurl:/facileforms.frame.php?ff_compath= com_facileforms"
 index3.php?var=
 dork: "Powered By ScozNews"
 home.php?a= home.php?a="
 index.php?modo=
-inurl:/libraryinurl:/editorinurl:/editor.php?root=
-includeinurl:/editfunc.inc.php?NWCONF_SYSTEM[server_path]= intitle:Newswriter
 .asp?framecode=
 inurl:/help_text_vars.php?cmd=dir&PGV_BASE_DIRECTORY= PHPGedView
 default.php?loader=
@@ -2295,15 +2193,13 @@ index.php?secao= ".php?secao="
 default.php?name=
 index.php?nic=
 index.php?page1= index.php?page1="
-inurl:/templatesinurl:/headline_temp.php?nst_inc= fusion:news:management:system
-intext:"kids"fashion" .php?id= title:loginintext:"international"delivery" .php?id= title:login
+"kids"fashion".php?id= title:loginintext:"international"delivery".php?id=title:login
 standard.php?str=
 inurl:/allindex2.php?y=
 sitio.php?category=
 inurl:".php?id=" intext:"View cart"
 *.php?sel=
 padrao.php?cont=
-galleryinurl:/gallery.php?id=
 init.php?HTTP_POST_VARS=
 display.php?page=&lang= display.php?page="
 index.php?ir= ".php?ir="
@@ -2317,7 +2213,6 @@ inurl:".php?pid=" intext:"View cart"
 inurl:/all.php?default=
 general.php?ir=
 nota.php?basepath=
-inurl:/htmlinurl:/page.php?page=
 index.php?mid=
 item_show.php?id=
 head.php?where=
@@ -2337,7 +2232,7 @@ start.php?abre=
 index.php?middlePart=
 shippinginfo.asp?CartId=
 press.php?lang=
-*includeinurl:/new-visitor.inc.php?lvc_include_dir=
+*include/new-visitor.inc.php?lvc_include_dir=
 gery.php?pag=
 index.php?openfile=
 mai.php?act= mai.php?act=
@@ -2348,7 +2243,6 @@ cloudbankinurl:/detail.php?ID=
 inurl:/default.php?mid=
 more.php?sub= more.php?sub=
 *inc*.php?category=
-psychologyinurl:/peopleinurl:/detail.php?id=
 inurl:/allindex.php?page=
 inurl:/default.php?cmd=
 contentinurl:/index.php?id=
@@ -2372,13 +2266,10 @@ exhibition_overview.php?id=
 index.php?dok= .php?dok="
 default.php?oldal=
 layout.php?category=
-dotprojectinurl:/modulesinurl:/projectsinurl:/view.php?root_dir=
-inurl:/administratorinurl:/componentsinurl:/com_***ringinurl:/admin.***ring.docs.php?component_dir=
 index.php?fn= index.php?fn="
 layout.php?thispage=
 middle.php?page= middle.php?page=
 "List.asp?CatID="
-componentsinurl:/com_performsinurl:/performs.php?mosConfig_absolute_path=
 blank.php?ref=
 inurl:/index.php?lang=en&page= index.php?lang="
 write.php?dir=
@@ -2404,7 +2295,6 @@ inurl:/static.php?load=
 index2.php?goto=
 index5.php?pag=
 layout.php?my=
-administratorinurl:/componentsinurl:/com_linkdirectoryinurl:/toolbar.linkdirectory.html.php?mosConfig_absolute_path=
 enter.php?id=
 home.php?my=
 bloginurl:/index.php?idBlog=
@@ -2427,13 +2317,10 @@ inurl:/allindex_table.php?root_dir=
 blank.php?pa=
 display.php?s= display.php?s=
 mod*.php?channel=
-inurl:/includeinurl:/main.php?config[search_disp]=true&include_dir=
 faq_list.php?id=
 index.php?ID=
-inurl:/includesinurl:/dbal.php?eqdkp_root_path= EQdkp
 template.php?a=
 show.php?ki=
-inurl:/foruminurl:/admininurl:/index.php?inc_conf=
 lc.cgi?a=
 inurl:/all.php?club_id=
 cgi-sysinurl:/guestbook.cgi?user=cpanel&template=
@@ -2445,11 +2332,8 @@ add-to-cart.asp?ID=
 "comersus_viewItem.asp?idProduct="
 view.php?go=
 inurl:/all.php?refid=
-inurl:/includesinurl:/kb_constants.php?module_root_path= "Powered by Knowledge Base"
 age.php?file=
-administratorinurl:/componentsinurl:/com_cropimageinurl:/admin.cropcanvas.php?cropimagedir=modulesinurl:/My_eGeryinurl:/index.php?basepath=
 sitio.php?ev=
-inurl:/pivotinurl:/modulesinurl:/module_db.php?pivot_path=
 padrao.php?mid=
 standard.php?viewpage=
 inurl:/default.php?k=
@@ -2462,7 +2346,6 @@ index.php?open=
 index.php?r= index.php?r="
 productsinurl:/partsinurl:/detail.php?id=
 addItem.asp
-administratorinurl:/componentsinurl:/com_remositoryinurl:/admin.remository.php?mosConfig_absolute_path= inurl:/com_remositoryinurl:/
 inurl:/blank.php?phpbb_root_path=
 "comments_form.asp?ID="
 index.php?cart=
@@ -2491,14 +2374,13 @@ modulesinurl:/mod_mainmenu.php?mosConfig_absolute_path=
 principal.php?inc=
 inurl:/all.php?sect=
 inurl:/default.php?to=
-inurl:/administratorinurl:/componentsinurl:/com_serverstatinurl:/inst.serverstat.php?mosConfig_absolute_path= "com_serverstat"
 inurl:/auto.php?inc=
 inurl:content.php?id= title:login 2015
 blank.php?pre=
 .php?bbs="
 storeinurl:/default.php?cPath=
 print.php?opcion=
-inurl:/includesinurl:/dbal.php?eqdkp_root_path= powered by EQdkp
+inurl:/includes/dbal.php?eqdkp_root_path="powered by EQdkp"
 intitle:"jobs".php?lang=en intext:business
 index.php?id=&lang= ".php?id="
 base.php?lang=
@@ -2525,7 +2407,7 @@ index1.php?page= index1.php?page="
 "id=" & intext:"Warning: mysql_fetch_array()
 product_ranges_view.php?ID=
 inurl:/alldisplayCategory.php?basepath=
-site:.pk intext:Warning: mysql_fetch_array(): supplied argument is not a valid MySQL result resource in & "id"
+intext:Warning: mysql_fetch_array(): supplied argument is not a valid MySQL result resource in & "id"
 inurl:/dotprojectinurl:/modulesinurl:/tasksinurl:/viewgantt.php?root_dir=
 intext:"international"business" .php?id= title:join
 solpot.html?body=
@@ -2536,15 +2418,11 @@ book_list.asp?bookid=
 view.php?recipe=
 +union+select+SHOP
 include.php?url=
-administratorinurl:/componentsinurl:/com_remositoryinurl:/admin.remository.php?mosConfig_absolute_path=
 sitio.php?option=
 productsinurl:/product.php?pid=
 inurl:/interna.php?meio= .php?meio="
 layout.php?pref=
 book_view.php?bookid=
-inurl:/includesinurl:/orderSuccess.inc.php?glob=1&cart_order_id=1&glob[rootDir]=
-inurl:/modulesinurl:/newbb_plusinurl:/classinurl:/forumpollrenderer.php?bbPath[path]=
-inurl:/sourcesinurl:/functions.php?CONFIG[main_path]= "(Powered By ScozNews)"
 index.php?q=
 inurl:/modulesinurl:/xgeryinurl:/upgrade_album.php?GERY_BASEDIR=
 gery.php?sivu=
@@ -4483,7 +4361,6 @@ book_list.php?bookid=
 .php?z="
 componentsinurl:/com_simpleboardinurl:/image_upload.php?sbp= com_simpleboard"
 .asp?maingroup=
-inurl:/modulesinurl:/vwarinurl:/admininurl:/admin.php?vwar_root=index.php?loc=
 info.php?option=
 addtomylist.asp?ProdId=
 index.php?t= index.php?t="
@@ -4983,7 +4860,6 @@ index.php?bas= index.php?bas="
 index.php?h=
 home.php?k=
 board.php?see= .php?see="
-inurl:/cgi-bininurl:/index.cgi?page=
 wamp_dirinurl:/setupinurl:/yesno.phtml?no_url= "setup"
 "giftDetail.asp?id="
 inurl:/allindex2.php?t=
@@ -4998,7 +4874,6 @@ index.php?page=
 nota.php?include=
 inurl::/category.asp?id= title:shop 2015
 principal.php?strona=
-inurl:/allindex.php?lng=..inurl:/..inurl:/includeinurl:/main.inc&G_PATH=
 inurl:/allindex2.php?l=
 intitle:"fashion" .php?id= intext:login
 intitle:"compay".php?id= title:login
@@ -5009,7 +4884,6 @@ Productinfo.php?id=
 general.php?left=
 index.php?theme= index.php?theme=
 index.php?langc=
-modulesinurl:/coppermineinurl:/themesinurl:/defaultinurl:/theme.php?THEME_DIR=
 base.php?*[*]*=
 principal.php?tipo=
 modline.asp?id=
@@ -5022,13 +4896,11 @@ remixer.php?id=
 sitio.php?t=
 index2.php?filepath=
 Store_ViewProducts.php?Cat=
-admininurl:/doeditconfig.php?thispath=..inurl:/includes&config[path]= "admin"
 index3.php?x=
 productdetail.php?id=
 view.php?ir=
 path.php?pageweb=
 35. inurl:/folder.php?id=
-inurl:/e107inurl:/e107_handlersinurl:/secure_img_render.php?p=
 index1.php?OpenPage=
 head.php?b=
 sub*.php?my=
@@ -5047,12 +4919,10 @@ principal.php?ev=
 index.php?section=
 index.php?sub=
 index2.php?cal=
-inurl:/addpost_newpoll.php?addpoll=preview&thispath= inurl:/ubbthreadsinurl:/"
 inurl:/includeinurl:/init.inc.php?CPG_M_DIR="
 inurl:/allindex.php?j=
 inurl:/allindex.php?loc=
 main.php?id= "main.php?id=*.php"
-componentsinurl:/com_performsinurl:/performs.php?mosConfig_absolute_path= com_performs
 showStore.php?catID=
 newsitem.php?newsID=
 loc.php?lang= .php?lang="
@@ -5063,7 +4933,6 @@ main.php?dir=
 path.php?ir=
 eng.php?img= .php?img=
 inurl:/default.php?y=
-modulesinurl:/4nAlbuminurl:/publicinurl:/displayCategory.php?basepath=
 humor.php?id=
 " inurl:".php?cat=" intext:"inurl:/storeinurl:/"
 inurl:/default.php?destino=
@@ -5076,10 +4945,8 @@ index.php?pag= index.php?pag=
 down*.php?v=
 main.php?subject=
 payment.asp?CartID=
-componentsinurl:/com_rsgeryinurl:/rsgery.html.php?mosConfig_absolute_path= rs gery
 page.php?qry=
 intitle:"10%" .php?id= intext:login 2015
-inurl:/admininurl:/includeinurl:/header.php?repertoire=
 inurl:/all.php?str=
 show.php?go=
 gery.php?menue=
@@ -5088,8 +4955,6 @@ inurl:/all.php?start=
 inurl:/down*.php?filepath=
 info.php?read=
 cemetery.php?id=
-allinurl::/vpaspinurl:/shopsearch.asp
-inurl:/livehelpinurl:/incinurl:/pipe.php?HCL_path=
 include.php?gorumDir=
 down*.php?in=
 index_principal.php?pagina=
@@ -5102,7 +4967,6 @@ projdetails.php?id=
 inurl:/display.php?page=
 default.php?pa=
 inurl:/common.php?include_path=
-15. keyword : inurl:/phoruminurl:/login.php
 index2.php?loca= .php?loca=
 index1.php?pa=
 rod_detail.php?id=
@@ -5115,13 +4979,11 @@ mod*.php?qry=
 inurl:/blank.php?rub=
 index.php?secao=
 enter.php?get=
-bookmarkinurl:/mybookinurl:/bookmark.php?bookPageNo=
 "catalog_main.asp?catid="
 path.php?pref=
 "book_view.asp?bookid="
 cataloginurl:/product.php?cat_id=
 index3.php?oldal=
-inurl:/sourcesinurl:/functions.php?CONFIG[main_path]=
 include.php?loader=
 content.php?p=
 page.php?modul=
@@ -5152,7 +5014,6 @@ home.php?act= home.php?act=
 show.php?j=
 standard.php?eval=
 inurl:/down*.php?open=
-dotprojectinurl:/modulesinurl:/filesinurl:/index_table.php?root_dir=
 pagina.php?n=
 down*.php?texto=
 inurl:/blank.php?sivu=
@@ -5161,7 +5022,6 @@ show.php?b=
 info.php?ID=
 index1.php?t=
 layout.php?oldal=
-componentsinurl:/com_simpleboardinurl:/image_upload.php?sbp=
 standard.php?chapter=
 index.php?cal= "index.php?cal="
 index.php?sub=index.php?id=index.php?t=
@@ -5188,7 +5048,6 @@ inurl:/index1.php?nav=
 inurl:/all.php?d=
 index1.php?d=
 "index.php?langc="
-agendaxinurl:/addevent.inc.php?agendax_path=
 zbinurl:/view.php?uid=
 transcript.php?id=
 index.asp?cart=
@@ -5202,7 +5061,6 @@ intext:delivery item.php?id= 2015
 vw_files.php?root_dir=
 nav.php?ln= .php?ln=
 inurl:/allindex2.php?cal=
-inurl:/modulesinurl:/TotalCalendarinurl:/about.php?inc_dir= TotalCalendar
 show.php?header=
 person.php?id=
 searchcat.asp?search_id=
@@ -5211,7 +5069,6 @@ main.php?chapter=
 inurl:/default.php?pa=
 sitio.php?menu=
 "faqs.asp?id="
-inurl:/wsinurl:/login.php?includedir= WebCalendar v0.9.45
 cardinfo.php?card=
 inurl:products.php?cat= title:login 2015
 3. coppermine site:.org
@@ -5224,10 +5081,8 @@ inurl:/embedinurl:/day.php?path= Calendar
 index.php?modus=
 enter.php?pname=
 index.php?meio= index.php?meio=
-inurl:/componentsinurl:/com_performsinurl:/performs.php?mosConfig_absolute_path=
 view.php?load=
 principal.php?loc=
-inurl:/classesinurl:/adodbtinurl:/sql.php?classes_dir= adobt
 inurl:".php?sub_id=" intext:"buy" 2015
 subcategories.php?id=
 dork: "powered by doodle cart"
@@ -5250,7 +5105,7 @@ werbungFrame.php?do= .php?do="
 templet.php?acticle_id=
 index.php3?i= index.php3?i=
 resellers.php?idCategory=
-*inurl:/newbbinurl:/print.php?forum=*topic_id=*"
+*inurl:/newbb/print.php?forum=*topic_id=*"
 layout.php?link=
 "item.asp?eid="
 index.php?mf= .php?mf="
@@ -5280,7 +5135,7 @@ head.php?adresa=
 price.asp
 viewitem.asp?recor=
 padrao.php?h=
-inurl:/helpinurl:/faqinurl:/incinurl:/pipe.php?HCL_path=
+inurl:/help/faq/inc/pipe.php?HCL_path=
 *inc*.php?pg=
 index.php?pager= .php?pager=
 pages.php?id=
@@ -5317,7 +5172,6 @@ inurl:/addpost_newpoll.php?addpoll=preview&thispath= ubbthreads
 archiveinurl:/get.php?message_id=
 base.php?name=
 inurl:".php?id=" intext:"boutique"
-inurl:/dfd_cartinurl:/app.libinurl:/product.controlinurl:/core.phpinurl:/customer.areainurl:/customer.browse.search.php?set_depth=
 ageid=
 intitle:"insurance".php?id= title:join
 info.php?*[*]*=
@@ -5331,7 +5185,6 @@ include.php?read=
 padrao.php?ir=
 .php?for="
 index.php?trans= index.php?trans="
-inurl:/templatesinurl:/headline_temp.php?nst_inc= system
 inurl:/base.php?p****=
 intext:contact us .php?id= title:login
 display_page.php?id=
@@ -5360,11 +5213,9 @@ home.php?link=
 index.php?s= .php?s=
 admin.php?cal_dir=
 "cart_validate.asp?id="
-inurl:/sourcesinurl:/functions.php?CONFIG[main_path]= "ScozNews"
 start.php?param=
 inurl:/all.php?sourcedir=
 roduit.php?id=
-componentsinurl:/com_mtreeinurl:/Savant2inurl:/Savant2_Plugin_stylesheet.php?mosConfig_absolute_path=
 padrao.php?secao=
 product.php?product=
 "show.php?page="
@@ -5374,7 +5225,6 @@ inurl:/allindex5.php?m=
 31. keyword : "Powered by iUser"
 start.php?adresa=
 "page.asp?PartID="
-inurl:/palportalinurl:/index.php?page= inurl:/palportalinurl:/
 prodbycat.asp?intCatalogID=
 download.php?id=
 index.php?canal=
@@ -5393,8 +5243,7 @@ intext:size product.php?id= title:login
 file.php?sivu=
 index.php?cartID=
 "cardinfo.asp?card="
-inurl::/filesinurl:/prod_detail.php?lang= title:login
-inurl:/componentsinurl:/com_facileformsinurl:/facileforms.frame.php?ff_compath=
+inurl:/filesinurl:/prod_detail.php?lang= title:login
 inurl:"storefront".php?cat= intext:login
 inurl:/default.php?base_dir=
 press.php?modo=
@@ -5413,10 +5262,8 @@ index.asp?cartID=
 blank.php?path=
 inurl:".php?cid=" intext:"inurl:/shopinurl:/"
 "show_item_details.asp?item_id="
-inurl:/sourcesinurl:/join.php?FORM[url]=owned&CONFIG[captcha]=1&CONFIG[path]= "Aardvark"
 theme.php?THEME_DIR=
 voteList.asp?item_ID=
-inurl:/paginedinamicheinurl:/main.php?pagina=
 index.php?disp=
 template.php?left=
 about.php?cartID=
@@ -5428,7 +5275,6 @@ Browse_Item_Details.asp?Store_Id=
 inurl:".php?id=" intext:"membership" title:login 2015
 *inc*.php?c=
 path.php?id=
-inurl:/dotprojectinurl:/modulesinurl:/projectsinurl:/addedit.php?root_dir=
 dbase.php?action= .php?action=
 start.php?cmd=
 view.php?chapter=
@@ -5436,7 +5282,6 @@ maininurl:/index.php?action=
 main.php?adresa=
 pagina.php?seccion=
 "id=" & intext:"Warning: mysql_fetch_assoc()
-dotprojectinurl:/modulesinurl:/projectsinurl:/addedit.php?root_dir=
 product.php?shopprodid=
 press.php?ir=
 productList.php?id=
@@ -5444,25 +5289,20 @@ standard.php?dir=
 events.cgi?a=155&t=
 down*.php?open=
 "cat.asp?iCat="
-phpinurl:/fid8E1BED06B1301BAE3ED64383D5F619E3B1997A70.aspx?s=
 checkout.asp?UserID=
 bycategory.php?id=
 shopdisplaycategories.asp
-inurl:/dfd_cartinurl:/app.libinurl:/product.controlinurl:/core.phpinurl:/product.control.config.php?set_depth=
-inurl:/componentsinurl:/com_rsgeryinurl:/rsgery.html.php?mosConfig_absolute_path=
 home.php?ir=
-encoreinurl:/forumcgiinurl:/display.cgi?preftemp=temp&page=anonymous&file=
-inurl:/contentinurl:/modify_go.php?pwfile=
+inurl:/content/modify_go.php?pwfile=
 buy.php?category=
-contentinurl:/pagesinurl:/index.php?id_cat=
+content/pages/index.php?id_cat=
 press.php?get=
 inurl:/all.php?subd=
 inurl:/allview.php?root_dir=
 sitio.php?texto=
-HistoryStoreinurl:/pagesinurl:/item.php?itemID=
 e_boardinurl:/modifyform.html?code=
 index.php?pag=
-inurl::/eventdetails.php?*= title:login 2015
+inurl:/eventdetails.php?*= title:login 2015
 bookDetails.php?id=
 down*.php?nivel=
 index.php3?p= index.php3?page="
@@ -5493,10 +5333,8 @@ general.php?section=
 inurl:/blank.php?left=
 shop.asp?action=
 list.asp?bookid=
-els_inurl:/productinurl:/product.php?id=
 info.php?base_dir=
 "id=" & intext:"Warning: require()
-communityinurl:/calendar-event-fr.php?id=
 padrao.php?header=
 pagina.php?loc=
 index2.php?z=
@@ -5504,7 +5342,6 @@ inurl:/calendar.php?l= calendar.php?l=
 index3.php?index=
 padrao.php?seite=
 lang.php?subpage= .php?subpage="
-aktuellesinurl:/meldungen-detail.php?id=
 include.php?play=
 index1.php?pname=
 inurl:/all.php?****=
@@ -5516,7 +5353,6 @@ press.php?pname=
 enter.php?str=
 index3.php?ref=
 index2.php?j=
-bpacinurl:/calendarinurl:/event.php?id=
 general.php?base_dir=
 index1.php?dat=
 index.php?menu=
@@ -5525,7 +5361,6 @@ mod*.php?secc=
 .php?h="
 default.php?id=
 enter.php?include=
-intitle:"market" .php?id= intext:login 2015 site:uk
 home.php?pre=
 inurl:".php?ID=" intext:"members" site:us 2015
 viewthread.php?tid=
@@ -5540,7 +5375,6 @@ add.asp?bookid=
 inurl:/all.php?f_content=
 page.php?arq= .php?arq=
 order.php?page= order.php?page=
-inurl:/osticketinurl:/includeinurl:/main.php?config[search_disp]=true&include_dir=
 .php?type="
 index.php?e=
 enter.php?strona=
@@ -5557,11 +5391,9 @@ intext:"shop" .php?id= title:"login" 2015
 encinurl:/content.php?Home_Path= doodle cart
 view_faq.php?id=
 template.php?secao=
-inurl:/allinurl:/modulesinurl:/AllMyGuestsinurl:/signin.php?_AMGconfig[cfg_serverpath]=
 start.php?pname=
 blank.php?var=
 index.php?m=
-inurl:/toolsinurl:/send_reminders.php?includedir= day.php?date=
 viewCat_h.asp?idCategory=
 itemdetail.asp?item=
 inurl:/index.php?site=
@@ -5583,15 +5415,12 @@ inurl:"php?id=" intext:"knitwear" title:login 2015
 reagir.php?num=
 general.php?page=
 inurl:/index.php?cms= inurl:/index.php?cms=
-inurl:/dotprojectinurl:/modulesinurl:/filesinurl:/index_table.php?root_dir=
 shopexd.php
-inurl:/admin_modulesinurl:/admin_module_deldir.inc.php?config[path_src_include]=
 principal.php?pr=
 intext:jewel .php?id= title:login
 rfi of this dork: inurl:/embedinurl:/day.php?path=
 inurl:apartments.php?id= title:login
 view.php?second=
-inurl:/sourcesinurl:/join.php?FORM[url]=owned&CONFIG[captcha]=1&CONFIG[path]= "Powered By Aardvark Topsites PHP 4.2.2?
 layout.php?tipo=
 principal.php?middlePart=
 home.php?loader=
@@ -5607,7 +5436,6 @@ print.php?name=
 shopbasket.php?bookid=
 layout.php?pollname=
 emailToFriend.asp?idProduct=
-impexinurl:/ImpExData.php?systempath= vbulletin
 index3.php?nivel=
 adminhome.asp
 .php?q="
@@ -5617,7 +5445,6 @@ displayproducts.php?id=
 blank.php?z=
 index.php?product= .php?product="
 "index.asp?cartID="
-inurl:/index.php?seite= inurl:/index.php?seite=
 _functions.php?prefix
 inurl:/htmltonuke.php?filnavn=
 sub*.php?cont=
@@ -5635,7 +5462,7 @@ info.php?chapter=
 main.php?oldal=
 art.php?idm=
 viewcart.asp?CartId=
-account.php?action= iurl:"account.php?action="
+account.php?action="account.php?action="
 index.php?spage= index.php?spage="
 padrao.php?read=
 helpinurl:/com_view.html?code=
@@ -5646,14 +5473,12 @@ mod*.php?pagina=
 cart.asp?cart_id=
 index.php?fset= .php?fset="
 .php?cvsroot="
-garden_equipmentinurl:/pest-weed-controlinurl:/product.php?pr=
 template.php?seite=
 comersus_optEmailToFriendForm.php?idProduct=
 include.php?channel=
 index.php?ln= index.php?ln=
 sub*.php?adresa=
 index5.php?include=
-inurl:/componentsinurl:/com_zoominurl:/includesinurl:/database.php?mosConfig_absolute_path= com_zoom
 account.php?action= account.php?action=
 mod*.php?phpbb_root_path=
 page.php?panel=
@@ -5683,13 +5508,10 @@ inurl:/base.php?category=
 page.php?p= page.php?p="
 "modline.asp?id="
 view_detail.asp?ID=
-yabbseinurl:/Sourcesinurl:/Packages.php?sourcedir=
 *inc*.php?rub=
-dotprojectinurl:/modulesinurl:/tasksinurl:/addedit.php?root_dir=
 inurl:/blank.php?panel=
 index2.php?cmd=
 index1.php?my=
-*supportinurl:/maillinginurl:/maillistinurl:/incinurl:/initdb.php?absolute_path=
 roductdetail.php?id=
 inurl:social.php?id= title:login 2015
 inurl:/all.php?poll****=
@@ -5702,7 +5524,6 @@ principal.php?oldal=
 index.php?set= index.php?set=
 index2.php?param=
 ?action=
-inurl:/customerinurl:/product.php?xcart_dir=
 sitio.php?strona=
 index.php?fase= .php?fase="
 page.php?s= .php?s="
@@ -5727,12 +5548,12 @@ diganti dengan :
 look.php?ID=
 showproduct.php?productId=
 article.php?sid=
-inurl:/modulesinurl:/mod_mainmenu.php?mosConfig_absolute_path=
 inurl:/base.php?middlePart=
 ceiinurl:/cedbinurl:/projdetail.php?projID=
 addmedia.php?factsfile[$LANGUAGE]= phpGedView
 standard.php?open=
-inurl:".php?catid=" intext:"inurl:/storeinurl:/"
+inurl:".php?catid=
+inurl:/storeinurl:/
 principal.php?load=
 communique_detail.php?id=
 default.php?param=
@@ -5762,7 +5583,6 @@ press.php?incl=
 .php?sg="
 main.php?ba= .php?ba="
 index.php?pref=
-inurl:/wsinurl:/get_events.php?includedir= WebCalendar v0.9.45
 .php?lest="
 inurl:Item"php=id" +site:.uk intext:login
 index.php?filepath=
@@ -5778,9 +5598,7 @@ padrao.php?str=
 blank.php?filepath=
 *index.php?arquivo=
 inurl:/allindex2.php?lv1=
-index.phpinurl:/eninurl:/componentinurl:/pvminurl:/?view=
 cgi-bininurl:/1inurl:/cmd.cgi
-inurl:/admininurl:/incinurl:/change_action.php?format_menue=
 print.php?param=
 *inc*.php?sivu=
 info.php?var=
@@ -5798,10 +5616,8 @@ opinions.php?id=
 inurl:/all.php?storyid=
 "shop.asp?a="
 info.php?*
-inurl:/wsinurl:/get_events.php?includedir= Web Calendar
 content.php?cont_title=
 inurl:/default.php?pag=
-skinsinurl:/advancedinurl:/advanced1.php?pluginpath[0]=
 page.php?oldal=
 sitio.php?incl=
 view.php?loader=
@@ -5832,12 +5648,8 @@ home.php?act= "home.php?act="
 news.cgi?t=
 inurl:/default.php?f=
 print.php?middlePart=
-impexinurl:/ImpExData.php?systempath= powered by vbulletin
-inurl:/incinurl:/irayofuncs.php?irayodirhack= "inurl:/incinurl:/"
 file.php?loader=
 index.php?arg= .php?arg=
-inurl:/includesinurl:/include_onde.php?include_file=
-inurl:/includeinurl:/authform.inc.php?path_pre=
 index1.php?*root*=
 view.php?page=
 intext:support .php?id= title:login
@@ -5848,7 +5660,6 @@ inurl:".php?catid=" intext:"shopping"
 page.php?action=
 inurl:".php?sub_cat=" intext:"equipment"
 index2.php?= "index2.php?=*.php?"
-inurl:/dbmodulesinurl:/DB_adodb.class.php?PHPOF_INCLUDE_PATH=
 index1.php?c=
 layout.php?basepath=
 "listcategoriesandproducts.asp?idCategory="
@@ -5919,7 +5730,7 @@ index.php?place=
 inurl:/all.php?class=
 inurl:/big.php?pathtotemplate=
 index.php?secao= "index.php?secao="
-inurl:".php?categoryid=" intext:"inurl:/shopinurl:/"
+inurl:".php?categoryid="
 home.php?table= .php?table=
 index.php?wpage= index.php?wpage="
 default.php?var=
@@ -5940,7 +5751,9 @@ principal.php?w=
 downloads.php?id=
 nota.php?h=
 include.php?goto=
-index.php?textfield= .php?textfield="
+index.php?textfield=
+field.php?textfield=
+.php?textfield="
 exibir.php?lang=
 "index.php?go="
 nota.php?chapter=
@@ -5958,7 +5771,7 @@ sub*.php?open=
 preview.php?id=
 map.php?loc= map.php?loc=
 inurl:/default.php?pre=
-productsinurl:/products.php?p=
+inurl:/products/products.php?p=
 press.php?include=
 .php?play="
 index2.php?funcion=
