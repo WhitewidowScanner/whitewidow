@@ -16,7 +16,7 @@ module Whitewidow
       #
       # Get the URLS by connecting to google and scraping for the URLS on the first page
       #
-      def get_urls(proxy = nil)
+      def get_urls(proxy=nil)
         query = SETTINGS.extract_query!
         FORMAT.info("Creating payloads..")
         payloads = SETTINGS.create_payloads(PAYLOAD_TEMPLATE_PATH)
@@ -36,12 +36,22 @@ module Whitewidow
         end
         correct_agent = SETTINGS.random_agent?
         agent.user_agent = correct_agent
+
         correct_agent == DEFAULT_USER_AGENT ? FORMAT.info("Using default user agent") :
             FORMAT.info("Grabbed random agent from #{RAND_AGENT_PATH}")
-        page = agent.get("http://google.com")
-        google_form = page.form('f')
+
+        google_page = agent.get("http://google.com")
+        google_form = google_page.form('f')
+
+        FORMAT.info("Verifying search query...")
+        unless SETTINGS.test_query(query, correct_agent, proxy)
+          query = File.readlines("#{PATH}/lib/lists/search_query.txt").sample
+          LOGGER.info("Query changed to: #{query}")
+        end
+
         google_form.q = "#{query}"  # Search Google for the query
         url = agent.submit(google_form, google_form.buttons.first)
+
         url.links.each do |link|
           if link.href.to_s =~ /url.q/  # Pull the links from the search
             str = link.href.to_s
@@ -56,20 +66,6 @@ module Whitewidow
             payloads.each { |payload|
               File.open("#{SITES_TO_CHECK_PATH}", "a+") { |to_check| to_check.puts("#{urls_to_log}#{payload}")}
             }
-
-            # DEPRECATED
-=begin           ERROR_BASED_SQL_INJECTION_TEST.each { |sql|
-              File.open("#{SITES_TO_CHECK_PATH}", 'a+') { |to_check| to_check.puts("#{urls_to_log}#{sql}") }  # Error based
-              MULTIPARAMS.check_for_multiple_parameters(urls_to_log, sql) # Add sql syntax to all "="
-            }
-            BLIND_BASED_SQL_INJECTION_TEST.each { |blind|
-              File.open("#{SITES_TO_CHECK_PATH}", "a+") { |blind_check| blind_check.puts("#{urls_to_log} #{blind}") }  # Blind based
-            }
-            UNION_BASED_SQL_INJECTION_TEST.each { |union|
-              File.open("#{SITES_TO_CHECK_PATH}", "a+") { |union_check| union_check.puts("#{urls_to_log}#{union}") }  # Union test
-            }
-=end
-
           end
         end
         FORMAT.info("I've dumped possible vulnerable sites into #{SITES_TO_CHECK_PATH}")
