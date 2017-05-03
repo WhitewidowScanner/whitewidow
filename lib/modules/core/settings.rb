@@ -141,11 +141,14 @@ module Settings
       end
     end
 
+    #
+    # Create the payloads
+    #
     def create_payloads(payload_file, root_key="payloads")
       # Create the payloads to use while searching for SQL injection
       # vulnerable sites
-      # @param [Object] payload_file
-      # @param [Object] root_key
+      # @param [Object] payload_file: File that the templates are in
+      # @param [Object] root_key: The root key for the payloads file
       # Example:
       # >>> ;SELECT IF((LCwooh3),BENCHMARK(7000000,MD5(LCwooh3)),158002)
       rand_nums = rand(1000000)
@@ -175,6 +178,25 @@ module Settings
         }
       }
       return payloads
+    end
+
+    #
+    # Test the search query before beginning the process
+    #
+    def test_query(query, agent=nil, proxy_to_use=nil)
+      test_agent = Mechanize.new
+      if proxy_to_use != nil
+        agent.set_proxy(proxy_to_use.split(":").first, proxy_to_use.split(":").last)
+      end
+      test_agent.user_agent = agent
+      google_page = test_agent.get("http://google.com")
+      google_form = google_page.form("f")
+      begin
+        google_form.q = query
+      rescue NoMethodError
+        FORMAT.warning("Query: #{query} is bad, will try again with another query..")
+        return false
+      end
     end
 
     #
