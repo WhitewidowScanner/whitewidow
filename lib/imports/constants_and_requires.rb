@@ -223,8 +223,7 @@ vuln_specs = [
     /(?i)Warning.*sysbase/, /Sysbase message/, /Sysbase.*Server message.*/
 ]
 
-# Regex created from the above specifications looks something along the lines of:
-# /(?-mix:SQL query error)|(?-mix:MySQL Query Error)|(?-mix:expects parameter)|(?-mix:You have an error in your SQL syntax)/
+# Create a regex to match the above vuln_specs. Can provide a false positive, but unlikely
 SQL_VULN_REGEX = Regexp.union(vuln_specs)
 
 # Windows platform regex
