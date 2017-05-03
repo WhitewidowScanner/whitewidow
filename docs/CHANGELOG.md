@@ -1,3 +1,12 @@
+# Version 2.0.1.1
+ - Fixed the q= for nil:NilClass issue
+ - Created a verification for search queries
+ - Added custom payloads to inject.yml
+ - Did my best to clean up the search queries, if you find some lemme know
+ - Minor tweak to scanner.rb
+ - Fixed the ::FixNum warning
+ - Bumped version number
+
 # Version 2.0
 - Deprecated the old payloads
 - Created a new payload file for payload extraction
