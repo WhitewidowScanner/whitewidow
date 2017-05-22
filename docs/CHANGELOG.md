@@ -1,3 +1,7 @@
+# Version 2.0.2.2
+ - Updated the gemfile, should fix https://github.com/WhitewidowScanner/whitewidow/issues/55
+ - Bumped version number
+
 # Version 2.0.1.1
  - Fixed the q= for nil:NilClass issue
  - Created a verification for search queries
