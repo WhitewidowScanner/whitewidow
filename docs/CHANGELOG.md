@@ -1,3 +1,7 @@
+# Version 2.0.3.3
+ - Fixed gemfile
+ - Bumped version
+
 # Version 2.0.2.2
  - Updated the gemfile, should fix https://github.com/WhitewidowScanner/whitewidow/issues/55
  - Bumped version number
