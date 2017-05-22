@@ -35,11 +35,7 @@ GEM
       pkg-config (~> 1.1.7)
     ntlm-http (0.1.1)
     pkg-config (1.1.7)
-    rest-client (2.0.0)
-      http-cookie (>= 1.0.2, < 2.0)
-      mime-types (>= 1.16, < 4.0)
-      netrc (~> 0.8)
-    rest-client (2.0.0-x86-mingw32)
+    rest-client (2.0.1-x86-mingw32)
       ffi (~> 1.9)
       http-cookie (>= 1.0.2, < 2.0)
       mime-types (>= 1.16, < 4.0)
@@ -76,7 +72,7 @@ PLATFORMS
 DEPENDENCIES
   mechanize
   nokogiri
-  rest-client
+  rest-client (~> 2.0.1)
   rspec
   vcr
   webmock
