@@ -1,3 +1,8 @@
+# Version 2.0.4.4
+ - Fix for issue #73 edited the gemfile to download latest restclient
+ - Deleted gemfile to not cause issues
+ - Bumped version number
+
 # Version 2.0.3.3
  - Fixed gemfile
  - Bumped version
