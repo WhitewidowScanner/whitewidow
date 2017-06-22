@@ -18,10 +18,7 @@ module Whitewidow
       #
       def get_urls(proxy=nil)
         query = SETTINGS.extract_query!
-        FORMAT.info("Creating payloads..")
         payloads = SETTINGS.create_payloads(PAYLOAD_TEMPLATE_PATH)
-        FORMAT.info("Payloads created, continuing process..")
-
         File.read("#{QUERY_BLACKLIST_PATH}").each_line do |black|  # check if the search query is black listed
           if query == black
             FORMAT.warning("Query: #{query} is blacklisted, defaulting to random query")
