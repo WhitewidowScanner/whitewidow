@@ -51,6 +51,16 @@ To install all gem dependencies, follow the following template:
 
 `bundle install`
 
+You may experience a problem installing on Linux systems (Kali, BlackArch, Parrot, etc..) to fix this problem try the following:
+
+`sudo apt-get install liblzma-dev`
+
+`sudo apt-get install zlib1g-dev`
+
+`cd whitewidow`
+
+`bundle install`
+
 This should install all gems needed, and will allow you to run the program without trouble.
 
 # Contribute
