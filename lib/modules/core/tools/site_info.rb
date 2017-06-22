@@ -38,12 +38,12 @@ module SiteInfo
   def self.capture_db_type(site)
     data = SQL_ERROR[site]
     db_types = ["MySQL", "Microsoft Access", "Microsoft SQL Server",
-                "Oracle", "DB2 Express-C"]  # Most commonly used DB types for web apps
+                "Oracle", "DB2", "Firebird", "PostgreSQL"]  # Most commonly used DB types for web apps
     db_types.each { |db|
-      if data.include?(db)
+      if data.include?(db.downcase)
         return db.cyan
       else
-        return 'Database cannot be resolved'.red
+        return 'Unable to resolve database type'.red
       end
     }
   end

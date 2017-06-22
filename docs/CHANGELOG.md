@@ -1,3 +1,10 @@
+# Version 2.0.5.5
+- Fixed some specification issues for issue #75 https://github.com/WhitewidowScanner/whitewidow/issues/75
+- Fixed issue #70 https://github.com/WhitewidowScanner/whitewidow/issues/70
+- Fixes for issue #66 https://github.com/WhitewidowScanner/whitewidow/issues/66
+- Removed experimental payloads and added two new payloads
+- Bumped version number
+
 # Version 2.0.4.4
  - Fix for issue #73 edited the gemfile to download latest restclient
  - Deleted gemfile to not cause issues
