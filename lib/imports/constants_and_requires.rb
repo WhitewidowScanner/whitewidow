@@ -1,6 +1,5 @@
 # Built in libraries used within whitewidow
 require 'rubygems'
-require 'bundler/setup'
 require 'mechanize'
 require 'nokogiri'
 require 'rest-client'

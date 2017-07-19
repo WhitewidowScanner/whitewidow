@@ -26,7 +26,7 @@ module Whitewidow
 
     # The version the program is currently in
     def version
-      '2.0.6.6' # Version number <major-update>.<minor-update>.<patch-update>.<commit-count>
+      '2.0.7.7' # Version number <major-update>.<minor-update>.<patch-update>.<commit-count>
     end
 
     #
