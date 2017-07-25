@@ -97,8 +97,8 @@ from lib.core.settings import BOUNDED_INJECTION_MARKER
 from lib.core.settings import BRUTE_DOC_ROOT_PREFIXES
 from lib.core.settings import BRUTE_DOC_ROOT_SUFFIXES
 from lib.core.settings import BRUTE_DOC_ROOT_TARGET_MARK
-from lib.core.settings import CUSTOM_INJECTION_MARK_CHAR
 from lib.core.settings import DBMS_DIRECTORY_DICT
+from lib.core.settings import CUSTOM_INJECTION_MARK_CHAR
 from lib.core.settings import DEFAULT_COOKIE_DELIMITER
 from lib.core.settings import DEFAULT_GET_POST_DELIMITER
 from lib.core.settings import DEFAULT_MSSQL_SCHEMA
@@ -654,7 +654,7 @@ def paramToDict(place, parameters=None):
                             except Exception:
                                 pass
 
-                            _ = re.sub(regex, "\g<1>%s\g<%d>" % (CUSTOM_INJECTION_MARK_CHAR, len(match.groups())), testableParameters[parameter])
+                            _ = re.sub(regex, "\g<1>%s\g<%d>" % (kb.customInjectionMark, len(match.groups())), testableParameters[parameter])
                             message = "it appears that provided value for %s parameter '%s' " % (place, parameter)
                             message += "has boundaries. Do you want to inject inside? ('%s') [y/N] " % getUnicode(_)
 
@@ -1118,6 +1118,13 @@ def sanitizeStr(value):
     return getUnicode(value).replace("\n", " ").replace("\r", "")
 
 def getHeader(headers, key):
+    """
+    Returns header value ignoring the letter case
+
+    >>> getHeader({"Foo": "bar"}, "foo")
+    'bar'
+    """
+
     retVal = None
     for _ in (headers or {}):
         if _.upper() == key.upper():
@@ -1196,8 +1203,7 @@ def cleanQuery(query):
 
     for sqlStatements in SQL_STATEMENTS.values():
         for sqlStatement in sqlStatements:
-            sqlStatementEsc = sqlStatement.replace("(", "\\(")
-            queryMatch = re.search("(%s)" % sqlStatementEsc, query, re.I)
+            queryMatch = re.search("(?i)\b(%s)\b" % sqlStatement.replace("(", "").replace(")", "").strip(), query)
 
             if queryMatch and "sys_exec" not in query:
                 retVal = retVal.replace(queryMatch.group(1), sqlStatement.upper())
@@ -1273,6 +1279,8 @@ def parseTargetDirect():
     if not conf.direct:
         return
 
+    conf.direct = conf.direct.encode(UNICODE_ENCODING)  # some DBMS connectors (e.g. pymssql) don't like Unicode with non-US letters
+
     details = None
     remote = False
 
@@ -1289,8 +1297,8 @@ def parseTargetDirect():
                 if conf.dbmsCred:
                     conf.dbmsUser, conf.dbmsPass = conf.dbmsCred.split(':')
                 else:
-                    conf.dbmsUser = unicode()
-                    conf.dbmsPass = unicode()
+                    conf.dbmsUser = ""
+                    conf.dbmsPass = ""
 
             if not conf.dbmsPass:
                 conf.dbmsPass = None
@@ -1386,7 +1394,7 @@ def parseTargetUrl():
         else:
             conf.url = "http://" + conf.url
 
-    if CUSTOM_INJECTION_MARK_CHAR in conf.url:
+    if kb.customInjectionMark in conf.url:
         conf.url = conf.url.replace('?', URI_QUESTION_MARKER)
 
     try:
@@ -1404,7 +1412,7 @@ def parseTargetUrl():
     conf.hostname = hostnamePort[0].strip()
 
     conf.ipv6 = conf.hostname != conf.hostname.strip("[]")
-    conf.hostname = conf.hostname.strip("[]").replace(CUSTOM_INJECTION_MARK_CHAR, "")
+    conf.hostname = conf.hostname.strip("[]").replace(kb.customInjectionMark, "")
 
     try:
         _ = conf.hostname.encode("idna")
@@ -1428,7 +1436,7 @@ def parseTargetUrl():
     else:
         conf.port = 80
 
-    if conf.port < 0 or conf.port > 65535:
+    if conf.port < 1 or conf.port > 65535:
         errMsg = "invalid target URL's port (%d)" % conf.port
         raise SqlmapSyntaxException(errMsg)
 
@@ -1445,7 +1453,7 @@ def parseTargetUrl():
         debugMsg = "setting the HTTP Referer header to the target URL"
         logger.debug(debugMsg)
         conf.httpHeaders = [_ for _ in conf.httpHeaders if _[0] != HTTP_HEADER.REFERER]
-        conf.httpHeaders.append((HTTP_HEADER.REFERER, conf.url.replace(CUSTOM_INJECTION_MARK_CHAR, "")))
+        conf.httpHeaders.append((HTTP_HEADER.REFERER, conf.url.replace(kb.customInjectionMark, "")))
 
     if not conf.host and (intersect(HOST_ALIASES, conf.testParameter, True) or conf.level >= 5):
         debugMsg = "setting the HTTP Host header to the target URL"
@@ -1618,6 +1626,13 @@ def getRemoteIP():
     return retVal
 
 def getFileType(filePath):
+    """
+    Returns "magic" file type for given file path
+
+    >>> getFileType(__file__)
+    'text'
+    """
+
     try:
         _ = magic.from_file(filePath)
     except:
@@ -2544,7 +2559,7 @@ def urlencode(value, safe="%&=-_", convall=False, limit=False, spaceplus=False):
         # corner case when character % really needs to be
         # encoded (when not representing URL encoded char)
         # except in cases when tampering scripts are used
-        if all(map(lambda x: '%' in x, [safe, value])) and not kb.tamperFunctions:
+        if all('%' in _ for _ in (safe, value)) and not kb.tamperFunctions:
             value = re.sub("%(?![0-9a-fA-F]{2})", "%25", value)
 
         while True:
@@ -2596,18 +2611,19 @@ def runningAsAdmin():
 
     return isAdmin
 
-def logHTTPTraffic(requestLogMsg, responseLogMsg):
+def logHTTPTraffic(requestLogMsg, responseLogMsg, startTime=None, endTime=None):
     """
     Logs HTTP traffic to the output file
     """
 
-    if not conf.trafficFile:
-        return
+    if conf.harFile:
+        conf.httpCollector.collectRequest(requestLogMsg, responseLogMsg, startTime, endTime)
 
-    with kb.locks.log:
-        dataToTrafficFile("%s%s" % (requestLogMsg, os.linesep))
-        dataToTrafficFile("%s%s" % (responseLogMsg, os.linesep))
-        dataToTrafficFile("%s%s%s%s" % (os.linesep, 76 * '#', os.linesep, os.linesep))
+    if conf.trafficFile:
+        with kb.locks.log:
+            dataToTrafficFile("%s%s" % (requestLogMsg, os.linesep))
+            dataToTrafficFile("%s%s" % (responseLogMsg, os.linesep))
+            dataToTrafficFile("%s%s%s%s" % (os.linesep, 76 * '#', os.linesep, os.linesep))
 
 def getPageTemplate(payload, place):  # Cross-linked function
     raise NotImplementedError
@@ -3533,11 +3549,11 @@ def safeSQLIdentificatorNaming(name, isTable=False):
         if retVal.upper() in kb.keywords or (retVal or " ")[0].isdigit() or not re.match(r"\A[A-Za-z0-9_@%s\$]+\Z" % ("." if _ else ""), retVal):  # MsSQL is the only DBMS where we automatically prepend schema to table name (dot is normal)
             if Backend.getIdentifiedDbms() in (DBMS.MYSQL, DBMS.ACCESS):
                 retVal = "`%s`" % retVal.strip("`")
-            elif Backend.getIdentifiedDbms() in (DBMS.PGSQL, DBMS.DB2):
+            elif Backend.getIdentifiedDbms() in (DBMS.PGSQL, DBMS.DB2, DBMS.SQLITE, DBMS.INFORMIX, DBMS.HSQLDB):
                 retVal = "\"%s\"" % retVal.strip("\"")
             elif Backend.getIdentifiedDbms() in (DBMS.ORACLE,):
                 retVal = "\"%s\"" % retVal.strip("\"").upper()
-            elif Backend.getIdentifiedDbms() in (DBMS.MSSQL,) and ((retVal or " ")[0].isdigit() or not re.match(r"\A\w+\Z", retVal, re.U)):
+            elif Backend.getIdentifiedDbms() in (DBMS.MSSQL, DBMS.SYBASE) and ((retVal or " ")[0].isdigit() or not re.match(r"\A\w+\Z", retVal, re.U)):
                 retVal = "[%s]" % retVal.strip("[]")
 
         if _ and DEFAULT_MSSQL_SCHEMA not in retVal and '.' not in re.sub(r"\[[^]]+\]", "", retVal):
@@ -4385,6 +4401,9 @@ def getSafeExString(ex, encoding=None):
     """
     Safe way how to get the proper exception represtation as a string
     (Note: errors to be avoided: 1) "%s" % Exception(u'\u0161') and 2) "%s" % str(Exception(u'\u0161'))
+
+    >>> getSafeExString(Exception('foobar'))
+    u'foobar'
     """
 
     retVal = ex
@@ -4394,4 +4413,4 @@ def getSafeExString(ex, encoding=None):
     elif getattr(ex, "msg", None):
         retVal = ex.msg
 
-    return getUnicode(retVal, encoding=encoding)
+    return getUnicode(retVal or "", encoding=encoding).strip()

@@ -31,7 +31,6 @@ from lib.core.settings import BASIC_HELP_ITEMS
 from lib.core.settings import DUMMY_URL
 from lib.core.settings import IS_WIN
 from lib.core.settings import MAX_HELP_OPTION_LENGTH
-from lib.core.settings import UNICODE_ENCODING
 from lib.core.settings import VERSION_STRING
 from lib.core.shell import autoCompletion
 from lib.core.shell import clearHistory
@@ -48,7 +47,8 @@ def cmdLineParser(argv=None):
 
     checkSystemEncoding()
 
-    _ = getUnicode(os.path.basename(argv[0]), encoding=sys.getfilesystemencoding() or UNICODE_ENCODING)
+    # Reference: https://stackoverflow.com/a/4012683 (Note: previously used "...sys.getfilesystemencoding() or UNICODE_ENCODING")
+    _ = getUnicode(os.path.basename(argv[0]), encoding=sys.stdin.encoding)
 
     usage = "%s%s [options]" % ("python " if not IS_WIN else "", \
             "\"%s\"" % _ if " " in _ else _)
@@ -321,7 +321,7 @@ def cmdLineParser(argv=None):
 
         detection.add_option("--risk", dest="risk", type="int",
                              help="Risk of tests to perform (1-3, "
-                                  "default %d)" % defaults.level)
+                                  "default %d)" % defaults.risk)
 
         detection.add_option("--string", dest="string",
                              help="String to match when "
@@ -617,9 +617,6 @@ def cmdLineParser(argv=None):
         general = OptionGroup(parser, "General", "These options can be used "
                              "to set some general working parameters")
 
-        #general.add_option("-x", dest="xmlFile",
-        #                    help="Dump the data into an XML file")
-
         general.add_option("-s", dest="sessionFile",
                             help="Load session from a stored (.sqlite) file")
 
@@ -637,6 +634,10 @@ def cmdLineParser(argv=None):
         general.add_option("--charset", dest="charset",
                             help="Force character encoding used for data retrieval")
 
+        general.add_option("--check-internet", dest="checkInternet",
+                            action="store_true",
+                            help="Check Internet connection before assessing the target")
+
         general.add_option("--crawl", dest="crawlDepth", type="int",
                             help="Crawl the website starting from the target URL")
 
@@ -652,8 +653,7 @@ def cmdLineParser(argv=None):
 
         general.add_option("--eta", dest="eta",
                             action="store_true",
-                            help="Display for each output the "
-                                 "estimated time of arrival")
+                            help="Display for each output the estimated time of arrival")
 
         general.add_option("--flush-session", dest="flushSession",
                             action="store_true",
@@ -666,6 +666,9 @@ def cmdLineParser(argv=None):
         general.add_option("--fresh-queries", dest="freshQueries",
                             action="store_true",
                             help="Ignore query results stored in session file")
+
+        general.add_option("--har", dest="harFile",
+                           help="Log all HTTP traffic into a HAR file")
 
         general.add_option("--hex", dest="hexConvert",
                             action="store_true",
@@ -844,8 +847,9 @@ def cmdLineParser(argv=None):
         advancedHelp = True
         extraHeaders = []
 
+        # Reference: https://stackoverflow.com/a/4012683 (Note: previously used "...sys.getfilesystemencoding() or UNICODE_ENCODING")
         for arg in argv:
-            _.append(getUnicode(arg, encoding=sys.getfilesystemencoding() or UNICODE_ENCODING))
+            _.append(getUnicode(arg, encoding=sys.stdin.encoding))
 
         argv = _
         checkDeprecatedOptions(argv)

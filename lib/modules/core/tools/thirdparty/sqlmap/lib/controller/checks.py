@@ -65,6 +65,8 @@ from lib.core.exception import SqlmapNoneDataException
 from lib.core.exception import SqlmapSilentQuitException
 from lib.core.exception import SqlmapUserQuitException
 from lib.core.settings import CANDIDATE_SENTENCE_MIN_LENGTH
+from lib.core.settings import CHECK_INTERNET_ADDRESS
+from lib.core.settings import CHECK_INTERNET_VALUE
 from lib.core.settings import DEFAULT_GET_POST_DELIMITER
 from lib.core.settings import DUMMY_NON_SQLI_CHECK_APPENDIX
 from lib.core.settings import FI_ERROR_REGEX
@@ -126,7 +128,7 @@ def checkSqlInjection(place, parameter, value):
                 # then attempt to identify with a simple DBMS specific boolean-based
                 # test what the DBMS may be
                 if not injection.dbms and PAYLOAD.TECHNIQUE.BOOLEAN in injection.data:
-                    if not Backend.getIdentifiedDbms() and kb.heuristicDbms is None:
+                    if not Backend.getIdentifiedDbms() and kb.heuristicDbms is None and not kb.droppingRequests:
                         kb.heuristicDbms = heuristicCheckDbms(injection)
 
                 # If the DBMS has already been fingerprinted (via DBMS-specific
@@ -159,6 +161,13 @@ def checkSqlInjection(place, parameter, value):
             clause = test.clause
             unionExtended = False
             trueCode, falseCode = None, None
+
+            if conf.httpCollector is not None:
+                conf.httpCollector.setExtendedArguments({
+                    "_title": title,
+                    "_place": place,
+                    "_parameter": parameter,
+                })
 
             if stype == PAYLOAD.TECHNIQUE.UNION:
                 configUnion(test.request.char)
@@ -491,7 +500,7 @@ def checkSqlInjection(place, parameter, value):
                                         if candidates:
                                             candidates = sorted(candidates, key=lambda _: len(_))
                                             for candidate in candidates:
-                                                if re.match(r"\A[\w.,! ]+\Z", candidate) and ' ' in candidate and len(candidate) > CANDIDATE_SENTENCE_MIN_LENGTH:
+                                                if re.match(r"\A[\w.,! ]+\Z", candidate) and ' ' in candidate and candidate.strip() and len(candidate) > CANDIDATE_SENTENCE_MIN_LENGTH:
                                                     conf.string = candidate
                                                     injectable = True
 
@@ -550,14 +559,11 @@ def checkSqlInjection(place, parameter, value):
                             # Perform the test's request and grep the response
                             # body for the test's <grep> regular expression
                             try:
-                                page, headers = Request.queryPage(reqPayload, place, content=True, raise404=False)
+                                page, headers, _ = Request.queryPage(reqPayload, place, content=True, raise404=False)
                                 output = extractRegexResult(check, page, re.DOTALL | re.IGNORECASE) \
-                                        or extractRegexResult(check, listToStrValue( \
-                                        [headers[key] for key in headers.keys() if key.lower() != URI_HTTP_HEADER.lower()] \
-                                        if headers else None), re.DOTALL | re.IGNORECASE) \
-                                        or extractRegexResult(check, threadData.lastRedirectMsg[1] \
-                                        if threadData.lastRedirectMsg and threadData.lastRedirectMsg[0] == \
-                                        threadData.lastRequestUID else None, re.DOTALL | re.IGNORECASE)
+                                        or extractRegexResult(check, threadData.lastHTTPError[2] if wasLastResponseHTTPError() else None, re.DOTALL | re.IGNORECASE) \
+                                        or extractRegexResult(check, listToStrValue([headers[key] for key in headers.keys() if key.lower() != URI_HTTP_HEADER.lower()] if headers else None), re.DOTALL | re.IGNORECASE) \
+                                        or extractRegexResult(check, threadData.lastRedirectMsg[1] if threadData.lastRedirectMsg and threadData.lastRedirectMsg[0] == threadData.lastRequestUID else None, re.DOTALL | re.IGNORECASE)
 
                                 if output:
                                     result = output == "1"
@@ -818,6 +824,8 @@ def heuristicCheckDbms(injection):
         infoMsg += "could be '%s' " % retVal
         logger.info(infoMsg)
 
+        kb.heuristicExtendedDbms = retVal
+
     return retVal
 
 def checkFalsePositives(injection):
@@ -960,7 +968,7 @@ def heuristicCheckSqlInjection(place, parameter):
 
     payload = "%s%s%s" % (prefix, randStr, suffix)
     payload = agent.payload(place, parameter, newValue=payload)
-    page, _ = Request.queryPage(payload, place, content=True, raise404=False)
+    page, _, _ = Request.queryPage(payload, place, content=True, raise404=False)
 
     kb.heuristicPage = page
     kb.heuristicMode = False
@@ -1016,7 +1024,7 @@ def heuristicCheckSqlInjection(place, parameter):
     value = "%s%s%s" % (randStr1, DUMMY_NON_SQLI_CHECK_APPENDIX, randStr2)
     payload = "%s%s%s" % (prefix, "'%s" % value, suffix)
     payload = agent.payload(place, parameter, newValue=payload)
-    page, _ = Request.queryPage(payload, place, content=True, raise404=False)
+    page, _, _ = Request.queryPage(payload, place, content=True, raise404=False)
 
     paramType = conf.method if conf.method not in (None, HTTPMETHOD.GET, HTTPMETHOD.POST) else place
 
@@ -1125,7 +1133,7 @@ def checkDynamicContent(firstPage, secondPage):
             warnMsg += ". sqlmap is going to retry the request"
             logger.critical(warnMsg)
 
-            secondPage, _ = Request.queryPage(content=True)
+            secondPage, _, _ = Request.queryPage(content=True)
             findDynamicContent(firstPage, secondPage)
 
 def checkStability():
@@ -1148,7 +1156,7 @@ def checkStability():
     delay = max(0, min(1, delay))
     time.sleep(delay)
 
-    secondPage, _ = Request.queryPage(content=True, noteResponseTime=False, raise404=False)
+    secondPage, _, _ = Request.queryPage(content=True, noteResponseTime=False, raise404=False)
 
     if kb.redirectChoice:
         return None
@@ -1230,7 +1238,7 @@ def checkString():
     infoMsg += "target URL page content"
     logger.info(infoMsg)
 
-    page, headers = Request.queryPage(content=True)
+    page, headers, _ = Request.queryPage(content=True)
     rawResponse = "%s%s" % (listToStrValue(headers.headers if headers else ""), page)
 
     if conf.string not in rawResponse:
@@ -1249,7 +1257,7 @@ def checkRegexp():
     infoMsg += "the target URL page content"
     logger.info(infoMsg)
 
-    page, headers = Request.queryPage(content=True)
+    page, headers, _ = Request.queryPage(content=True)
     rawResponse = "%s%s" % (listToStrValue(headers.headers if headers else ""), page)
 
     if not re.search(conf.regexp, rawResponse, re.I | re.M):
@@ -1456,7 +1464,7 @@ def checkConnection(suppressOutput=False):
 
     try:
         kb.originalPageTime = time.time()
-        page, headers = Request.queryPage(content=True, noteResponseTime=False)
+        page, headers, _ = Request.queryPage(content=True, noteResponseTime=False)
         kb.originalPage = kb.pageTemplate = page
 
         kb.errorIsNone = False
@@ -1500,6 +1508,10 @@ def checkConnection(suppressOutput=False):
             raise
 
     return True
+
+def checkInternet():
+    content = Request.getPage(url=CHECK_INTERNET_ADDRESS, checking=True)[0]
+    return CHECK_INTERNET_VALUE in (content or "")
 
 def setVerbosity():  # Cross-linked function
     raise NotImplementedError

@@ -110,7 +110,7 @@ from lib.core.settings import DEFAULT_PAGE_ENCODING
 from lib.core.settings import DEFAULT_TOR_HTTP_PORTS
 from lib.core.settings import DEFAULT_TOR_SOCKS_PORTS
 from lib.core.settings import DUMMY_URL
-from lib.core.settings import INJECT_HERE_MARK
+from lib.core.settings import INJECT_HERE_REGEX
 from lib.core.settings import IS_WIN
 from lib.core.settings import KB_CHARS_BOUNDARY_CHAR
 from lib.core.settings import KB_CHARS_LOW_FREQUENCY_ALPHABET
@@ -149,6 +149,7 @@ from lib.request.pkihandler import HTTPSPKIAuthHandler
 from lib.request.rangehandler import HTTPRangeHandler
 from lib.request.redirecthandler import SmartRedirectHandler
 from lib.request.templates import getPageTemplate
+from lib.utils.har import HTTPCollectorFactory
 from lib.utils.crawler import crawl
 from lib.utils.deps import checkDependencies
 from lib.utils.search import search
@@ -240,6 +241,7 @@ def _feedTargetsDict(reqFile, addedTargetUrls):
             if schemePort:
                 scheme = schemePort.group(1)
                 port = schemePort.group(2)
+                request = re.sub(r"\n=+\Z", "", request.split(schemePort.group(0))[-1].lstrip())
             else:
                 scheme, port = None, None
 
@@ -278,7 +280,7 @@ def _feedTargetsDict(reqFile, addedTargetUrls):
                     method = match.group(1)
                     url = match.group(2)
 
-                    if any(_ in line for _ in ('?', '=', CUSTOM_INJECTION_MARK_CHAR)):
+                    if any(_ in line for _ in ('?', '=', kb.customInjectionMark)):
                         params = True
 
                     getPostReq = True
@@ -318,7 +320,7 @@ def _feedTargetsDict(reqFile, addedTargetUrls):
                     elif key not in (HTTP_HEADER.PROXY_CONNECTION, HTTP_HEADER.CONNECTION):
                         headers.append((getUnicode(key), getUnicode(value)))
 
-                    if CUSTOM_INJECTION_MARK_CHAR in re.sub(PROBLEMATIC_CUSTOM_INJECTION_PATTERNS, "", value or ""):
+                    if kb.customInjectionMark in re.sub(PROBLEMATIC_CUSTOM_INJECTION_PATTERNS, "", value or ""):
                         params = True
 
             data = data.rstrip("\r\n") if data else data
@@ -484,7 +486,7 @@ def _setRequestFromFile():
     conf.requestFile = safeExpandUser(conf.requestFile)
 
     if not os.path.isfile(conf.requestFile):
-        errMsg = "the specified HTTP request file "
+        errMsg = "specified HTTP request file '%s' " % conf.requestFile
         errMsg += "does not exist"
         raise SqlmapFilePathException(errMsg)
 
@@ -591,7 +593,7 @@ def _setBulkMultipleTargets():
 
     found = False
     for line in getFileItems(conf.bulkFile):
-        if re.match(r"[^ ]+\?(.+)", line, re.I) or CUSTOM_INJECTION_MARK_CHAR in line:
+        if re.match(r"[^ ]+\?(.+)", line, re.I) or kb.customInjectionMark in line:
             found = True
             kb.targets.add((line.strip(), conf.method, conf.data, conf.cookie, None))
 
@@ -627,7 +629,7 @@ def _findPageForms():
     logger.info(infoMsg)
 
     if not any((conf.bulkFile, conf.googleDork, conf.sitemapUrl)):
-        page, _ = Request.queryPage(content=True)
+        page, _, _ = Request.queryPage(content=True)
         findPageForms(page, conf.url, True, True)
     else:
         if conf.bulkFile:
@@ -1683,11 +1685,13 @@ def _cleanupOptions():
     if conf.optimize:
         setOptimize()
 
-    if conf.data:
-        conf.data = re.sub("(?i)%s" % INJECT_HERE_MARK.replace(" ", r"[^A-Za-z]*"), CUSTOM_INJECTION_MARK_CHAR, conf.data)
+    match = re.search(INJECT_HERE_REGEX, conf.data or "")
+    if match:
+        kb.customInjectionMark = match.group(0)
 
-    if conf.url:
-        conf.url = re.sub("(?i)%s" % INJECT_HERE_MARK.replace(" ", r"[^A-Za-z]*"), CUSTOM_INJECTION_MARK_CHAR, conf.url)
+    match = re.search(INJECT_HERE_REGEX, conf.url or "")
+    if match:
+        kb.customInjectionMark = match.group(0)
 
     if conf.os:
         conf.os = conf.os.capitalize()
@@ -1828,6 +1832,7 @@ def _setConfAttributes():
     conf.dumpPath = None
     conf.hashDB = None
     conf.hashDBFile = None
+    conf.httpCollector = None
     conf.httpHeaders = []
     conf.hostname = None
     conf.ipv6 = False
@@ -1843,6 +1848,7 @@ def _setConfAttributes():
     conf.scheme = None
     conf.tests = []
     conf.trafficFP = None
+    conf.HARCollectorFactory = None
     conf.wFileType = None
 
 def _setKnowledgeBaseAttributes(flushAll=True):
@@ -1862,6 +1868,7 @@ def _setKnowledgeBaseAttributes(flushAll=True):
     kb.authHeader = None
     kb.bannerFp = AttribDict()
     kb.binaryField = False
+    kb.browserVerification = None
 
     kb.brute = AttribDict({"tables": [], "columns": []})
     kb.bruteMode = False
@@ -1889,6 +1896,7 @@ def _setKnowledgeBaseAttributes(flushAll=True):
     kb.connErrorCounter = 0
     kb.cookieEncodeChoice = None
     kb.counters = {}
+    kb.customInjectionMark = CUSTOM_INJECTION_MARK_CHAR
     kb.data = AttribDict()
     kb.dataOutputFlag = False
 
@@ -1901,6 +1909,7 @@ def _setKnowledgeBaseAttributes(flushAll=True):
     kb.dnsMode = False
     kb.dnsTest = None
     kb.docRoot = None
+    kb.droppingRequests = False
     kb.dumpColumns = None
     kb.dumpTable = None
     kb.dumpKeyboardInterrupt = False
@@ -1920,6 +1929,7 @@ def _setKnowledgeBaseAttributes(flushAll=True):
     kb.futileUnion = None
     kb.headersFp = {}
     kb.heuristicDbms = None
+    kb.heuristicExtendedDbms = None
     kb.heuristicMode = False
     kb.heuristicPage = False
     kb.heuristicTest = None
@@ -2223,6 +2233,12 @@ def _setTrafficOutputFP():
         logger.info(infoMsg)
 
         conf.trafficFP = openFile(conf.trafficFile, "w+")
+
+def _setupHTTPCollector():
+    if not conf.harFile:
+        return
+
+    conf.httpCollector = HTTPCollectorFactory(conf.harFile).create()
 
 def _setDNSServer():
     if not conf.dnsDomain:
@@ -2600,6 +2616,7 @@ def init():
     _setTamperingFunctions()
     _setWafFunctions()
     _setTrafficOutputFP()
+    _setupHTTPCollector()
     _resolveCrossReferences()
     _checkWebSocket()
 

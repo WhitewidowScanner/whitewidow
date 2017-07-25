@@ -95,7 +95,7 @@ def forgeHeaders(items=None):
                 if cookie.domain_specified and not conf.hostname.endswith(cookie.domain):
                     continue
 
-                if ("%s=" % getUnicode(cookie.name)) in headers[HTTP_HEADER.COOKIE]:
+                if ("%s=" % getUnicode(cookie.name)) in getUnicode(headers[HTTP_HEADER.COOKIE]):
                     if conf.loadCookies:
                         conf.httpHeaders = filter(None, ((item if item[0] != HTTP_HEADER.COOKIE else None) for item in conf.httpHeaders))
                     elif kb.mergeCookies is None:
@@ -123,7 +123,7 @@ def forgeHeaders(items=None):
 
     return headers
 
-def parseResponse(page, headers):
+def parseResponse(page, headers, status=None):
     """
     @param page: the page to parse to feed the knowledge base htmlFp
     (back-end DBMS fingerprint based upon DBMS error messages return
@@ -135,7 +135,7 @@ def parseResponse(page, headers):
         headersParser(headers)
 
     if page:
-        htmlParser(page)
+        htmlParser(page if not status else "%s\n\n%s" % (status, page))
 
 @cachedmethod
 def checkCharEncoding(encoding, warn=True):
@@ -155,7 +155,7 @@ def checkCharEncoding(encoding, warn=True):
         return encoding
 
     # Reference: http://www.destructor.de/charsets/index.htm
-    translate = {"windows-874": "iso-8859-11", "utf-8859-1": "utf8", "en_us": "utf8", "macintosh": "iso-8859-1", "euc_tw": "big5_tw", "th": "tis-620", "unicode": "utf8",  "utc8": "utf8", "ebcdic": "ebcdic-cp-be", "iso-8859": "iso8859-1", "ansi": "ascii", "gbk2312": "gbk", "windows-31j": "cp932", "en": "us"}
+    translate = {"windows-874": "iso-8859-11", "utf-8859-1": "utf8", "en_us": "utf8", "macintosh": "iso-8859-1", "euc_tw": "big5_tw", "th": "tis-620", "unicode": "utf8",  "utc8": "utf8", "ebcdic": "ebcdic-cp-be", "iso-8859": "iso8859-1", "iso-8859-0": "iso8859-1", "ansi": "ascii", "gbk2312": "gbk", "windows-31j": "cp932", "en": "us"}
 
     for delimiter in (';', ',', '('):
         if delimiter in encoding:
@@ -204,7 +204,7 @@ def checkCharEncoding(encoding, warn=True):
     # Reference: http://philip.html5.org/data/charsets-2.html
     if encoding in translate:
         encoding = translate[encoding]
-    elif encoding in ("null", "{charset}", "*") or not re.search(r"\w", encoding):
+    elif encoding in ("null", "{charset}", "charset", "*") or not re.search(r"\w", encoding):
         return None
 
     # Reference: http://www.iana.org/assignments/character-sets
@@ -340,12 +340,12 @@ def decodePage(page, contentEncoding, contentType):
 
     return page
 
-def processResponse(page, responseHeaders):
+def processResponse(page, responseHeaders, status=None):
     kb.processResponseCounter += 1
 
     page = page or ""
 
-    parseResponse(page, responseHeaders if kb.processResponseCounter < PARSE_HEADERS_LIMIT else None)
+    parseResponse(page, responseHeaders if kb.processResponseCounter < PARSE_HEADERS_LIMIT else None, status)
 
     if not kb.tableFrom and Backend.getIdentifiedDbms() in (DBMS.ACCESS,):
         kb.tableFrom = extractRegexResult(SELECT_FROM_TABLE_REGEX, page)
@@ -374,6 +374,13 @@ def processResponse(page, responseHeaders):
 
                         conf.paramDict[PLACE.POST][name] = value
                 conf.parameters[PLACE.POST] = re.sub("(?i)(%s=)[^&]+" % re.escape(name), r"\g<1>%s" % re.escape(value), conf.parameters[PLACE.POST])
+
+    if not kb.browserVerification and re.search(r"(?i)browser.?verification", page or ""):
+        kb.browserVerification = True
+        warnMsg = "potential browser verification protection mechanism detected"
+        if re.search(r"(?i)CloudFlare", page):
+            warnMsg += " (CloudFlare)"
+        singleTimeWarnMessage(warnMsg)
 
     if not kb.captchaDetected and re.search(r"(?i)captcha", page or ""):
         for match in re.finditer(r"(?si)<form.+?</form>", page):
