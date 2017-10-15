@@ -1,6 +1,11 @@
-﻿[![Build status](https://ci.appveyor.com/api/projects/status/o1tucilwqrvxoy80/branch/master?svg=true)](https://ci.appveyor.com/project/Ekultek/whitewidow/branch/master)
-[![license](https://img.shields.io/github/license/mashape/apistatus.svg?maxAge=2592000)](https://github.com/Ekultek/whitewidow/blob/master/docs/LICENSE.md)
-[![Twitter URL](https://img.shields.io/twitter/url/http/shields.io.svg?style=social)](https://twitter.com/whitewidowsqli)
+﻿# Preamble
+Hello all you whitewidow fans out there (I say that with good intentions I promise!). It's me Ekultek, I'm just here to give you a little inside on what's going on with the whitewidow development team and what's happening with it. Well, to put it bluntly, we will not be continuing the development of whitewidow, the development has been drafted to a different language under a different name. Let me introduce Zeus. 
+
+Zeus is whitewidow's big brother, it is capable of all the same things whitewidow is capable of, but with more twists and turns in it. Zeus will bypass the API calling, IP blocking, and captchas that whitewidow cannot get passed. Zeus can run SQLi checks with sqlmap, port scans with NMAP, XSS scans with a built in XSS scanner, admin page finding, along with a couple other cool tricks. 
+
+I understand your probably a little dissapointed. This project has been around for over a year now, and you guys have made it possible for me to continue on something better. Of course, you can still use whitewidow! The repository will always be here, I just won't be fixing anything nor pushing new updates to it. 
+
+If you want to you can update it, it's up to you guys now! Finally without further ado, here is [Zeus](https://github.com/ekultek/zeus-scanner) enjoy it, and thank you to all of you for giving me the motivation to continue with things. Without you, this wouldn't exist. Hope you enjoy Zeus.
 
 # Whitewidow
 Whitewidow is an open source automated SQL vulnerability scanner, that is capable of running through a file list, or can
