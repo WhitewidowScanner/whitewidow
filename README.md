@@ -1,5 +1,5 @@
 ﻿# Preamble
-Hello all you whitewidow fans out there (I say that with good intentions I promise!). It's me Ekultek, I'm just here to give you a little inside on what's going on with the whitewidow development team and what's happening with it. Well, to put it bluntly, we will not be continuing the development of whitewidow, the development has been drafted to a different language under a different name. Let me introduce Zeus. 
+Hello all you whitewidow fans out there (I say that with good intentions I promise!). It's me Ekultek, I'm just here to give you a little inside on what's going on with the whitewidow development team and what's happening with it. Well, to put it bluntly, we will not be continuing the development of whitewidow, the development has been drafted to a different language under a different name. Let me introduce [Zeus](https://github.com/ekultek/zeus-scanner). 
 
 Zeus is whitewidow's big brother, it is capable of all the same things whitewidow is capable of, but with more twists and turns in it. Zeus will bypass the API calling, IP blocking, and captchas that whitewidow cannot get passed. Zeus can run SQLi checks with sqlmap, port scans with NMAP, XSS scans with a built in XSS scanner, admin page finding, along with a couple other cool tricks. 
 
