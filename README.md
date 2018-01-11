@@ -1,6 +1,6 @@
 ﻿# Preamble
  
-Firstly read [this](https://github.com/WhitewidowScanner/whitewidow/issues/82) if you want Whitewidow development to continue.
+~Firstly read [this](https://github.com/WhitewidowScanner/whitewidow/issues/82) if you want Whitewidow development to continue.~
  
 Hello all you whitewidow fans out there (I say that with good intentions I promise!). It's me Ekultek, I'm just here to give you a little inside on what's going on with the whitewidow development team and what's happening with it. Well, to put it bluntly, we will not be continuing the development of whitewidow, the development has been drafted to a different language under a different name. Let me introduce [Zeus](https://github.com/ekultek/zeus-scanner). 
 
